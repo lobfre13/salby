@@ -1,1 +1,1 @@
-Fredrik er en skitten Windows-bruker.
+Fredrik er en Windows-bruker.
