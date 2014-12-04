@@ -44,3 +44,9 @@ label{
 	background-color: #555555;
 	-webkit-border-radius:5px;
 }
+
+#loginLogo{
+	width: 250px;
+	height: auto;
+	margin-left: 30px;
+}

@@ -36,7 +36,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 	<body>
 	
 		<div id="loginBox">
-			<img src="img/logo3.PNG"><br>
+			<img id="loginLogo" src="img/SALABY_Logo_Orange.png"><br>
 			<form method="post" action="login.php">
 				<p>Velkommen til Salaby.no!<br>
 					For å få tilgang til innhold må du logge inn

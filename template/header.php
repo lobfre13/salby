@@ -30,7 +30,7 @@ if (!isset($_SESSION['userid'])) {
 						</div>
 					</div>
 					
-					<a href="index.php"><img id="headerLogo" src="http://web2.gyldendal.no/Podium_ressurser/salaby/images/forsiden/salaby_logo.png" alt="logo"/></a>
+					<a href="index.php"><img id="headerLogo" src="img/logo_orange.png" alt="logo"/></a>
 
 					<div id="user">
 						<a href="#"><img width="20" src="http://www.sessionlogs.com/media/icons/defaultIcon.png">  <?php echo $_SESSION['userid'];?></a>
