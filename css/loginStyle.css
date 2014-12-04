@@ -4,8 +4,9 @@
 	margin: 20px auto;
 	text-align: center;
 	padding-top: 15px;
-	font-family: "Verdana";
+	font-family: "Comic Sans MS";
 	color: white;
+	margin-bottom: 125px;
 }
 
 #loginBox input[type="text"], #loginBox input[type="password"]{
@@ -20,6 +21,7 @@
     width: 275px; 
     padding-left:10px; 
     padding-right:10px; 
+    font-family: "Comic Sans MS";
 }
 
 label{
@@ -36,6 +38,7 @@ label{
 	color: white;
 	font-size: 15;
 	font-weight: bold;
+	font-family: "Comic Sans MS";
 }
 
 #nonLogin{

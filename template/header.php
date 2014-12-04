@@ -21,11 +21,11 @@ if (!isset($_SESSION['userid'])) {
 						<div></div><div></div>
 						<div id="dropDownMainMenu">
 							<ul>
-								<li>Barnehage</li>
+								<li>Barnehage<img src="img/lock.PNG"></li>
 								<li>Skolestart</li>
-								<li>1-2. Klasse</li>
-								<li>3-4. Klasse</li>
-								<li>5-7. Klasse</li>
+								<li>1-2. Klasse<img src="img/lock.PNG"></li>
+								<li>3-4. Klasse<img src="img/lock.PNG"></li>
+								<li>5-7. Klasse<img src="img/lock.PNG"></li>
 							</ul>
 						</div>
 					</div>
@@ -33,8 +33,8 @@ if (!isset($_SESSION['userid'])) {
 					<a href="index.php"><img id="headerLogo" src="img/logo_orange.png" alt="logo"/></a>
 
 					<div id="user">
-						<a href="#"><img width="20" src="http://www.sessionlogs.com/media/icons/defaultIcon.png">  <?php echo $_SESSION['userid'];?></a>
-						<a href="scripts/logout.php">Logg ut</a>
+						<a href="#"><img src="img/profile.PNG">  <?php echo $_SESSION['userid'];?></a>
+						<a href="scripts/logout.php"><img src="img/logout.PNG">   Logg ut</a>
 					</div>
 					
 					

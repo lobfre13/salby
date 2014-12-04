@@ -6,6 +6,7 @@ body{
 	-webkit-background-size: cover;
 	background-attachment: fixed;
 	background-position: center;
+	font-family: "Comic Sans MS";
 }
 
 a, a:visited{
@@ -25,7 +26,7 @@ a:hover{
 #header{
 	height: 55px;
 	width: 100%;
-	background-color: #333333;
+	background-color: #222222;
 }
 
 #hamMenu{
@@ -77,14 +78,20 @@ a:hover{
 #dropDownMainMenu ul li{
 	display: block;
 	height: 20px;
-	padding: 20px;
-	background-color: #333333;
+	padding: 10px;
+	background-color: #222222;
 	color: white;
-	border-top: 1px solid #888888;
-	border-bottom: 1px solid black;
+	position: relative;
 }
+
+#dropDownMainMenu ul li img{
+	position: absolute;
+	right: 15px;
+	top:0px;
+}
+
 #dropDownMainMenu ul li:hover{
-	background-color: #555555;
+	background-color: #333333;
 }
 
 #user{
@@ -109,31 +116,51 @@ a:hover{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background-color: #333333;
-	padding-top: 10px;
-	padding-bottom: 6px;
+	background-color: #222222;
+	padding: 5px;
+	text-align: center;
 }
 
-#footerLogo{
-	position: absolute;
-	top: -5px;
-}
+
 
 #footer ul{
 	list-style-type: none;
 	color: white;
-	width: 410px;
-	margin: 0 auto;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
 }
+
 #footer ul li{
 	display: inline;
 }
 
-#socialNetworkLinks{
+
+@media screen and (min-width: 660px) {
+    
+    #footerLogo{
 	position: absolute;
-	right: 0px;
-	top:-10px;
+	left: 0px;
+	}
+
+	#socialNetworkLinks{
+		position: absolute;
+		right: 5px;
+		top: -3px;
+	}
 }
+
+@media screen and (max-width: 659px) {
+	#socialNetworkLinks{
+		display: inline-block;
+	}
+
+	#footer ul{
+		display: block;
+		margin: 0 auto;
+	}
+}
+
 
 @font-face{
     font-family: "Comic Strip";
