@@ -1,7 +1,7 @@
 /* LOGIN PAGE */
 
 #loginBox{
-	margin: 20px auto;
+	margin: auto;
 	text-align: center;
 	padding-top: 15px;
 	color: white;
@@ -61,6 +61,16 @@ label{
 	width: 250px;
 	height: auto;
 	margin-left: 30px;
+}
+@media screen and (min-width: 660px) {
+    #loginLogo{
+        content: url("/public/img/SALABY_Logo_Orange.png");
+    }
+}
+@media screen and (max-width: 659px) {
+    #loginLogo{
+        content: url("/public/img/logo_orange.png");
+    }
 }
 
 .signup .regtype{
