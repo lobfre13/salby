@@ -12,7 +12,7 @@ ul{
 html, body {
 	margin: 0;
 	background: url("../img/bg_bilde_sommer.jpg") fixed center;
-	-webkit-background-size: cover;
+	background-size: cover;
 }
 
 a, a:visited{
@@ -167,14 +167,9 @@ a:hover{
 }
 
 @media screen and (max-width: 659px) {
-	#socialNetworkLinks{
-		display: inline-block;
-	}
-
-	#footer ul{
-		display: block;
-		margin: 0 auto;
-	}
+	#footer{
+        display: none;
+    }
 }
 
 
