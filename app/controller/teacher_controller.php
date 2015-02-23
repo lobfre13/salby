@@ -5,7 +5,7 @@
         private $root;
 
         public function __construct($urlElements){
-            $this->root = $GLOBALS->root;
+            $this->root = $_SERVER["DOCUMENT_ROOT"];
             $this->user = $_SESSION['user'];
             if(!isset($this->user) && !$this->user->isTeacher()){
                 header("Location: /login");

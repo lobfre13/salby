@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-		<a href="/"><img id="headerLogo" src="public/img/logo_orange.png" alt="logo"/></a>
+		<div class="center"> <a id="logoLink" href="/"><img id="headerLogo" src="public/img/logo_orange.png" alt="logo"/></a></div>
 
 		<div id="user">
 			<a href="#"><img src="/public/img/profile.png"/>  <?php echo $_SESSION['user']->getUsername();?></a>

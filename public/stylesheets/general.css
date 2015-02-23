@@ -30,9 +30,16 @@ a:hover{
 }
 
 #header{
-	height: 55px;
+	height: 40px;
 	width: 100%;
 	background-color: #222222;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    height: 40px;
 }
 
 #hamMenu{
@@ -40,7 +47,7 @@ a:hover{
 	height: 25px;
 	padding: 10px 10px 6px;
 	position: absolute;
-	top: 5px;
+	top: 0px;
 	left: 10px;
 }
 
@@ -105,6 +112,11 @@ a:hover{
 	top:10px;
 	display: inline-block;
 }
+
+#user img{
+    height:20px;
+}
+
 #user a{
 	margin-right: 10px; 
 }
@@ -112,8 +124,6 @@ a:hover{
 #headerLogo{
 	width: 160px;
 	height: auto;
-	margin: 0 auto;
-	display: block;
 }
 
 

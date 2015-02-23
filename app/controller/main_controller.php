@@ -4,13 +4,13 @@
         private $root;
 
         public function __construct($urlElements){
-            $this->root = $GLOBALS->root;
+            $this->root = $_SERVER["DOCUMENT_ROOT"];
             $this->user = $_SESSION['user'];
             if(!isset($this->user)){
                 header("Location: /login");
                 exit;
             }
-            include $this->root.'app/model/lobjects.php';
+            include $this->root.'/app/model/lobjects.php';
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();

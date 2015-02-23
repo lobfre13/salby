@@ -3,7 +3,7 @@
         private $root;
 
         public function __construct($urlElements){
-            $this->root = $GLOBALS->root;
+            $this->root = $_SERVER["DOCUMENT_ROOT"];
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
