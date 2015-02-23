@@ -21,10 +21,10 @@
         private function index(){
             $lobjects = getUserLobjects($this->user);
             $subjects = getUserSubjects($this->user);
-            include $this->root.'app/views/template//header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/main.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template//header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/main.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
     }

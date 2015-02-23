@@ -11,7 +11,7 @@
                 header("Location: /login");
                 exit;
             }
-            include $this->root.'app/model/schooladmin.php';
+            include $this->root.'/app/model/schooladmin.php';
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
@@ -25,10 +25,10 @@
             $schoolClasses = getSchoolClasses($schoolID);
             $teachers = getSchoolTeachers($schoolID);
 
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/school/schooladmin.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/school/schooladmin.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function createSchoolClass(){

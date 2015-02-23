@@ -12,7 +12,7 @@
                 exit;
             }
 
-            include $this->root.'app/model/teacher.php';
+            include $this->root.'/app/model/teacher.php';
 
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET'){
@@ -32,10 +32,10 @@
 
         private function index(){
             $schoolClasses = getMyClasses($this->user);
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/teacher/teacher.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/teacher/teacher.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function showClass($id){
@@ -45,10 +45,10 @@
             $pupils = getPupils($id);
             $subjects = getClassSubjects($id);
             $allSubjects = getAllSubjects();
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/teacher/teacherClass.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/teacher/teacherClass.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function createUsers($id){

@@ -11,7 +11,7 @@
                 header("Location: /login");
                 exit;
             }
-            include $this->root.'app/model/admin.php';
+            include $this->root.'/app/model/admin.php';
 
             $method = $_SERVER['REQUEST_METHOD'];
             if ($method == 'GET') {
@@ -42,10 +42,10 @@
         private function index(){
             $subjects = getSubjects();
             $categories = getAllCategories();
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/admin/admin.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/admin/admin.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function addSubject(){
@@ -59,10 +59,10 @@
             $subject = getSubject($id);
             $categories = getCategories($subject['id']);
 
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/template/headerMenu.php';
-            include $this->root.'app/views/admin/subject.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/admin/subject.php';
+            include $this->root.'/app/views/template/footer.php';
 
         }
 

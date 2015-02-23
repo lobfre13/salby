@@ -12,13 +12,13 @@
         }
 
         private function index($regSuccess = false){
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/register.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/register.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function register(){
-            require $this->root.'app/model/register.php';
+            require $this->root.'/app/model/register.php';
             doRegister();;
             $this->index(true);
         }

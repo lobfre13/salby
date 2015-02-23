@@ -13,13 +13,13 @@
         }
 
         private function index($failedLogin = false){
-            include $this->root.'app/views/template/header.php';
-            include $this->root.'app/views/login.php';
-            include $this->root.'app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/login.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function login(){
-            require $this->root.'app/model/login.php';
+            require $this->root.'/app/model/login.php';
             $loginSuccess = doLogin();
             if($loginSuccess)
                 header("Location: /");
