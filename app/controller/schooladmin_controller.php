@@ -2,14 +2,16 @@
     class schooladminController{
 
         private $user;
+        private $root;
 
         public function __construct($urlElements){
+            $this->root = $GLOBALS->root;
             $this->user = $_SESSION['user'];
             if(!isset($this->user) && !$this->user->isSchool()){
                 header("Location: /login");
                 exit;
             }
-            include '/app/model/schooladmin.php';
+            include $this->root.'app/model/schooladmin.php';
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
@@ -23,10 +25,10 @@
             $schoolClasses = getSchoolClasses($schoolID);
             $teachers = getSchoolTeachers($schoolID);
 
-            include '/app/views/template/header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/school/schooladmin.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/template/headerMenu.php';
+            include $this->root.'app/views/school/schooladmin.php';
+            include $this->root.'app/views/template/footer.php';
         }
 
         private function createSchoolClass(){

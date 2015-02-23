@@ -2,14 +2,16 @@
     class adminController{
 
         private $user;
+        private $root;
 
         public function __construct($urlElements){
+            $this->root = $GLOBALS->root;
             $this->user = $_SESSION['user'];
             if (!isset($this->user) && !$this->user->isAdmin()) {
                 header("Location: /login");
                 exit;
             }
-            include '/app/model/admin.php';
+            include $this->root.'app/model/admin.php';
 
             $method = $_SERVER['REQUEST_METHOD'];
             if ($method == 'GET') {
@@ -40,10 +42,10 @@
         private function index(){
             $subjects = getSubjects();
             $categories = getAllCategories();
-            include '/app/views/template/header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/admin/admin.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/template/headerMenu.php';
+            include $this->root.'app/views/admin/admin.php';
+            include $this->root.'app/views/template/footer.php';
         }
 
         private function addSubject(){
@@ -57,10 +59,10 @@
             $subject = getSubject($id);
             $categories = getCategories($subject['id']);
 
-            include '/app/views/template/header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/admin/subject.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/template/headerMenu.php';
+            include $this->root.'app/views/admin/subject.php';
+            include $this->root.'app/views/template/footer.php';
 
         }
 

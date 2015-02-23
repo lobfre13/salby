@@ -1,8 +1,10 @@
 <?php
 
     class loginController{
+        private $root;
 
        public function __construct($urlElements){
+           $this->root = $GLOBALS->root;
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
@@ -11,13 +13,13 @@
         }
 
         private function index($failedLogin = false){
-            include '/app/views/template/header.php';
-            include '/app/views/login.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/login.php';
+            include $this->root.'app/views/template/footer.php';
         }
 
         private function login(){
-            require '/app/model/login.php';
+            require $this->root.'app/model/login.php';
             $loginSuccess = doLogin();
             if($loginSuccess)
                 header("Location: /");

@@ -2,15 +2,17 @@
     class teacherController{
 
         private $user;
+        private $root;
 
         public function __construct($urlElements){
+            $this->root = $GLOBALS->root;
             $this->user = $_SESSION['user'];
             if(!isset($this->user) && !$this->user->isTeacher()){
                 header("Location: /login");
                 exit;
             }
 
-            include '/app/model/teacher.php';
+            include $this->root.'app/model/teacher.php';
 
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET'){
@@ -30,10 +32,10 @@
 
         private function index(){
             $schoolClasses = getMyClasses($this->user);
-            include '/app/views/template/header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/teacher/teacher.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/template/headerMenu.php';
+            include $this->root.'app/views/teacher/teacher.php';
+            include $this->root.'app/views/template/footer.php';
         }
 
         private function showClass($id){
@@ -43,10 +45,10 @@
             $pupils = getPupils($id);
             $subjects = getClassSubjects($id);
             $allSubjects = getAllSubjects();
-            include '/app/views/template/header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/teacher/teacherClass.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'app/views/template/header.php';
+            include $this->root.'app/views/template/headerMenu.php';
+            include $this->root.'app/views/teacher/teacherClass.php';
+            include $this->root.'app/views/template/footer.php';
         }
 
         private function createUsers($id){
