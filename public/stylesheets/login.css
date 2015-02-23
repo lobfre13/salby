@@ -1,0 +1,78 @@
+/* LOGIN PAGE */
+
+#loginBox{
+	margin: 20px auto;
+	text-align: center;
+	padding-top: 15px;
+	color: white;
+	margin-bottom: 125px;
+}
+
+#loginBox input[type="text"], #loginBox input[type="password"],
+.signup input[type="text"], .signup input[type="password"]{
+	background-color: white;
+	margin-top: 5px;
+	margin-bottom:10px;
+    -webkit-border-radius: 5px; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+    padding-left:10px; 
+    padding-right:10px;
+	border-style: none;
+}
+
+label{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#loginBox input[type="submit"],
+.signup input[type="submit"]{
+	width: 150px;
+	height:50px;
+	background-color: #FF9100;
+	outline: 0;
+	-webkit-border-radius: 5px; 
+	color: white;
+	font-size: 25px;
+	border-style: none;
+	cursor: pointer;
+	-webkit-transition: background-color 0.5s;
+}
+#loginBox input[type="submit"]:hover,
+.signup input[type="submit"]:hover{
+	background-color: #FF6000;
+}
+
+#nonLogin{
+	display: inline-block;
+	padding: 8px;
+	background-color: #555555;
+	-webkit-border-radius:5px;
+}
+
+#loginLogo{
+	width: 250px;
+	height: auto;
+	margin-left: 30px;
+}
+
+.signup .regtype{
+	display: inline-block;
+	width: 150px;
+	padding: 8px;
+	-webkit-border-radius: 5px;
+	background-color: indianred;
+}
+
+.signup .signupType{
+	height: 0px;
+	overflow: hidden;
+    opacity: 0;
+	-webkit-transition: opacity 1s;
+}
+.signup :target{
+    height: auto;
+    opacity: 1;
+}

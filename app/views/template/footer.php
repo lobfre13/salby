@@ -1,6 +1,6 @@
 			<div id="footer">
 				<div class="widthConstrained">
-					<a id="footerLogo" href="index.php"><img src="http://web2.gyldendal.no/Podium_ressurser/salaby/images/forsiden/salaby_kroll.png" alt="logo"/></a>
+					<a id="footerLogo" href="../../index.php"><img src="http://web2.gyldendal.no/Podium_ressurser/salaby/images/forsiden/salaby_kroll.png" alt="logo"/></a>
 					<ul>
 						<li>© Gyldendal Norsk Forlag |</li>
 						<li>Systemkrav |</li>
@@ -15,5 +15,5 @@
 
 				</div>
 			</div>
-	</body>
+		</body>
 </html>

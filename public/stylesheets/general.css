@@ -1,12 +1,18 @@
 /* GENERAL + HEADER AND FOOTER */
 
-body{
-	margin: 0;
-	background-image: url("../img/bg_bilde_sommer.jpg");
-	-webkit-background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
+html *
+{
 	font-family: "Comic Sans MS";
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+html, body {
+	margin: 0;
+	background: url("../img/bg_bilde_sommer.jpg") fixed center;
+	-webkit-background-size: cover;
 }
 
 a, a:visited{
@@ -32,8 +38,7 @@ a:hover{
 #hamMenu{
 	width: 25px;
 	height: 25px;
-	padding: 10px;
-	padding-bottom: 6px;
+	padding: 10px 10px 6px;
 	position: absolute;
 	top: 5px;
 	left: 10px;

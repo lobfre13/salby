@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !\.(jpg|jpeg|gif|png|css|js|pl|txt)$
+RewriteRule ^(.*)$ index.php [QSA]
