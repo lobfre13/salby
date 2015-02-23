@@ -1,5 +1,5 @@
     <div id="loginBox">
-        <a href="/"><img id="loginLogo" src="/public/img/SALABY_Logo_Orange.png"></a><br>
+        <a href="/"><img id="loginLogo"></a><br>
 		<form method="post" id="login">
 			<p>Velkommen til Salaby.no!<br> For å få tilgang til innhold må du logge inn</p>
 			<?php
