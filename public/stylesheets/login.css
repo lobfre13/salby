@@ -71,8 +71,11 @@ label{
 #nonLogin{
 	display: inline-block;
 	padding: 8px;
-	background-color: #555555;
+	background-color: darkgreen;
 	-webkit-border-radius:5px;
+}
+#nonLogin:hover{
+    color: white;
 }
 
 #loginLogo{

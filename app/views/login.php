@@ -18,6 +18,6 @@
             <br><br>
             <a href="#">Glemt Passord?</a>   <a href="/register">Opprett ny bruker</a>
             <br><br>
-            <a id="nonLogin" href="#">Fortsett uten innlogging -->></a>
+            <a id="nonLogin" href="#">Fortsett uten innlogging --></a>
         </div>
 	</div>
