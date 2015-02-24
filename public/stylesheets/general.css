@@ -170,6 +170,9 @@ a:hover{
 	#footer{
         display: none;
     }
+    .topMenuUser{
+        display: none;
+    }
 }
 
 
