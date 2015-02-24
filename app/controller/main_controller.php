@@ -10,6 +10,7 @@
                 header("Location: /login");
                 exit;
             }
+            $this->gotoStartPage();
             include $this->root.'/app/model/lobjects.php';
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
@@ -26,5 +27,22 @@
             include $this->root.'/app/views/main.php';
             include $this->root.'/app/views/template/footer.php';
         }
+
+        private function gotoStartPage(){
+            if($this->user === 'admin'){
+                header("Location: /admin");
+                exit;
+            }
+            else if($this->user === 'teacher'){
+                header("Location: /teacher");
+                exit;
+            }
+            else if($this->user === 'school'){
+                header("Location: /schooladmin");
+                exit;
+            }
+
+        }
+
 
     }
