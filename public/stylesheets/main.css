@@ -1,12 +1,3 @@
-
-/* MAIN CONTENT SECTION */
-
-
-#content{
-	width: 100%;
-	text-align: center;
-	margin-bottom: 125px;
-}
 #subjects{
 	margin: 0 auto;
 	display: inline;
@@ -57,81 +48,6 @@
 	margin-top: 20px;
     margin-bottom: 20px;
 	padding-top: 0;
-	background-image: url("../img/cat.png");
 	background-size: 100% 100%;
 	border: 2px solid white;
-}
-
-
-
-/* SCHOOLADMIN SECTION */
-
-.schoolclasses{
-	background-color: rgba(200,200,200,0.2);
-	-webkit-border-radius: 5px;
-	border:1px solid white;
-	position: relative;
-	padding-bottom: 10px;
-}
-
-th, td, table{
-	padding: 3px 10px;
-	-webkit-border-radius: 5px;
-}
-.blur{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	-webkit-filter: blur(30px);
-    -webkit-transform: translate3d(0, 0, 0);
-	background: url("../img/bg_bilde_sommer.jpg") fixed center;
-
-}
-
-.blurWrapper{
-	position: relative;
-	/*display: inline-block;*/
-    float:left;
-	margin: 25px;
-}
-
-.schooladminpage{
-	height: 0;
-	overflow: hidden;
-	opacity: 0;
-	transition: opacity 0.5s;
-    margin: auto;
-    width: 79%;
-	
-}
-
-:target{
-	height: auto;
-	opacity: 1;
-}
-
-/* TEACHER SECTION */
-
-.teachersClasses{
-    display: inline-block;
-    min-width: 70px;
-    padding:10px;
-    border-radius: 5px;
-    background-color: indianred;
-}
-
-.teachersClassesInfo{
-    width: 500px;
-    border-radius: 5px;
-    margin: auto;
-    padding-bottom: 20px;
-    height: 0px;
-    opacity: 0;
-    transition: opacity 1s;
-    background-color: rgba(155,155,155,0.7);
-}
-
-.teachersClassesInfo:target{
-    opacity: 1;
-    height: auto;
 }

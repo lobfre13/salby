@@ -1,40 +1,47 @@
 <?php
-    class schooladminController{
+    class schooladminController extends superController{
 
-        private $user;
-        private $root;
+        public function __construct($register){
+            parent::__construct($register);
+            $this->checkUserAccess();
+            include $this->getRegister()->getRoot().'/app/model/schooladmin.php';
+            $this->routeAction();
+        }
 
-        public function __construct($urlElements){
-            $this->root = $_SERVER["DOCUMENT_ROOT"];
-            $this->user = $_SESSION['user'];
-            if(!isset($this->user) && !$this->user->isSchool()){
-                header("Location: /login");
-                exit;
+        protected function routeAction(){
+            switch($this->getRegister()->getRequestMethod()){
+                case 'GET':
+                    $this->index();
+                    break;
+                case 'POST':
+                    $this->createSchoolClass();
+                    break;
             }
-            include $this->root.'/app/model/schooladmin.php';
-            $method = $_SERVER['REQUEST_METHOD'];
-            if($method == 'GET')
-                $this->index();
-            else if($method == 'POST')
-                $this->createSchoolClass();
         }
 
         private function index(){
-            $schoolID = getSchoolID($this->user);
+            $schoolID = getSchoolID($this->getRegister()->getUser());
             $regkey = getRegkey($schoolID);
             $schoolClasses = getSchoolClasses($schoolID);
             $teachers = getSchoolTeachers($schoolID);
 
-            include $this->root.'/app/views/template/header.php';
-            include $this->root.'/app/views/template/headerMenu.php';
-            include $this->root.'/app/views/school/schooladmin.php';
-            include $this->root.'/app/views/template/footer.php';
+            $this->showFullHeader();
+            include $this->getRegister()->getRoot().'/app/views/school/schooladmin.php';
+            $this->showFooter();
         }
 
         private function createSchoolClass(){
-            $schoolID = getSchoolID($this->user);
+            $schoolID = getSchoolID($this->getRegister()->getUser());
             doCreateSchoolClass($schoolID);
             $this->index();
+        }
+
+        protected function checkUserAccess(){
+            $user = $this->getRegister()->getUser();
+            if(!isset($user) || !$user->isSchool()){
+                header("Location: /login");
+                exit;
+            }
         }
 
     }

@@ -1,39 +1,28 @@
 <?php
-    class adminController{
+    class adminController extends superController{
 
-        private $user;
-        private $root;
+        public function __construct($register){
+            parent::__construct($register);
+            $this->checkUserAccess();
+            include $this->getRegister()->getRoot().'/app/model/admin.php';
+            $this->routeAction();
+        }
 
-        public function __construct($urlElements){
-            $this->root = $_SERVER["DOCUMENT_ROOT"];
-            $this->user = $_SESSION['user'];
-            if (!isset($this->user) && !$this->user->isAdmin()) {
-                header("Location: /login");
-                exit;
-            }
-            include $this->root.'/app/model/admin.php';
+        protected function routeAction(){
+            $urlElements = $this->getRegister()->getUrlElements();
+            switch($this->getRegister()->getRequestMethod()){
+                case 'GET':
+                    if (isset($urlElements[2])) $this->showSubject($urlElements[2]);
+                    else $this->index();
+                    break;
 
-            $method = $_SERVER['REQUEST_METHOD'];
-            if ($method == 'GET') {
-                if (isset($urlElements[2])) {
-                    $this->showSubject($urlElements[2]);
-                }
-                else {
-                    $this->index();
-                }
-            }
-            else if ($method == 'POST') {
-                if (isset($urlElements[2])){
-                    $this->addCategory($urlElements[2]);
-                }
-                else{
-                    if(isset($_POST['lobjecttitle'])){
-                        $this->addLObject();
+                case 'POST':
+                    if (isset($urlElements[2])) $this->addCategory($urlElements[2]);
+                    else {
+                        if(isset($_POST['lobjecttitle'])) $this->addLObject();
+                        else$this->addSubject();
                     }
-                    else{
-                        $this->addSubject();
-                    }
-                }
+                    break;
             }
         }
 
@@ -41,9 +30,10 @@
             $subjects = getSubjects();
             $categories = getAllCategories();
 
-            include "../generate_page.php";
-            $generatePage = new generate_page('/app/views/admin/admin.php',
-                $_SESSION['user'], $_SERVER["DOCUMENT_ROOT"]);
+            $this->showFullHeader();
+            include $this->getRegister()->getRoot().'/app/views/admin/admin.php';
+            $this->showFooter();
+
         }
 
         private function addSubject(){
@@ -57,10 +47,9 @@
             $subject = getSubject($id);
             $categories = getCategories($subject['id']);
 
-            include $this->root.'/app/views/template/header.php';
-            include $this->root.'/app/views/template/headerMenu.php';
-            include $this->root.'/app/views/admin/subject.php';
-            include $this->root.'/app/views/template/footer.php';
+            $this->showFullHeader();
+            include $this->getRegister()->getRoot().'/app/views/admin/subject.php';
+            $this->showFooter();
 
         }
 
@@ -74,6 +63,14 @@
         private function addLObject(){
             doAddLObject();
             $this->index();
+        }
+
+        protected function checkUserAccess(){
+            $user = $this->getRegister()->getUser();
+            if(!isset($user) || !$user->isAdmin()){
+                header("Location: /login");
+                exit;
+            }
         }
 
     }

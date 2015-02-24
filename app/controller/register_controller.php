@@ -1,26 +1,41 @@
 <?php
-    class registerController{
-        private $root;
+    class registerController extends superController{
 
-        public function __construct($urlElements){
-            $this->root = $_SERVER["DOCUMENT_ROOT"];
-            $method = $_SERVER['REQUEST_METHOD'];
-            if($method == 'GET')
-                $this->index();
-            else if($method == 'POST')
-                $this->register();
+        public function __construct($register){
+            parent::__construct($register);
+            $this->checkUserAccess();
+            $this->routeAction();
+        }
+
+        protected function routeAction(){
+            switch($this->getRegister()->getRequestMethod()){
+                case 'GET':
+                    $this->index();
+                    break;
+                case 'POST':
+                    $this->register();
+                    break;
+            }
         }
 
         private function index($regSuccess = false){
-            include $this->root.'/app/views/template/header.php';
-            include $this->root.'/app/views/register.php';
-            include $this->root.'/app/views/template/footer.php';
+            $this->showHeader();
+            include $this->getRegister()->getRoot().'/app/views/register.php';
+            $this->showFooter();
         }
 
         private function register(){
-            require $this->root.'/app/model/register.php';
+            require $this->getRegister()->getRoot().'/app/model/register.php';
             doRegister();;
             $this->index(true);
+        }
+
+        protected function checkUserAccess(){
+            $user = $this->getRegister()->getUser();
+            if(isset($user)){
+                header("Location: /");
+                exit;
+            }
         }
 
     }

@@ -1,47 +1,60 @@
 <?php
-    class mainController{
-        private $user;
-        private $root;
+    class mainController extends superController{
 
-        public function __construct($urlElements){
-            $this->root = $_SERVER["DOCUMENT_ROOT"];
-            $this->user = $_SESSION['user'];
-            if(!isset($this->user)){
-                header("Location: /login");
-                exit;
+
+        public function __construct($register){
+            parent::__construct($register);
+            $this->checkUserAccess();
+            include $this->getRegister()->getRoot().'/app/model/lobjects.php';
+            $this->routeAction();
+        }
+
+        protected function routeAction(){
+            switch($this->getRegister()->getRequestMethod()){
+                case 'GET':
+                    $this->index();
+                    break;
+                case 'POST':
+                    break;
             }
-            $this->gotoStartPage();
-            include $this->root.'/app/model/lobjects.php';
-            $method = $_SERVER['REQUEST_METHOD'];
-            if($method == 'GET')
-                $this->index();
-            else if($method == 'POST')
-                ;
         }
 
         private function index(){
-            $lobjects = getUserLobjects($this->user);
-            $subjects = getUserSubjects($this->user);
-            include $this->root.'/app/views/template//header.php';
-            include $this->root.'/app/views/template/headerMenu.php';
-            include $this->root.'/app/views/main.php';
-            include $this->root.'/app/views/template/footer.php';
+            $this->gotoStartPage();
+            $urlElements = $this->getRegister()->getUrlElements();
+
+            $lobjects = getUserLobjects($this->getRegister()->getUser());
+            $subjects = getUserSubjects($this->getRegister()->getUser());
+            $categoryid = null;
+            if(isset($urlElements[2]))
+                $categoryid = $this->getRegister()->getUrlElements()[2];
+
+            $this->showFullHeader();
+            include $this->getRegister()->getRoot().'/app/views/main.php';
+            $this->showFooter();
         }
 
         private function gotoStartPage(){
-            if($this->user->isAdmin()){
+            if($this->getRegister()->getUser()->isAdmin()){
                 header("Location: /admin");
                 exit;
             }
-            else if($this->user->isTeacher()){
+            else if($this->getRegister()->getUser()->isTeacher()){
                 header("Location: /teacher");
                 exit;
             }
-            else if($this->user->isSchool()){
+            else if($this->getRegister()->getUser()->isSchool()){
                 header("Location: /schooladmin");
                 exit;
             }
+        }
 
+        protected function checkUserAccess(){
+            $user = $this->getRegister()->getUser();
+            if(!isset($user)){
+                header("Location: /login");
+                exit;
+            }
         }
 
 
