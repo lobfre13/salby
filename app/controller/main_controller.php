@@ -29,15 +29,15 @@
         }
 
         private function gotoStartPage(){
-            if($this->user === 'admin'){
+            if($this->user->isAdmin()){
                 header("Location: /admin");
                 exit;
             }
-            else if($this->user === 'teacher'){
+            else if($this->user->isTeacher()){
                 header("Location: /teacher");
                 exit;
             }
-            else if($this->user === 'school'){
+            else if($this->user->isSchool()){
                 header("Location: /schooladmin");
                 exit;
             }
