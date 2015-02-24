@@ -1,10 +1,10 @@
-/**
-* Created by PhpStorm.
-* User: Simen Fonnes
-* Date: 24.02.2015
-* Time: 12:39
-*/
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Simen Fonnes
+ * Date: 24.02.2015
+ * Time: 12:39
+ */
     class GeneratePage {
 
         private $root;

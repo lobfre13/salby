@@ -37,15 +37,13 @@
             }
         }
 
-
-
         private function index(){
             $subjects = getSubjects();
             $categories = getAllCategories();
-            include $this->root.'/app/views/template/header.php';
-            include $this->root.'/app/views/template/headerMenu.php';
-            include $this->root.'/app/views/admin/admin.php';
-            include $this->root.'/app/views/template/footer.php';
+
+            include "../generate_page.php";
+            $generatePage = new generate_page('/app/views/admin/admin.php',
+                $_SESSION['user'], $_SERVER["DOCUMENT_ROOT"]);
         }
 
         private function addSubject(){
