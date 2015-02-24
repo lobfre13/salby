@@ -7,37 +7,30 @@
 <?php
     class GeneratePage {
 
-        public function __construct ($body, $userName, $classID, $role) {
-            if (!isset($this->user) && !$this->getWhichUser($userName, $classID, $role)->isAdmin()) {
-                $this->addHeader();
-                $this->addHeaderMenu();
-                $this->addMainContent($body);
-                $this->addFooter();
-            } else {
-                header("Location: /");
-                exit;
-            }
-        }
+        private $root;
 
-        private function getWhichUser ($userName, $classID, $role) {
-            include '/app/model/user.php';
-            return new user($userName, $classID, $role);
+        public function __construct ($body, $user, $root) {
+            $this->root = $root;
+            $this->addHeader();
+            if (isset($user)) $this->addHeaderMenu();
+            $this->addMainContent($body);
+            $this->addFooter();
         }
 
         private function addHeader () {
-            include '/app/views/template/header.php';
+            include $this->root.'/app/views/template/header.php';
         }
 
         private function addHeaderMenu () {
-            include '/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/template/headerMenu.php';
         }
 
         private function addFooter () {
-            include '/app/views/template/footer.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function addMainContent ($body) {
-            include $body;
+            include $this->root.$body;
         }
     }
 
