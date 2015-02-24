@@ -3,6 +3,5 @@
 
         <?php foreach($schoolClasses as $schoolClass) { ?>
             <a class="teachersClasses" href="/teacher/<?php echo $schoolClass['id']; ?>"> <?php echo $schoolClass['classname']; ?></a>
-            </div>
         <?php } ?>
     </div>
