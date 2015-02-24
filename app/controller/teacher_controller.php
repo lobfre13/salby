@@ -19,7 +19,7 @@
                 if(isset($urlElements[1]))
                     $this->showClass($urlElements[1]);
                 else
-                    $this->index();
+                    $this->showClass(null);
             }
             else if($method == 'POST')
                 if(isset($urlElements[1])){
@@ -47,7 +47,7 @@
             $allSubjects = getAllSubjects();
             include $this->root.'/app/views/template/header.php';
             include $this->root.'/app/views/template/headerMenu.php';
-            include $this->root.'/app/views/teacher/teacherClass.php';
+            include $this->root.'/app/views/teacher/teacher.php';
             include $this->root.'/app/views/template/footer.php';
         }
 
