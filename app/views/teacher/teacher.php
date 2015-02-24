@@ -2,6 +2,6 @@
         <h2>Mine Klasser:</h2>
 
         <?php foreach($schoolClasses as $schoolClass) { ?>
-            <a class="teachersClasses" href="/teacher/<?php echo $schoolClass['id']; ?>"> <?php echo $schoolClass['classname']; ?></a>
+            <a class="teachersClasses" href="/teacher/<?php echo $schoolClass['id']; ?>"> <?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a>
         <?php } ?>
     </div>
