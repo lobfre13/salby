@@ -54,7 +54,8 @@
 	-webkit-border-radius: 10px;
 	display: inline-block;
 	margin-left:20px;
-	margin-top: 20px; 
+	margin-top: 20px;
+    margin-bottom: 20px;
 	padding-top: 0;
 	background-image: url("../img/cat.png");
 	background-size: 100% 100%;

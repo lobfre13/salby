@@ -1,11 +1,34 @@
 /* LOGIN PAGE */
 
 #loginBox{
-	margin: 20px auto;
+    position: absolute;
 	text-align: center;
-	padding-top: 15px;
 	color: white;
-	margin-bottom: 125px;
+    z-index: 1;
+    margin: auto;
+}
+
+#loginBoxWrapper{
+    position: relative;
+    width:300px;
+    margin: auto;
+    height: 575px;
+    overflow:hidden;
+    margin-bottom: 125px;
+    padding: 20px;
+    padding-top: 0;
+}
+#loginBoxBG{
+    position: absolute;
+    z-index: 0;
+    opacity: 0.6;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+
 }
 
 #loginBox input[type="text"], #loginBox input[type="password"],
@@ -48,14 +71,27 @@ label{
 #nonLogin{
 	display: inline-block;
 	padding: 8px;
-	background-color: #555555;
+	background-color: darkgreen;
 	-webkit-border-radius:5px;
+}
+#nonLogin:hover{
+    color: white;
 }
 
 #loginLogo{
 	width: 250px;
 	height: auto;
 	margin-left: 30px;
+}
+@media screen and (min-width: 660px) {
+    #loginLogo{
+        content: url("../img/SALABY_Logo_Orange.png");
+    }
+}
+@media screen and (max-width: 659px) {
+    #loginLogo{
+        content: url("../img/logo_orange.png");
+    }
 }
 
 .signup .regtype{

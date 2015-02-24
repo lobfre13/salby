@@ -1,7 +1,9 @@
 <?php
     class registerController{
+        private $root;
 
         public function __construct($urlElements){
+            $this->root = $_SERVER["DOCUMENT_ROOT"];
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
@@ -10,13 +12,13 @@
         }
 
         private function index($regSuccess = false){
-            include '/app/views/template/header.php';
-            include '/app/views/register.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'/app/views/template/header.php';
+            include $this->root.'/app/views/register.php';
+            include $this->root.'/app/views/template/footer.php';
         }
 
         private function register(){
-            require '/app/model/register.php';
+            require $this->root.'/app/model/register.php';
             doRegister();;
             $this->index(true);
         }

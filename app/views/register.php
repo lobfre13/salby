@@ -2,7 +2,7 @@
     <div id="content" class="widthConstrained signup">
 
 
-       <a href="/"> <img id="loginLogo" src="/public/img/SALABY_Logo_Orange.png"></a><br>
+       <a href="/"> <img id="loginLogo" src="public/img/SALABY_Logo_Orange.png"></a><br>
         <?php
             if($regSuccess){
                 echo "<p style=\"color:green;\">Registrering fullført!</p>";

@@ -2,7 +2,7 @@
 
 html *
 {
-	font-family: "Comic Sans MS";
+	font-family: "Helvetica";
 }
 ul{
     list-style-type: none;
@@ -12,7 +12,7 @@ ul{
 html, body {
 	margin: 0;
 	background: url("../img/bg_bilde_sommer.jpg") fixed center;
-	-webkit-background-size: cover;
+	background-size: cover;
 }
 
 a, a:visited{
@@ -30,9 +30,16 @@ a:hover{
 }
 
 #header{
-	height: 55px;
+	height: 40px;
 	width: 100%;
 	background-color: #222222;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    height: 40px;
 }
 
 #hamMenu{
@@ -40,7 +47,7 @@ a:hover{
 	height: 25px;
 	padding: 10px 10px 6px;
 	position: absolute;
-	top: 5px;
+	top: 0px;
 	left: 10px;
 }
 
@@ -105,6 +112,11 @@ a:hover{
 	top:10px;
 	display: inline-block;
 }
+
+#user img{
+    height:20px;
+}
+
 #user a{
 	margin-right: 10px; 
 }
@@ -112,8 +124,6 @@ a:hover{
 #headerLogo{
 	width: 160px;
 	height: auto;
-	margin: 0 auto;
-	display: block;
 }
 
 
@@ -121,9 +131,10 @@ a:hover{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background-color: #222222;
-	padding: 5px;
+	padding: 10px;
 	text-align: center;
+    background-color: #7D7C7C;
+    border-top: 2px solid #6D6D6D;
 }
 
 
@@ -156,14 +167,9 @@ a:hover{
 }
 
 @media screen and (max-width: 659px) {
-	#socialNetworkLinks{
-		display: inline-block;
-	}
-
-	#footer ul{
-		display: block;
-		margin: 0 auto;
-	}
+	#footer{
+        display: none;
+    }
 }
 
 

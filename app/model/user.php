@@ -35,12 +35,12 @@
         }
 
         public function isAdmin(){
-            return $this->getRole() == 'admin';
+            return $this->getRole() === 'admin';
         }
         public function isSchool(){
-            return $this->getRole() == 'school';
+            return $this->getRole() === 'school';
         }
         public function isTeacher(){
-            return $this->getRole() == 'teacher';
+            return $this->getRole() === 'teacher';
         }
     }

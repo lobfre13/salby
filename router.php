@@ -10,10 +10,11 @@
         }
 
         private function getController() {
+            global $root;
             if (empty($this->controller))
                 $this->controller = 'main';
 
-            return $file = 'app/controller/' . $this->controller . '_controller.php';
+            return $file = $root.'/app/controller/' . $this->controller . '_controller.php';
         }
 
         public function loadController(){

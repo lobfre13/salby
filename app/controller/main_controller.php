@@ -1,14 +1,17 @@
 <?php
     class mainController{
         private $user;
+        private $root;
 
         public function __construct($urlElements){
+            $this->root = $_SERVER["DOCUMENT_ROOT"];
             $this->user = $_SESSION['user'];
             if(!isset($this->user)){
                 header("Location: /login");
                 exit;
             }
-            include '/app/model/lobjects.php';
+            $this->gotoStartPage();
+            include $this->root.'/app/model/lobjects.php';
             $method = $_SERVER['REQUEST_METHOD'];
             if($method == 'GET')
                 $this->index();
@@ -19,10 +22,27 @@
         private function index(){
             $lobjects = getUserLobjects($this->user);
             $subjects = getUserSubjects($this->user);
-            include '/app/views/template//header.php';
-            include '/app/views/template/headerMenu.php';
-            include '/app/views/main.php';
-            include '/app/views/template/footer.php';
+            include $this->root.'/app/views/template//header.php';
+            include $this->root.'/app/views/template/headerMenu.php';
+            include $this->root.'/app/views/main.php';
+            include $this->root.'/app/views/template/footer.php';
         }
+
+        private function gotoStartPage(){
+            if($this->user->isAdmin()){
+                header("Location: /admin");
+                exit;
+            }
+            else if($this->user->isTeacher()){
+                header("Location: /teacher");
+                exit;
+            }
+            else if($this->user->isSchool()){
+                header("Location: /schooladmin");
+                exit;
+            }
+
+        }
+
 
     }
