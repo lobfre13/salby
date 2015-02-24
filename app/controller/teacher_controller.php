@@ -41,6 +41,7 @@
         private function showClass($id){
             if(!is_numeric($id)) return $this->index();
 
+            $schoolClasses = getMyClasses($this->user);
             $schoolClass = getClass($id);
             $pupils = getPupils($id);
             $subjects = getClassSubjects($id);
