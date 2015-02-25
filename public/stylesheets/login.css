@@ -12,9 +12,7 @@
     position: relative;
     width:300px;
     margin: auto;
-    height: 575px;
     overflow:hidden;
-    margin-bottom: 125px;
     padding: 20px;
     padding-top: 0;
 }
@@ -84,11 +82,19 @@ label{
 	margin-left: 30px;
 }
 @media screen and (min-width: 660px) {
+    #loginBoxWrapper{
+        margin-bottom: 125px;
+        height: 575px;
+    }
     #loginLogo{
         content: url("/public/img/SALABY_Logo_Orange.png");
     }
 }
 @media screen and (max-width: 659px) {
+    #loginBoxWrapper{
+        height: 500px;
+        margin-bottom: 0px;
+    }
     #loginLogo{
         content: url("/public/img/logo_orange.png");
     }
