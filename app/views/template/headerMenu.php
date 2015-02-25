@@ -16,8 +16,8 @@
 		<div class="center"> <a id="logoLink" href="/"><img id="headerLogo" src="/public/img/logo_orange.png" alt="logo"/></a></div>
 
 		<div id="user">
-			<a href="#"><img src="/public/img/profile.png"/>  <?php echo $_SESSION['user']->getUsername();?></a>
-            <a href="/logout"><img src="/public/img/logout.png">   Logg ut</a>
+			<a href="#"><img src="/public/img/profile.png"/> <span class="topMenuUser"><?php echo $_SESSION['user']->getUsername();?></span></a>
+            <a href="/logout"><img src="/public/img/logout.png"> <span class="topMenuUser"> Logg ut</span></a>
         </div>
     </div>
 </div>
