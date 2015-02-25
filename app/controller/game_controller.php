@@ -13,11 +13,13 @@
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/game.php';
             $this->routeAction();
+            $this->index();
+
         }
 
-        protected function checkUserAccess () {
+        protected function checkUserAccess(){
             $user = $this->getRegister()->getUser();
-            if(!isset($user)) {
+            if(!isset($user)){
                 header("Location: /login");
                 exit;
             }
@@ -42,10 +44,15 @@
         }
 
         private function addLObject () {
-            //Her må det legges til
+            include $this->getRegister()->getRoot().'app/views/game_view.php';
         }
 
         private function updateFavourite ($lObjectId) {
             $this->doUpdateFavourite($_SESSION['user'], $lObjectId);
+        }
+
+        private function index () {
+            $this->showFullHeader();
+            $this->showFooter();
         }
     }

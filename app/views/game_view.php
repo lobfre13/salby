@@ -1,7 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Simen Fonnes
- * Date: 25.02.2015
- * Time: 13:14
- */
+<div id="content" class="widthConstrained">
+    <form method="post">
+        <input type="submit" name="favoritter" value = "Legg til i favoritter">
+    </form>
+
+    <div id="game" class="subjectContent">
+
+    </div>
+</div>
