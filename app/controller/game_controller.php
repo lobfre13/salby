@@ -6,7 +6,7 @@
  * Time: 14:56
  */
 
-    class game_controller extends superController {
+    class gameController extends superController {
 
         public function __construct ($register) {
             parent::__construct($register);
