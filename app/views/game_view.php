@@ -4,6 +4,6 @@
     </form>
 
     <div id="game" class="subjectContent">
-
+        Her er læringsobjektet.
     </div>
 </div>

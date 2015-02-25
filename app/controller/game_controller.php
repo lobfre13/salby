@@ -13,8 +13,6 @@
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/game.php';
             $this->routeAction();
-            $this->index();
-
         }
 
         protected function checkUserAccess(){
@@ -30,29 +28,32 @@
             switch($this->getRegister()->getRequestMethod()) {
                 case 'GET':
                     if (isset($urlElements[2])) {
-                        $this->addLObject($this->showSubject($urlElements[2]));
+                        $this->addLObject($urlElements[2]);
                     } else {
                         header("Location: /");
                         exit;
                     }
+                    $this->index();
                     break;
 
                 case 'POST':
-                    $this->updateFavourite($this->showSubject($urlElements[2]));
+                    $this->updateFavourite($urlElements[2]);
+                    $this->index();
                     break;
             }
         }
 
         private function addLObject () {
-            include $this->getRegister()->getRoot().'app/views/game_view.php';
+            //Denne metoden må lages.
         }
 
         private function updateFavourite ($lObjectId) {
-            $this->doUpdateFavourite($_SESSION['user'], $lObjectId);
+            doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
 
         private function index () {
             $this->showFullHeader();
+            include $this->getRegister()->getRoot().'/app/views/game_view.php';
             $this->showFooter();
         }
     }

@@ -8,10 +8,10 @@
 
     function doUpdateFavourite ($username, $lObjectId) {
         global $database;
-        if ($this->doCheckIfFavouriteExist()) {
-            $sql = $database->prepare("DELETE FROM Favourites WHERE Username = :username AND LearningobjectID = :lObjectId");
+        if (doCheckIfFavouriteExist($username, $lObjectId)) {
+            $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND laeringobjectid = :lObjectId");
         } else {
-            $sql = $database->prepare("INSERT INTO Favourites VALUES (:username, :lObjectId)");
+            $sql = $database->prepare("INSERT INTO favourites VALUES (:username, :lObjectId)");
         }
         $sql->execute(array(
             'username' => $username,
@@ -21,7 +21,7 @@
 
     function doCheckIfFavouriteExist ($username, $lObjectId) {
         global $database;
-        $sql = $database->prepare("SELECT * FROM Favourites WHERE Username = :username AND LearningobjectID = :lObjectId");
+        $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND laeringobjectid = :lObjectId");
 
         $sql->execute(array(
             'username' => $username,
@@ -36,7 +36,7 @@
 
     function doGetLObject ($id) {
         global $database;
-        $sql = $database->prepare("SELECT * FROM LearningObjects WHERE ID = :id");
+        $sql = $database->prepare("SELECT * FROM learningobjects WHERE ID = :id");
 
         $sql->execute(array(
             'id' => $id
