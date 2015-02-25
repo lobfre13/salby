@@ -1,0 +1,33 @@
+.teachersClasses{
+    display: inline-block;
+    min-width: 70px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: indianred;
+    margin: 10px;
+}
+
+.teachersClassesInfo{
+    width: 500px;
+    border-radius: 5px;
+    margin: auto;
+    padding-bottom: 20px;
+    height: 0px;
+    opacity: 0;
+    transition: opacity 1s;
+    background-color: rgba(155,155,155,0.7);
+}
+
+.teachersClassesInfo:target{
+    opacity: 1;
+    height: auto;
+}
+
+#teacherClassList{
+    width: 130px;
+    float: left;
+}
+
+#classContent{
+    display: inline-block;
+}

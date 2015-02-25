@@ -29,7 +29,7 @@
                             </table>
                             <hr>
                             <form method="post">
-                                <input type="text" name="classname" size="1">
+                                <input type="text" name="classname" size="2" maxlength="1" required pattern="[A-Z]">
                                 <select name="mainteacher">
                                     <?php foreach($teachers as $teacher){ ?>
                                     <option value="<?php echo $teacher['username'].'">'.$teacher['username']; ?></option>

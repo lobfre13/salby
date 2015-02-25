@@ -85,12 +85,12 @@ label{
 }
 @media screen and (min-width: 660px) {
     #loginLogo{
-        content: url("../img/SALABY_Logo_Orange.png");
+        content: url("/public/img/SALABY_Logo_Orange.png");
     }
 }
 @media screen and (max-width: 659px) {
     #loginLogo{
-        content: url("../img/logo_orange.png");
+        content: url("/public/img/logo_orange.png");
     }
 }
 
