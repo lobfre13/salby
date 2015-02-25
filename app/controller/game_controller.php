@@ -16,6 +16,7 @@
         }
 
         protected function checkUserAccess () {
+            $user = $this->getRegister()->getUser();
             if(!isset($user)) {
                 header("Location: /login");
                 exit;
