@@ -1,3 +1,8 @@
+html {
+    background-image: none;
+    background-color: white;
+}
+
 .teachersClasses{
     display: inline-block;
     min-width: 70px;
@@ -23,11 +28,22 @@
     height: auto;
 }
 
+.teacherBoxes{
+    background-color: lightgrey;
+    padding: 10px;
+    width: 160px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 30px;
+
+}
+
 #teacherClassList{
-    width: 130px;
-    float: left;
+    width: 100%;
 }
 
 #classContent{
     display: inline-block;
 }
+
+#teacherGjoeremaal
