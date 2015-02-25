@@ -41,7 +41,7 @@
         }
 
         private function addLObject () {
-
+            //Her må det legges til
         }
 
         private function updateFavourite ($lObjectId) {
