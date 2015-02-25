@@ -16,7 +16,6 @@
             return $this->root;
         }
 
-
         private function setRoot($root){
             $this->root = $root;
         }
@@ -24,7 +23,6 @@
         public function getUser(){
             return $this->user;
         }
-
 
         public function setUser($user){
             $this->user = $user;
@@ -45,5 +43,4 @@
         private function setRequestMethod($requestMethod){
             $this->requestMethod = $requestMethod;
         }
-
     }
