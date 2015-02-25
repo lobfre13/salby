@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<project version="4" />
+=======
 <project version="4">
   <component name="PublishConfigData" uploadOnCheckin="9adf8b8c-d6f6-496f-933d-b47f357cdc91">
-    <serverData>
-      <paths name="Salaby">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-    </serverData>
     <option name="myUploadOnCheckinName" value="Salaby" />
   </component>
 </project>
+>>>>>>> e8637485e37eb3a976ddf0d234963b636e5786c7

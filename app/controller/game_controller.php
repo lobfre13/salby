@@ -6,21 +6,46 @@
  * Time: 14:56
  */
 
-    class game_controller {
+    class gameController extends superController {
 
-        //Fields
-        private $generatePage;
-
-        public function __construct () {
-             $this->setGeneratePage();
+        public function __construct ($register) {
+            parent::__construct($register);
+            $this->checkUserAccess();
+            include $this->getRegister()->getRoot().'/app/model/game.php';
+            $this->routeAction();
         }
 
-        private function setGeneratePage () {
-            include "../generate_page.php";
-            $this->$generatePage = new generate_page($this->createBody, $_SESSION['user'], $_SERVER["DOCUMENT_ROOT"]);
+        protected function checkUserAccess () {
+            $user = $this->getRegister()->getUser();
+            if(!isset($user)) {
+                header("Location: /login");
+                exit;
+            }
         }
 
-        private function createBody () { return ""; }
+        protected function routeAction () {
+            $urlElements = $this->getRegister()->getUrlElements();
+            switch($this->getRegister()->getRequestMethod()) {
+                case 'GET':
+                    if (isset($urlElements[2])) {
+                        $this->addLObject($this->showSubject($urlElements[2]));
+                    } else {
+                        header("Location: /");
+                        exit;
+                    }
+                    break;
 
-        public function getGeneratePage () { return $this->generatePage; }
+                case 'POST':
+                    $this->updateFavourite($this->showSubject($urlElements[2]));
+                    break;
+            }
+        }
+
+        private function addLObject () {
+            //Her må det legges til
+        }
+
+        private function updateFavourite ($lObjectId) {
+            $this->doUpdateFavourite($_SESSION['user'], $lObjectId);
+        }
     }
