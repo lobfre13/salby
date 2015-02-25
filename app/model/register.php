@@ -32,7 +32,7 @@
 
     function registerSchool($username, $password, $email){
         global $database;
-        $sql = $database->prepare("INSERT INTO school VALUES(null, :schoolname, null, null, :regkey)");
+        $sql = $database->prepare("INSERT INTO schools VALUES(null, :schoolname, null, null, :regkey)");
 
         $sql->execute(array(
             'schoolname' => $_POST['schoolname'],
@@ -45,7 +45,7 @@
 
     function registerTeacher($username, $password, $email){
         global $database;
-        $sql = $database->prepare("SELECT * FROM school WHERE regkey=:regkey");
+        $sql = $database->prepare("SELECT * FROM schools WHERE regkey=:regkey");
         $sql->execute(array(
             'regkey' => $_POST['schoolkey']
         ));

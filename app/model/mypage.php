@@ -9,8 +9,8 @@
     function doGetHomework ($classSubjectId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM learningobjects
-          JOIN homework ON homework.laeringobjectid = learningobjects.id
-          JOIN classsubject ON classsubject.id = homework.classsubjectid
+          JOIN homework ON homework.learningobjectid = learningobjects.id
+          JOIN classsubjects ON classsubjects.id = homework.classsubjectid
           WHERE classid = :classSubjectId");
 
         $sql->execute(array(

@@ -1,6 +1,6 @@
 <?php
         $mysqlHost = "localhost";
-        $dbname = "salby";
+        $dbname = "salaby";
         $dbUsername = "lobfre13";
         $dbPassword = "gruppe3";
 

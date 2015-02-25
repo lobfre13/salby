@@ -13,7 +13,7 @@
 
     function getRegkey($schoolID){
         global $database;
-        $sql = $database->prepare("SELECT * FROM school WHERE id=:id");
+        $sql = $database->prepare("SELECT * FROM schools WHERE id=:id");
 
         $sql->execute(array(
             'id' => $schoolID
@@ -23,8 +23,8 @@
 
     function getSchoolClasses($schoolID){
         global $database;
-        $sql = $database->prepare("SELECT * FROM class " .
-            "LEFT JOIN mainteacher ON id = classid " .
+        $sql = $database->prepare("SELECT * FROM classes " .
+            "LEFT JOIN mainteachers ON id = classid " .
             "WHERE schoolid=:schoolid");
 
         $sql->execute(array(
@@ -46,7 +46,7 @@
 
     function doCreateSchoolClass($schoolID){
         global $database;
-        $sql = $database->prepare("INSERT INTO class VALUES(null, :schoolid, :classname, :classlevel)");
+        $sql = $database->prepare("INSERT INTO classes VALUES(null, :schoolid, :classname, :classlevel)");
 
         $sql->execute(array(
             'schoolid' => $schoolID,
@@ -55,7 +55,7 @@
         ));
         $classID = $database->lastInsertId();
 
-        $sql = $database->prepare("INSERT INTO mainteacher VALUES(:username, :classid)");
+        $sql = $database->prepare("INSERT INTO mainteachers VALUES(:username, :classid)");
 
         $sql->execute(array(
            'username' => $_POST['mainteacher'],

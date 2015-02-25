@@ -2,8 +2,8 @@
 
     function getMyClasses($user){
         global $database;
-        $sql = $database->prepare("SELECT * FROM class
-                                  JOIN mainteacher on id = classid
+        $sql = $database->prepare("SELECT * FROM classes
+                                  JOIN mainteachers on id = classid
                                   WHERE username=:username order by classlevel, classname");
         $sql->execute(array(
             'username' => $user->getUsername()
@@ -14,7 +14,7 @@
 
     function getClass($id){
         global $database;
-        $sql = $database->prepare("SELECT * FROM class WHERE id=:id");
+        $sql = $database->prepare("SELECT * FROM classes WHERE id=:id");
         $sql->execute(array(
             'id' => $id
         ));
@@ -44,7 +44,7 @@
 
     function getClassSubjects($classID){
         global $database;
-        $sql = $database->prepare("SELECT * FROM classsubject JOIN subject on subject.id = subjectid WHERE classid=:classid");
+        $sql = $database->prepare("SELECT * FROM classsubjects JOIN subjects on subjects.id = subjectid WHERE classid=:classid");
         $sql->execute(array(
             'classid' => $classID
         ));
@@ -53,7 +53,7 @@
 
     function getAllSubjects(){
         global $database;
-        $sql = $database->prepare("SELECT * FROM subject");
+        $sql = $database->prepare("SELECT * FROM subjects");
 
         $sql->execute();
 
@@ -62,7 +62,7 @@
 
     function doAddSubject($classID){
         global $database;
-        $sql = $database->prepare("INSERT INTO classsubject VALUES(null, :classID, :subjectID)");
+        $sql = $database->prepare("INSERT INTO classsubjects VALUES(null, :classID, :subjectID)");
 
         $sql->execute(array(
            'classID' => $classID,

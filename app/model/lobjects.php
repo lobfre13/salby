@@ -2,10 +2,10 @@
 
     function getUserCategories($user){
         global $database;
-        $sql = $database->prepare("SELECT classsubject.subjectid, category.imgurl, category.category, category.id
-                                  FROM classsubject
-                                  join subjectcategory on subjectcategory.subjectid = classsubject.subjectid
-                                  join category on categoryid = category.id
+        $sql = $database->prepare("SELECT classsubjects.subjectid, categories.imgurl, categories.category, categories.id
+                                  FROM classsubjects
+                                  join subjectcategory on subjectcategory.subjectid = classsubjects.subjectid
+                                  join categories on categoryid = categories.id
                                   where classid=:classid");
         $sql->execute(array(
             'classid' => $user->getClassID()
@@ -25,7 +25,7 @@
 
     function getUserSubjects($user){
         global $database;
-        $sql = $database->prepare("SELECT * from classsubject JOIN subject on subjectid = subject.id WHERE classid = :classid");
+        $sql = $database->prepare("SELECT * from classsubjects JOIN subjects on subjectid = subjects.id WHERE classid = :classid");
         $sql->execute(array(
             'classid' => $user->getClassID()
         ));

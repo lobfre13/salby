@@ -9,7 +9,7 @@
     function doUpdateFavourite($username, $lObjectId) {
         global $database;
         if (doCheckIfFavouriteExist($username, $lObjectId)) {
-            $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND laeringobjectid = :lObjectId");
+            $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
         } else {
             $sql = $database->prepare("INSERT INTO favourites VALUES (:username, :lObjectId)");
         }
@@ -21,7 +21,7 @@
 
     function doCheckIfFavouriteExist($username, $lObjectId) {
         global $database;
-        $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND laeringobjectid = :lObjectId");
+        $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
 
         $sql->execute(array(
             'username' => $username,
