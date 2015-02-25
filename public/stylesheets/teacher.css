@@ -46,4 +46,38 @@ html {
     display: inline-block;
 }
 
-#teacherGjoeremaal
+#drownDownMenus{
+    width: 250px;
+}
+
+#dropDownClass{
+    display: inline-block;
+}
+#dropDownHomework{
+    display: inline-block;
+}
+
+.infoLists{
+    margin: 50px;
+
+
+}
+
+#studentList{
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    background-color: lightcoral;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+}
+
+#gjoremaalList{
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    background-color: lightcoral;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}

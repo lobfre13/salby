@@ -1,19 +1,40 @@
+ <!-- Henter ut og velger klasse, har ikke fikset Oppgavedelen ennå siden vi venter på "å lage lekser" funksjonen -->
+
     <div id="content" class="widthConstrained">
         <div id="teacherClassList">
             <div id="teachergjoeremaal" class="teacherBoxes">Legg til gjøremål</div>
             <div id="teacherinstillinger" class="teacherBoxes">Instillinger for elever</div>
             <div id="teacherlaererside" class="teacherBoxes">Lærerside</div>
-        </div>
 
-        <form method="post">
-            <label>Kategori: </label><select name="categoryid">
-                <?php foreach($categories as $category){ ?>
-                    <option value="<?php echo $category['categoryid']; ?>"><?php echo $category['category'] . '<br> Fag: ' . $category['subjectname']; ?></option>
-                <?php } ?>
-            </select><br>
-        </form>
-
-
+            <br>
+            <br>
+            <br>
+            <div id="drownDownMenus">
+                <div id="dropDownClass">
+                <form method="post">
+                <label></label>
+                    <select name="categoryid">
+                        <option value="blank">Velg klasse</option>
+                        <?php foreach($schoolClasses as $schoolClass) { ?>
+                         <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>
+            <?php } ?></select><br>
+                </form>
+                </div>
+                <div id="dropDownHomework">
+                    <form method="post">
+                     <label></label>
+                        <select name="categoryid">
+                            <option value="blank">Velg Oppgave</option>
+                            <?php foreach($schoolClasses as $schoolClass) { ?>
+                                <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>                        <?php } ?></select><br>
+                 </form>
+                </div>
+            </div>
+            <div class="infoLists">
+            <div id="studentList"></div>
+            <div id="gjoremaalList"</div>
+            </div>
+    </div>
 
         <?php if(isset($selectedSchoolClass)){ include 'teacherClass.php';} ?>
     </div>
