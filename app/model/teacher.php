@@ -4,7 +4,7 @@
         global $database;
         $sql = $database->prepare("SELECT * FROM class
                                   JOIN mainteacher on id = classid
-                                  WHERE username=:username");
+                                  WHERE username=:username order by classlevel, classname");
         $sql->execute(array(
             'username' => $user->getUsername()
         ));
