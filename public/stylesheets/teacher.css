@@ -46,4 +46,13 @@ html {
     display: inline-block;
 }
 
-#teacherGjoeremaal
+#drownDownMenus{
+    width: 200px;
+}
+
+#dropDownClass{
+    display: inline-block;
+}
+#dropDownHomework{
+    display: inline-block;
+}
