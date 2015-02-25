@@ -30,6 +30,10 @@
                  </form>
                 </div>
             </div>
+            <div class="infoLists">
+            <div id="studentList"></div>
+            <div id="gjoremaalList"</div>
+            </div>
     </div>
 
         <?php if(isset($selectedSchoolClass)){ include 'teacherClass.php';} ?>
