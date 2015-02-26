@@ -17,13 +17,15 @@ th, td, table{
     padding: 3px 10px;
     -webkit-border-radius: 5px;
 }
-.blur{
+/*
+    .blur{
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-filter: blur(30px);
     -webkit-transform: translate3d(0, 0, 0);
     background: url("../img/bg_bilde_sommer.jpg") fixed center;
+*/
 
 }
 
