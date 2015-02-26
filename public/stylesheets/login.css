@@ -79,7 +79,7 @@ label{
 #loginLogo{
 	width: 250px;
 	height: auto;
-	margin-left: 30px;
+	margin-left: 10px;
 }
 @media screen and (min-width: 660px) {
     #loginBoxWrapper{
