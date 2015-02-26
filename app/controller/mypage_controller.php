@@ -24,10 +24,12 @@
         }
 
         protected function routeAction() {
+            $classId = $this->getRegister()->getUser()->getClassID();
+            $this->index($classId);
         }
 
-        private function getHomework () {
-            return $this->doGetHomework($this->getRegister()->getUser());
+        private function getHomework ($classId) {
+            return $this->doGetHomework($classId);
         }
 
         private function index($id){
@@ -36,10 +38,7 @@
                 exit;
             }
             $this->showFullHeader();
-            $homeworkList = $this->getHomework();
-            foreach ($homeworkList as $homeworkItem) {
-                echo "<li>".$homeworkItem."</li>";
-            }
+            $homeworkList = $this->getHomework($id);
             include $this->getRegister()->getRoot().'/app/views/mypage_view.php';
             $this->showFooter();
         }

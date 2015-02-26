@@ -11,7 +11,7 @@
         $sql = $database->prepare("SELECT * FROM learningobjects
           JOIN homework ON homework.learningobjectid = learningobjects.id
           JOIN classsubjects ON classsubjects.id = homework.classsubjectid
-          WHERE classid = :classSubjectId");
+          WHERE classid = :classId");
 
         $sql->execute(array(
             'classId' => $classId
