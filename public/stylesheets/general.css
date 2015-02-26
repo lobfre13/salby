@@ -32,7 +32,7 @@ a:hover{
 }
 
 #header{
-	height: 40px;
+	height: 43px;
 	width: 100%;
 	background-color: #222222;
 }
@@ -126,6 +126,7 @@ a:hover{
 #headerLogo{
 	width: 160px;
 	height: auto;
+    margin-top: 5px;
 }
 
 
