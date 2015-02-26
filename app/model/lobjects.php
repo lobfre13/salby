@@ -1,13 +1,11 @@
 <?php
 
-    function getUserLobjects($user){
+    function getUserCategories($user){
         global $database;
-        $sql = $database->prepare("SELECT * FROM classsubject
-                                  join subject on subject.id = classsubject.subjectid
-                                  join subjectcategory on subjectcategory.subjectid = subject.id
-                                  join category on categoryid = category.id
-                                  join learningobjectcategory on learningobjectcategory.categoryid = category.id
-                                  join learningobjects on learningobjectid = learningobjects.id
+        $sql = $database->prepare("SELECT classsubjects.subjectid, categories.imgurl, categories.category, categories.id
+                                  FROM classsubjects
+                                  join subjectcategory on subjectcategory.subjectid = classsubjects.subjectid
+                                  join categories on categoryid = categories.id
                                   where classid=:classid");
         $sql->execute(array(
             'classid' => $user->getClassID()
@@ -16,9 +14,18 @@
 
     }
 
+    function getAllLobjects(){
+        global $database;
+        $sql = $database->prepare("SELECT * FROM learningobjects
+                                  JOIN learningobjectcategory ON learningobjectid = learningobjects.id
+                                  ");
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function getUserSubjects($user){
         global $database;
-        $sql = $database->prepare("SELECT * from classsubject JOIN subject on subjectid = subject.id WHERE classid = :classid");
+        $sql = $database->prepare("SELECT * from classsubjects JOIN subjects on subjectid = subjects.id WHERE classid = :classid");
         $sql->execute(array(
             'classid' => $user->getClassID()
         ));

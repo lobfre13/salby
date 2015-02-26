@@ -23,11 +23,9 @@
             $this->gotoStartPage();
             $urlElements = $this->getRegister()->getUrlElements();
 
-            $lobjects = getUserLobjects($this->getRegister()->getUser());
+            $categories = getUserCategories($this->getRegister()->getUser());
             $subjects = getUserSubjects($this->getRegister()->getUser());
-            $categoryid = null;
-            if(isset($urlElements[2]))
-                $categoryid = $this->getRegister()->getUrlElements()[2];
+            $lobjects = getAllLobjects();
 
             $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/main.php';

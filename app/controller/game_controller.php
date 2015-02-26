@@ -23,35 +23,35 @@
             }
         }
 
-        protected function routeAction () {
+        protected function routeAction() {
             $urlElements = $this->getRegister()->getUrlElements();
             switch($this->getRegister()->getRequestMethod()) {
                 case 'GET':
-                    if (isset($urlElements[2])) {
-                        $this->addLObject($urlElements[2]);
-                    } else {
+                    if (isset($urlElements[2])) $this->index($urlElements[2]);
+                    else {
                         header("Location: /");
                         exit;
                     }
-                    $this->index();
                     break;
-
                 case 'POST':
-                    $this->updateFavourite($urlElements[2]);
-                    $this->index();
+                    if (isset($urlElements[2])) $this->updateFavourite($urlElements[2]);
                     break;
             }
         }
 
-        private function addLObject () {
-            //Denne metoden må lages.
-        }
-
-        private function updateFavourite ($lObjectId) {
+        private function updateFavourite($lObjectId) {
             doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
+            $this->index($lObjectId);
         }
 
-        private function index () {
+        private function index($id){
+            if(!is_numeric($id)){
+                header("Location: /");
+                exit;
+            }
+
+            $lobject = getLObject($id);
+
             $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/game_view.php';
             $this->showFooter();

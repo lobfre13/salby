@@ -2,7 +2,7 @@
 
         function getSubjects(){
             global $database;
-            $sql = $database->prepare("SELECT * FROM subject");
+            $sql = $database->prepare("SELECT * FROM subjects");
 
             $sql->execute();
 
@@ -11,7 +11,7 @@
 
        function doAddSubject(){
            global $database;
-           $sql = $database->prepare("INSERT INTO subject VALUES(null, :subjectname, :classlevel, :imgurl)");
+           $sql = $database->prepare("INSERT INTO subjects VALUES(null, :subjectname, :classlevel, :imgurl)");
 
            $sql->execute(array(
                'subjectname' => $_POST['subjectname'],
@@ -22,7 +22,7 @@
 
        function getSubject($id){
            global $database;
-           $sql = $database->prepare("SELECT * FROM subject WHERE id=:id");
+           $sql = $database->prepare("SELECT * FROM subjects WHERE id=:id");
 
            $sql->execute(array(
               'id' => $id
@@ -33,7 +33,7 @@
 
         function getCategories($subjectID){
             global $database;
-            $sql = $database->prepare("SELECT * FROM category JOIN subjectcategory on id = categoryid WHERE subjectid=:subjectid");
+            $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid WHERE subjectid=:subjectid");
 
             $sql->execute(array(
                'subjectid' => $subjectID
@@ -43,7 +43,7 @@
 
         function getAllCategories(){
             global $database;
-            $sql = $database->prepare("SELECT * FROM category JOIN subjectcategory on id = categoryid JOIN subject on subjectid = subject.id");
+            $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid JOIN subjects on subjectid = subjects.id");
 
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -51,7 +51,7 @@
 
         function doAddCategory($subjectID){
             global $database;
-            $sql = $database->prepare("INSERT INTO category VALUES(null, :categoryname, :imgurl)");
+            $sql = $database->prepare("INSERT INTO categories VALUES(null, :categoryname, :imgurl)");
 
             $sql->execute(array(
                'categoryname' => $_POST['categoryname'],

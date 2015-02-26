@@ -50,4 +50,5 @@
 	padding-top: 0;
 	background-size: 100% 100%;
 	border: 2px solid white;
+    overflow: hidden;
 }
