@@ -12,7 +12,8 @@
 	margin-top: 20px;
 	padding: 0px;
 	overflow: hidden;
-    height: 140px;
+    height: 150px;
+    text-shadow: 1px 1px #000000;
 
 }
 .subjectimg{
