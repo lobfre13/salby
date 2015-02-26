@@ -2,7 +2,7 @@
 
         <div id="subjects">
             <?php foreach($subjects as $subject) { ?>
-                <a href="#fag-<?php echo $subject['subjectid'];?>"><div class="subject"><img src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
+                <a href="#fag-<?php echo $subject['subjectid'];?>"><div class="subject"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
             <?php } ?>
         </div>
 

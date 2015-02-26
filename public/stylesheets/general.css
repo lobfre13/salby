@@ -79,6 +79,10 @@ a:hover{
 	-webkit-transition:opacity 0.3s;
 }
 
+#dropDownMainMenu img{
+    width: 40px;
+}
+
 #hamMenu:hover #dropDownMainMenu{
 	height: auto;
 	opacity: 1;
@@ -171,7 +175,7 @@ a:hover{
 	#socialNetworkLinks{
 		position: absolute;
 		right: 5px;
-		top: -3px;
+		top: -8px;
 	}
 }
 
