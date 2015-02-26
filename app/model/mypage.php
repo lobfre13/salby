@@ -39,5 +39,5 @@
             'classId' => $classId
         ));
 
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $sql->fetch(PDO::FETCH_ASSOC);
     }

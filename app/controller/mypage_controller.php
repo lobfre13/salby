@@ -29,7 +29,15 @@
         }
 
         private function getHomework ($classId) {
-            return $this->doGetHomework($classId);
+            return doGetHomework($classId);
+        }
+
+        private function getClass ($classId) {
+            return doGetClass($classId);
+        }
+
+        private function getFavourites () {
+            return doGetFavourites($this->getRegister()->getUser()->getUsername());
         }
 
         private function index($id){
@@ -38,7 +46,9 @@
                 exit;
             }
             $this->showFullHeader();
+            $schoolClass = $this->getClass($id);
             $homeworkList = $this->getHomework($id);
+            $favourtieList = $this->getFavourites();
             include $this->getRegister()->getRoot().'/app/views/mypage_view.php';
             $this->showFooter();
         }
