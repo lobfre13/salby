@@ -6,7 +6,7 @@
  * Time: 15:09
  */
 
-    function doGetHomework ($classSubjectId) {
+    function doGetHomework ($classId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM learningobjects
           JOIN homework ON homework.learningobjectid = learningobjects.id
@@ -14,7 +14,29 @@
           WHERE classid = :classSubjectId");
 
         $sql->execute(array(
-            'classSubjectId' => $classSubjectId
+            'classId' => $classId
+        ));
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function doGetFavourites ($username) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM favourites JOIN learningobjects WHERE username = :username");
+
+        $sql->execute(array(
+            'username' => $username
+        ));
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function doGetClass ($classId) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM classes WHERE id = :classId");
+
+        $sql->execute(array(
+            'classId' => $classId
         ));
 
         return $sql->fetchAll(PDO::FETCH_ASSOC);
