@@ -2,7 +2,7 @@
     <div id="game" class="subjectContent">
         <h2><?php echo $lobject['title']; ?></h2>
         <form method="post">
-            <label>Legg til i favoritter: <input type="submit" name="favoritter" value = "<3"></label>
+            <label>Legg til i favoritter: <input type="submit" name="favoritter" value=""></label>
         </form>
 
         <h1>Her er læringsobjektet.</h1>
