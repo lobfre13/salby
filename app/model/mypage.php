@@ -22,7 +22,9 @@
 
     function doGetFavourites ($username) {
         global $database;
-        $sql = $database->prepare("SELECT * FROM favourites JOIN learningobjects WHERE username = :username");
+        $sql = $database->prepare("SELECT * FROM favourites
+          JOIN learningobjects ON learningobjects.id = learningobjectid
+          WHERE username = :username");
 
         $sql->execute(array(
             'username' => $username

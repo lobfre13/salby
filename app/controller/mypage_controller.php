@@ -6,8 +6,14 @@
  * Time: 15:06
  */
 
+
+
     class mypageController extends superController{
 
+        //Fields
+        private $homeworkList;
+
+        //Constructor
         public function __construct ($register) {
             parent::__construct($register);
             $this->checkUserAccess();
@@ -15,12 +21,17 @@
             $this->routeAction();
         }
 
+        //Operations
         protected function checkUserAccess(){
             $user = $this->getRegister()->getUser();
             if(!isset($user)){
                 header("Location: /login");
                 exit;
             }
+        }
+
+        public function getHomeworkList() {
+            return $this->homeworkList;
         }
 
         protected function routeAction() {
@@ -36,8 +47,8 @@
             return doGetClass($classId);
         }
 
-        private function getFavourites () {
-            return doGetFavourites($this->getRegister()->getUser()->getUsername());
+        private function getFavourites ($username) {
+            return doGetFavourites($username);
         }
 
         private function index($id){
@@ -46,9 +57,11 @@
                 exit;
             }
             $this->showFullHeader();
+
+            $username = $this->getRegister()->getUser()->getUsername();
             $schoolClass = $this->getClass($id);
             $homeworkList = $this->getHomework($id);
-            $favourtieList = $this->getFavourites();
+            $favouriteList = $this->getFavourites($username);
             include $this->getRegister()->getRoot().'/app/views/mypage_view.php';
             $this->showFooter();
         }
