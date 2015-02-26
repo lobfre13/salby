@@ -38,3 +38,4 @@
 
         <?php if(isset($selectedSchoolClass)){ include 'teacherClass.php';} ?>
     </div>
+ </div>
