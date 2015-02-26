@@ -157,7 +157,7 @@ a:hover{
 
 @media screen and (min-width: 660px) {
     html {
-        background: url("/public/img/bg_bilde_sommer.jpg") fixed center;
+        background: url("/public/img/bg_bilde_sommer3.jpg") fixed bottom;
         background-size: cover;
     }
     #content{
