@@ -1,11 +1,9 @@
 <div id="content" class="widthConstrained">
     <div id="game" class="subjectContent">
-        <h2><?php echo $lobject['title']; ?></h2>
+<!--        <h2>--><?php //echo $lobject['title']; ?><!--</h2>-->
         <form method="post">
             <label>Legg til i favoritter: <input type="submit" name="favoritter" value=""></label>
         </form>
-
-        <h1>Her er læringsobjektet.</h1>
 
         <iframe seamless src="<?php echo $lobject['link']; ?>" frameborder="none" scrolling="no" onload="resizeIframe(this)"></iframe>
     </div>

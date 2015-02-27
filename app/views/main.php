@@ -18,7 +18,7 @@
         <?php foreach($categories as $category){ ?>
             <div id="kategori-<?php echo $category['id']; ?>" class="subjectContent">
                 <?php foreach($lobjects as $lobject){ ?>
-                    <?php if($lobject['categoryid'] == $category['id']) echo '<a href="/game/id/'.$lobject['id'].'"><div class="category" style="background-image: url('.$lobject['imgurl'].');">'.$lobject['title'].'</div></a>';?>
+                    <?php if($lobject['categoryid'] == $category['id']) echo '<a href="/game/id/'.$lobject['id'].'"><div class="category" style="background-image: url('.$lobject['imgurl'].');"><h4 class="categoryname">'.$lobject['title'].'</h4></div></a>';?>
                 <?php } ?>
             </div>
         <?php } ?>

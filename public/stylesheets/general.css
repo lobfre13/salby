@@ -2,7 +2,7 @@
 
 html *
 {
-	font-family: "Helvetica";
+    font-family: 'Ubuntu', sans-serif;
 }
 ul{
     list-style-type: none;
