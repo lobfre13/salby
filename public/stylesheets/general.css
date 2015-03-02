@@ -1,8 +1,8 @@
 /* GENERAL + HEADER AND FOOTER */
-
 html *
 {
     font-family: 'Ubuntu', sans-serif;
+    height: 100%;
 }
 ul{
     list-style-type: none;
