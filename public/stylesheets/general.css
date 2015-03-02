@@ -1,6 +1,5 @@
 /* GENERAL + HEADER AND FOOTER */
-html *
-{
+html {
     font-family: 'Ubuntu', sans-serif;
     height: 100%;
 }
