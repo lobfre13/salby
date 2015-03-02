@@ -57,7 +57,10 @@
             $this->showFullHeader();
 
             $username = $this->getRegister()->getUser()->getUsername();
-            $weeknumber = 40;
+
+            $studentFullName = doGetStudentFullName($username);
+
+            $weeknumber = doGetWeekNumber();
             $schoolClass = $this->getClass($id);
             $homeworkList = $this->getHomework($id);
             $favouriteList = $this->getFavourites($username);

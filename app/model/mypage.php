@@ -43,3 +43,23 @@
 
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
+
+    function doGetWeekNumber () {
+        date_default_timezone_set(date_default_timezone_get());
+        $date = date('m/d/Y h:i:s a', time());
+        $dateTime = new DateTime($date);
+        $week = $dateTime->format("W");
+        return $week;
+    }
+
+    function doGetStudentFullName ($username) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM users WHERE username = :username");
+
+        $sql->execute(array(
+            'username' => $username
+        ));
+
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+

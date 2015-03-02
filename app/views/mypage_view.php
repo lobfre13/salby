@@ -2,7 +2,7 @@
     <div id="usernameAndClass">
         <ul>
             <?php
-                echo '<li>' . $username . '</li>';
+                echo '<li>' . $studentFullName['firstname'] . ' ' . $studentFullName['lastname'] . '</li>';
                 echo '<li>' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
             ?>
         </ul>
@@ -15,8 +15,6 @@
             echo 'Lekser uke ' . $weeknumber;
         ?>
     </h2>
-
-    <br>
 
     <div id="homeworkList">
         <ul>
@@ -31,8 +29,6 @@
     <br>
 
     <h2>Favoritter</h2>
-
-    <br>
 
     <div id="favouriteList">
         <ul>
