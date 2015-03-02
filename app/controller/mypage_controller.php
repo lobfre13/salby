@@ -6,8 +6,6 @@
  * Time: 15:06
  */
 
-
-
     class mypageController extends superController{
 
         //Fields
@@ -59,6 +57,7 @@
             $this->showFullHeader();
 
             $username = $this->getRegister()->getUser()->getUsername();
+            $weeknumber = 40;
             $schoolClass = $this->getClass($id);
             $homeworkList = $this->getHomework($id);
             $favouriteList = $this->getFavourites($username);

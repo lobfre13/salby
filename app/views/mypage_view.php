@@ -1,11 +1,20 @@
 <div id="content" class="widthConstrained">
     <div id="usernameAndClass">
-        <p>
+        <ul>
             <?php
-                echo $username . ' ' . $schoolClass['classlevel'] . $schoolClass['classname'];
+                echo '<li>' . $username . '</li>';
+                echo '<li>' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
             ?>
-        </p>
+        </ul>
     </div>
+
+    <br>
+
+    <h2>
+        <?php
+            echo 'Lekser uke ' . $weeknumber;
+        ?>
+    </h2>
 
     <br>
 
@@ -18,6 +27,10 @@
             ?>
         </ul>
     </div>
+
+    <br>
+
+    <h2>Favoritter</h2>
 
     <br>
 
