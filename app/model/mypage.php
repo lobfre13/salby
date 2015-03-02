@@ -63,3 +63,31 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
+    function doGetSubject ($classId) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM learningobjects
+          JOIN learningobjectcategory ON learningobjectid = learningobjects.id
+          JOIN categories ON categories.id = categoryid
+          JOIN subjectcategory ON categories.id = subjectcategory.categoryid
+          JOIN subjects ON subjectid = subjects.id
+          JOIN homework ON homework.learningobjectid = learningobjects.id
+          JOIN classsubjects ON classsubjectid = classsubjects.id
+          WHERE classid = :classId");
+
+        $sql->execute(array(
+            'classId' => $classId
+        ));
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function doGetLearninObjectUrl ($learningObjectId) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM learningobjects WHERE id = :learningobjectid");
+
+        $sql->execute(array(
+            'learningobjectid' => $learningObjectId
+        ));
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
