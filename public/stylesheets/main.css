@@ -50,6 +50,7 @@
 	display: inline-block;
 	margin-left:20px;
 	margin-top: 20px;
+    cursor: pointer;
     margin-bottom: 20px;
 	padding-top: 0;
 	background-size: 100% 100%;
@@ -65,4 +66,24 @@
 .subjectname{
     width: 100px;
     margin: 0;
+}
+
+#game{
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#favIcon{
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-image: url("/public/img/favorittericon1.png");
+    background-size: 100% 100%;
+    background-color: Transparent;
+}
+#favIcon:hover{
+    background-image: url("/public/img/favorittericon2.png");
 }

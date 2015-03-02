@@ -21,11 +21,11 @@
         <?php foreach($categoryContents as $content){ ?>
             <div id="kategori-<?php echo $content[0]; ?>" class="subjectContent">
                 <?php foreach($content[1] as $lobject){ ?>
-                    <a href="/game/id/<?php echo $lobject['id']; ?>">
-                        <div class="category" style="background-image: url(<?php echo $lobject['imgurl']; ?>)">
+<!--                    <a href="/game/id/--><?php //echo $lobject['id']; ?><!--">-->
+                        <div onclick="loadGame(<?php echo $lobject['id']; ?>)" class="category" style="background-image: url(<?php echo $lobject['imgurl']; ?>)">
                             <h4 class="categoryname"><?php echo $lobject['title']; ?></h4>
                         </div>
-                    </a>
+<!--                    </a>-->
                 <?php } ?>
                 <?php foreach($content[2] as $subCat){?>
                     <a href="#kategori-<?php echo $subCat['id']; ?>">
@@ -37,5 +37,7 @@
             </div>
         <?php } ?>
 
+
+        <div id="game"> </div>
 
     </div>

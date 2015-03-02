@@ -41,7 +41,6 @@
 
         private function updateFavourite($lObjectId) {
             doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
-            $this->index($lObjectId);
         }
 
         private function index($id){
@@ -49,11 +48,8 @@
                 header("Location: /");
                 exit;
             }
-
             $lobject = getLObject($id);
 
-            $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/game_view.php';
-            $this->showFooter();
         }
     }
