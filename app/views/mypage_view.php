@@ -1,5 +1,5 @@
 <div id="content" class="widthConstrained">
-    <div id="usernameAndClass">
+    <div class="mypage" id="usernameAndClass">
         <ul>
             <?php
                 echo '<li>' . $studentFullName['firstname'] . ' ' . $studentFullName['lastname'] . '</li>';
@@ -16,7 +16,7 @@
         ?>
     </h2>
 
-    <div id="homeworkList">
+    <div class="mypage" id="homeworkList">
         <ul>
             <?php
             foreach ($homeworkList as $homeworkItem) {
@@ -30,7 +30,7 @@
 
     <h2>Favoritter</h2>
 
-    <div id="favouriteList">
+    <div class="mypage" id="favouriteList">
         <ul>
             <?php
             foreach ($favouriteList as $favouriteItem) {

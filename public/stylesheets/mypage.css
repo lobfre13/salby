@@ -1,3 +1,7 @@
+.mypage{
+    border-radius: 10px;
+}
+
 #usernameAndClass {
     background-color: #34B3D3;
     display: inline-block;

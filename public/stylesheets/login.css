@@ -1,5 +1,8 @@
 /* LOGIN PAGE */
-
+html{
+    height: 100%;
+    text-shadow: 1px 1px 3px #000000;
+}
 #loginBox{
     position: absolute;
 	text-align: center;
@@ -37,7 +40,7 @@
     -webkit-border-radius: 5px; 
     outline:0; 
     height:25px; 
-    width: 275px; 
+    width: 275px;
     padding-left:10px; 
     padding-right:10px;
 	border-style: none;
@@ -95,9 +98,16 @@ label{
     #loginBoxWrapper{
         height: 500px;
         margin-bottom: 0px;
+        padding: 0px;
     }
     #loginLogo{
         content: url("/public/img/logo_orange.png");
+    }
+    #loginBoxBG {
+        opacity: 0;
+    }
+    #loginBox{
+        width: 95%;
     }
 }
 
