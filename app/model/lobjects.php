@@ -45,3 +45,28 @@
         ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function &getSubjectCategories($subjects){
+        foreach($subjects as $subject){
+            $subjectCategories []= [$subject['id'], getUserCategories($subject['id'])];
+        }
+        return $subjectCategories;
+    }
+
+    function &getCategoryContents($subjectCategories){
+        foreach($subjectCategories as $categories){
+            foreach($categories[1] as $category){
+                $categoryContents []= [$category['id'], getAllLobjects($category['id']), getSubCategories($category['id'])];
+            }
+        }
+
+        for($i = 0; $i < count($categoryContents); $i++){
+            for($j = 0; $j < count($categoryContents[$i][2]); $j++){
+                if(isset($categoryContents[$i][2][$j]['id'])){
+                    $id = $categoryContents[$i][2][$j]['id'];
+                    $categoryContents []= [$id, getAllLobjects($id), getSubCategories($id)];
+                }
+            }
+        }
+        return $categoryContents;
+    }

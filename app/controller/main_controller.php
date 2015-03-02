@@ -25,22 +25,8 @@
             $urlElements = $this->getRegister()->getUrlElements();
             $subjects = getUserSubjects($this->getRegister()->getUser());
 
-            //WTF brainfuck...
-            foreach($subjects as $subject){
-                $subjectCategories []= [$subject['id'], getUserCategories($subject['id'])];
-            }
-
-            foreach($subjectCategories as $categories){
-                foreach($categories[1] as $category){
-                    $categoryContents []= [$category['id'], getAllLobjects($category['id']), getSubCategories($category['id'])];
-                }
-            }
-            foreach($categoryContents as &$content){
-                foreach($content[2] as $subCat){
-                    $categoryContents []= [$subCat['id'], getAllLobjects($subCat['id']), getSubCategories($subCat['id'])];
-                }
-            }
-
+            $subjectCategories = getSubjectCategories($subjects);
+            $categoryContents = getCategoryContents($subjectCategories);
 
             $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/main.php';

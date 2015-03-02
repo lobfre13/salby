@@ -18,7 +18,7 @@
             </div>
         <?php } ?>
 
-        <?php foreach($categoryContents as &$content){ ?>
+        <?php foreach($categoryContents as $content){ ?>
             <div id="kategori-<?php echo $content[0]; ?>" class="subjectContent">
                 <?php foreach($content[1] as $lobject){ ?>
                     <a href="/game/id/<?php echo $lobject['id']; ?>">
