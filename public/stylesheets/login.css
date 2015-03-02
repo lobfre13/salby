@@ -1,6 +1,7 @@
 /* LOGIN PAGE */
 html{
     text-shadow: 1px 1px 3px #000000;
+    text-align: center;
 }
 #loginBox{
 	text-align: center;
