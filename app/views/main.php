@@ -6,19 +6,33 @@
             <?php } ?>
         </div>
 
-        <?php foreach($subjects as $subject) { ?>
-            <div id="fag-<?php echo $subject['subjectid'];?>" class="subjectContent">
-                <?php foreach($categories as $category) {
-                    if($category['subjectid'] == $subject['subjectid']) echo '<a href="#kategori-'.$category['id'].'"><div class="category" style="background-image: url('.$category['imgurl'].');"><h4 class="categoryname">'.$category['category'].'</h4></div></a>';
-                } ?>
+        <?php foreach($subjectCategories as $subjectCategory) { ?>
+            <div id="fag-<?php echo $subjectCategory[0];?>" class="subjectContent">
+                <?php foreach($subjectCategory[1] as $category) {?>
+                    <a href="#kategori-<?php echo $category['id']; ?>">
+                        <div class="category" style="background-image: url(<?php echo $category['imgurl']; ?>)">
+                            <h4 class="categoryname"><?php echo $category['category']; ?></h4>
+                        </div>
+                    </a>
+                <?php } ?>
             </div>
-
         <?php } ?>
 
-        <?php foreach($categories as $category){ ?>
-            <div id="kategori-<?php echo $category['id']; ?>" class="subjectContent">
-                <?php foreach($lobjects as $lobject){ ?>
-                    <?php if($lobject['categoryid'] == $category['id']) echo '<a href="/game/id/'.$lobject['id'].'"><div class="category" style="background-image: url('.$lobject['imgurl'].');"><h4 class="categoryname">'.$lobject['title'].'</h4></div></a>';?>
+        <?php foreach($categoryContents as &$content){ ?>
+            <div id="kategori-<?php echo $content[0]; ?>" class="subjectContent">
+                <?php foreach($content[1] as $lobject){ ?>
+                    <a href="/game/id/<?php echo $lobject['id']; ?>">
+                        <div class="category" style="background-image: url(<?php echo $lobject['imgurl']; ?>)">
+                            <h4 class="categoryname"><?php echo $lobject['title']; ?></h4>
+                        </div>
+                    </a>
+                <?php } ?>
+                <?php foreach($content[2] as $subCat){?>
+                    <a href="#kategori-<?php echo $subCat['id']; ?>">
+                        <div class="category" style="background-image: url(<?php echo $subCat['imgurl']; ?>)">
+                            <h4 class="categoryname"><?php echo $subCat['category']; ?></h4>
+                        </div>
+                    </a>
                 <?php } ?>
             </div>
         <?php } ?>
