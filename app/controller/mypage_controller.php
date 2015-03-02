@@ -49,6 +49,10 @@
             return doGetFavourites($username);
         }
 
+        private function getSubject ($classId) {
+            return doGetSubject($classId);
+        }
+
         private function index($id){
             if(!is_numeric($id)){
                 header("Location: /");
@@ -59,6 +63,8 @@
             $username = $this->getRegister()->getUser()->getUsername();
 
             $studentFullName = doGetStudentFullName($username);
+            $homeworkSubjects = $this->getSubject($id);
+            $imgUrls = doGetLearninObjectUrl($id);
 
             $weeknumber = doGetWeekNumber();
             $schoolClass = $this->getClass($id);

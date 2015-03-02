@@ -1,5 +1,5 @@
 <div id="content" class="widthConstrained">
-    <div class="mypage" id="usernameAndClass">
+    <div id="usernameAndClass">
         <ul>
             <?php
                 echo '<li>' . $studentFullName['firstname'] . ' ' . $studentFullName['lastname'] . '</li>';
@@ -16,28 +16,50 @@
         ?>
     </h2>
 
-    <div class="mypage" id="homeworkList">
-        <ul>
-            <?php
-            foreach ($homeworkList as $homeworkItem) {
-                echo '<li><a href="/game/id/' . $homeworkItem['learningobjectid'] . '">' . $homeworkItem['title'] . '</a></li>';
-            }
-            ?>
-        </ul>
+    <div id="homeworkList">
+
+        <table style="width:100%">
+            <tr>
+                <td>Fag</td>
+                <td>Oppgave</td>
+                <td>Frist</td>
+                <td>Utført</td>
+            </tr>
+            <tr>
+                <?php
+                foreach ($homeworkList as $homeworkItem) {
+                    foreach ($homeworkSubjects as $homeworkSubject) {
+                        echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
+                        echo '<td><a href="/game/id/' . $homeworkItem['learningobjectid'] . '">' .
+                            $homeworkItem['title'] . '</a></td>';
+                        echo '<td>13-12-2014</td>';
+                        echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
+                        }
+                    }
+                ?>
+            </tr>
+        </table>
     </div>
 
     <br>
 
     <h2>Favoritter</h2>
 
-    <div class="mypage" id="favouriteList">
-        <ul>
-            <?php
-            foreach ($favouriteList as $favouriteItem) {
-                echo '<li><a href="/game/id/' . $favouriteItem['learningobjectid'] . '">' . $favouriteItem['title'] . '</a></li>';
-            }
-            ?>
-        </ul>
+    <div id="favouriteList">
+
+        <table style="width:100%">
+            <tr>
+                <?php
+                foreach ($favouriteList as $favouriteItem) {
+                    foreach ($homeworkSubjects as $homeworkSubject) {
+                        foreach ($imgUrls as $imgUrl) {
+                            echo '<td><img src="' . $imgUrl['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a></td>';
+                        }
+                    }
+                }
+                ?>
+            </tr>
+        </table>
     </div>
 </div>
 
