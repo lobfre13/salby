@@ -1,15 +1,15 @@
 /* GENERAL + HEADER AND FOOTER */
-html {
+html, body {
     font-family: 'Ubuntu', sans-serif;
     height: 100%;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    overflow: auto;
 }
 ul{
     list-style-type: none;
     padding: 0;
-}
-
-html, body {
-	margin: 0;
 }
 
 a, a:visited{

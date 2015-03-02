@@ -3,32 +3,10 @@ html{
     text-shadow: 1px 1px 3px #000000;
 }
 #loginBox{
-    position: absolute;
 	text-align: center;
 	color: white;
-    z-index: 1;
-    margin: auto;
-}
-
-#loginBoxWrapper{
-    position: relative;
-    width:300px;
-    margin: auto;
-    overflow:hidden;
-    padding: 20px;
-    padding-top: 0;
-}
-#loginBoxBG{
-    position: absolute;
-    z-index: 0;
-    opacity: 0.6;
-    background-color: grey;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-
+    display: inline-block;
+    padding: 10px;
 }
 
 #loginBox input[type="text"], #loginBox input[type="password"],
@@ -85,28 +63,25 @@ label{
 }
 
 @media screen and (min-width: 660px) {
-    #loginBoxWrapper{
-        margin-bottom: 125px;
-        height: 575px;
-    }
     #loginLogo{
         content: url("/public/img/SALABY_Logo_Orange.png");
     }
 }
 @media screen and (max-width: 659px) {
-    #loginBoxWrapper{
-        height: 500px;
-        margin-bottom: 0px;
-        padding: 0px;
-    }
     #loginLogo{
         content: url("/public/img/logo_orange.png");
     }
-    #loginBoxBG {
-        opacity: 0;
-    }
+
     #loginBox{
-        width: 95%;
+        padding-top: 0;
+    }
+
+    #loginBox input[type="text"], #loginBox input[type="password"],
+    .signup input[type="text"], .signup input[type="password"]{
+        width: 93%;
+    }
+    form p{
+        margin: 0;
     }
 }
 
