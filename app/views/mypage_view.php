@@ -26,16 +26,14 @@
                 <td>Utført</td>
             </tr>
                 <?php
-                foreach ($homeworkList as $homeworkItem) {
-                    foreach ($homeworkSubjects as $homeworkSubject) {
-                        echo '<tr>';
-                        echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
-                        echo '<td><a href="/game/id/' . $homeworkItem['learningobjectid'] . '">' .
-                            $homeworkItem['title'] . '</a></td>';
-                        echo '<td>13-12-2014</td>';
-                        echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
-                        echo '</tr>';
-                        }
+                foreach ($homeworkSubjects as $homeworkSubject) {
+                    echo '<tr>';
+                    echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
+                    echo '<td><a href="/game/id/' . $homeworkSubject['learningobjectid'] . '">' .
+                        $homeworkSubject['title'] . '</a></td>';
+                    echo '<td>13-12-2014</td>';
+                    echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
+                    echo '</tr>';
                     }
                 ?>
             </tr>
@@ -52,11 +50,7 @@
             <tr>
                 <?php
                 foreach ($favouriteList as $favouriteItem) {
-                    foreach ($homeworkSubjects as $homeworkSubject) {
-                        foreach ($imgUrls as $imgUrl) {
-                            echo '<td><img src="' . $imgUrl['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a></td>';
-                        }
-                    }
+                    echo '<td><img src="' . $favouriteItem['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a></td>';
                 }
                 ?>
             </tr>
