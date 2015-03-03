@@ -1,3 +1,6 @@
-  <?php echo '<label>Legg til i favoritter:</label><div id="favIcon" onclick="addFavourite('.$lobject['id'].')"></div>
-    <iframe seamless src="'.$lobject['link'].'" frameborder="none" scrolling="no" onload="resizeIframe(this)"></iframe>';
+   <div id="AddFavourite">
+       <label>Legg til i favoritter:</label>
+            <div id="favIcon" onclick="addFavourite(<?php echo $lobject['id']; ?>)"></div>
+   </div>
+    <iframe seamless src="<?php echo $lobject['link']; ?>" frameborder="none" scrolling="no" onload="resizeIframe(this)"></iframe>
 
