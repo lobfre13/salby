@@ -29,7 +29,7 @@
                 foreach ($homeworkSubjects as $homeworkSubject) {
                     echo '<tr>';
                     echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
-                    echo '<td><a href="/game/id/' . $homeworkSubject['learningobjectid'] . '">' .
+                    echo '<td><a href="/main/game/' . $homeworkSubject['learningobjectid'] . '">' .
                         $homeworkSubject['title'] . '</a></td>';
                     echo '<td>13-12-2014</td>';
                     echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
@@ -48,7 +48,7 @@
 
                 <?php
                 foreach ($favouriteList as $favouriteItem) {
-                    echo ' <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a>';
+                    echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
                 }
                 ?>
     </div>

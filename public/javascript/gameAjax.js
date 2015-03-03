@@ -10,16 +10,18 @@ function loadGame(str) {
                 document.getElementById("game").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET","game/id/"+str, true);
+        xmlhttp.open("GET","/main/ajax/"+str, true);
         xmlhttp.send();
+        window.location.href = "#";
     }
 }
 
 function addFavourite(str){
     if (str == "") return;
     else {
+
         xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST","game/id/"+str, true);
+        xmlhttp.open("POST","/main/game/"+str, true);
         xmlhttp.send();
     }
 }

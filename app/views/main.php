@@ -38,6 +38,6 @@
         <?php } ?>
 
 
-        <div id="game"><?php if(isset($a)) echo $a; ?> </div>
+        <div id="game"><?php echo $gameHTML; ?></div>
 
     </div>

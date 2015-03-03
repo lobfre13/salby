@@ -46,10 +46,6 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function doGetPath () {
-        return $_SERVER['REQUEST_URI'];
-    }
-
     function &getSubjectCategories($subjects){
         foreach($subjects as $subject){
             $subjectCategories []= [$subject['id'], getUserCategories($subject['id'])];
