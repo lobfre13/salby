@@ -25,15 +25,16 @@
                 <td>Frist</td>
                 <td>Utført</td>
             </tr>
-            <tr>
                 <?php
                 foreach ($homeworkList as $homeworkItem) {
                     foreach ($homeworkSubjects as $homeworkSubject) {
+                        echo '<tr>';
                         echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
                         echo '<td><a href="/game/id/' . $homeworkItem['learningobjectid'] . '">' .
                             $homeworkItem['title'] . '</a></td>';
                         echo '<td>13-12-2014</td>';
                         echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
+                        echo '</tr>';
                         }
                     }
                 ?>

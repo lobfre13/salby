@@ -33,6 +33,8 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    //function doGetParent ()
+
     function doGetClass ($classId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM classes WHERE id = :classId");
