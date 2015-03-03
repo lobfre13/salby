@@ -1,9 +1,18 @@
     <script>
         function nav(obj, id){
-            window.location.href = '#fag-'+id;
-           var subjects =  document.getElementsByClassName("subjectimg");
+            var url = document.URL;
+            var opacityValue = '0.3';
+            if(url.indexOf("#fag-"+ id) > -1){
+                opacityValue = '1';
+                window.location.href = "#";
+            }
+            else{
+                window.location.href = '#fag-'+id;
+            }
+
+            var subjects =  document.getElementsByClassName("subjectimg");
             for(var i = 0; i < subjects.length; i++){
-                subjects[i].style.opacity = '0.3';
+                subjects[i].style.opacity = opacityValue;
             }
             obj.firstChild.style.opacity = "1";
         }

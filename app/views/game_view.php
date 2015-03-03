@@ -1,8 +1,4 @@
 
-<script>
-    document.getElementById("path").innerHTML = "lal";
-</script>
-<h5 id="path"></h5>
     <div id="AddFavourite">
        <label>Legg til i favoritter:</label>
             <div id="favIcon" onclick="addFavourite(<?php echo $lobject['id']; ?>)"></div>
