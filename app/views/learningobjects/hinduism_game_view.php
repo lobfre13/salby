@@ -41,9 +41,9 @@
 </div>
 
 <div id = "Pudsja">
-    <img src="../../../public/img/fagbilder/engelsk.png">
+    <img src="../../../public/img/hinduismespillet/Pil1.png">
     <img src="../../../public/img/hinduismespillet/FoH-Pudsja.png">
-    <img src="../../../public/img/fagbilder/engelsk.png">
+    <img src="../../../public/img/hinduismespillet/Pil1.png">
 
     <h1>Bønn - Pudsja</h1>
 
