@@ -50,6 +50,13 @@ a:hover{
 	top: 0px;
 	left: 10px;
 }
+#classRangeLabel{
+    position: absolute;
+    left: 50px;
+    top: -10px;
+    width: 100px;
+    color: white;
+}
 
 #hamMenu:hover{
 	background-color: #555555;
