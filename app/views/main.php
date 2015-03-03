@@ -1,8 +1,18 @@
+    <script>
+        function nav(obj, id){
+            window.location.href = '#fag-'+id;
+           var subjects =  document.getElementsByClassName("subjectimg");
+            for(var i = 0; i < subjects.length; i++){
+                subjects[i].style.opacity = '0.3';
+            }
+            obj.firstChild.style.opacity = "1";
+        }
+    </script>
     <div id="content" class="widthConstrained">
 
         <div id="subjects">
             <?php foreach($subjects as $subject) { ?>
-                <a href="#fag-<?php echo $subject['subjectid'];?>"><div class="subject"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
+                <div onclick="nav(this,<?php echo $subject['subjectid'];?>)" class="subject"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div>
             <?php } ?>
         </div>
 

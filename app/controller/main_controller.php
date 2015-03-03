@@ -16,16 +16,12 @@
 
             switch($this->getRegister()->getRequestMethod()){
                 case 'GET':
-                    if(isset($url[1]) and $url[1] === 'section'){
-                        $this->loadSection($url[2]);
-                    }
-                    else if(isset($url[1]) and $url[1] === 'ajax'){
+                    if(isset($url[1]) and $url[1] === 'ajax'){
                         echo $this->loadGame($url[2]);
                     }
                     else $this->index();
                     break;
                 case 'POST':
-                    echo 'lol';
                     if (isset($url[2])) $this->updateFavourite($url[2]);
                     break;
             }
@@ -82,6 +78,5 @@
         private function updateFavourite($lObjectId) {
             doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
-
 
     }
