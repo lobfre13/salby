@@ -37,7 +37,6 @@
             </div>
         <?php } ?>
 
-
         <div id="game"> </div>
 
     </div>

@@ -28,6 +28,8 @@
             $subjectCategories = getSubjectCategories($subjects);
             $categoryContents = getCategoryContents($subjectCategories);
 
+            $filePath = doGetPath();
+
             $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/main.php';
             $this->showFooter();
