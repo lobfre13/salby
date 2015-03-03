@@ -16,14 +16,6 @@
     text-shadow: 1px 1px #000000;
 
 }
-.subjectimg{
-    opacity: 0.7;
-    -webkit-transition: opacity 0.3s;
-}
-
-.subjectimg:hover{
-	opacity: 1;
-}
 
 .subject img{
 	height: 100px;
@@ -86,4 +78,27 @@
 }
 #favIcon:hover{
     background-image: url("/public/img/favorittericon2.png");
+}
+
+
+
+@media screen and (min-width: 660px) {
+    .subjectimg{
+        opacity: 0.7;
+        -webkit-transition: opacity 0.3s;
+    }
+
+    .subjectimg:hover{
+        opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: 659px) {
+    .subjectimg{
+        opacity: 1;
+        -webkit-transition: opacity 0.3s;
+    }
+
+
 }
