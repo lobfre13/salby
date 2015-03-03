@@ -11,6 +11,7 @@
 					<li>5-7. Klasse<img src="/public/img/lock.png"></li>
 				</ul>
 			</div>
+            <h4 id="classRangeLabel">1-2. Klasse</h4>
 		</div>
 
 		<div class="center"> <a id="logoLink" href="/"><img id="headerLogo" src="/public/img/SALABY_Logo_Blue.png" alt="logo"/></a></div>

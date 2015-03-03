@@ -17,6 +17,7 @@
 
         protected function showFullHeader(){
             $this->showHeader();
+
             include $this->getRegister()->getRoot().'/app/views/template/headerMenu.php';
         }
 
