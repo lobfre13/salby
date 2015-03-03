@@ -205,6 +205,10 @@ a:hover{
     .topMenuUser{
         display: none;
     }
+    #profilePic{
+        margin-right: 10px;
+
+    }
     #classRangeLabel{
         display: none;
     }
