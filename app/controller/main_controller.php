@@ -6,12 +6,17 @@
             parent::__construct($register);
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/lobjects.php';
+            include $this->getRegister()->getRoot().'/app/model/game.php';
             $this->routeAction();
         }
 
         protected function routeAction(){
+            $url = $this->getRegister()->getUrlElements();
             switch($this->getRegister()->getRequestMethod()){
                 case 'GET':
+                    if(isset($url[2]))
+                    $this->loadGame();
+                    else
                     $this->index();
                     break;
                 case 'POST':
@@ -55,6 +60,35 @@
             if(!isset($user)){
                 header("Location: /login");
                 exit;
+            }
+        }
+
+        private function loadGame(){
+
+            $url = $this->getRegister()->getUrlElements();
+            switch($url[2]){
+                case 1:
+                    $lobject = getLObject(1);
+                    ob_start();
+                    echo 'lol';
+                    include $this->getRegister()->getRoot()."/app/views/game_view.php";
+                    $a = ob_get_clean();
+
+                    $subjects = [];
+
+                    $subjectCategories = [];
+                    $categoryContents = [];
+
+                    $this->showFullHeader();
+                    include $this->getRegister()->getRoot().'/app/views/main.php';
+                    $this->showFooter();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
             }
         }
 
