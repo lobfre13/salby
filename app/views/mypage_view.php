@@ -1,9 +1,9 @@
 <div id="content" class="widthConstrained">
-    <div id="usernameAndClass">
+    <div class="mypage"  id="usernameAndClass">
         <ul>
             <?php
                 echo '<li>' . $studentFullName['firstname'] . ' ' . $studentFullName['lastname'] . '</li>';
-                echo '<li>' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
+                echo '<li> Klasse ' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
             ?>
         </ul>
     </div>
@@ -16,15 +16,15 @@
         ?>
     </h2>
 
-    <div id="homeworkList">
+    <div class="mypage" id="homeworkList">
 
         <table style="width:100%">
-            <tr>
-                <td>Fag</td>
-                <td>Oppgave</td>
-                <td>Frist</td>
-                <td>Utført</td>
-            </tr>
+                <tr id="homeworkListHeader">
+                    <td>Fag</td>
+                    <td>Oppgave</td>
+                    <td>Frist</td>
+                    <td>Utført</td>
+                </tr>
                 <?php
                 foreach ($homeworkSubjects as $homeworkSubject) {
                     echo '<tr>';
@@ -44,17 +44,13 @@
 
     <h2>Favoritter</h2>
 
-    <div id="favouriteList">
+    <div class="mypage"  id="favouriteList">
 
-        <table style="width:100%">
-            <tr>
                 <?php
                 foreach ($favouriteList as $favouriteItem) {
-                    echo '<td><img src="' . $favouriteItem['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a></td>';
+                    echo ' <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"><a href="' . $favouriteItem['title'] . '"></a>';
                 }
                 ?>
-            </tr>
-        </table>
     </div>
 </div>
 

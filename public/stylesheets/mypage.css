@@ -1,24 +1,52 @@
+html{
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+}
+
+#homeworkList a, #homeworkList  a:visited{
+    color: #ff8503;
+    text-decoration: none;
+}
+#homeworkList a:hover{
+    color: #fcb56a;
+}
+
 .mypage{
     border-radius: 10px;
 }
 
 #usernameAndClass {
-    background-color: #34B3D3;
+    font-size: larger;
+    background-color: #ff8503;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 5px;
     display: inline-block;
     width: 200px;
     margin-top: 20px;
 }
 
 #homeworkList {
-    background-color: #34B3D3;
+    color: black;
+    text-shadow: none;
+    background-color: #d8d8d8;
     display: inline-block;
     width: 400px;
     margin-top: 20px;
 }
 
+#homeworkListHeader{
+    font: italic 20px Ubuntu;
+}
+
 #favouriteList {
-    background-color: #34B3D3;
     display: inline-block;
-    width: 800px;
     margin-top: 20px;
 }
+
+#favouritePicture {
+    margin: 50px;
+
+}
+
+
