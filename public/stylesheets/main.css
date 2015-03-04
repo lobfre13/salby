@@ -24,7 +24,9 @@
     font-size: large;
     width: 103%;
     z-index: 99;
-    left: -5px;
+    left: -8px;
+    background-color: blue;
+    transition: background-color 0.1s;
 }
 
 .subjectimg{
@@ -74,11 +76,12 @@
 .subjectname{
     width: 95%;
     margin: 0;
+    padding: 2px;
     display: inline-block;
     background-color: chocolate;
     position: absolute;
     z-index: 5;
-    left: 0;
+    left: -4px;
     top: 80px;
     border-radius: 5px;
     border: 3px solid white;
