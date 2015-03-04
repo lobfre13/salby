@@ -6,7 +6,12 @@
     text-align: center;
 }
 
-#contentList {
+#hinduism_content {
+    display: inline-block;
+    width: 700px;
+}
+
+#pudsja_content {
     display: inline-block;
     width: 700px;
 }
