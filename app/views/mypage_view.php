@@ -41,8 +41,8 @@
     <div class="mypage" id="favouriteList">
         <?php
         foreach ($favouriteList as $favouriteItem) {
-            echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
-            echo '<form method="post"><input type="Submit" value="Fjern favoritt"><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form>';
+            echo '<div class="favouriteGames"><a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
+            echo '<form id="removeFavouriteButton" method="post"><input type="Submit" value=""><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form></div>';
         }
         ?>
     </div>
