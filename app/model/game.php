@@ -52,7 +52,6 @@
         $sql->execute(array(
             'id' => $id
         ));
-
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 

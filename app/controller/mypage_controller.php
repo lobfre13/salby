@@ -34,6 +34,11 @@
 
         protected function routeAction() {
             $classId = $this->getRegister()->getUser()->getClassID();
+            if (isset($_POST['lObjectId'])) {
+                if($this->getRegister()->getRequestMethod() == 'POST') {
+                    $this->removeFavourite($this->getRegister()->getUser()->getUsername(), $_POST['lObjectId']);
+                }
+            }
             $this->index($classId);
         }
 

@@ -38,10 +38,11 @@
     </div>
     <br>
     <h2>Favoritter</h2>
-    <div class="mypage"  id="favouriteList">
+    <div class="mypage" id="favouriteList">
         <?php
         foreach ($favouriteList as $favouriteItem) {
-            echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"><input type="submit" value="TEST"></a>';
+            echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
+            echo '<form method="post"><input type="Submit" value=""><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form>';
         }
         ?>
     </div>
