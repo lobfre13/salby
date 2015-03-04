@@ -46,6 +46,15 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getSubjects($classLvlRange){
+        global $database;
+        $sql = $database->prepare("SELECT s1.subjectname, s1.imgurl FROM subjects as s1
+                                   JOIN subjects as s2 ON s1.subjectname = s2.subjectname
+                                   WHERE classlevel IN (:classlvlRange)");
+        $sql->execute($classLvlRange);
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function &getSubjectCategories($subjects){
         foreach($subjects as $subject){
             $subjectCategories []= [$subject['id'], getUserCategories($subject['id'])];
