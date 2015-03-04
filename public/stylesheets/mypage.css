@@ -43,10 +43,32 @@ html{
     display: inline-block;
 }
 
-#favouritePicture {
-    width: 120px;
-    margin: 30px;
-
+.favouriteGames{
+    display: inline-block;
+    position: relative;
 }
 
+#favouritePicture {
+    height: 100px;
+    width: 120px;
+    margin: 30px;
+}
+
+#removeFavouriteButton{
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#removeFavouriteButton input {
+    cursor: pointer;
+    width: 48px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: url("http://web2.gyldendal.no/Podium_ressurser/Salaby/images/salaby/lukkeknapp.png") no-repeat;
+    background-size: cover;
+
+}
 
