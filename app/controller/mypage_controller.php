@@ -53,6 +53,11 @@
             return doGetSubject($classId);
         }
 
+        private function removeFavourite ($username, $lObjectId) {
+            include $this->getRegister()->getRoot().'/app/model/game.php';
+            doRemoveFavourite($username, $lObjectId);
+        }
+
         private function index($id){
             if(!is_numeric($id)){
                 header("Location: /");

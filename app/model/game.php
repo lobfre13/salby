@@ -7,12 +7,27 @@
  */
 
     function doUpdateFavourite($username, $lObjectId) {
-        global $database;
         if (doCheckIfFavouriteExist($username, $lObjectId)) {
-            $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
+            $this->doAddFavourite($username, $lObjectId);
         } else {
-            $sql = $database->prepare("INSERT INTO favourites VALUES (:username, :lObjectId)");
+            $this->doRemoveFavourite($username, $lObjectId);
         }
+    }
+
+    function doAddFavourite ($username, $lObjectId) {
+        global $database;
+        $sql = $database->prepare("INSERT INTO favourites VALUES (:username, :lObjectId)");
+
+        $sql->execute(array(
+            'username' => $username,
+            'lObjectId' => $lObjectId
+        ));
+    }
+
+    function doRemoveFavourite ($username, $lObjectId) {
+        global $database;
+        $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
+
         $sql->execute(array(
             'username' => $username,
             'lObjectId' => $lObjectId
