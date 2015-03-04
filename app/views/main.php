@@ -13,8 +13,10 @@
             var subjects =  document.getElementsByClassName("subjectimg");
             for(var i = 0; i < subjects.length; i++){
                 subjects[i].style.opacity = opacityValue;
+                subjects[i].nextSibling.style.backgroundColor = "chocolate";
             }
             obj.firstChild.style.opacity = "1";
+            obj.children[1].style.backgroundColor = "blue";
         }
     </script>
     <div id="content" class="widthConstrained">
