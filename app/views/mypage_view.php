@@ -7,15 +7,12 @@
             ?>
         </ul>
     </div>
-
     <br>
-
     <h2>
         <?php
             echo 'Lekser uke ' . $weeknumber;
         ?>
     </h2>
-
     <div class="mypage" id="homeworkList">
 
         <table style="width:100%">
@@ -39,18 +36,14 @@
             </tr>
         </table>
     </div>
-
     <br>
-
     <h2>Favoritter</h2>
-
     <div class="mypage"  id="favouriteList">
-
-                <?php
-                foreach ($favouriteList as $favouriteItem) {
-                    echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
-                }
-                ?>
+        <?php
+        foreach ($favouriteList as $favouriteItem) {
+            echo '<a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"><input type="submit" value="TEST"></a>';
+        }
+        ?>
     </div>
 </div>
 
