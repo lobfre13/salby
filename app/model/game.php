@@ -7,10 +7,10 @@
  */
 
     function doUpdateFavourite($username, $lObjectId) {
-        if (doCheckIfFavouriteExist($username, $lObjectId)) {
-            $this->doAddFavourite($username, $lObjectId);
+        if (!doCheckIfFavouriteExist($username, $lObjectId)) {
+            doAddFavourite($username, $lObjectId);
         } else {
-            $this->doRemoveFavourite($username, $lObjectId);
+            doRemoveFavourite($username, $lObjectId);
         }
     }
 
@@ -35,6 +35,8 @@
     }
 
     function doCheckIfFavouriteExist($username, $lObjectId) {
+        echo $lObjectId;
+        echo $username;
         global $database;
         $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
 
