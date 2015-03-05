@@ -1,14 +1,10 @@
-#subjects{
-	margin: 0 auto;
-	display: inline;
-}
+
 .subjects:first-child{
 	margin-left:0; 
 }
 
 .subject{
 	display: inline-block;
-	margin-left: 5px;
     width: 100px;
 	margin-top: 20px;
 	padding: 0px;
@@ -21,17 +17,13 @@
 }
 
 .subject:hover .subjectname{
-    font-size: large;
-    width: 103%;
+    font-size: x-large;
+    width: 140%;
     z-index: 99;
-    left: -8px;
+    left: -15px;
+    top: 100px;
     background-color: #00BFD5 !important;
     transition: background-color 0.1s;
-}
-
-.subjectimg{
-    -webkit-transition: opacity 0.3s !important;
-    height: 90px;
 }
 
 .subjectimg:hover{
@@ -73,19 +65,6 @@
     background-color: rgba(0,0,0, 0.5);
 }
 
-.subjectname{
-    width: 95%;
-    margin: 0;
-    padding: 2px;
-    display: inline-block;
-    background-color: #6AA440;
-    position: absolute;
-    z-index: 5;
-    left: -4px;
-    top: 80px;
-    border-radius: 5px;
-    border: 3px solid white;
-}
 
 #game{
     width: 100%;
