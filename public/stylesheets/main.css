@@ -13,7 +13,17 @@
     color: white;
     cursor: pointer;
     position: relative;
+}
 
+.subjectNormal{
+    margin: 5px !important;
+}
+.subjectNormal img{
+    height: 4em;
+}
+.subjectNormal h4{
+    padding: 0;
+    font-size: medium;
 }
 
 .subject:hover .subjectname{

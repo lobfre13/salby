@@ -14,6 +14,7 @@
             for(var i = 0; i < subjects.length; i++){
                 subjects[i].style.opacity = opacityValue;
                 subjects[i].nextSibling.style.backgroundColor = "#5C9632";
+                subjects[i].parentNode.className = subjects[i].parentNode.className + " subjectNormal";
             }
             obj.firstChild.style.opacity = "1";
             obj.children[1].style.backgroundColor = "#00BFD5";
