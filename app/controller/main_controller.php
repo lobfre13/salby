@@ -68,6 +68,13 @@
         private function loadGame($id){
             $lobject = getLObject($id);
             if(empty($lobject)) return null;
+            $username = $this->getRegister()->getUser()->getUsername();
+            if(!doCheckIfFavouriteExist($username, $id)){
+                $favimgurl = "/public/img/favorittericon1.png";
+            }
+            else {
+                $favimgurl = "/public/img/favorittericon2.png";
+            }
 
             ob_start();
             include $this->getRegister()->getRoot()."/app/views/game_view.php";
@@ -77,6 +84,7 @@
 
         private function updateFavourite($lObjectId) {
             doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
+            echo doCheckIfFavouriteExist($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
 
     }
