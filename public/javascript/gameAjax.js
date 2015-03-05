@@ -16,13 +16,23 @@ function loadGame(str) {
     }
 }
 
-function addFavourite(str){
+function addFavourite(obj, str){
     if (str == "") return;
     else {
 
         xmlhttp = new XMLHttpRequest();
+        result = null;
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                result = xmlhttp.responseText;
+                if(result === 1) obj.style.backgroundImage = "url('/public/img/favorittericon2.png')";
+                else obj.style.backgroundImage = "url('/public/img/favorittericon1.png')";
+            }
+        }
         xmlhttp.open("POST","/main/game/"+str, true);
         xmlhttp.send();
+
+
     }
 }
 

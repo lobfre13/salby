@@ -35,8 +35,6 @@
     }
 
     function doCheckIfFavouriteExist($username, $lObjectId) {
-        echo $lObjectId;
-        echo $username;
         global $database;
         $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
 

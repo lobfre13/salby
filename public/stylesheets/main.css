@@ -83,12 +83,11 @@
     cursor: pointer;
     width: 60px;
     height: 50px;
-    background-image: url("/public/img/favorittericon1.png");
     background-size: 100% 100%;
     background-color: Transparent;
 }
 #favIcon:hover{
-    background-image: url("/public/img/favorittericon2.png");
+    background-image: url("/public/img/favorittericon2.png") !important;
 }
 
 
