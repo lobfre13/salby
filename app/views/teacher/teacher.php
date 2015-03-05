@@ -34,8 +34,13 @@
             <div id="studentList"></div>
             <div id="gjoremaalList"</div>
             </div>
-    </div>
 
         <?php if(isset($selectedSchoolClass)){ include 'teacherClass.php';} ?>
+        </div>
     </div>
+
+ <form method="post">
+     <input name = "addGame" type="submit" value="Klikk her for å legge til">
+ </form>
+
  </div>

@@ -4,13 +4,15 @@
     <div id = "homeworkListTop">Velg elev</div>
     <div id = "homeworkListTop">Godkjenn</div>
 
-    <p>Marker spillene fra listen som du vil legge til i elevens gjøremål</p>
+    <h4>Marker spillene fra listen som du vil legge til i elevens gjøremål</h4>
 
     <div id = "dropDownMenuClassAndView">
         <select>
-            <option value="test1">test1</option>
-            <option value="test2">test2</option>
-            <option value="test3">test3</option>
+            <?php
+                foreach ($listOfClasses as $classItem) {
+                    echo '<option value ="' . $classItem['classlevel'] . $classItem['classname'] . '">' . $classItem['classlevel'] . $classItem['classname'] . '</option>';
+                }
+            ?>
         </select>
 
         <select>
@@ -26,6 +28,8 @@
 
     <div id = "continue">
         <p>2 spill er markert, gå videre</p>
-        <img src="../../../public/img/hinduismespillet/Pil1.png"
+        <form method="post">
+            <input name = "continue" type="submit" value="Gå videre">
+        </form>
     </div>
 </div>

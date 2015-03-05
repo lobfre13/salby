@@ -18,11 +18,23 @@
                         $this->showClass('NaN');
                     break;
                 case 'POST':
-                    if(isset($urlElements[1])){
+                    if (isset($_POST['addGame'])) {
+                        include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_1.php';
+                    } else if (isset($urlElements[1])){
                         if(isset($_POST['subjectid']))
                             $this->addSubject($urlElements[1]);
                         else
                             $this->createUsers($urlElements[1]);
+                    } else if (isset($_POST['continue'])) {
+                        include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_2.php';
+                    } else if (isset($_POST['continueTo3'])) {
+                        include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_3.php';
+                    } else if (isset($_POST['backTo1'])) {
+                        include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_1.php';
+                    } else if (isset($_POST['backTo2'])) {
+                        include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_2.php';
+                    } else if (isset($_POST['approve'])) {
+                        echo 'Det fungerer';
                     }
                     break;
             }
@@ -46,6 +58,8 @@
             $pupils = getPupils($id);
             $subjects = getClassSubjects($id);
             $allSubjects = getAllSubjects();
+            $listOfClasses = $this->getClasses();
+            include $this->getRegister()->getRoot().'/app/views/teacher/add_homework_view_1.php';
 
             $this->showFullHeader();
             include $this->getRegister()->getRoot().'/app/views/teacher/teacher.php';
@@ -74,5 +88,8 @@
             }
         }
 
+        private function getClasses () {
+            return doGetClasses();
+        }
 
     }

@@ -69,3 +69,12 @@
             'subjectID' => $_POST['subjectid']
         ));
     }
+
+    function doGetClasses () {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM classes");
+
+        $sql->execute();
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
