@@ -26,16 +26,6 @@
     font-size: medium;
 }
 
-.subject:hover .subjectname{
-    font-size: x-large;
-    width: 140%;
-    z-index: 99;
-    left: -15px;
-    top: 100px;
-    background-color: #00BFD5 !important;
-    transition: background-color 0.1s;
-}
-
 .subjectimg:hover{
     opacity: 1 !important;
 }
@@ -85,13 +75,14 @@
 
 #AddFavourite{
     float: right;
+    padding: 10px;
 }
 
 #favIcon{
     display: inline-block;
     cursor: pointer;
-    width: 30px;
-    height: 25px;
+    width: 60px;
+    height: 50px;
     background-image: url("/public/img/favorittericon1.png");
     background-size: 100% 100%;
     background-color: Transparent;
@@ -101,8 +92,18 @@
 }
 
 
-
+/* desktop */
 @media screen and (min-width: 660px) {
+
+    .subject:hover .subjectname{
+        font-size: x-large;
+        width: 140%;
+        z-index: 99;
+        left: -15px;
+        top: 100px;
+        background-color: #00BFD5 !important;
+        transition: background-color 0.1s;
+    }
     .subjectname{
         width: 100%;
         margin: 0px;
@@ -128,7 +129,7 @@
         margin-right: 100px;
     }
 }
-
+/* mobile */
 @media screen and (max-width: 659px) {
     .subjectname{
         width: 100%;

@@ -21,7 +21,6 @@
         }
     </script>
     <div id="content" class="widthConstrained">
-
         <div id="subjects">
             <?php foreach($subjects as $subject) { ?>
                 <div onclick="nav(this,<?php echo $subject['subjectid'];?>)" class="subject"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div>
@@ -59,7 +58,6 @@
             </div>
         <?php } ?>
 
-
         <div id="game"><?php echo $gameHTML; ?></div>
-
+        </div>
     </div>

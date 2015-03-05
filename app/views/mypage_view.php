@@ -1,4 +1,5 @@
 <div id="content" class="widthConstrained">
+    <!-- printer brukernavn og passord, tatt bort 5/3-15
     <div class="mypage"  id="usernameAndClass">
         <ul>
             <?php
@@ -6,7 +7,7 @@
                 echo '<li> Klasse ' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
             ?>
         </ul>
-    </div>
+    </div> -->
     <br>
     <h2>
         <?php
@@ -17,19 +18,25 @@
 
         <table style="width:100%">
                 <tr id="homeworkListHeader">
-                    <td>Fag</td>
-                    <td>Oppgave</td>
-                    <td>Frist</td>
-                    <td>Utført</td>
+                    <th class ="subjectColumn">Fag</th>
+                    <th class ="lObjectColumn">Oppgave</th>
+                    <th class ="dateColumn">Frist</th>
+                    <th class ="checkedColumn">Utført</th>
                 </tr>
                 <?php
                 foreach ($homeworkSubjects as $homeworkSubject) {
                     echo '<tr>';
-                    echo '<td>' . $homeworkSubject['subjectname'] . '</td>';
-                    echo '<td><a href="/main/game/' . $homeworkSubject['learningobjectid'] . '">' .
+                    echo '<td class ="subjectColumn">' . $homeworkSubject['subjectname'] . '</td>';
+                    echo '<td class ="lObjectColumn"><a href="/main/game/' . $homeworkSubject['learningobjectid'] . '">' .
                         $homeworkSubject['title'] . '</a></td>';
-                    echo '<td>13-12-2014</td>';
-                    echo '<td><input type="checkbox" name="myTextEditBox" value="checked" /></td>';
+                    echo '<td class ="dateColumn">13. Mars</td>';
+                    echo '<td class ="checkedColumn">
+<form action="#">
+  <p>
+    <input type="checkbox" id="test1" />
+    <label for="test1"></label>
+  </p>
+</form></td>';
                     echo '</tr>';
                     }
                 ?>
