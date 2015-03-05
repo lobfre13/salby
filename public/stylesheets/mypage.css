@@ -33,16 +33,15 @@ html{
     display: inline-block;
     background-color: rgb(226, 223, 220);
     width: 700px;
-    padding: 30px;
+    padding: 20px;
     border:5px solid #5c5c5c;
 }
 
 #homeworkListHeader th{
     font: italic 20px Ubuntu;
-    padding-bottom: 10px;
 }
 #homeworkList td{
-    padding-bottom: 10px;
+
 }
 
 
@@ -50,8 +49,9 @@ html{
     display: inline-block;
     background-color: rgb(226, 223, 220);
     width: 700px;
-    padding: 30px;
+    padding: 20px;
     border:5px solid #5c5c5c;
+    margin-bottom: 20px;
 
 
 
@@ -98,10 +98,25 @@ html{
 
     #homeworkList {
         font-size: large;
-        width: 100%;
+        width: 80%;
     }
 
-}
+    #favouriteList {
+        font-size: large;
+        width: 80%;
+        padding-bottom: 0px;
+
+
+
+    }
+    #favouritePicture{
+        height: 70px;
+        width: auto;
+        margin: 20px;
+    }
+    #removeFavouriteButton input {
+        /* her må noe skrives */
+    }
 
 
 /* Base for label styling */
@@ -124,7 +139,8 @@ html{
     margin: 10px;
     position: absolute;
     left:0; top: 2px;
-    width: 20px; height: 20px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #aaa;
     background: #f8f8f8;
     border-radius: 3px;
