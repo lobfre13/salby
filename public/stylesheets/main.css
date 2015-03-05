@@ -16,14 +16,18 @@
 }
 
 .subjectNormal{
-    margin: 5px !important;
+    margin: 0px !important;
 }
 .subjectNormal img{
-    height: 4em;
+    height: 6em;
 }
 .subjectNormal h4{
+    top: 70px;
+    left: 0px;
     padding: 0;
     font-size: medium;
+    margin: 0px;
+
 }
 
 .subjectimg:hover{
@@ -45,14 +49,15 @@
 }
 
 .category{
-	width: 200px;
-	height: 100px;
+	width: 300px;
+	height: 150px;
 	-webkit-border-radius: 10px;
 	display: inline-block;
-	margin-left:20px;
+	margin-left:10px;
+    margin-right: 10px;
 	margin-top: 20px;
-    cursor: pointer;
     margin-bottom: 20px;
+    cursor: pointer;
 	padding-top: 0;
 	background-size: 100% 100%;
 	border: 2px solid white;
@@ -61,8 +66,14 @@
 
 .categoryname{
     color: white;
-    margin-top: 70px;
-    background-color: rgba(0,0,0, 0.5);
+    margin-top: 120px;
+    background-color: rgba(0,0,0, 0.7);
+    font-size: x-large;
+
+}
+
+.category:hover .categoryname{
+    background-color: #00BFD5;
 }
 
 
@@ -102,6 +113,14 @@
         top: 100px;
         background-color: #00BFD5 !important;
         transition: background-color 0.1s;
+    }
+    .subjectNormal:hover .subjectname{
+        font-size: large;
+        width: 100%;
+        z-index: 99;
+        left: 0px;
+        top: 65px;
+
     }
     .subjectname{
         width: 100%;
