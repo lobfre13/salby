@@ -49,7 +49,7 @@
         <?php
         foreach ($favouriteList as $favouriteItem) {
             echo '<div class="favouriteGames"><a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
-            echo '<form id="removeFavouriteButton" method="post"><input type="Submit" value=""><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form></div>';
+            echo '<form onsubmit="return confirm(\'Er du sikker på at du vil fjerne denne favoritten?\')" id="removeFavouriteButton" method="post"><input type="Submit" value=""><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form></div>';
         }
         ?>
     </div>

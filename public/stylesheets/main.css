@@ -105,23 +105,18 @@
 /* desktop */
 @media screen and (min-width: 660px) {
 
-    .subject:hover .subjectname{
-        font-size: x-large;
-        width: 140%;
-        z-index: 99;
-        left: -15px;
-        top: 100px;
-        background-color: #00BFD5 !important;
-        transition: background-color 0.1s;
-    }
-    .subjectNormal:hover .subjectname{
-        font-size: large;
-        width: 100%;
-        z-index: 99;
-        left: 0px;
-        top: 65px;
+    .subjectNormal:hover .subjectimg{
+        height: 7em !important;
+        left:-5px !important;
+        top: -5px !important;
 
     }
+    .subject:hover .subjectimg{
+        height: 10em;
+        left:-20px;
+        top: -20px;
+    }
+
     .subjectname{
         width: 100%;
         margin: 0px;
@@ -138,7 +133,10 @@
     }
 
     .subjectimg{
-        -webkit-transition: opacity 0.3s !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        -webkit-transition: opacity 0.3s, height 0.3s !important;
         height: 8em;
     }
     .subject{

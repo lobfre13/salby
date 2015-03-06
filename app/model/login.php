@@ -13,7 +13,7 @@
             $result = $sql->fetch(PDO::FETCH_ASSOC);
 
             if($data == 1){
-                $_SESSION['user'] = new User($_POST['username'], $result['classid'], $result['role']);
+                $_SESSION['user'] = new User($_POST['username'], $result['classid'], $result['role'], $result['firstname'], $result['lastname']);
                 return true;
             }
             else{

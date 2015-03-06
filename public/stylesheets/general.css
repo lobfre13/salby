@@ -32,7 +32,7 @@ a:hover{
 #header{
 	height: 43px;
 	width: 100%;
-	background-color: #222222;
+	background-color: #4d4d4d;
 }
 
 .center{
@@ -145,8 +145,7 @@ a:hover{
 	width: 100%;
 	padding: 10px;
 	text-align: center;
-    background-color: #7D7C7C;
-    border-top: 2px solid #6D6D6D;
+    background-color: #4d4d4d;
 }
 
 
