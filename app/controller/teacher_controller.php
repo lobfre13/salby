@@ -19,6 +19,7 @@
                     break;
                 case 'POST':
                     if (isset($_POST['addGame'])) {
+                        $listOfClasses = $this->getClasses();
                         include $this->getRegister()->getRoot() . '/app/views/teacher/add_homework_view_1.php';
                     } else if (isset($urlElements[1])){
                         if(isset($_POST['subjectid']))
@@ -58,7 +59,6 @@
             $pupils = getPupils($id);
             $subjects = getClassSubjects($id);
             $allSubjects = getAllSubjects();
-            $listOfClasses = $this->getClasses();
             include $this->getRegister()->getRoot().'/app/views/teacher/add_homework_view_1.php';
 
             $this->showFullHeader();

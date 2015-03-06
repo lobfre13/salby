@@ -78,3 +78,12 @@
 
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function doGetLearningObjects ($classId) {
+        global $database;
+        $sql = $database->prepare("SELECT * FROM classes JOIN favourites ON");
+
+        $sql->execute();
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }

@@ -8,6 +8,7 @@
 
     <div id = "dropDownMenuClassAndView">
         <select>
+            <option value="chooseClass">Velg klasse</option>
             <?php
                 foreach ($listOfClasses as $classItem) {
                     echo '<option value ="' . $classItem['classlevel'] . $classItem['classname'] . '">' . $classItem['classlevel'] . $classItem['classname'] . '</option>';
@@ -16,14 +17,23 @@
         </select>
 
         <select>
-            <option value="test4">test4</option>
-            <option value="test5">test5</option>
-            <option value="test6">test6</option>
+            <option value="view">Visning</option>
+            <option value="pictures">Bilder</option>
+            <option value="list">Liste</option>
         </select>
     </div>
 
     <div id = "homeworkListDiv">
-        Du har ingen spill i lekselisten
+        <table>
+            <tr>
+                <?php
+                foreach ($learningObjectList as $learningObjectItem) {
+                    echo '<td><img src="' . $learningObjectItem['imgurl'] . '"></td>';
+                    echo '<td><input type = "checkbox" name = "' . $learningObjectItem['id'] . '</td>';
+                }
+                ?>
+            </tr>
+        </table>
     </div>
 
     <div id = "continue">
