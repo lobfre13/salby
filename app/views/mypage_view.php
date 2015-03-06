@@ -23,8 +23,8 @@
                     <th class ="dateColumn">Frist</th>
                     <th class ="checkedColumn">Utført</th>
                 </tr>
-                <?php
-                foreach ($homeworkSubjects as $homeworkSubject) {
+                <?php $i = 0;
+                foreach ($homeworkSubjects as $homeworkSubject){ $i++;
                     echo '<tr>';
                     echo '<td class ="subjectColumn">' . $homeworkSubject['subjectname'] . '</td>';
                     echo '<td class ="lObjectColumn"><a href="/main/game/' . $homeworkSubject['learningobjectid'] . '">' .
@@ -33,8 +33,8 @@
                     echo '<td class ="checkedColumn">
 <form action="#">
   <p>
-    <input type="checkbox" id="test1" />
-    <label for="test1"></label>
+    <input type="checkbox" id="test'.$i.'" />
+    <label for="test'.$i.'"></label>
   </p>
 </form></td>';
                     echo '</tr>';
