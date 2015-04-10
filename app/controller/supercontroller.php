@@ -2,38 +2,31 @@
 
     abstract class superController{
         private $register;
+        protected $view;
 
         public function __construct($register){
             $this->setRegister($register);
+            $this->initView();
+            $this->checkUserAccess();
         }
 
         abstract protected function checkUserAccess();
-        abstract protected function routeAction();
-
-        protected function showHeader(){
-            $cssPath = $this->getCssPath();
-            include $this->getRegister()->getRoot().'/app/views/template/header.php';
-        }
-
-        protected function showFullHeader(){
-            $this->showHeader();
-
-            include $this->getRegister()->getRoot().'/app/views/template/headerMenu.php';
-        }
-
-        protected function showFooter(){
-            include $this->getRegister()->getRoot().'/app/views/template/footer.php';
-        }
 
         protected function getRegister(){
             return $this->register;
+        }
+
+        private function initView(){
+            $this->view = new view('404.php');
+            $this->view->root = $this->getRegister()->getRoot();
+            $this->view->cssPath = $this->getCssPath();
         }
 
         private function setRegister($register){
             $this->register = $register;
         }
 
-        private function getCssPath(){
+        protected function getCssPath(){
             return '/public/stylesheets/'.$this->getRegister()->getUrlElements()[0].'.css';
         }
 

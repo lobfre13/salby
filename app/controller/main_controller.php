@@ -1,60 +1,10 @@
 <?php
     class mainController extends superController{
 
-
         public function __construct($register){
             parent::__construct($register);
-            $this->checkUserAccess();
-
             include $this->getRegister()->getRoot().'/app/model/lobjects.php';
             include $this->getRegister()->getRoot().'/app/model/game.php';
-            $this->routeAction();
-        }
-
-        protected function routeAction(){
-            $url = $this->getRegister()->getUrlElements();
-
-            switch($this->getRegister()->getRequestMethod()){
-                case 'GET':
-                    if(isset($url[1]) and $url[1] === 'ajax'){
-                        echo $this->loadGame($url[2]);
-                    }
-                    else $this->index();
-                    break;
-                case 'POST':
-                    if (isset($url[2])) $this->updateFavourite($url[2]);
-                    break;
-            }
-        }
-
-        private function index(){
-            $this->gotoStartPage();
-            $urlElements = $this->getRegister()->getUrlElements();
-
-            $subjects = getUserSubjects($this->getRegister()->getUser());
-            $subjectCategories = getSubjectCategories($subjects);
-            $categoryContents = getCategoryContents($subjectCategories);
-            $gameHTML = null;
-            if(isset($urlElements[2]) and is_numeric($urlElements[2])) $gameHTML = $this->loadGame($urlElements[2]);
-
-            $this->showFullHeader();
-            include $this->getRegister()->getRoot().'/app/views/main.php';
-            $this->showFooter();
-        }
-
-        private function gotoStartPage(){
-            if($this->getRegister()->getUser()->isAdmin()){
-                header("Location: /admin");
-                exit;
-            }
-            else if($this->getRegister()->getUser()->isTeacher()){
-                header("Location: /teacher");
-                exit;
-            }
-            else if($this->getRegister()->getUser()->isSchool()){
-                header("Location: /schooladmin");
-                exit;
-            }
         }
 
         protected function checkUserAccess(){
@@ -63,6 +13,34 @@
                 header("Location: /login");
                 exit;
             }
+        }
+
+        public function index($gameHTML = null){
+            $this->view->setViewPath('main.php');
+            $this->view->subjects = getUserSubjects($this->getRegister()->getUser());;
+            $this->view->subjectCategories = getSubjectCategories($this->view->subjects);;
+            $this->view->categoryContents = getCategoryContents($this->view->subjectCategories);;
+            $this->view->gameHTML = $gameHTML;
+            $this->view->showPage();
+
+        }
+
+        public function gameLink($gameHTML = null){
+            $urlElements = $this->getRegister()->getUrlElements();
+            if(isset($urlElements[2]) and is_numeric($urlElements[2])) $gameHTML = $this->loadGame($urlElements[2]);
+            $this->index($gameHTML);
+        }
+
+        public function showGame(){
+            $id = $this->getRegister()->getUrlElements()[2];
+            echo $this->loadGame($id);
+        }
+
+        public function updateFavourite() {
+            $url = $this->getRegister()->getUrlElements();
+            $lObjectId = $url[2];
+            doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
+            echo doCheckIfFavouriteExist($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
 
         private function loadGame($id){
@@ -80,11 +58,6 @@
             include $this->getRegister()->getRoot()."/app/views/game_view.php";
             $gameHTML = ob_get_clean();
             return $gameHTML;
-        }
-
-        private function updateFavourite($lObjectId) {
-            doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
-            echo doCheckIfFavouriteExist($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
 
     }

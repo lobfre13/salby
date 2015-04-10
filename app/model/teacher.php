@@ -31,11 +31,11 @@
     }
 
     function createUsers($id){
-        global $root;
+        global $rootPath;
         $class = getClass($id);
         $users = preg_replace('~[\r\n]+~', '',$_POST['users'] );
         $usernames = explode(';', trim($users));
-        include $root.'/app/model/register.php';
+        include $rootPath.'/app/model/register.php';
         foreach($usernames as $username){
             if(isset($username))
             registerUser($username, $username, null, 'pupil', $class['id'], $class['schoolid']);

@@ -3,42 +3,74 @@
     class router{
         private $urlElements;
         private $controller;
+        private $action;
+        private $user;
 
-        private function getUrlElements(){
+        public function __construct(){
+            $this->initUrlElements();
+            $this->initUser();
+            $this->initController($this->user);
+            $this->initAction();
+        }
+
+        private function initUrlElements(){
             $path = ltrim($_SERVER['REQUEST_URI'], '/');
-            return explode('/', $path);
+            $this->urlElements = explode('/', $path);
         }
 
-        private function getController() {
-            global $root;
-            if (empty($this->controller)) {
-                $this->controller = 'main';
-                $this->urlElements[0] = 'main';
+        private function initUser(){
+            if(isset($_SESSION['user'])) $this->user = $_SESSION['user'];
+            else $this->user = null;
+        }
+
+        private function initController($user) {
+            if (empty($this->urlElements[0])){
+                $this->controller = $this->urlElements[0] = $this->getStartPage($user);
             }
-
-            return $file = $root.'/app/controller/' . $this->controller . '_controller.php';
+            else $this->controller = $this->urlElements[0];
         }
 
-        public function loadController(){
-            global $root;
-            $this->urlElements = $this->getUrlElements();
-            $this->controller = $this->urlElements[0];
-            $controllerPath = $this->getController($this->controller);
+        private function initAction(){
+            if(empty($this->urlElements[1])) $this->action = 'index';
+            else $this->action = $this->urlElements[1];
+        }
 
-            if (is_readable($controllerPath) == false)
-            {
+        private function validateController($controllerPath){
+            if (!is_readable($controllerPath)) {
                 echo $this->controller;
                 die (' 404 Not Found');
             }
-            $user = null;
-            if(isset($_SESSION['user']))
-                $user = $_SESSION['user'];
+        }
+
+        private function validateAction($controller){
+            if(!is_callable(array($controller, $this->action))){
+                echo $this->action;
+                die (' 404 Not Found');
+            }
+        }
+
+        private function getStartPage($user){
+            if(isset($this->user)){
+                if($user->isAdmin())        return $GLOBALS['adminRootPage'];
+                else if($user->isTeacher()) return $GLOBALS['teacherRootPage'];
+                else if($user->isSchool())  return $GLOBALS['schoolRootPage'];
+            }
+            return $GLOBALS["mainRootPage"];
+        }
+
+        public function loadController(){
+            global $rootPath;
+            $controllerPath = $rootPath.'/app/controller/' . $this->controller . '_controller.php';
+            $action = $this->action;
+            $this->validateController($controllerPath);
 
             include $controllerPath;
             include 'register.php';
-            $register = new register($root, $user ,$this->urlElements, $_SERVER['REQUEST_METHOD']);
+            $register = new register($rootPath, $this->user ,$this->urlElements, $_SERVER['REQUEST_METHOD']);
 
             $class = $this->controller . 'Controller';
-            new $class($register);
+            $controller = new $class($register);
+            $this->validateAction($controller);
+            $controller->$action();
         }
     }

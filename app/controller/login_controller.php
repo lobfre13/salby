@@ -4,28 +4,16 @@
 
         public function __construct($register){
             parent::__construct($register);
-            $this->checkUserAccess();
-            $this->routeAction();
-
-        }
-        protected function routeAction(){
-            switch($this->getRegister()->getRequestMethod()){
-                case 'GET':
-                    $this->index();
-                    break;
-                case 'POST':
-                    $this->login();
-                    break;
-            }
         }
 
-        private function index($failedLogin = false){
-            $this->showHeader();
-            include $this->getRegister()->getRoot().'/app/views/login.php';
-            $this->showFooter();
+        public function index($failedLogin = false){
+            $this->view->setViewPath('login.php');
+            $this->view->hideHeaderMenu(true);
+            $this->view->failedLogin = $failedLogin;
+            $this->view->showPage();
         }
 
-        private function login(){
+        public function login(){
             require $this->getRegister()->getRoot().'/app/model/login.php';
             $loginSuccess = doLogin();
             if($loginSuccess)

@@ -3,55 +3,58 @@
     <div class="mypage"  id="usernameAndClass">
         <ul>
             <?php
-                echo '<li>' . $studentFullName['firstname'] . ' ' . $studentFullName['lastname'] . '</li>';
-                echo '<li> Klasse ' . $schoolClass['classlevel'] . $schoolClass['classname'] . '</li>';
-            ?>
+    echo '<li>' . $this->studentFullName['firstname'] . ' ' . $this->studentFullName['lastname'] . '</li>';
+    echo '<li> Klasse ' . $this->schoolClass['classlevel'] . $this->schoolClass['classname'] . '</li>';
+    ?>
         </ul>
     </div> -->
     <br>
     <h2>
         <?php
-            echo 'Lekser uke ' . $weeknumber;
+        echo 'Lekser uke ' . $this->weeknumber;
         ?>
     </h2>
     <div class="mypage" id="homeworkList">
 
         <table style="width:100%">
-                <tr id="homeworkListHeader">
-                    <th class ="subjectColumn">Fag</th>
-                    <th class ="lObjectColumn">Oppgave</th>
-                    <th class ="dateColumn">Frist</th>
-                    <th class ="checkedColumn">Utført</th>
-                </tr>
-                <?php $i = 0;
-                foreach ($homeworkSubjects as $homeworkSubject){ $i++;
-                    echo '<tr>';
-                    echo '<td class ="subjectColumn">' . $homeworkSubject['subjectname'] . '</td>';
-                    echo '<td class ="lObjectColumn"><a href="/main/game/' . $homeworkSubject['learningobjectid'] . '">' .
-                        $homeworkSubject['title'] . '</a></td>';
-                    echo '<td class ="dateColumn">13. Mars</td>';
-                    echo '<td class ="checkedColumn">
-<form action="#">
-  <p>
-    <input type="checkbox" id="test'.$i.'" />
-    <label for="test'.$i.'"></label>
-  </p>
-</form></td>';
-                    echo '</tr>';
-                    }
-                ?>
+            <tr id="homeworkListHeader">
+                <th class ="subjectColumn">Fag</th>
+                <th class ="lObjectColumn">Oppgave</th>
+                <th class ="dateColumn">Frist</th>
+                <th class ="checkedColumn">Utført</th>
             </tr>
+            <?php $i = 0;
+                foreach ($this->homeworkSubjects as $homeworkSubject){
+                    $i++; ?>
+                    <tr>
+                        <td class ="subjectColumn"><?php echo $homeworkSubject['subjectname']; ?></td>
+                        <td class ="lObjectColumn">
+                            <a href="/main/gameLink/<?php echo $homeworkSubject['learningobjectid']; ?>"><?php echo $homeworkSubject['title']; ?></a>
+                        </td>
+                        <td class ="dateColumn">13. Mars</td>
+                        <td class ="checkedColumn">
+                            <form action="#">
+                                <p>
+                                    <input type="checkbox" id="test<?php echo $i; ?>" />
+                                    <label for="test<?php echo $i; ?>"></label>
+                                </p>
+                            </form>
+                        </td>
+                    </tr>
+            <?php } ?>
         </table>
     </div>
     <br>
     <h2>Favoritter</h2>
     <div class="mypage" id="favouriteList">
         <?php
-        foreach ($favouriteList as $favouriteItem) {
-            echo '<div class="favouriteGames"><a href="/main/game/' . $favouriteItem['id'] . '"> <img id="favouritePicture" src="' . $favouriteItem['imgurl'] . '"></a>';
-            echo '<form onsubmit="return confirm(\'Er du sikker på at du vil fjerne denne favoritten?\')" id="removeFavouriteButton" method="post"><input type="Submit" value=""><input type = "hidden" value="' . $favouriteItem['id'] .  '" name = "lObjectId"></form></div>';
-        }
-        ?>
+            foreach ($this->favouriteList as $favouriteItem) { ?>
+                <div class="favouriteGames">
+                    <a href="/main/gameLink/<?php echo $favouriteItem['id']; ?>"> <img id="favouritePicture" src="<?php echo $favouriteItem['imgurl']; ?>"></a>
+                    <form action="/mypage/removeFavourite" onsubmit="return confirm('Er du sikker på at du vil fjerne denne favoritten?')" id="removeFavouriteButton" method="post">
+                        <input type="Submit" value=""><input type = "hidden" value="<?php echo $favouriteItem['id']; ?>" name="lObjectId">
+                    </form>
+                </div>
+        <?php } ?>
     </div>
 </div>
-

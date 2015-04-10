@@ -8,18 +8,12 @@
 
     class mypageController extends superController{
 
-        //Fields
-        private $homeworkList;
-
-        //Constructor
-        public function __construct ($register) {
+        public function __construct($register) {
             parent::__construct($register);
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/mypage.php';
-            $this->routeAction();
         }
 
-        //Operations
         protected function checkUserAccess(){
             $user = $this->getRegister()->getUser();
             if(!isset($user)){
@@ -28,60 +22,31 @@
             }
         }
 
-        public function getHomeworkList() {
-            return $this->homeworkList;
-        }
-
-        protected function routeAction() {
-            $classId = $this->getRegister()->getUser()->getClassID();
-            if (isset($_POST['lObjectId'])) {
-                if($this->getRegister()->getRequestMethod() == 'POST') {
-                    $this->removeFavourite($this->getRegister()->getUser()->getUsername(), $_POST['lObjectId']);
-                }
-            }
-            $this->index($classId);
-        }
-
-        private function getHomework ($classId) {
-            return doGetHomework($classId);
-        }
-
-        private function getClass ($classId) {
-            return doGetClass($classId);
-        }
-
-        private function getFavourites ($username) {
-            return doGetFavourites($username);
-        }
-
-        private function getSubject ($classId) {
-            return doGetSubject($classId);
-        }
-
-        private function removeFavourite ($username, $lObjectId) {
+        public function removeFavourite(){
             include $this->getRegister()->getRoot().'/app/model/game.php';
+            $username = $this->getRegister()->getUser()->getUsername();
+            $lObjectId = $_POST['lObjectId'];
             doRemoveFavourite($username, $lObjectId);
+            $this->index();
         }
 
-        private function index($id){
+        public function index(){
+            $id = $this->getRegister()->getUser()->getClassID();
+            $username = $this->getRegister()->getUser()->getUsername();
             if(!is_numeric($id)){
                 header("Location: /");
                 exit;
             }
-            $this->showFullHeader();
 
-            $username = $this->getRegister()->getUser()->getUsername();
+            $this->view->setViewPath('mypage_view.php');
 
-            $studentFullName = doGetStudentFullName($username);
-            $homeworkSubjects = $this->getSubject($id);
-            $imgUrls = doGetLearninObjectUrl($id);
-
-            $weeknumber = doGetWeekNumber();
-            $schoolClass = $this->getClass($id);
-            $homeworkList = $this->getHomework($id);
-            $favouriteList = $this->getFavourites($username);
-            include $this->getRegister()->getRoot().'/app/views/mypage_view.php';
-            $this->showFooter();
+            $this->view->studentFullName = doGetStudentFullName($username);
+            $this->view->homeworkSubjects = doGetSubject($id);
+            $this->view->imgUrls = doGetLearninObjectUrl($id);
+            $this->view->weeknumber = doGetWeekNumber();
+            $this->view->homeworkList = doGetHomework($id);
+            $this->view->favouriteList = doGetFavourites($username);
+            $this->view->showPage();
         }
 
 }

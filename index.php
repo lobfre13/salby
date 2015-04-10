@@ -1,10 +1,12 @@
 <?php
-    $root = $_SERVER["DOCUMENT_ROOT"];
+    $rootPath = $_SERVER["DOCUMENT_ROOT"];
 
 	require 'router.php';
-    require $root.'/app/controller/supercontroller.php';
-    require $root.'/app/model/db_con.php';
-    require $root.'/app/model/user.php';
+	require 'routes.php';
+    require $rootPath.'/app/controller/supercontroller.php';
+    require $rootPath.'/app/model/db_con.php';
+    require $rootPath.'/app/model/user.php';
+    require $rootPath.'/app/views/view.php';
     session_start();
 
     $router = new router();

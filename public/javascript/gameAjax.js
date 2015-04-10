@@ -10,7 +10,7 @@ function loadGame(str) {
                 document.getElementById("game").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET","/main/ajax/"+str, true);
+        xmlhttp.open("GET","/main/showGame/"+str, true);
         xmlhttp.send();
         window.location.href = "#";
     }
@@ -19,7 +19,6 @@ function loadGame(str) {
 function addFavourite(obj, str){
     if (str == "") return;
     else {
-
         xmlhttp = new XMLHttpRequest();
         result = null;
         xmlhttp.onreadystatechange = function() {
@@ -29,10 +28,8 @@ function addFavourite(obj, str){
                 else obj.style.backgroundImage = "url('/public/img/favorittericon1.png')";
             }
         }
-        xmlhttp.open("POST","/main/game/"+str, true);
+        xmlhttp.open("POST","/main/updateFavourite/"+str, true);
         xmlhttp.send();
-
-
     }
 }
 
