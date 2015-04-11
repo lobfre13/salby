@@ -43,6 +43,7 @@
             echo doCheckIfFavouriteExist($this->getRegister()->getUser()->getUsername(), $lObjectId);
         }
 
+        //Flytt ut til modellen?
         private function loadGame($id){
             $lobject = getLObject($id);
             if(empty($lobject)) return null;

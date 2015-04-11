@@ -162,13 +162,21 @@ a:hover{
 	display: inline;
 }
 
-/* desktop */
-@media screen and (min-width: 660px) {
-
-    html {
+@media screen and (min-height: 900px){
+    html{
         background: url("/public/img/bg_bilde_sommer3.jpg") fixed bottom;
         background-size: cover;
     }
+}
+@media screen and (max-height: 899px){
+    html {
+        background: url("/public/img/bg_bilde_sommer3.jpg")fixed center;
+        background-size: cover;
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 660px) {
     #content{
         margin-bottom: 125px;
     }
@@ -215,11 +223,4 @@ a:hover{
     #classRangeLabel{
         display: none;
     }
-}
-
-
-@font-face{
-    font-family: "Comic Strip";
-    src: url('COMISCI.otf'),
-    url('COMISCI.otf'); /* IE */
 }

@@ -5,7 +5,7 @@
             parent::__construct($register);
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/schooladmin.php';
-            $this->routeAction();
+//            $this->routeAction();
         }
 
         protected function routeAction(){
@@ -19,15 +19,13 @@
             }
         }
 
-        private function index(){
-            $schoolID = getSchoolID($this->getRegister()->getUser());
-            $regkey = getRegkey($schoolID);
-            $schoolClasses = getSchoolClasses($schoolID);
-            $teachers = getSchoolTeachers($schoolID);
-
-            $this->showFullHeader();
-            include $this->getRegister()->getRoot().'/app/views/school/schooladmin.php';
-            $this->showFooter();
+        public function index(){
+            $this->view->setViewPath('school/schooladmin.php');
+            $this->view->schoolID = getSchoolID($this->getRegister()->getUser());
+            $this->view->regkey = getRegkey($this->view->schoolID);
+            $this->view->schoolClasses = getSchoolClasses($this->view->schoolID);
+            $this->view->teachers = getSchoolTeachers($this->view->schoolID);
+            $this->view->showPage();
         }
 
         private function createSchoolClass(){

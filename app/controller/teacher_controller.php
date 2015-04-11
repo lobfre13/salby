@@ -5,7 +5,7 @@
             parent::__construct($register);
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/teacher.php';
-            $this->routeAction();
+//            $this->routeAction();
         }
 
         protected function routeAction(){
@@ -41,12 +41,10 @@
             }
         }
 
-        private function index(){
-            $schoolClasses = getMyClasses($this->getRegister()->getUser());
-
-            $this->showFullHeader();
-            include $this->getRegister()->getRoot().'/app/views/teacher/teacher.php';
-            $this->showFooter();
+        public function index(){
+            $this->view->setViewPath('teacher/teacher.php');
+            $this->view->schoolClasses = getMyClasses($this->getRegister()->getUser());
+            $this->view->showPage();
         }
 
         private function showClass($id){

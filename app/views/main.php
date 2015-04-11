@@ -1,29 +1,8 @@
-    <script>
-        function nav(obj, id){
-            var url = document.URL;
-            var opacityValue = '0.3';
-            if(url.indexOf("#fag-"+ id) > -1){
-                opacityValue = '1';
-                window.location.href = "#";
-            }
-            else{
-                window.location.href = '#fag-'+id;
-            }
 
-            var subjects =  document.getElementsByClassName("subjectimg");
-            for(var i = 0; i < subjects.length; i++){
-                subjects[i].style.opacity = opacityValue;
-                subjects[i].nextSibling.style.backgroundColor = "#5C9632";
-                subjects[i].parentNode.className = subjects[i].parentNode.className + " subjectNormal";
-            }
-            obj.firstChild.style.opacity = "1";
-            obj.children[1].style.backgroundColor = "#00BFD5";
-        }
-    </script>
     <div id="content" class="widthConstrained">
         <div id="subjects">
             <?php foreach($this->subjects as $subject) { ?>
-                <div onclick="nav(this,<?php echo $subject['subjectid'];?>)" class="subject"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div>
+                <div onclick="nav(this,<?php echo $subject['subjectid'];?>)" class="subject subjectNormal"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div>
             <?php } ?>
         </div>
 
@@ -61,3 +40,4 @@
         <div id="game"><?php echo $this->gameHTML; ?></div>
         </div>
     </div>
+    <script src="/public/javascript/subjectNavBar.js"></script>

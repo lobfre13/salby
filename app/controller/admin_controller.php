@@ -5,7 +5,7 @@
             parent::__construct($register);
             $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/admin.php';
-            $this->routeAction();
+//            $this->routeAction();
         }
 
         protected function routeAction(){
@@ -26,14 +26,11 @@
             }
         }
 
-        private function index(){
-            $subjects = getSubjects();
-            $categories = getAllCategories();
-
-            $this->showFullHeader();
-            include $this->getRegister()->getRoot().'/app/views/admin/admin.php';
-            $this->showFooter();
-
+        public function index(){
+            $this->view->setViewPath('admin/admin.php');
+            $this->view->subjects = getSubjects();
+            $this->view->categories = getAllCategories();
+            $this->view->showPage();
         }
 
         private function addSubject(){

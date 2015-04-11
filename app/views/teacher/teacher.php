@@ -15,7 +15,7 @@
                 <label></label>
                     <select name="categoryid">
                         <option value="blank">Velg klasse</option>
-                        <?php foreach($schoolClasses as $schoolClass) { ?>
+                        <?php foreach($this->schoolClasses as $schoolClass) { ?>
                          <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>
             <?php } ?></select><br>
                 </form>
@@ -25,7 +25,7 @@
                      <label></label>
                         <select name="categoryid">
                             <option value="blank">Velg Oppgave</option>
-                            <?php foreach($schoolClasses as $schoolClass) { ?>
+                            <?php foreach($this->schoolClasses as $schoolClass) { ?>
                                 <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>                        <?php } ?></select><br>
                  </form>
                 </div>
