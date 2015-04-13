@@ -45,13 +45,13 @@
         return ($sql->rowCount() > 0);
     }
 
-    function getLObject($id) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM learningobjects WHERE ID=:id");
-
-        $sql->execute(array(
-            'id' => $id
-        ));
-        return $sql->fetch(PDO::FETCH_ASSOC);
-    }
+//    function getLObject($id) {
+//        global $database;
+//        $sql = $database->prepare("SELECT * FROM learningobjects WHERE ID=:id");
+//
+//        $sql->execute(array(
+//            'id' => $id
+//        ));
+//        return $sql->fetch(PDO::FETCH_ASSOC);
+//    }
 

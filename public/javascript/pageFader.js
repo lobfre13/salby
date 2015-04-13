@@ -1,5 +1,5 @@
 var fadeInTime = 300;
-var fadeOutTime = 300;
+var fadeOutTime = 100;
 
 
 $(document).ready(function() {

@@ -3,7 +3,8 @@
 
         public function __construct($register){
             parent::__construct($register);
-            include $this->getRegister()->getRoot().'/app/model/lobjects.php';
+            include $this->getRegister()->getRoot().'/app/model/main.php';
+            include $this->getRegister()->getRoot().'/app/model/webutility.php';
             include $this->getRegister()->getRoot().'/app/model/game.php';
         }
 
@@ -15,40 +16,57 @@
             }
         }
 
-        public function index($gameHTML = null){
-            $this->view->setViewPath('main.php');
-            $this->view->subjects = getUserSubjects($this->getRegister()->getUser());;
-            $this->view->subjectCategories = getSubjectCategories($this->view->subjects);;
-            $this->view->categoryContents = getCategoryContents($this->view->subjectCategories);;
-            $this->view->gameHTML = $gameHTML;
+        public function index(){
+            $this->loadDefaultView();
             $this->view->showPage();
-
         }
 
-        public function gameLink($gameHTML = null){
-            $urlElements = $this->getRegister()->getUrlElements();
-            if(isset($urlElements[2]) and is_numeric($urlElements[2])) $gameHTML = $this->loadGame($urlElements[2]);
-            $this->index($gameHTML);
-        }
-
-        public function showGame(){
-            $id = $this->getRegister()->getUrlElements()[2];
-            echo $this->loadGame($id);
-        }
-
-        public function updateFavourite() {
+        public function subject(){
+            $this->loadDefaultView();
             $url = $this->getRegister()->getUrlElements();
-            $lObjectId = $url[2];
-            doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $lObjectId);
-            echo doCheckIfFavouriteExist($this->getRegister()->getUser()->getUsername(), $lObjectId);
+
+            $this->view->gameHTML = null;
+            $this->view->url = '/' . join('/', $url) . '/';
+
+            if($this->subjectContentRequested($url)) $this->loadSubjetContent($url[2], $url[3]);
+            else $this->loadCategoryOrGameContent($url);
+
+            $this->view->showPage();
+        }
+
+        //Flytte private metoder til modell?
+        private function loadCategoryOrGameContent($url){
+            $category = getCategory(deSlugify(end($url)));
+            if(empty($category)){ //if empty == not a category, which means its a lObject
+                $this->view->gameHTML = $this->loadGame(getLObject(deSlugify(end($url))));
+            }
+            else{
+                $this->view->categoryContent = array_merge($this->view->categoryContent, getLObjects($category['id']));
+                $this->view->categoryContent = array_merge($this->view->categoryContent, getSubCategories($category['id']));
+            }
+        }
+
+        private function loadSubjetContent($classLevel, $subjectName){
+            $subject = getSubject($classLevel, $subjectName);
+            $this->view->categoryContent = array_merge($this->view->categoryContent, getSubjectCategories($subject['id']));
+        }
+
+        private function subjectContentRequested($url){
+            return (!(count($url) > 4));
+        }
+
+        private function loadDefaultView(){
+            $this->view->setViewPath('main.php');
+            $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
+            $this->view->subjects = getUserSubjects($this->getRegister()->getUser());
+            $this->view->categoryContent = [];
         }
 
         //Flytt ut til modellen?
-        private function loadGame($id){
-            $lobject = getLObject($id);
+        private function loadGame($lobject){
             if(empty($lobject)) return null;
             $username = $this->getRegister()->getUser()->getUsername();
-            if(!doCheckIfFavouriteExist($username, $id)){
+            if(!doCheckIfFavouriteExist($username, $lobject['id'])){
                 $favimgurl = "/public/img/favorittericon1.png";
             }
             else {
@@ -60,5 +78,4 @@
             $gameHTML = ob_get_clean();
             return $gameHTML;
         }
-
     }
