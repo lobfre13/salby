@@ -80,3 +80,13 @@
         ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function getFilePathURLS($url){
+        $filePathURLS = [];
+        $baseURL = '/'.join('/', array_slice($url, 0, 3));
+        for($i = 3; $i < count($url); $i++){
+            $baseURL = $baseURL.'/'.$url[$i];
+            $filePathURLS []= [$baseURL, $url[$i]];
+        }
+        return $filePathURLS;
+    }

@@ -29,7 +29,7 @@ function addFavourite(obj, str){
                 else obj.style.backgroundImage = "url('/public/img/favorittericon1.png')";
             }
         }
-        xmlhttp.open("POST","/main/updateFavourite/"+str, true);
+        xmlhttp.open("GET","/main/updateFavourite/?id="+str+"&url="+document.URL, true);
         xmlhttp.send();
     }
 }

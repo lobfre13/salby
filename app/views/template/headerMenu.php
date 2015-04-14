@@ -4,11 +4,11 @@
 			<div></div><div></div>
 			<div id="dropDownMainMenu">
 				<ul>
-					<li>Barnehage<img src="/public/img/lock.png"></li></a>
+					<a href="/main/subject/0"><li>Barnehage<img src="/public/img/lock.png"></li></a>
                     <a href="/main/"><li>Skolestart</li></a>
-                    <li>1-2. Klasse<img src="/public/img/lock.png"></li></a>
-                    <li>3-4. Klasse<img src="/public/img/lock.png"></li></a>
-                    <li>5-7. Klasse<img src="/public/img/lock.png"></li></a>
+                    <a href="/main/subject/2"><li>1-2. Klasse<img src="/public/img/lock.png"></li></a>
+                    <a href="/main/subject/3"><li>3-4. Klasse<img src="/public/img/lock.png"></li></a>
+                    <a href="/main/subject/4"><li>5-7. Klasse<img src="/public/img/lock.png"></li></a>
 				</ul>
 			</div>
             <h4 id="classRangeLabel">1-2. Klasse</h4>

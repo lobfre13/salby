@@ -25,7 +25,7 @@ function nav(obj, id){
 function subjectPosition(){
     var url = document.URL;
     url = url.split("/");
-    if(url.length < 5 && (url[3] === 'main' || url[3] === '')){
+    if(url.length < 7){
         var subjects =  document.getElementsByClassName("subject");
         for(var i = 0; i < subjects.length; i++){
             subjects[i].className = 'subject';

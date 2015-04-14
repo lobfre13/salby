@@ -29,7 +29,7 @@
                     <tr>
                         <td class ="subjectColumn"><?php echo $homeworkSubject['subjectname']; ?></td>
                         <td class ="lObjectColumn">
-                            <a href="/main/gameLink/<?php echo $homeworkSubject['learningobjectid']; ?>"><?php echo $homeworkSubject['title']; ?></a>
+                            <a href="<?php echo $homeworkSubject['url']; ?>"><?php echo $homeworkSubject['title']; ?></a>
                         </td>
                         <td class ="dateColumn">13. Mars</td>
                         <td class ="checkedColumn">
@@ -50,7 +50,7 @@
         <?php
             foreach ($this->favouriteList as $favouriteItem) { ?>
                 <div class="favouriteGames">
-                    <a href="/main/gameLink/<?php echo $favouriteItem['id']; ?>"> <img id="favouritePicture" src="<?php echo $favouriteItem['imgurl']; ?>"></a>
+                    <a href="<?php echo $favouriteItem['url']; ?>"> <img id="favouritePicture" src="<?php echo $favouriteItem['imgurl']; ?>"></a>
                     <form action="/mypage/removeFavourite" onsubmit="return confirm('Er du sikker på at du vil fjerne denne favoritten?')" id="removeFavouriteButton" method="post">
                         <input type="Submit" value=""><input type = "hidden" value="<?php echo $favouriteItem['id']; ?>" name="lObjectId">
                     </form>
