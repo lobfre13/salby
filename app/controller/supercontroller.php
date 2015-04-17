@@ -27,7 +27,7 @@
         }
 
         protected function getCssPath(){
-            return '/public/stylesheets/'.$this->getRegister()->getUrlElements()[0].'.css';
+            return '/public/stylesheets/'.alias($this->getRegister()->getUrlElements()[0]).'.css';
         }
 
     }

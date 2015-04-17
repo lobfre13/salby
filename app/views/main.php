@@ -2,13 +2,13 @@
 <div id="content" class="widthConstrained">
     <div id="subjects">
         <?php foreach($this->subjects as $subject) { ?>
-            <a href="/main/subject/<?php echo $this->classLevel; ?>/<?php echo $subject['subjectname']; ?>"><div class="subject subjectNormal <?php if($this->selectedSubject === $subject['subjectname']) echo 'selectedSubject';?>"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
+            <a href="/forside/fag/<?php echo $this->classLevel; ?>-klasse/<?php echo slugify($subject['subjectname']); ?>"><div class="<?php echo $subject['htmlClasses'];?>"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
         <?php } ?>
     </div>
 
     <div class="subjectContent">
-        <?php $c = array_filter($this->categoryContent);
-        if(!empty($c)){
+        <?php
+        if(!arrayEmpty($this->categoryContent)){
             foreach ($this->filePathURLS as $url){ ?>
                 <a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a>
         <?php } echo '<br><br><br>';}?>

@@ -19,23 +19,24 @@
         public function index(){
             $this->loadDefaultView();
             $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
+            $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->showPage();
         }
 
         public function subject(){
             $url = array_filter($this->getRegister()->getUrlElements());
             if(count($url) < 3) return $this->index();
+            $url = deSlugify($url);
+
             $this->loadDefaultView();
-            $this->view->classLevel = $url[2];
+            $this->view->classLevel = substr($url[2], 0, 1);
             $this->view->filePathURLS = array_merge($this->view->filePathURLS, getFilePathURLS($url));
 
-            $this->view->gameHTML = null;
-            $this->view->url = $url;
-            if(count($url) > 3) $this->view->selectedSubject = $url[3];
-            $this->view->urlStr = '/' . join('/', $url) . '/';
+            if(count($url) > 3) $this->view->subjects = manageSubjectState($this->view->subjects, $url[3], false);
+            $this->view->urlStr = slugify('/' . join('/', $url) . '/');
 
             if($this->subjectContentRequested($url)) $this->loadSubjectContent($url[2], $url[3]);
-            else $this->loadCategoryOrGameContent($url);
+            else $this->loadCategoryOrGameContent(end($url));
 
             $this->view->showPage();
         }
@@ -46,21 +47,14 @@
         }
 
         //Flytte private metoder til modell somehow?
-        private function loadCategoryOrGameContent($url){
-            $requestedObject = deSlugify(end($url));
-            $category = getCategory($requestedObject);
-            if(empty($category)){ //if empty == not a category, which means its a lObject
-                $this->view->gameHTML = $this->loadGame($requestedObject);
-            }
-            else{
-                $this->view->categoryContent = array_merge($this->view->categoryContent, getLObjects($category['id']));
-                $this->view->categoryContent = array_merge($this->view->categoryContent, getSubCategories($category['id']));
-            }
+        private function loadCategoryOrGameContent($requestedObject){
+            $this->view->categoryContent = getCategoryContent($requestedObject);
+            if(arrayEmpty($this->view->categoryContent)) $this->view->gameHTML = $this->loadGame($requestedObject);
         }
 
         private function loadSubjectContent($classLevel, $subjectName){
             $subject = getSubject($classLevel, $subjectName);
-            $this->view->categoryContent = array_merge($this->view->categoryContent, getSubjectCategories($subject['id']));
+            $this->view->categoryContent = getSubjectCategories($subject['id']);
         }
 
         private function subjectContentRequested($url){
@@ -71,7 +65,6 @@
             $this->view->setViewPath('main.php');
             $this->view->subjects = getUserSubjects($this->getRegister()->getUser());
             $this->view->categoryContent = [];
-            $this->view->selectedSubject = null;
             $this->view->filePathURLS = [['/main/', 'Forsiden']];
         }
 

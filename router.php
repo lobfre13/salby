@@ -27,12 +27,12 @@
             if (empty($this->urlElements[0])){
                 $this->controller = $this->urlElements[0] = $this->getStartPage($user);
             }
-            else $this->controller = $this->urlElements[0];
+            else $this->controller = alias($this->urlElements[0]);
         }
 
         private function initAction(){
             if(empty($this->urlElements[1])) $this->action = 'index';
-            else $this->action = $this->urlElements[1];
+            else $this->action = alias($this->urlElements[1]);
         }
 
         private function validateController($controllerPath){

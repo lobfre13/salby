@@ -73,20 +73,49 @@
     function getUserSubjects($user){
         global $database;
         $sql = $database->prepare("SELECT * from classsubjects
-                                       JOIN subjects ON subjectid = subjects.id
-                                       WHERE classid = :classid");
+                                   JOIN subjects ON subjectid = subjects.id
+                                   WHERE classid = :classid");
         $sql->execute(array(
             'classid' => $user->getClassID()
         ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getSubjects($classLevelRange){
+        global $database;
+        $sql = $database->prepare("SELECT DISTINCT subjectName, imgurl from subjects
+                                   WHERE classid IN :classLevelRange");
+        $sql->execute(array(
+            'classLevelRange' => $classLevelRange
+        ));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function manageSubjectState($subjects, $selectedSubject, $frontPage){
+        foreach ($subjects as &$subject){
+            if(!$frontPage){
+                if(strcasecmp($subject['subjectname'], $selectedSubject) == 0) $subject['htmlClasses'] = 'subject subjectNormal selectedSubject';
+                else  $subject['htmlClasses'] = 'subject subjectNormal';
+            }
+            else $subject['htmlClasses'] = 'subject';
+        }
+        return $subjects;
+    }
+
     function getFilePathURLS($url){
         $filePathURLS = [];
-        $baseURL = '/'.join('/', array_slice($url, 0, 3));
+        $baseURL = slugify('/'.join('/', array_slice($url, 0, 3)));
         for($i = 3; $i < count($url); $i++){
-            $baseURL = $baseURL.'/'.$url[$i];
+            $baseURL = $baseURL.'/'.slugify($url[$i]);
             $filePathURLS []= [$baseURL, $url[$i]];
         }
         return $filePathURLS;
+    }
+
+    function getCategoryContent($categoryName){
+        $category = getCategory($categoryName);
+        if(empty($category)) return [];
+        $content = getLObjects($category['id']);
+        $content = array_merge($content, getSubCategories($category['id']));
+        return $content;
     }
