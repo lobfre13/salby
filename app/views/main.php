@@ -1,10 +1,24 @@
-
+<script>
+    function showSubjects(btn){
+        var obj = document.getElementById("subjects");
+        if(obj.className === 'subjectsToggle subjects'){
+            btn.innerText = "Vis Fag >>";
+            obj.className = 'subjectsToggle';
+        }
+        else{
+            btn.innerText = "Skjul fag <<";
+            obj.className = 'subjectsToggle subjects';
+        }
+    }
+</script>
 <div id="content" class="widthConstrained">
-    <div id="subjects">
+    <div id="subjects" class="<?php echo $this->subjectsHTMLClass; ?>">
         <?php foreach($this->subjects as $subject) { ?>
             <a href="/forside/fag/<?php echo $this->classLevel; ?>-klasse/<?php echo slugify($subject['subjectname']); ?>"><div class="<?php echo $subject['htmlClasses'];?>"><img class="subjectimg" src="<?php echo $subject['imgurl']; ?>"><h4 class="subjectname"><?php echo $subject['subjectname']; ?></h4></div></a>
         <?php } ?>
+
     </div>
+    <h4 id="subjectDropDownBtn" class="" onclick="showSubjects(this)">Vis Fag >></h4>
 
     <div class="subjectContent">
         <?php
@@ -31,4 +45,3 @@
     </div>
 
 </div>
-<script src="/public/javascript/subjectNavBar.js"></script>

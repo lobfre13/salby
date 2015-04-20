@@ -27,14 +27,14 @@ html{
 }
 
 #homeworkList {
-    color: black;
+    color: white;
     font-size: x-large;
     text-shadow: none;
     display: inline-block;
-    background-color: rgb(226, 223, 220);
+    background-color: rgb(252, 221, 173);
+    background-image: url("http://edublogs.org/wp-content/themes/edublogs_2012/images/top-bg.jpg");
     width: 700px;
     padding: 20px;
-    border:5px solid #5c5c5c;
 }
 
 #homeworkListHeader th{
@@ -47,10 +47,11 @@ html{
 
 #favouriteList {
     display: inline-block;
-    background-color: rgb(226, 223, 220);
+    background-color: rgb(252, 221, 173);
+    background-image: url("http://fc07.deviantart.net/fs71/i/2010/245/0/c/pinboard_texture_by_nikky81-d2xuip9.png");
+    /*background-image: url("http://4ecdb2.medialib.glogster.com/thumbnails/cf/cf2b17fcd43b7b0d06f2177aa2ae58c5194c216d1c140d106a81483cdee2505a/th--square.jpg?");*/
     width: 700px;
     padding: 20px;
-    border:5px solid #5c5c5c;
     margin-bottom: 20px;
 
 
@@ -66,19 +67,21 @@ html{
     height: 100px;
     width: 120px;
     margin: 30px;
+    border-radius: 50px;
+    /*box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);*/
 }
 
 #removeFavouriteButton input {
     display: inline-block;
     position: absolute;
-    right: 20px;
-    top: 10px;
+    right: 40px;
+    top: 15px;
     cursor: pointer;
     width: 48px;
     height: 45px;
-    border-radius: 50%;
     border: none;
-    background: url("http://web2.gyldendal.no/Podium_ressurser/Salaby/images/salaby/lukkeknapp.png") no-repeat;
+    background: url("http://png-5.vector.me/files/images/3/8/381554/thumbtack_pushpin_2_thumb") no-repeat;
+    /*background: url("http://web2.gyldendal.no/Podium_ressurser/Salaby/images/salaby/lukkeknapp.png") no-repeat;*/
     background-size: cover;
 
 }

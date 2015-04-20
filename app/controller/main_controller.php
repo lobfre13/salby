@@ -19,7 +19,6 @@
         public function index(){
             $this->loadDefaultView();
             $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
-            $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->showPage();
         }
 
@@ -28,21 +27,21 @@
             if(count($url) < 3) return $this->index();
             $url = deSlugify($url);
 
-            $this->loadDefaultView();
             $this->view->classLevel = substr($url[2], 0, 1);
+            $this->loadDefaultView($this->view->classLevel);
             $this->view->filePathURLS = array_merge($this->view->filePathURLS, getFilePathURLS($url));
+            $this->view->urlStr = slugify('/' . join('/', $url) . '/');
+            $this->view->subjectsHTMLClass = 'subjectsToggle';
 
             if(count($url) > 3) $this->view->subjects = manageSubjectState($this->view->subjects, $url[3], false);
-            $this->view->urlStr = slugify('/' . join('/', $url) . '/');
-
-            if($this->subjectContentRequested($url)) $this->loadSubjectContent($url[2], $url[3]);
+            if($this->subjectContentRequested($url)) $this->loadSubjectContent($this->view->classLevel, $url[3]);
             else $this->loadCategoryOrGameContent(end($url));
 
             $this->view->showPage();
         }
 
         public function updateFavourite() {
-            doUpdateFavourite($this->getRegister()->getUser()->getUsername(), $_GET['id'], $_GET['url']);
+            updateFavourite($this->getRegister()->getUser()->getUsername(), $_GET['id'], $_GET['url']);
             echo favouriteExists($this->getRegister()->getUser()->getUsername(), $_GET['id']);
         }
 
@@ -61,9 +60,11 @@
             return (count($url) == 4);
         }
 
-        private function loadDefaultView(){
+        private function loadDefaultView($classLevel = null){
             $this->view->setViewPath('main.php');
-            $this->view->subjects = getUserSubjects($this->getRegister()->getUser());
+            if(isset($classLevel)) $this->view->subjects = getSubjects($classLevel);
+            else $this->view->subjects = getUserSubjects($this->getRegister()->getUser());
+            $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->categoryContent = [];
             $this->view->filePathURLS = [['/main/', 'Forsiden']];
         }

@@ -10,8 +10,9 @@
 
         public function __construct($register) {
             parent::__construct($register);
-            $this->checkUserAccess();
             include $this->getRegister()->getRoot().'/app/model/mypage.php';
+            include $this->getRegister()->getRoot().'/app/model/favourites.php';
+            include $this->getRegister()->getRoot().'/app/model/main.php';
         }
 
         protected function checkUserAccess(){
@@ -40,13 +41,16 @@
 
             $this->view->setViewPath('mypage_view.php');
 
-            $this->view->studentFullName = doGetStudentFullName($username);
-            $this->view->homeworkSubjects = doGetSubject($id);
-            $this->view->imgUrls = doGetLearninObjectUrl($id);
-            $this->view->weeknumber = doGetWeekNumber();
-            $this->view->homeworkList = doGetHomework($id);
-            $this->view->favouriteList = doGetFavourites($username);
+            $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
+            $this->view->homeworkSubjects = getHomeworkSubjects($id);
+            $this->view->weeknumber = getWeekNumber();
+            $this->view->favouriteList = getUserFavourites($username);
             $this->view->showPage();
+
+
+//          $this->view->studentFullName = getStudentFullName($username);
+//          $this->view->imgUrls = getLObjectUrl($id);
+//          $this->view->homeworkList = getHomework($id);
         }
 
 }

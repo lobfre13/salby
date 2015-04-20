@@ -1,14 +1,14 @@
 <div id="content" class="widthConstrained">
-    <!-- printer brukernavn og passord, tatt bort 5/3-15
-    <div class="mypage"  id="usernameAndClass">
-        <ul>
-            <?php
-    echo '<li>' . $this->studentFullName['firstname'] . ' ' . $this->studentFullName['lastname'] . '</li>';
-    echo '<li> Klasse ' . $this->schoolClass['classlevel'] . $this->schoolClass['classname'] . '</li>';
-    ?>
-        </ul>
-    </div> -->
-    <br>
+<!--    // printer brukernavn og passord, tatt bort 5/3-15-->
+<!--    <div class="mypage"  id="usernameAndClass">-->
+<!--        <ul>-->
+<!--            --><?php
+//    echo '<li>' . $this->studentFullName['firstname'] . ' ' . $this->studentFullName['lastname'] . '</li>';
+//    echo '<li> Klasse ' . $this->schoolClass['classlevel'] . $this->schoolClass['classname'] . '</li>';
+//    ?>
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <br>-->
     <h2>
         <?php
         echo 'Lekser uke ' . $this->weeknumber;

@@ -6,7 +6,7 @@
  * Time: 15:09
  */
 
-    function doGetHomework ($classId) {
+    function getHomework($classId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM learningobjects
           JOIN homework ON homework.learningobjectid = learningobjects.id
@@ -20,22 +20,7 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function doGetFavourites ($username) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM favourites
-          JOIN learningobjects ON learningobjects.id = learningobjectid
-          WHERE username = :username");
-
-        $sql->execute(array(
-            'username' => $username
-        ));
-
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    //function doGetParent ()
-
-    function doGetClass ($classId) {
+    function getClass($classId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM classes WHERE id = :classId");
 
@@ -46,7 +31,7 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function doGetWeekNumber () {
+    function getWeekNumber () {
         date_default_timezone_set(date_default_timezone_get());
         $date = date('m/d/Y h:i:s a', time());
         $dateTime = new DateTime($date);
@@ -54,7 +39,7 @@
         return $week;
     }
 
-    function doGetStudentFullName ($username) {
+    function getStudentFullName ($username) {
         global $database;
         $sql = $database->prepare("SELECT * FROM users WHERE username = :username");
 
@@ -65,7 +50,7 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function doGetSubject ($classId) {
+    function getHomeworkSubjects($classId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM learningobjects
           JOIN learningobjectcategory ON learningobjectid = learningobjects.id
@@ -83,7 +68,7 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function doGetLearninObjectUrl ($learningObjectId) {
+    function getLObjectUrl ($learningObjectId) {
         global $database;
         $sql = $database->prepare("SELECT * FROM learningobjects WHERE id = :learningobjectid");
 

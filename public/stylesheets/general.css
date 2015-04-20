@@ -27,6 +27,7 @@ a:hover{
 #content{
     width: 100%;
     text-align: center;
+    min-height: 80%;
 }
 
 #header{
@@ -43,7 +44,7 @@ a:hover{
 }
 
 #hamMenu{
-	width: 25px;
+	width: 10%;
 	height: 25px;
 	padding: 10px 10px 6px;
 	position: absolute;
@@ -63,9 +64,11 @@ a:hover{
 }
 
 #hamMenu > div:first-child{
+    width: 25px;
 	border-top: 4px solid white;
 }
 #hamMenu > div:nth-child(1), #hamMenu > div:nth-child(2){
+    width: 25px;
 	height: 4px;
 	border-bottom: 4px solid white;
 }
@@ -105,12 +108,28 @@ a:hover{
 	background-color: #222222;
 	color: white;
 	position: relative;
+    overflow: hidden;
 }
 
 #dropDownMainMenu ul li img{
 	position: absolute;
 	right: 15px;
 	top:0px;
+}
+#dropDownMainMenu ul li ul{
+    position: absolute;
+    top:40px;
+    width: 100%;
+}
+#dropDownMainMenu > ul > li:last-child{
+    padding-left: 0;
+}
+#dropDownMainMenu > ul > li:last-child span{
+    padding-left: 10px;
+    cursor: pointer;
+}
+#dropDownMainMenu > ul > li:last-child li{
+    padding-left: 30px;
 }
 
 #dropDownMainMenu ul li:hover{
@@ -176,7 +195,7 @@ a:hover{
 }
 
 /* desktop */
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 775px) {
     #content{
         margin-bottom: 125px;
     }
@@ -193,7 +212,7 @@ a:hover{
 }
 
 /* mobile */
-@media screen and (max-width: 659px) {
+@media screen and (max-width: 774px) {
 
 
     html {
@@ -213,6 +232,9 @@ a:hover{
     #footer{
         display: none;
     }
+
+}
+@media screen and (max-width: 710px) {
     .topMenuUser{
         display: none;
     }

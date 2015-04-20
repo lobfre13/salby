@@ -81,12 +81,12 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function getSubjects($classLevelRange){
+    function getSubjects($classLevel){
         global $database;
-        $sql = $database->prepare("SELECT DISTINCT subjectName, imgurl from subjects
-                                   WHERE classid IN :classLevelRange");
+        $sql = $database->prepare("SELECT * FROM subjects
+                                   WHERE classlevel = :classLevel");
         $sql->execute(array(
-            'classLevelRange' => $classLevelRange
+            'classLevel' => $classLevel
         ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
