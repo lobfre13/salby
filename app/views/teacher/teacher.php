@@ -1,46 +1,43 @@
- <!-- Henter ut og velger klasse, har ikke fikset Oppgavedelen ennå siden vi venter på "å lage lekser" funksjonen -->
+<script>
+    function loadClass(sel){
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                document.getElementById("classPupils").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","/teacher/getClass/"+sel.value, true);
+        xmlhttp.send();
+    }
 
+</script>
     <div id="content" class="widthConstrained">
-        <div id="teacherClassList">
-            <div id="teachergjoeremaal" class="teacherBoxes">Legg til gjøremål</div>
-            <div id="teacherinstillinger" class="teacherBoxes">Instillinger for elever</div>
-            <div id="teacherlaererside" class="teacherBoxes">Lærerside</div>
+        <a class="mainTeacherNavLinks" href="/teacher/addtask/">Legg til Gjøremål</a>
+        <a class="mainTeacherNavLinks" href="/teacher/pupilsettings/">Innstillinger for elever</a>
+        <a class="mainTeacherNavLinks" href="/teacher/teacherpages/">Lærerside</a>
 
-            <br>
-            <br>
-            <br>
-            <div id="drownDownMenus">
-                <div id="dropDownClass">
-                <form method="post">
-                <label></label>
-                    <select name="categoryid">
-                        <option value="blank">Velg klasse</option>
-                        <?php foreach($this->schoolClasses as $schoolClass) { ?>
-                         <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>
-            <?php } ?></select><br>
-                </form>
-                </div>
-                <div id="dropDownHomework">
-                    <form method="post">
-                     <label></label>
-                        <select name="categoryid">
-                            <option value="blank">Velg Oppgave</option>
-                            <?php foreach($this->schoolClasses as $schoolClass) { ?>
-                                <option name="chosenClass"><?php echo $schoolClass['classlevel'].$schoolClass['classname']; ?></a></br></option>                        <?php } ?></select><br>
-                 </form>
-                </div>
-            </div>
-            <div class="infoLists">
-            <div id="studentList"></div>
-            <div id="gjoremaalList"</div>
-            </div>
 
-        <?php if(isset($selectedSchoolClass)){ include 'teacherClass.php';} ?>
+        <div>
+            <label>Velg klasse
+                <select onchange="loadClass(this)">
+                    <option disabled selected>Velg klasse..</option>
+                    <?php foreach($this->schoolClasses as $class) { ?>
+                        <option value="<?php echo $class['id']; ?>"><?php echo $class['classlevel'].$class['classname'].' - '.$class['subjectname'];?></option>
+                    <?php } ?>
+                </select>
+            </label>
+            <label>Velg oppgave
+                <select>
+                    <option></option>
+                </select>
+            </label>
         </div>
+
+        <div id="classPupils" class="classStats"></div>
+        <div class="classStats"></div>
+
+
+
+
     </div>
 
- <form method="post">
-     <input name = "addGame" type="submit" value="Klikk her for å legge til">
- </form>
-
- </div>

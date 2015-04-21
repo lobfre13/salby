@@ -15,7 +15,7 @@ html{
 	background-color: white;
 	margin-top: 5px;
 	margin-bottom:10px;
-    -webkit-border-radius: 5px; 
+    border-radius: 5px;
     outline:0; 
     height:25px; 
     width: 275px;
@@ -34,12 +34,12 @@ label{
 	width: 150px;
 	height:50px;
 	background-color: #FF9100;
-	-webkit-border-radius: 5px; 
+	border-radius: 5px;
 	color: white;
 	font-size: 25px;
 	border-style: none;
 	cursor: pointer;
-	-webkit-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 }
 #loginBox input[type="submit"]:hover,
 .signup input[type="submit"]:hover{
@@ -50,7 +50,7 @@ label{
 	display: inline-block;
 	padding: 8px;
 	background-color: darkgreen;
-	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 #nonLogin:hover{
     color: white;
@@ -60,19 +60,20 @@ label{
 	width: 250px;
 	height: auto;
 	margin-left: 10px;
+    display: none;
 }
 #loginLogo{
     outline: 0;
 }
 
 @media screen and (min-width: 660px) {
-    #loginLogo img{
-        content: url("/public/img/SALABY_Logo_Orange.png");
+    #loginLogo #desktopLogo{
+        display: inline;
     }
 }
 @media screen and (max-width: 659px) {
-    #loginLogo img{
-        content: url("/public/img/logo_orange.png");
+    #loginLogo #mobileLogo{
+        display: inline;
     }
 
     #loginBox{
@@ -92,7 +93,7 @@ label{
 	display: inline-block;
 	width: 150px;
 	padding: 8px;
-	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	background-color: indianred;
 }
 
@@ -100,7 +101,7 @@ label{
 	height: 0px;
 	overflow: hidden;
     opacity: 0;
-	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
 }
 .signup :target{
     height: auto;

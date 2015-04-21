@@ -42,7 +42,6 @@
 
         public function updateFavourite() {
             updateFavourite($this->getRegister()->getUser()->getUsername(), $_GET['id'], $_GET['url']);
-            echo favouriteExists($this->getRegister()->getUser()->getUsername(), $_GET['id']);
         }
 
         //Flytte private metoder til modell somehow?
@@ -63,7 +62,7 @@
         private function loadDefaultView($classLevel = null){
             $this->view->setViewPath('main.php');
             if(isset($classLevel)) $this->view->subjects = getSubjects($classLevel);
-            else $this->view->subjects = getUserSubjects($this->getRegister()->getUser());
+            else $this->view->subjects = getUserSubjects($this->getRegister()->getUser()->getClassID());
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->categoryContent = [];
             $this->view->filePathURLS = [['/main/', 'Forsiden']];
@@ -74,7 +73,7 @@
             $lobject = getLObject($lobject);
             if(empty($lobject)) return null;
             $username = $this->getRegister()->getUser()->getUsername();
-            $favimgurl = getFavouriteIcon($lobject['id'], $username);
+            $isFavourite = favouriteExists($username, $lobject['id']);
 
             ob_start();
             include $this->getRegister()->getRoot()."/app/views/game_view.php";

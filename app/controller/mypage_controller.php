@@ -24,11 +24,16 @@
         }
 
         public function removeFavourite(){
-            include $this->getRegister()->getRoot().'/app/model/game.php';
             $username = $this->getRegister()->getUser()->getUsername();
             $lObjectId = $_POST['lObjectId'];
-            doRemoveFavourite($username, $lObjectId);
+            removeFavourite($username, $lObjectId);
             $this->index();
+        }
+
+        public function updateHomework(){
+            $username = $this->getRegister()->getUser()->getUsername();
+            $homeworkid = $this->getRegister()->getUrlElements()[2];
+            updateHomeworkStatus($username, $homeworkid);
         }
 
         public function index(){

@@ -40,21 +40,14 @@
         return ($sql->rowCount() > 0);
     }
 
-    function getFavouriteIcon($lobjectID, $username){
-        if(!favouriteExists($username, $lobjectID)) return "/public/img/favorittericon1.png";
-        else return "/public/img/favorittericon2.png";
-    }
-
     function getUserFavourites($username) {
         global $database;
         $sql = $database->prepare("SELECT * FROM favourites
-              JOIN learningobjects ON learningobjects.id = learningobjectid
-              WHERE username = :username");
-
+                  JOIN learningobjects ON learningobjects.id = learningobjectid
+                  WHERE username = :username");
         $sql->execute(array(
             'username' => $username
         ));
-
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 

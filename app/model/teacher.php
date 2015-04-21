@@ -1,14 +1,28 @@
 <?php
 
-    function getMyClasses($user){
+    function getMyClasses($username){
         global $database;
-        $sql = $database->prepare("SELECT * FROM classes
-                                  JOIN mainteachers on id = classid
-                                  WHERE username=:username order by classlevel, classname");
+        $sql = $database->prepare("SELECT c.classname, c.classlevel, s.subjectname, cs.id FROM classes as c
+                                  JOIN classsubjects as cs ON cs.classid = c.id
+                                  JOIN classsubjectteachers as cst ON cst.classsubjectid = cs.id
+                                  JOIN subjects as s ON s.id = cs.subjectid
+                                  WHERE cst.username = :username
+                                  ORDER BY c.classlevel, c.classname");
+
         $sql->execute(array(
-            'username' => $user->getUsername()
+            'username' => $username
         ));
 
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getClassPupils($classID){
+        global $database;
+        $sql = $database->prepare("SELECT * FROM users
+                                   WHERE classid = :classid");
+        $sql->execute(array(
+            'classid' => $classID
+        ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -70,13 +70,13 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function getUserSubjects($user){
+    function getUserSubjects($classID){
         global $database;
         $sql = $database->prepare("SELECT * from classsubjects
                                    JOIN subjects ON subjectid = subjects.id
                                    WHERE classid = :classid");
         $sql->execute(array(
-            'classid' => $user->getClassID()
+            'classid' => $classID
         ));
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }

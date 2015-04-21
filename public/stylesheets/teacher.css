@@ -1,83 +1,26 @@
 html {
-    background-image: none;
+    background: #dddddd none;
+}
+
+.mainTeacherNavLinks{
+    display: inline-block;
+    width: 20%;
+    padding: 20px;
     background-color: white;
+    color: black;
+    margin: 20px 3% 50px;;
+}
+.mainTeacherNavLinks:visited{
+    color: black;
 }
 
-.teachersClasses{
+.classStats{
     display: inline-block;
-    min-width: 70px;
-    padding:10px;
-    border-radius: 5px;
-    background-color: indianred;
-    margin: 10px;
-}
-
-.teachersClassesInfo{
-    width: 500px;
-    border-radius: 5px;
-    margin: auto;
-    padding-bottom: 20px;
-    height: 0px;
-    opacity: 0;
-    transition: opacity 1s;
-    background-color: rgba(155,155,155,0.7);
-}
-
-.teachersClassesInfo:target{
-    opacity: 1;
-    height: auto;
-}
-
-.teacherBoxes{
-    background-color: lightgrey;
-    padding: 10px;
-    width: 160px;
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 30px;
-
-}
-
-#teacherClassList{
-    width: 100%;
-}
-
-#classContent{
-    display: inline-block;
-}
-
-#drownDownMenus{
-    width: 250px;
-}
-
-#dropDownClass{
-    display: inline-block;
-}
-#dropDownHomework{
-    display: inline-block;
-}
-
-.infoLists{
-    margin: 50px;
-
-
-}
-
-#studentList{
-    height: 300px;
-    width: 300px;
-    display: inline-block;
-    background-color: lightcoral;
-    margin-right: 20px;
-    margin-bottom: 20px;
-
-}
-
-#gjoremaalList{
-    height: 300px;
-    width: 300px;
-    display: inline-block;
-    background-color: lightcoral;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    width: 40%;
+    height: 200px;
+    margin-right: 2%;
+    margin-left: 2%;
+    background-color: white;
+    box-shadow: 3px 3px 2px #959595;
+    border-radius: 3px;
 }

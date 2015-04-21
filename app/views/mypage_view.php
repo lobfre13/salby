@@ -1,3 +1,14 @@
+<script>
+    function updateHomeworkStatus(homeworkid){
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET","/mypage/updateHomework/" + homeworkid, true);
+        xmlhttp.send();
+    }
+
+
+</script>
+
+
 <div id="content" class="widthConstrained">
 <!--    // printer brukernavn og passord, tatt bort 5/3-15-->
 <!--    <div class="mypage"  id="usernameAndClass">-->
@@ -31,11 +42,11 @@
                         <td class ="lObjectColumn">
                             <a href="<?php echo $homeworkSubject['url']; ?>"><?php echo $homeworkSubject['title']; ?></a>
                         </td>
-                        <td class ="dateColumn">13. Mars</td>
+                        <td class ="dateColumn"><?php echo $homeworkSubject['duedate']; ?></td>
                         <td class ="checkedColumn">
-                            <form action="#">
+                            <form>
                                 <p>
-                                    <input type="checkbox" id="test<?php echo $i; ?>" />
+                                    <input <?php if(isset($homeworkSubject['isdone'])) echo 'checked';?> onchange="updateHomeworkStatus(<?php echo $homeworkSubject['id']; ?>)" type="checkbox" id="test<?php echo $i; ?>" />
                                     <label for="test<?php echo $i; ?>"></label>
                                 </p>
                             </form>

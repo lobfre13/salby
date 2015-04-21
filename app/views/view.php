@@ -34,4 +34,8 @@
             include $this->root.'/app/views/'.$this->viewPath;
             include $this->root.'/app/views/template/footer.php';
         }
+
+        public function showStrippedPage(){
+            include $this->root.'/app/views/'.$this->viewPath;
+        }
     }

@@ -1,35 +1,35 @@
 <script>
     function expandMenu(obj){
-        if ( $(obj).height() != 20)
-            $(obj).animate({ height: 20 }, 250 );
+        if ( $(obj).height() != 38)
+            $(obj).animate({ height: 38 }, 250 );
         else
-            $(obj).animate({ height: 300 }, 250 );
+            $(obj).animate({ height: 308 }, 250 );
     }
 </script>
 <div id="header">
 	<div class="widthConstrained">
-		<div id="hamMenu">
+		<div id="hamMenu" onclick="return true">
 			<div></div><div></div>
+            <h4 id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</h4>
 			<div id="dropDownMainMenu">
 				<ul>
-					<a href="/"><li>Forsiden</li></a>
-                    <a href="/forside/fag/2-klasse/"><li>Barnehage</li></a>
-                    <a href="/forside/fag/0-klasse/"><li>Skolestart</li></a>
+					<li><a href="/">Forsiden</a></li>
+                    <li><a href="/forside/fag/2-klasse/">Barnehage</a></li>
+                    <li><a href="/forside/fag/0-klasse/">Skolestart</a></li>
                     <li onclick="expandMenu(this)">
                         <span>Klassetrinn</span>
                         <ul>
-                            <a href="/forside/fag/1-klasse/"><li>1. Klasse</li></a>
-                            <a href="/forside/fag/2-klasse/"><li>2. Klasse</li></a>
-                            <a href="/forside/fag/3-klasse/"><li>3. Klasse</li></a>
-                            <a href="/forside/fag/4-klasse/"><li>4. Klasse</li></a>
-                            <a href="/forside/fag/5-klasse/"><li>5. Klasse</li></a>
-                            <a href="/forside/fag/6-klasse/"><li>6. Klasse</li></a>
-                            <a href="/forside/fag/7-klasse/"><li>7. Klasse</li></a>
+                            <li><a href="/forside/fag/1-klasse/">1. Klasse</a></li>
+                            <li> <a href="/forside/fag/2-klasse/">2. Klasse</a></li>
+                            <li> <a href="/forside/fag/3-klasse/">3. Klasse</a></li>
+                            <li> <a href="/forside/fag/4-klasse/">4. Klasse</a></li>
+                            <li> <a href="/forside/fag/5-klasse/">5. Klasse</a></li>
+                            <li><a href="/forside/fag/6-klasse/">6. Klasse</a></li>
+                            <li><a href="/forside/fag/7-klasse/">7. Klasse</a></li>
                         </ul>
                     </li>
 				</ul>
 			</div>
-            <h4 id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</h4>
 		</div>
 
 		<div class="center"> <a id="logoLink" href="/"><img id="headerLogo" src="/public/img/SALABY_Logo_Blue.png" alt="logo"/></a></div>

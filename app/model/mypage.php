@@ -6,31 +6,6 @@
  * Time: 15:09
  */
 
-    function getHomework($classId) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM learningobjects
-          JOIN homework ON homework.learningobjectid = learningobjects.id
-          JOIN classsubjects ON classsubjects.id = homework.classsubjectid
-          WHERE classid = :classId");
-
-        $sql->execute(array(
-            'classId' => $classId
-        ));
-
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    function getClass($classId) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM classes WHERE id = :classId");
-
-        $sql->execute(array(
-            'classId' => $classId
-        ));
-
-        return $sql->fetch(PDO::FETCH_ASSOC);
-    }
-
     function getWeekNumber () {
         date_default_timezone_set(date_default_timezone_get());
         $date = date('m/d/Y h:i:s a', time());
@@ -50,16 +25,15 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function getHomeworkSubjects($classId) {
+    function getHomeworkSubjects($classId){
         global $database;
-        $sql = $database->prepare("SELECT * FROM learningobjects
-          JOIN learningobjectcategory ON learningobjectid = learningobjects.id
-          JOIN categories ON categories.id = categoryid
-          JOIN subjectcategory ON categories.id = subjectcategory.categoryid
-          JOIN subjects ON subjectid = subjects.id
-          JOIN homework ON homework.learningobjectid = learningobjects.id
-          JOIN classsubjects ON classsubjectid = classsubjects.id
-          WHERE classid = :classId");
+        $sql = $database->prepare("SELECT lo.title, h.id, h.duedate, h.url, s.subjectname, ph.isdone
+            FROM learningobjects as lo
+            JOIN homework as h ON h.learningobjectid = lo.id
+            JOIN classsubjects ON h.classsubjectid = classsubjects.id
+            JOIN subjects as s ON subjectid = s.id
+            LEFT JOIN pupilhomework as ph ON homeworkid = h.id
+            WHERE classid = :classId");
 
         $sql->execute(array(
             'classId' => $classId
@@ -68,13 +42,40 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function getLObjectUrl ($learningObjectId) {
+    function updateHomeworkStatus($username, $homeworkid){
+        if(homeworkIsDone($username, $homeworkid)){
+            undoHomework($username, $homeworkid);
+        }
+        else doHomework($username, $homeworkid);
+    }
+
+    function homeworkIsDone($username, $homeworkid) {
         global $database;
-        $sql = $database->prepare("SELECT * FROM learningobjects WHERE id = :learningobjectid");
+        $sql = $database->prepare("SELECT * FROM pupilhomework WHERE username = :username AND homeworkid = :homeworkid");
 
         $sql->execute(array(
-            'learningobjectid' => $learningObjectId
+            'username' => $username,
+            'homeworkid' => $homeworkid
         ));
+        return ($sql->rowCount() > 0);
+    }
 
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    function undoHomework($username, $homeworkid){
+        global $database;
+        $sql = $database->prepare("DELETE FROM pupilhomework WHERE username = :username AND homeworkid = :homeworkid");
+
+        $sql->execute(array(
+            'username' => $username,
+            'homeworkid' => $homeworkid
+        ));
+    }
+
+    function doHomework($username, $homeworkid){
+        global $database;
+        $sql = $database->prepare("INSERT INTO pupilhomework VALUES(:username, :homeworkid, 1)");
+
+        $sql->execute(array(
+            'username' => $username,
+            'homeworkid' => $homeworkid
+        ));
     }
