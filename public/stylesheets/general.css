@@ -93,6 +93,7 @@ a:hover{
 
 #hamMenu:hover #dropDownMainMenu{
     visibility: visible;
+    transition:visibility 0.3s;
 }
 
 #dropDownMainMenu ul{

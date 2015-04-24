@@ -46,7 +46,7 @@
 
         //Flytte private metoder til modell somehow?
         private function loadCategoryOrGameContent($requestedObject){
-            $this->view->categoryContent = getCategoryContent($requestedObject);
+            $this->view->categoryContent = getCategoryContentFromName($requestedObject);
             if(arrayEmpty($this->view->categoryContent)) $this->view->gameHTML = $this->loadGame($requestedObject);
         }
 

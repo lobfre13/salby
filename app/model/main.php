@@ -112,10 +112,14 @@
         return $filePathURLS;
     }
 
-    function getCategoryContent($categoryName){
+    function getCategoryContent($categoryid){
+        $content = getLObjects($categoryid);
+        $content = array_merge($content, getSubCategories($categoryid));
+        return $content;
+    }
+
+    function getCategoryContentFromName($categoryName){
         $category = getCategory($categoryName);
         if(empty($category)) return [];
-        $content = getLObjects($category['id']);
-        $content = array_merge($content, getSubCategories($category['id']));
-        return $content;
+        return getCategoryContent($category['id']);
     }

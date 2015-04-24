@@ -1,10 +1,10 @@
 <table>
     <tr>
-        <td>Navn:</td>
+        <th>Navn</th>
     </tr>
-    <tr>
-        <?php foreach($this->pupils as $pupil) { ?>
-            <td><?php echo $pupil['name']; ?></td>
-        <?php }?>
-    </tr>
+    <?php foreach($this->pupils as $pupil) { ?>
+        <tr>
+            <td><?php echo $pupil['firstname'].' '.$pupil['lastname']; ?></td>
+        </tr>
+    <?php }?>
 </table>

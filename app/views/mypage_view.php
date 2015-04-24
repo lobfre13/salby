@@ -42,7 +42,7 @@
                         <td class ="lObjectColumn">
                             <a href="<?php echo $homeworkSubject['url']; ?>"><?php echo $homeworkSubject['title']; ?></a>
                         </td>
-                        <td class ="dateColumn"><?php echo $homeworkSubject['duedate']; ?></td>
+                        <td class ="dateColumn"><?php echo date('Y-m-d', strtotime($homeworkSubject['duedate'])); ?></td>
                         <td class ="checkedColumn">
                             <form>
                                 <p>
