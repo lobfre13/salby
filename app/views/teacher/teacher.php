@@ -1,46 +1,4 @@
-<script>
-    function loadClass(sel){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-                document.getElementById("classPupils").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","/teacher/getClass/"+sel.value, true);
-        xmlhttp.send();
-    }
-
-    function loadClassTasks(sel){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-                document.getElementById("classTasks").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","/teacher/getClassTasks/"+sel.value, true);
-        xmlhttp.send();
-    }
-
-    function editTask(taskId){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-                document.getElementById("classTasks").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","/teacher/editTask/"+taskId, true);
-        xmlhttp.send();
-    }
-    function deleteTask(taskId, row){
-        if(confirm('Er du sikker på at du vil slette dette gjøremålet?')){
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET","/teacher/deleteTask/"+taskId, true);
-            xmlhttp.send();
-            $(row).closest("tr").remove();
-        }
-    }
-
-</script>
+<script src="/public/javascript/teacherHomework.js"></script>
     <div id="content" class="widthConstrained">
         <a class="mainTeacherNavLinks" href="/teacher/addtask/">Legg til Gjøremål</a>
         <a class="mainTeacherNavLinks" href="/teacher/pupilsettings/">Innstillinger for elever</a>

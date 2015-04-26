@@ -32,7 +32,7 @@
             JOIN homework as h ON h.learningobjectid = lo.id
             JOIN classsubjects ON h.classsubjectid = classsubjects.id
             JOIN subjects as s ON subjectid = s.id
-            LEFT JOIN pupilhomework as ph ON homeworkid = h.id
+            JOIN pupilhomework as ph ON homeworkid = h.id
             WHERE classid = :classId");
 
         $sql->execute(array(
@@ -57,12 +57,13 @@
             'username' => $username,
             'homeworkid' => $homeworkid
         ));
-        return ($sql->rowCount() > 0);
+        return $sql->fetch(PDO::FETCH_ASSOC)['isdone'] == 1;
     }
 
     function undoHomework($username, $homeworkid){
         global $database;
-        $sql = $database->prepare("DELETE FROM pupilhomework WHERE username = :username AND homeworkid = :homeworkid");
+        $sql = $database->prepare("UPDATE pupilhomework SET isdone = 0
+                                    WHERE username = :username AND homeworkid = :homeworkid");
 
         $sql->execute(array(
             'username' => $username,
@@ -72,7 +73,8 @@
 
     function doHomework($username, $homeworkid){
         global $database;
-        $sql = $database->prepare("INSERT INTO pupilhomework VALUES(:username, :homeworkid, 1)");
+        $sql = $database->prepare("UPDATE pupilhomework SET isdone = 1
+                                    WHERE username = :username AND homeworkid = :homeworkid");
 
         $sql->execute(array(
             'username' => $username,

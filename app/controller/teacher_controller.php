@@ -5,6 +5,7 @@
             parent::__construct($register);
             include $this->getRegister()->getRoot().'/app/model/teacher.php';
             include $this->getRegister()->getRoot().'/app/model/main.php';
+            include $this->getRegister()->getRoot().'/app/model/webutility.php';
         }
 
         public function index(){
@@ -26,14 +27,14 @@
             $classID = $this->getRegister()->getUrlElements()[2];
             if(!is_numeric($classID)) return;
 
-            $this->view->setViewPath('teacher/homework/classTasks.php');
+            $this->view->setViewPath('teacher/homework/partialviews/classTasks.php');
             $this->view->tasks = getClassTasks($classID);
             $this->view->showStrippedPage();
         }
 
         public function editTask(){
             $taskID = $this->getRegister()->getUrlElements()[2];
-            $this->view->setViewPath('teacher/homework/editTask.php');
+            $this->view->setViewPath('teacher/homework/partialviews/editTask.php');
             $this->view->task = getClassTask($taskID);
             $this->view->showStrippedPage();
         }
@@ -57,14 +58,14 @@
 
         public function getCategories(){
             $subjectID = $this->getRegister()->getUrlElements()[2];
-            $this->view->setViewPath('teacher/homework/addTaskCategories.php');
+            $this->view->setViewPath('teacher/homework/partialviews/addTaskCategories.php');
             $this->view->categories = getSubjectCategories($subjectID);
             $this->view->showStrippedPage();
         }
 
         public function getCategoryContent(){
             $categoryid = $this->getRegister()->getUrlElements()[2];
-            $this->view->setViewPath('teacher/homework/addTaskCategoryContent.php');
+            $this->view->setViewPath('teacher/homework/partialviews/addTaskCategoryContent.php');
             $this->view->categoryContent = getCategoryContent($categoryid);
             $this->view->showStrippedPage();
         }
@@ -79,7 +80,7 @@
         public function getPendingTasks(){
             $subjectID = $this->getRegister()->getUrlElements()[2];
             $username = $this->getRegister()->getUser()->getUsername();
-            $this->view->setViewPath('teacher/homework/pendingTasks.php');
+            $this->view->setViewPath('teacher/homework/partialviews/pendingTasks.php');
             $this->view->pendingTasks = getPendingTasks($subjectID, $username);
             $this->view->showStrippedPage();
 
@@ -92,10 +93,14 @@
             $this->view->classid = $classid;
             $this->view->pupils = getPupils($classid);
             $this->view->pendingTasks = getPendingTasks($classid, $username);
+            if(arrayEmpty($this->view->pendingTasks)) return $this->addTask();
             $this->view->showPage();
         }
 
         public function acceptTasks(){
+            if(!isset($_POST['pupils'])){
+                return $this->addTask();
+            }
             $pupilUsernames = $_POST['pupils'];
             $classid = $_POST['classid'];
             $username = $this->getRegister()->getUser()->getUsername();

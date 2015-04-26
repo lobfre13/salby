@@ -4,7 +4,7 @@
     <span class="addTaskIndicator" style="background-color: #00BFD5">Godkjenn</span>
 
     <div class="choosePupils">
-        <?php include 'pendingTasks.php'; ?>
+        <?php include 'partialviews/pendingTasks.php'; ?>
     </div>
 
     <div class="choosePupils">
@@ -12,7 +12,8 @@
         <form method="post" action="/teacher/doAddTasks">
             <input type="hidden" name="classid" value="<?php echo $this->classid; ?>">
             <?php foreach($this->pupils as $pupil) { ?>
-                <input readonly checked type="checkbox" name="pupils[]" value="<?php echo $pupil['username']; ?>"> <?php echo $pupil['firstname'] . ' ' . $pupil['lastname']; ?><br>
+                <input type="hidden" name="pupils[]" value="<?php echo $pupil['username']; ?>">
+                <input disabled checked type="checkbox"> <?php echo $pupil['firstname'] . ' ' . $pupil['lastname']; ?><br>
             <?php }?>
             <input type="submit" value="VIRKELIG AKSEPTER">
         </form>

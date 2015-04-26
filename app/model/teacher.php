@@ -62,11 +62,11 @@
 
     function deleteClassTask($taskID){
         global $database;
-        $sql = $database->prepare("DELETE FROM homework
-                                  WHERE id = :id");
-        $sql->execute(array(
-            'id' => $taskID
-        ));
+        $sql = $database->prepare("DELETE FROM pupilhomework WHERE homeworkid = :id");
+        $sql->execute(array('id' => $taskID));
+
+        $sql = $database->prepare("DELETE FROM homework WHERE id = :id");
+        $sql->execute(array('id' => $taskID));
     }
 
     function addPendingTask($taskID, $username, $classSubjectID){
@@ -138,7 +138,7 @@
             $sql = $database->prepare("INSERT INTO homework VALUES(null, :csid, :taskid, null, '/forside/fag/1-klasse/norsk/mockURL/".$task['title']."')");
             $sql->execute(array(
                 'csid' => $classid,
-               'taskid' => $task['id']
+               'taskid' => $task['learningobjectid']
             ));
             $id = $database->lastInsertId();
             addPupilToHomework($pupilUsernames, $id);

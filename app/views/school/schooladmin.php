@@ -1,64 +1,30 @@
+<script>
+    function getClassesInLevel(classlevel){
+        ajaxCall("GET", "/schooladmin/getClasses/"+classlevel.value, true, "chooseClassName");
+    }
+    function getClassPupils(classid){
+        ajaxCall("GET", "/schooladmin/getClassPupils/"+classid.value, true, "classContent")
+    }
+
+</script>
 <div id="content" class="widthConstrained">
-    <a href="#skoleklasser">Klasser</a>
-    <a href="#brukeradmin">Lærerbrukere</a>
+    <?php include 'partialviews/topLinks.php'; ?>
 
-    <div id="skoleklasser" class="schooladminpage">
-        <p>Registreringsnummer: <?php echo $this->regkey;?></p>
-        <h2>Klasser:</h2>
+    <h2>Skolens klasser</h2>
+    <label for="chooseClassLevel">Velg trinn</label>
+    <select id="chooseClassLevel" onchange="getClassesInLevel(this)">
+        <option disabled selected>Velg trinn..</option>
+        <?php for($i = 1; $i < 8; $i++) {?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?>. klasse</option>
+        <?php }?>
+    </select>
+    <label for="chooseClassName">Velg klasse</label>
+    <select id="chooseClassName" onchange="getClassPupils(this)">
+        <option disabled selected>Velg klasse..</option>
+    </select>
 
-        <?php
-        for($i = 1; $i <= 10; $i++){ ?>
-            <div class="blurWrapper">
-                <div class="blur"></div>
-                <div class="schoolclasses">
-                    <h3><?php echo $i;?>.Klasse</h3>
-                    <table>
-                        <tr>
-                            <th>Klasse</th>
-                            <th>Antall Elever</th>
-                            <th>Kontaktlærer</th>
-                        </tr>
-                        <?php foreach($this->schoolClasses as $schoolClass){
-                            if($schoolClass['classlevel'] == $i){ ?>
-                                <tr>
-                                    <td><?php echo $schoolClass['classname']; ?></td>
-                                    <td>0</td>
-                                    <td><?php echo $schoolClass['username']; ?></td>
-                                </tr>
-                            <?php } }?>
-                    </table>
-                    <hr>
-                    <form method="post">
-                        <input type="text" name="classname" size="2" maxlength="1" required pattern="[A-Z]">
-                        <select name="mainteacher">
-                            <?php foreach($this->teachers as $teacher){ ?>
-                            <option value="<?php echo $teacher['username'].'">'.$teacher['username']; ?></option>
-                                    <?php } ?>
-                                </select>
-                            <input type="hidden" value="<?php echo $i; ?>" name="classlevel">
-                            <input type="submit" value="Opprett klasse">
-                    </form>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
+    <div id="classContent">
 
-    <div id="brukeradmin" class="schooladminpage">
-
-        <table>
-            <tr>
-                <?php
-                foreach($this->teachers as $teacher){
-                    echo '<td>'.$teacher['username'].'</td>';
-                }
-                ?>
-            </tr>
-
-        </table>
-        <form>
-            <input type="text">
-            <input type="submit">
-        </form>
 
     </div>
 

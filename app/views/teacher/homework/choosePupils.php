@@ -1,15 +1,5 @@
 <script>
-    function loadPending(id){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-                document.getElementById("chosen").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","/teacher/getPendingTasks/"+id, true);
-        xmlhttp.send();
-        document.getElementById("chosen").innerHTML = "<img width='20' height='20' src='http://www.adobe.com/business/calculator/VIP/image/loader.gif'>"
-    }
+
 </script>
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator">Lekseliste</span>
@@ -17,7 +7,7 @@
     <span class="addTaskIndicator">Godkjenn</span>
 
     <div class="choosePupils">
-        <?php include 'pendingTasks.php'; ?>
+        <?php include 'partialviews/pendingTasks.php'; ?>
     </div>
 
     <div class="choosePupils">

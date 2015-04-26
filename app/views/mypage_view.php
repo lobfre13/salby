@@ -46,7 +46,7 @@
                         <td class ="checkedColumn">
                             <form>
                                 <p>
-                                    <input <?php if(isset($homeworkSubject['isdone'])) echo 'checked';?> onchange="updateHomeworkStatus(<?php echo $homeworkSubject['id']; ?>)" type="checkbox" id="test<?php echo $i; ?>" />
+                                    <input <?php if($homeworkSubject['isdone'] == 1) echo 'checked';?> onchange="updateHomeworkStatus(<?php echo $homeworkSubject['id']; ?>)" type="checkbox" id="test<?php echo $i; ?>" />
                                     <label for="test<?php echo $i; ?>"></label>
                                 </p>
                             </form>
