@@ -22,10 +22,13 @@
 
     <div class="subjectContent">
         <?php
-        if(!arrayEmpty($this->categoryContent)){
-            foreach ($this->filePathURLS as $url){ ?>
-                <a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a>
-        <?php } echo '<br><br><br>';}?>
+        if(!arrayEmpty($this->categoryContent)){ ?>
+            <ul class="breadcrumb">
+           <?php foreach ($this->filePathURLS as $url){ ?>
+                <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
+        <?php }  ?>
+            </ul>
+                <?php echo '<br><br><br>';}?>
         <?php foreach($this->categoryContent as $content) { ?>
             <a href="<?php echo $this->urlStr; if(isset($content['category'])) echo slugify($content['category']); else echo slugify($content['title']); ?>">
                 <div class="category" style="background-image: url(<?php echo $content['imgurl']; ?>)">
@@ -36,11 +39,13 @@
     </div>
 
     <div id="game">
-        <?php if(!($this->gameHTML == null)){
-            foreach ($this->filePathURLS as $url){
-                echo '<a class="filePathLinks" href="'.$url[0].'">'.$url[1].'</a>';
-            }
-            echo $this->gameHTML;
+        <?php if(!($this->gameHTML == null)){ ?>
+        <ul class="breadcrumb">
+           <?php foreach ($this->filePathURLS as $url){ ?>
+            <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
+        <?php }  ?>
+        </ul>
+            <?php echo $this->gameHTML;
         }  ?>
     </div>
 

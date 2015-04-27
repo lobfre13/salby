@@ -81,6 +81,13 @@
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getLObjectFromID($LObjectID){
+        global $database;
+        $sql = $database->prepare("SELECT * FROM learningobjects WHERE id = :LObjectID");
+        $sql->execute(array('LObjectID' => $LObjectID));
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
     function getSubjects($classLevel){
         global $database;
         $sql = $database->prepare("SELECT * FROM subjects
@@ -110,6 +117,11 @@
             $filePathURLS []= [$baseURL, $url[$i]];
         }
         return $filePathURLS;
+    }
+
+    function getLObjectPath($LObjectID){
+        $pathNames = [];
+
     }
 
     function getCategoryContent($categoryid){
