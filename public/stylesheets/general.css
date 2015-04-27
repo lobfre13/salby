@@ -5,6 +5,19 @@ html, body {
     width: 100%;
     margin: 0;
     overflow: auto;
+    font-size: 16px;
+}
+body {
+    background: #e0f4f9; /* Old browsers */
+    background: -moz-linear-gradient(top, #e0f4f9 0%, #7fcfe8 50%, #17b9ea 100%, #06a9db 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0f4f9), color-stop(50%,#7fcfe8), color-stop(100%,#17b9ea), color-stop(100%,#06a9db)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f4f9', endColorstr='#06a9db',GradientType=0 ); /* IE6-9 */
+    background-repeat: no-repeat;
+    position: static;
 }
 ul{
     list-style-type: none;
@@ -19,6 +32,12 @@ a:hover{
 	color: #DDDDDD;
 }
 
+#wrapper {
+    min-height:100%;
+    position:relative;
+    overflow: hidden;
+}
+
 .widthConstrained{
 	max-width: 1000px;
 	margin: 0 auto;
@@ -27,7 +46,7 @@ a:hover{
 #content{
     width: 100%;
     text-align: center;
-    min-height: 80%;
+    margin-bottom: 60px;
 }
 
 #header{
@@ -43,57 +62,49 @@ a:hover{
 }
 
 #hamMenu{
-	width: 15%;
-	height: 24px;
 	padding: 10px 10px 6px;
 	position: absolute;
-	top: 0;
-	left: 10px;
 }
 
 #classRangeLabel{
-    position: absolute;
-    left: 50px;
-    top: -10px;
-    width: 100px;
     color: white;
+    vertical-align: top;
+    margin-left: 10px;
 }
 
 #hamMenu:hover{
 	background-color: #555555;
 }
 
-#hamMenu > div:first-child{
+#hamMenuIconWrapper > div:first-child{
     width: 25px;
 	border-top: 4px solid white;
 }
-#hamMenu > div:nth-child(1), #hamMenu > div:nth-child(2){
+#hamMenuIconWrapper > div:nth-child(1), #hamMenuIconWrapper > div:nth-child(2){
     width: 25px;
 	height: 4px;
 	border-bottom: 4px solid white;
 }
 
+#hamMenuIconWrapper{
+    display: inline-block;
+    position: relative;
+}
+
 #dropDownMainMenu{
 	border: none;
-	position: relative;
-	bottom: -10px;
-	left: -10px;
+	position: absolute;
+	top: 40px;
+    left: 0;
 	width: 250px;
 	background-color: #555555;
 	overflow: hidden;
 	z-index: 99;
     visibility: hidden;
-	transition:visibility 0.3s;
-
 }
 
 #dropDownMainMenu img{
     width: 40px;
-}
-
-#hamMenu:hover #dropDownMainMenu{
-    visibility: visible;
-    transition:visibility 0.3s;
 }
 
 #dropDownMainMenu ul{
@@ -107,6 +118,12 @@ a:hover{
 	color: white;
 	position: relative;
     overflow: hidden;
+    transition: height 0.3s;
+    height: 38px;
+}
+
+.expandDropDownHeight{
+    height: 308px !important;
 }
 
 #dropDownMainMenu ul li img{
@@ -158,7 +175,7 @@ a:hover{
 #headerLogo{
 	width: 160px;
 	height: auto;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .topMenuUser{
@@ -167,12 +184,14 @@ a:hover{
 
 
 #footer{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
-	width: 100%;
+    left: 0;
 	padding: 10px;
 	text-align: center;
     background-color: #4d4d4d;
+    overflow: hidden;
+    width: 100%;
 }
 
 
@@ -181,35 +200,34 @@ a:hover{
 	list-style-type: none;
 	color: white;
 	display: inline-block;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 #footer ul li{
 	display: inline;
 }
 
-@media screen and (min-height: 900px){
-    html{
-        background: url("/public/img/bg_bilde_sommer3.jpg") fixed bottom;
-        background-size: cover;
-    }
-}
-@media screen and (max-height: 899px){
-    html {
-        background: url("/public/img/bg_bilde_sommer3.jpg")fixed center;
+/* desktop */
+@media screen and (min-width: 775px) and (min-height: 900px) {
+    body {
+        background-position: bottom;
+        background-image: url("/public/img/bg_bilde_sommer3.jpg");
+        /*background-attachment: fixed; Flickers in firefox...*/
         background-size: cover;
     }
 }
 
-/* desktop */
 @media screen and (min-width: 775px) {
-    #content{
-        margin-bottom: 125px;
+
+    #hamMenu:hover #dropDownMainMenu{
+        visibility: visible !important;
+        transition:visibility 0.3s !important;
     }
+
     #footerLogo{
-	position: absolute;
-	left: 0px;
+        position: absolute;
+        left: 0;
 	}
 
 	#socialNetworkLinks{
@@ -220,32 +238,17 @@ a:hover{
 }
 
 /* mobile */
-@media screen and (max-width: 774px) {
+@media screen and (max-width: 775px) {
+    .showMenuOnClick #dropDownMainMenu{
+        visibility: visible !important;
 
-
-    html {
-        background: #e0f4f9; /* Old browsers */
-        background: -moz-linear-gradient(top, #e0f4f9 0%, #7fcfe8 50%, #17b9ea 100%, #06a9db 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0f4f9), color-stop(50%,#7fcfe8), color-stop(100%,#17b9ea), color-stop(100%,#06a9db)); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* IE10+ */
-        background: linear-gradient(to bottom, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f4f9', endColorstr='#06a9db',GradientType=0 ); /* IE6-9 */
-        background-repeat: no-repeat;
-    }
-    #content{
-        margin-bottom: 0px;
     }
     #footer{
         display: none;
     }
 
     #dropDownMainMenu{
-        left: -20px;
-    }
-    #hamMenu{
-        width: 6%;
+        width: 100vw;
     }
 
 }

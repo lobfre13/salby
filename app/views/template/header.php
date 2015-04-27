@@ -13,3 +13,4 @@
         <script src="/public/javascript/ajax.js"></script>
 	</head>
 	<body>
+        <div id="wrapper">

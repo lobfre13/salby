@@ -1,16 +1,25 @@
 <script>
     function expandMenu(obj){
-        if ( $(obj).height() != 38)
-            $(obj).animate({ height: 38 }, 250 );
+        if (obj.className === 'expandDropDownHeight')
+            obj.className = '';
         else
-            $(obj).animate({ height: 308 }, 250 );
+            obj.className = 'expandDropDownHeight';
     }
+    function showMenu(obj){
+        if (obj.className === 'showMenuOnClick')
+            obj.className = '';
+        else
+            obj.className = 'showMenuOnClick';
+    }
+
 </script>
 <div id="header">
 	<div class="widthConstrained">
-		<div id="hamMenu" onclick="return true">
-			<div></div><div></div>
-            <h4 id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</h4>
+		<div id="hamMenu" onclick="showMenu(this)">
+            <div id="hamMenuIconWrapper">
+                <div></div><div></div>
+            </div>
+            <span id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</span>
 			<div id="dropDownMainMenu">
 				<ul>
 					<li><a href="/">Forsiden</a></li>

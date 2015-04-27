@@ -31,9 +31,12 @@
             $this->loadDefaultView($this->view->classLevel);
             $this->view->filePathURLS = array_merge($this->view->filePathURLS, getFilePathURLS($url));
             $this->view->urlStr = slugify('/' . join('/', $url) . '/');
-            $this->view->subjectsHTMLClass = 'subjectsToggle';
 
-            if(count($url) > 3) $this->view->subjects = manageSubjectState($this->view->subjects, $url[3], false);
+
+            if(count($url) > 3){
+                $this->view->subjectsHTMLClass = 'subjectsToggle';
+                $this->view->subjects = manageSubjectState($this->view->subjects, $url[3], false);
+            }
             if($this->subjectContentRequested($url)) $this->loadSubjectContent($this->view->classLevel, $url[3]);
             else $this->loadCategoryOrGameContent(end($url));
 

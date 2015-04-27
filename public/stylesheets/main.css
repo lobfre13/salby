@@ -7,7 +7,7 @@
     position: relative;
     width: 25%;
     max-width:133px;
-    margin: 20px 7% 2em;
+    margin: 25px 7% 24px;
 }
 
 .subjectname{
@@ -53,7 +53,7 @@
     color: white;
     margin-top: 120px;
     background-color: rgba(0,0,0, 0.7);
-    font-size: x-large;
+    font-size: 26px;
 
 }
 
@@ -121,13 +121,13 @@
     }
 
     .subjectNormal:hover .subjectimg{
-        width: 7em !important;
+        width: 113px !important;
         left:-6px !important;
         top: -6px !important;
     }
 
     .subject:hover .subjectimg{
-        width: 10em;
+        width: 120%;
         left:-13px;
         top: -10px;
         opacity: 1 !important;
@@ -145,7 +145,7 @@
         top: 70%;
         left: -3px;
         padding: 0;
-        font-size: medium;
+        font-size: 16px;
         margin: 0;
     }
 }
@@ -170,7 +170,7 @@
     .subjectname{
         padding: 3px;
         left:-6px;
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .subject{

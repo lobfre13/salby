@@ -8,6 +8,7 @@ html{
 	color: white;
     display: inline-block;
     padding: 10px;
+    margin-bottom: 60px;
 }
 
 #loginBox input[type="text"], #loginBox input[type="password"],
@@ -38,6 +39,7 @@ label{
 	color: white;
 	font-size: 25px;
 	border-style: none;
+    -webkit-appearance: none;
 	cursor: pointer;
 	transition: background-color 0.5s;
 }
