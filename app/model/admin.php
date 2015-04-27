@@ -83,3 +83,23 @@
                 'categoryid' => $_POST['categoryid']
             ));
         }
+
+        function getSchools () {
+            global $database;
+            $sql = $database->prepare("SELECT * FROM schools");
+
+            $sql->execute();
+            return $sql->fetch(PDO::FETCH_ALL);
+        }
+
+        function addSchool ($name, $fylke, $kommune) {
+            global $database;
+            $sql = $database->prepare("INSERT INTO schools (name, fylke, kommune) VALUES (:name, :fylke, :kommune)");
+
+            $sql->execute(array(
+                'name' => $name,
+                'fylke' => $fylke,
+                'kommune' => $kommune
+            ));
+        }
+
