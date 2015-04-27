@@ -1,4 +1,8 @@
 <div id="content" class="widthConstrained">
+    <form method="post" action="/admin/doGetSubjectsSearchResult">
+        <input type="text" name="searchBoxSubjects">
+        <input type="submit" value="Søk her...">
+    </form>
     <table>
         <tr>
             <td>Fag</td>

@@ -30,6 +30,14 @@
            return $sql->fetch(PDO::FETCH_ASSOC);
        }
 
+        function getAllLearningObjects () {
+            global $database;
+            $sql = $database->prepare("SELECT * FROM learningobjects");
+
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
 
         function getCategories($subjectID){
             global $database;
@@ -104,15 +112,41 @@
         }
 
         function searchSchools ($searchString) {
-            $schools = getSchools();
-            print_r($searchString);
-            $schoolsWhichContainSearchString = [];
-            foreach ($schools as $school) {
-                if ((strpos($school, $searchString)) > 0) {
-                    $schoolsWhichContainSearchString [] = $school;
+            global $database;
+            $sql = $database->prepare("SELECT * FROM schools WHERE name LIKE :searchString");
 
-                }
-            }
-            return $schoolsWhichContainSearchString;
+            $sql->execute(array(
+                'searchString' => '%'.$searchString.'%'
+            ));
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        function searchLearningObjects ($searchString) {
+            global $database;
+            $sql = $database->prepare("SELECT * FROM learningobjects WHERE title LIKE :searchString");
+
+            $sql->execute(array(
+                'searchString' => '%'.$searchString.'%'
+            ));
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        function searchCategories ($searchString) {
+            global $database;
+            $sql = $database->prepare("SELECT * FROM categories WHERE category LIKE :searchString");
+
+            $sql->execute(array(
+                'searchString' => '%'.$searchString.'%'
+            ));
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        function searchSubjects ($searchString) {
+            global $database;
+            $sql = $database->prepare("SELECT * FROM subjects WHERE subjectname LIKE :searchString");
+
+            $sql->execute(array(
+                'searchString' => '%'.$searchString.'%'
+            ));
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }

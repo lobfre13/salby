@@ -31,10 +31,38 @@
             $this->view->showPage();
         }
 
-        public function doGetSearchResults () {
-            $this->view->setViewPath('admin/administrateSchools.php');
-            $this->view->schools = searchSchools($_POST['searchBox']);
+        public function administrateLearningobjects () {
+            $this->view->setViewPath('admin/administrateLearningobjects.php');
+            $this->view->learningObjects = getAllLearningObjects();
             $this->view->showPage();
+        }
+
+        public function doGetSchoolSearchResults () {
+            $this->view->setViewPath('admin/administrateSchools.php');
+            $this->view->schools = searchSchools($_POST['searchBoxSchools']);
+            $this->view->showPage();
+        }
+
+        public function doGetSubjectsSearchResult () {
+            $this->view->setViewPath('admin/administrateSubjects.php');
+            $this->view->subjects = searchSubjects($_POST['searchBoxSubjects']);
+            $this->view->showPage();
+        }
+
+        public function doGetCategoriesSearchResult () {
+            $this->view->setViewPath('admin/administrateCategories.php');
+            $this->view->categories = searchCategories($_POST['searchBoxCategories']);
+            $this->view->showPage();
+        }
+
+        public function doGetLearningobjectsSearchResult () {
+            $this->view->setViewPath('admin/administrateLearningobjects.php');
+            $this->view->leaningObjects = searchLearningObjects($_POST['searchBoxLearningObjects']);
+            $this->view->showPage();
+        }
+
+        public function doAddSchool () {
+
         }
 
         private function addSubject(){
