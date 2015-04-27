@@ -1,17 +1,20 @@
 <div id="content" class="widthConstrained">
     <table>
         <tr>
-            <?php foreach ($subjects as $subject) { ?>
-                <td><?php echo $school['title']?></td>
-                <td><?php echo $school['imgurl']?></td>
-                <td>Rediger</td>
-                <td>Slett</td>
-            <?php } ?>
+            <td>Fag</td>
+            <td>Klassetrinn</td>
+            <td>Bilde-URL</td>
+            <td>Rediger</td>
+            <td>Slett</td>
         </tr>
         <tr>
-            <td>Læringsobjekt</td>
-            <td>Bilde-url</td>
-            <td>Legg til</td>
+            <?php foreach ($subjects as $subject) { ?>
+                <td><?php echo $subject['subjectname']?></td>
+                <td><?php echo $subject['classlevel']?></td>
+                <td><?php echo $subject['imgurl']?></td>
+                <td>RedigerSymbol</td>
+                <td>SlettSymbol</td>
+            <?php } ?>
         </tr>
     </table>
 </div>

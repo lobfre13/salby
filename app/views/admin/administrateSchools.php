@@ -18,14 +18,5 @@
                 <td>SlettSymbol</td>
             <?php } ?>
         </tr>
-        <!--
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Legg til</td>
-        </tr>
-        -->
     </table>
 </div>
