@@ -1,6 +1,11 @@
-    <div id="content" class="widthConstrained">
-        <a href="/admin/administrateSchools">Administrer skoler</a>
-        <a href="/admin/administrateSubjects">Administrer fag</a>
-        <a href="/admin/administrateCategories">Administrer kategorier</a>
-        <a href="/admin/administrateLearningobjects">Administrer læringsobjekter</a>
-    </div>
+<div id="content" class="widthConstrained">
+    <ul>
+        <li><a href="/admin/administrateSchools">Brukeradministrasjon</a></li>
+        <li>Sideadministrasjon</li>
+        <ul>
+            <li><a href="/admin/administrateSubjects">Fag</a></li>
+            <li><a href="/admin/administrateCategories">Kategorier</a></li>
+            <li><a href="/admin/administrateLearningobjects">Læringsobjekter</a></li>
+        </ul>
+    </ul>
+</div>

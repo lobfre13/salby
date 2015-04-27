@@ -103,3 +103,16 @@
             ));
         }
 
+        function searchSchools ($searchString) {
+            $schools = getSchools();
+            print_r($searchString);
+            $schoolsWhichContainSearchString = [];
+            foreach ($schools as $school) {
+                if ((strpos($school, $searchString)) > 0) {
+                    $schoolsWhichContainSearchString [] = $school;
+
+                }
+            }
+            return $schoolsWhichContainSearchString;
+        }
+

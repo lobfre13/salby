@@ -31,6 +31,12 @@
             $this->view->showPage();
         }
 
+        public function doGetSearchResults () {
+            $this->view->setViewPath('admin/administrateSchools.php');
+            $this->view->schools = searchSchools($_POST['searchBox']);
+            $this->view->showPage();
+        }
+
         private function addSubject(){
             doAddSubject();
             $this->index();
