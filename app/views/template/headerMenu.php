@@ -6,27 +6,29 @@
             obj.className = 'expandDropDownHeight';
     }
     function showMenu(obj){
-        if (obj.className === 'showMenuOnClick')
-            obj.className = '';
+        if (obj.parentNode.className === 'showMenuOnClick')
+            obj.parentNode.className = '';
         else
-            obj.className = 'showMenuOnClick';
+            obj.parentNode.className = 'showMenuOnClick';
     }
 
 </script>
 <div id="header">
 	<div class="widthConstrained">
-		<div id="hamMenu" onclick="showMenu(this)">
-            <div id="hamMenuIconWrapper">
-                <div></div><div></div>
-            </div>
-            <span id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</span>
+		<div id="hamMenu">
+            <a href="#" onclick="showMenu(this)">
+                <div id="hamMenuIconWrapper">
+                    <div></div><div></div>
+                </div>
+                <span id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</span>
+            </a>
 			<div id="dropDownMainMenu">
 				<ul>
 					<li><a href="/">Forsiden</a></li>
                     <li><a href="/forside/fag/2-klasse/">Barnehage</a></li>
                     <li><a href="/forside/fag/0-klasse/">Skolestart</a></li>
                     <li onclick="expandMenu(this)">
-                        <span>Klassetrinn</span>
+                        <a href="#">Klassetrinn</a>
                         <ul>
                             <li><a href="/forside/fag/1-klasse/">1. Klasse</a></li>
                             <li> <a href="/forside/fag/2-klasse/">2. Klasse</a></li>

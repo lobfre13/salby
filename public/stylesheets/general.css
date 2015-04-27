@@ -80,7 +80,7 @@ a:hover{
     width: 25px;
 	border-top: 4px solid white;
 }
-#hamMenuIconWrapper > div:nth-child(1), #hamMenuIconWrapper > div:nth-child(2){
+#hamMenuIconWrapper > div:first-child, #hamMenuIconWrapper > div:nth-child(2){
     width: 25px;
 	height: 4px;
 	border-bottom: 4px solid white;
@@ -101,6 +101,8 @@ a:hover{
 	overflow: hidden;
 	z-index: 99;
     visibility: hidden;
+    max-height: 0;
+    transition: max-height 1s;
 }
 
 #dropDownMainMenu img{
@@ -139,11 +141,7 @@ a:hover{
 #dropDownMainMenu > ul > li:last-child{
     padding-left: 0;
 }
-#dropDownMainMenu > ul > li:last-child span{
-    padding-left: 10px;
-    cursor: pointer;
-    width: 100%;
-}
+
 #dropDownMainMenu > ul > li:last-child li{
     padding-left: 30px;
 }
@@ -151,7 +149,7 @@ a:hover{
 #dropDownMainMenu ul li:hover{
 	background-color: #333333;
 }
-#dropDownMainMenu a, #dropDownMainMenu span{
+#dropDownMainMenu a{
     display: inline-block;
     width: 90%;
     padding: 10px;
@@ -222,7 +220,7 @@ a:hover{
 
     #hamMenu:hover #dropDownMainMenu{
         visibility: visible !important;
-        transition:visibility 0.3s !important;
+        max-height: 900px !important;
     }
 
     #footerLogo{
@@ -241,6 +239,7 @@ a:hover{
 @media screen and (max-width: 775px) {
     .showMenuOnClick #dropDownMainMenu{
         visibility: visible !important;
+        max-height: 900px !important;
 
     }
     #footer{
