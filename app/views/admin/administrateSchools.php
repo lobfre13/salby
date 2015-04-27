@@ -9,7 +9,7 @@
             <td>Slett</td>
         </tr>
         <tr>
-            <?php foreach ($schools as $school) { ?>
+            <?php foreach ($this->schools as $school) { ?>
                 <td><?php echo $school['name']?></td>
                 <td><?php echo $school['fylke']?></td>
                 <td><?php echo $school['kommune']?></td>

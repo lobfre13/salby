@@ -89,7 +89,7 @@
             $sql = $database->prepare("SELECT * FROM schools");
 
             $sql->execute();
-            return $sql->fetch(PDO::FETCH_ALL);
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
         function addSchool ($name, $fylke, $kommune) {

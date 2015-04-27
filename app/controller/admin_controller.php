@@ -19,6 +19,18 @@
             $this->view->showPage();
         }
 
+        public function administrateSubjects () {
+            $this->view->setViewPath('admin/administrateSubjects.php');
+            $this->view->subjects = getSubjects();
+            $this->view->showPage();
+        }
+
+        public function administrateCategories () {
+            $this->view->setViewPath('admin/administrateCategories.php');
+            $this->view->categories = getAllCategories();
+            $this->view->showPage();
+        }
+
         private function addSubject(){
             doAddSubject();
             $this->index();
