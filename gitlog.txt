@@ -1,0 +1,230 @@
+Anette Lindahl (2):
+      Anette prøver git
+      Footer
+
+Fredrik (26):
+      File path changes
+      File path changes
+      File path changes 2
+      .gitIgnore update
+      FilePath + minor headermenu changes
+      Minor css filepath issue
+      Major refactoring
+      deployment.xml deleted
+      Forside oppdatert
+      Spillside update
+      Database refaktorering
+      Fagnavn lagt til
+      nye logoer
+      nye logoer
+      fagtekst shadow
+      Merge remote-tracking branch 'origin/master'
+      småfix
+      Loginside responsiv
+      Loginside responsiv
+      Forsøk på uendelig antall sub-kategorier
+      Forsøk 2 på uendelig antall sub-kategorier
+      Ajax gameLoad/addFavourites
+      Merge remote-tracking branch 'origin/master'
+      Læringsobjekt-lenker implementert
+      Fremheving av fag
+      Toggle av fag
+
+Fredrik Løberg (48):
+      Første utkast av loginfunskjon/loginside
+      minor fargeoppdatering på hovedsiden
+      Endret diverse bilder/iconer
+      MVC Struktur implementert     Adminside, skoleside og lærerside     Registrering implementert
+      Mindre endringer på loginside, footer.
+      loginlogo responsive
+      loginSide box
+      loginSide - Småendringer     Fortsett uten innlogging knapp
+      BrukerRollevalidering fikset
+      Rollestartside
+      Merge remote-tracking branch 'origin/master'
+      Rollestartside update
+      GeneratePage update
+      teacher page updated
+      teacher page updated
+      teacher page updated
+      teacher page updated
+      teacher page updated
+      Elevforside oppdatert
+      Elevforside oppdatert
+      elevside update
+      elevside update
+      Merge error
+      Merge branch 'master' of https://github.com/nith/PJ3100-14-Gruppe-22
+      Elevforside oppdatert
+      Lobjects implementet
+      Admin db refaktor
+      favoritticon
+      favoritticon transparant
+      Merge remote-tracking branch 'origin/master'
+      profilicon
+      Merge remote-tracking branch 'origin/master'
+      profilicon
+      favicon + background
+      Merge remote-tracking branch 'origin/master'
+      Klasselabel
+      Merge remote-tracking branch 'origin/master'
+      Link til Læringsobjektene muligjort
+      sentrert iframe
+      Merge remote-tracking branch 'origin/master'
+      somecommit
+      Flytting av hovedmenu ved klikk
+      Favoritthjerte halvveis fungerende
+      Merge remote-tracking branch 'origin/master'
+      Leksecheckbox på mypage
+      Merge remote-tracking branch 'origin/master'
+      Generell småfix
+      Generell småfix
+
+Martin Moen Forsberg (74):
+      lagt til en hyggelig tekst om Fredrik
+      la til en ekstra linje slik at det så ryddig ut med cat
+      lagt inn alt fra Google Drive
+      forsøker legge til en fil for å rette opp i pull-problemer
+      Slettet alt fra google drive, da dette bare laget problemer
+      Lagt til en .gitignore-fil og slettet .DS_Store
+      endret størrelsen på bildet for weboptimalisering
+      Merge remote-tracking branch 'origin/master'
+      lagt til margin under kategoriene
+      Merge remote-tracking branch 'origin/master'
+      gjort toppmenyen scaleable for mobile
+      Merge remote-tracking branch 'origin/master'
+      lagt til margin under kategoriene
+      Merge remote-tracking branch 'origin/master'
+      Merge remote-tracking branch 'origin/master'
+      Merge remote-tracking branch 'origin/master'
+      Merge remote-tracking branch 'origin/master'
+      forandret på css for mobilsiden slik at loginsiden ser bedre ut
+      lagt til margin under kategoriene
+      lagt til profilbilder for fagene
+      ryddet i mapper
+      laget ny css fil for admin og endret i header
+      laget ny css fil for admin og endret i header
+      fjernet icon fil siden windows er et ubrukelig OS
+      forandret css-stile på lærersiden
+      Merge remote-tracking branch 'origin/master'
+      fikset commit feil
+      ordnet endel opp i lærersiden, må vente på mer funksjonalitet for å fullføre
+      Merge remote-tracking branch 'origin/master'
+      siste feil fikset
+      lagt til to nye diver
+      ryddet opp i bakgrunnsfarge på fagbilder
+      Merge remote-tracking branch 'origin/master'
+      ryddet opp i bakgrunnsfarge på fagbilder
+      lagt til slutt-tag. fail
+      endret bakgrunnsfarge på skoleadmin
+      Merge remote-tracking branch 'origin/master'
+      endret bakgrunnsfarge på skoleadmin
+      fjernet blur
+      fjernet blur
+      odrnet på sentrering av logo
+      jadda, martin er best! fikset korrupt youtube-ikon
+      jadda, fikset korrupt youtube-ikon
+      Merge branch 'master' of https://github.com/nith/PJ3100-14-Gruppe-22
+      nye ikoner og fikset på simen sin elendige ccs ;)
+      og litt høyde-issues i html-tagen
+      og en typo
+      utbedret css på elev-siden
+      Merge remote-tracking branch 'origin/master'
+      fjernet opacity på mobilsiden
+      fjernet klassevisning ved hamburgermeny på mobilsiden
+      lagt inn litt rom mellom profil og logg ut ikon for mobil
+      Merge remote-tracking branch 'origin/master'
+      fikset margin mellom favoritter
+      Merge remote-tracking branch 'origin/master'
+      fikset css til js-lenker
+      fjernet overfløding css-fil
+      flytting av favorittknapp
+      Merge remote-tracking branch 'origin/master'
+      rename
+      rename
+      hinduismepirking
+      favorittknapp
+      Merge remote-tracking branch 'origin/master'
+      bilder til læringsobjekter
+      nytt stygt bilde <3
+      nytt fint bilde <3, og ny fag-farge
+      ny oversiktsmeny, funker fint foruten på mobil
+      Merge remote-tracking branch 'origin/master'
+      fikset endel css på utseende
+      fikset endel css på utseende mobil
+      fikset en f-ing klammefeil :D
+      Merge remote-tracking branch 'origin/master'
+      tulla litt med css'en på visning av kategorier
+
+Mats Harwiss (1):
+      Simen prøver git
+
+MonicaWO (1):
+      monica har ordna greier da
+
+Perry Sarao (1):
+      Perry sin første commit
+
+Simen Fonnes (53):
+      Simen hadde feil brukerinfo i git. klarte vi løse det?
+      Laget GeneratePage.php
+      Merge branch 'master' of https://github.com/nith/PJ3100-14-Gruppe-22
+      Brukt generate_page i admin_controller samt laget game_controller som og bruker generate_page
+      Merge remote-tracking branch 'origin/master'
+      Har laget game_controller og game. game-controller er ikke ferdig
+      Merge remote-tracking branch 'origin/master'
+      Har laget game_controller og game. game-controller er ikke ferdig
+      Har laget game_controller og game. game-controller er ikke ferdig
+      Merge remote-tracking branch 'origin/master'
+      Merge remote-tracking branch 'origin/master'
+      Test
+      Test
+      Test
+      Merge remote-tracking branch 'origin/master'
+      Fikset favoritter, det er lagt til et div som rep. læringsobjektet
+      Merge remote-tracking branch 'origin/master'
+      Fikset favoritter, det er lagt til et div som rep. læringsobjektet
+      lagt til mypage
+      oppdatert mypage
+      Merge remote-tracking branch 'origin/master'
+      fikset mypage
+      fikset mypage
+      fikset lenker på mypage
+      lagt til css for mypage
+      lagt til css for mypage
+      mypage fikset teknisk
+      mypage fikset teknisk
+      mypage fikset teknisk
+      mypage fikset teknisk
+      Opprettet hinduism_game_view
+      Vidreutvikling av hindusim_game_view
+      Merge remote-tracking branch 'origin/master'
+      Vidreutvikling av hindusim_game_view
+      Merge remote-tracking branch 'origin/master'
+      Vidreutvikling av hindusim_game_view
+      Vidreutvikling av hindusim_game_view
+      Merge remote-tracking branch 'origin/master'
+      Vidreutvikling av hindusim_game_view
+      mypage-utvikling
+      mypage-utvikling
+      Merge remote-tracking branch 'origin/master'
+      Fjerne favoritt fra mypage fungerer
+      Oppdaterte lenker i hamburger
+      Merge remote-tracking branch 'origin/master'
+      Fikset at tekst forblir farge på menyen når valgt.
+      Merge remote-tracking branch 'origin/master'
+      Fikset at tekst forblir farge på menyen når valgt.
+      Merge remote-tracking branch 'origin/master'
+      Fikset at tekst forblir farge på menyen når valgt.
+      Lærersiden - view
+      Lærersiden - view
+      Lærersiden - view
+
+lobfredd (3):
+      first commit
+      Hello
+      Oppdatert logo på loginsiden
+
+marrth (1):
+      Marthe prøver git
+
