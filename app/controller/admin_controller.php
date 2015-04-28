@@ -61,8 +61,18 @@
             $this->view->showPage();
         }
 
-        public function doAddSchool () {
+        public function addSchool()
+        {
+            $this->view->setViewPath('admin/CRUD/addSchool.php');
+            $this->view->schools = getSchools();
+            $this->view->showPage();
+        }
 
+        public function addCategories()
+        {
+            $this->view->setViewPath('admin/CRUD/addCategories.php');
+            $this->view->categories = getAllCategories();
+            $this->view->showPage();
         }
 
         private function addSubject(){

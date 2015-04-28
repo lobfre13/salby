@@ -57,6 +57,15 @@
             return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
+function getAllTheCategories()
+{
+    global $database;
+    $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid JOIN subjects on subjectid = subjects.id");
+
+    $sql->execute();
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
+}
+
         function doAddCategory($subjectID){
             global $database;
             $sql = $database->prepare("INSERT INTO categories VALUES(null, :categoryname, :imgurl)");

@@ -2,7 +2,7 @@
     <form method="post" action="/admin/addCategories">
         <input type="submit" value="Legg til kategori">
     </form>
-    <form method="post" action="/admin/doGetCategoriesSearchResult">
+    <form method="post" action="/admin/addCategories">
         <input type="text" name="searchBoxCategories">
         <input type="submit" value="Søk her...">
     </form>
@@ -13,14 +13,13 @@
             <td>Rediger</td>
             <td>Slett</td>
         </tr>
-            <?php foreach ($this->categories as $category) { ?>
-        <tr>
-                <td><?php echo $category['category']?></td>
-            <?php print_r($category) ?>
-            <td><img src="<?php echo $category['categories.imgrul'] ?>"></td>
+        <?php foreach ($this->categories as $category) { ?>
+            <tr>
+                <td><?php echo $category['category'] ?></td>
+                <td><?php echo $category['imgrul'] ?></td>
                 <td>RedigerSymbol</td>
                 <td>SlettSymbol</td>
-        </tr>
-            <?php } ?>
+            </tr>
+        <?php } ?>
     </table>
 </div>
