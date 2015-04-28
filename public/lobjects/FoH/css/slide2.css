@@ -1,0 +1,12 @@
+.slide2.background{
+    background: linear-gradient(purple, white);
+}
+
+.slide2 .jasmin{
+    left: 60%;
+}
+
+.slide2 .snakkeboble{
+    left: 45%;
+    top: 50px;
+}

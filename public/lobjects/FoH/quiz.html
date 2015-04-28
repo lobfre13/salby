@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="https://dl.dropboxusercontent.com/u/50868481/jquery.swipeshow.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"> </script>
+    <script src="https://dl.dropboxusercontent.com/u/50868481/jquery.swipeshow.js"></script>
+</head>
+<body>
+<div>
+
+    <div class="swipeshow slideshoww">
+        <ul class="slides">
+            <li class="slide">
+                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
+            </li>
+            <li class="slide">
+                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
+            </li>
+            <li class="slide">
+                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        (function($) {
+            $(".slideshoww").swipeshow(
+                {
+                    autostart: false, /* Set to `false` to keep it steady */
+                    interval: 0, /* Time between switching slides (ms) */
+                    initial: 0, /* First slide's index */
+                    speed: 700, /* Animation speed (ms) */
+                    friction: 0.2, /* Bounce-back behavior; use `0` to disable */
+                    mouse: true, /* enable mouse dragging controls */
+                    keys: true         /* enable left/right keyboard keys */
+                }
+            );
+        })(jQuery);
+    </script>
+</div>
+
+
+</body></html>

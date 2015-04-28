@@ -1,0 +1,21 @@
+.slide8.background{
+    background: linear-gradient(lightskyblue, saddlebrown); /* Standard syntax */
+}
+.slide8 .tempel{
+    position: absolute;
+    height: 200px;
+    top: 20px;
+    left: 20%;
+    transform: translate(-50%, 0);
+    margin-left:auto;
+    margin-right:auto;
+}
+.slide8 .jasmin{
+    height: 250px;
+    top: 10px;
+    left: 70%;
+}
+.slide8 .snakkeboble{
+    top: 280px;
+    width: 300px;
+}
