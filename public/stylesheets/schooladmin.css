@@ -1,7 +1,5 @@
-html {
-    background-image: none;
-    background-color: grey;
-    background-color: lightgrey;
+body {
+    background: lightgrey none !important;
 }
 
 table, tr, td, th{
