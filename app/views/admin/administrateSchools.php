@@ -2,6 +2,10 @@
     function addSchool () {
         ajaxCall("GET", "/admin/doAddSchool", true, "addSchool");
     }
+
+    function deleteSchool () {
+        ajaxCall("GET", "/admin/doDeleteSchool", true, "deleteSchool");
+    }
 </script>
 <div id="content" class="widthConstrained">
     <form method="post" action="/admin/administrateSchools">
@@ -27,7 +31,8 @@
                     <td><?php echo $school['kommune'] ?></td>
                     <td><?php echo $school['regkey'] ?></td>
                     <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                    <td><img src="/public/img/slettIkon.png" width="35"></td>
+                    <!-- HEEEEEEER!!! LINJEN UNDER HVORDAN FÅR MAN SENDT INN PARAMETER??-->
+                    <td><img src="/public/img/slettIkon.png" width="35" onclick="deleteSchool(<?php echo $school['name']?>)"></td>
                 </tr>
             <?php } ?>
         </table>

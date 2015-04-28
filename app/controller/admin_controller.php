@@ -1,11 +1,13 @@
 <?php
     class adminController extends superController{
 
+        //Constructor
         public function __construct($register){
             parent::__construct($register);
             include $this->root.'/app/model/admin.php';
         }
 
+        //Index-operation
         public function index(){
             $this->view->setViewPath('admin/admin.php');
             $this->view->subjects = getSubjects();
@@ -13,6 +15,7 @@
             $this->view->showPage();
         }
 
+        //Sub-page-operations
         public function administrateSchools () {
             $this->view->setViewPath('admin/administrateSchools.php');
             if (isset($_POST['searchBoxSchools'])) $this->view->schools = searchSchools($_POST['searchBoxSchools']);
@@ -41,6 +44,7 @@
             $this->view->showPage();
         }
 
+        //Search-operations
         public function doGetSchoolSearchResults () {
             $this->view->setViewPath('admin/administrateSchools.php');
             $this->view->schools = searchSchools($_POST['searchBoxSchools']);
@@ -65,6 +69,7 @@
             $this->view->showPage();
         }
 
+        //Add-operations
         public function addSchool()
         {
             $this->view->setViewPath('admin/CRUD/addSchool.php');
@@ -92,6 +97,31 @@
         public function addLearningObject () {
             $this->view->setViewPath('admin/CRUD/addLearningObjects.php');
             $this->view->showStrippedPage();
+        }
+
+        //Delete-operations
+        public function doDeleteSchool ($schoolName) {
+            $this->view->setViewPath('admin/administrateSchools.php');
+            deleteSchool($schoolName);
+            $this->view->showPage();
+        }
+
+        public function doDeleteSubject ($subjectName) {
+            $this->view->setViewPath('admin/administrateSubjects.php');
+            deleteSubject($subjectName);
+            $this->view->showPage();
+        }
+
+        public function doDeleteCategory ($categoryName) {
+            $this->view->setViewPath('admin/administrateCategories.php');
+            deleteCategory($categoryName);
+            $this->view->showPage();
+        }
+
+        public function doDeleteLearningObject ($learningObjectName) {
+            $this->view->setViewPath('admin/administrateLearningobjects.php');
+            deleteLearningObject($learningObjectName);
+            $this->view->showPage();
         }
 
         private function showSubject($id){
