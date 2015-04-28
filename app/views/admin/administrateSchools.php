@@ -2,7 +2,7 @@
     <form method="post" action="/admin/addSchool">
         <input type="submit" value="Legg til skole">
     </form>
-    <form method="post" action="/admin/doGetSchoolSearchResults">
+    <form method="post" action="/admin/administrateSchools">
         <input type="text" name="searchBoxSchools">
         <input type="submit" value="Søk her...">
     </form>

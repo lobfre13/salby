@@ -15,7 +15,8 @@
 
         public function administrateSchools () {
             $this->view->setViewPath('admin/administrateSchools.php');
-            $this->view->schools = getSchools();
+            if (isset($_POST['searchBoxSchools'])) $this->view->schools = searchSchools($_POST['searchBoxSchools']);
+            else $this->view->schools = getSchools();
             $this->view->showPage();
         }
 

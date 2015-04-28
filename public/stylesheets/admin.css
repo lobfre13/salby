@@ -2,26 +2,17 @@
 
 html {
     background-image: none;
-    background-color: grey;
     background-color: lightgrey;
 }
 
-table, tr, td, th{
+table, tr, td {
     border-collapse: collapse;
-    padding: 5px;
-    border: 10px solid transparent;
-    -webkit-border-image: url('/public/img/punktum.png') 30 round; /* Safari 3.1-5 */
-    -o-border-image: url('/public/img/punktum.png') 30 round; /* Opera 11-12.1 */
-    padding: 15px;
+    border-bottom: 2px solid black;
+    padding: 20px;
 }
 table{
     width: 100%;
 
-}
-
-tr {
-    border-image: url('/public/img/punktum.png') 30 round;
-    border-image-repeat: repeat;
 }
 
 table a, table a:visited{
@@ -29,6 +20,7 @@ table a, table a:visited{
 }
 
 #mainTable {
+    padding: 50px;
     border-radius: 25px;
     background: #ffffff; /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 43%, #d3d3d3 100%, #d3d3d3 100%, #d3d3d3 101%); /* FF3.6+ */
