@@ -1,14 +1,23 @@
 <?php
 
+    include_once 'dbInterface.php';
+
     function getSubject($classLevel, $subjectName){
-        global $database;
+        $sqlString = "SELECT * FROM subjects WHERE subjectname = :subjectname AND classlevel = :classlevel";
+        $params = array(
+            'subjectname' => $subjectName,
+            'classlevel' => $classLevel
+        );
+        return query($sqlString, $params, false);
+
+        /*global $database;
         $sql = $database->prepare("SELECT * FROM subjects WHERE subjectname = :subjectname AND classlevel = :classlevel");
 
         $sql->execute(array(
             'subjectname' => $subjectName,
             'classlevel' => $classLevel
         ));
-        return $sql->fetch(PDO::FETCH_ASSOC);
+        return $sql->fetch(PDO::FETCH_ASSOC);*/
     }
 
     function getClassLevel($classID){

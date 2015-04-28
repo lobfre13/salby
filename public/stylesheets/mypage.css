@@ -35,6 +35,7 @@ html{
     background-image: url("http://edublogs.org/wp-content/themes/edublogs_2012/images/top-bg.jpg");
     width: 700px;
     padding: 20px;
+    font-family: 'Chelsea Market', cursive;
 }
 
 #homeworkListHeader th{
@@ -61,6 +62,8 @@ html{
 .favouriteGames{
     display: inline-block;
     position: relative;
+    background-image: url("/public/img/postItBlue.png");
+    background-size: 100% 100%;
 }
 
 #favouritePicture {
@@ -74,15 +77,15 @@ html{
 #removeFavouriteButton input {
     display: inline-block;
     position: absolute;
-    right: 40px;
-    top: 15px;
+    left: 63px;
+    top: 10px;
     cursor: pointer;
-    width: 48px;
-    height: 45px;
+    width: 20px;
+    height: 20px;
     border: none;
-    background: url("http://png-5.vector.me/files/images/3/8/381554/thumbtack_pushpin_2_thumb") no-repeat;
-    /*background: url("http://web2.gyldendal.no/Podium_ressurser/Salaby/images/salaby/lukkeknapp.png") no-repeat;*/
-    background-size: cover;
+    background-color: transparent;
+    /*background: url("http://png-5.vector.me/files/images/3/8/381554/thumbtack_pushpin_2_thumb") no-repeat;
+    background-size: cover;*/
 
 }
 
