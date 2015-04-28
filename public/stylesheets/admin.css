@@ -36,12 +36,12 @@ table a, table a:visited{
 }
 
 #addButton {
-    border-style: none;
+    border: none;
+    background: transparent url('/public/img/plussIkon.png');
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
     outline: 0;
     -webkit-appearance: none;
-    width: 100px;
-    height: 100px;
-    background-size: 100% 100%;
-    background: transparent url('/public/img/plussIkon.png');
     cursor: pointer;
 }
