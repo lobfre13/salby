@@ -20,9 +20,7 @@ table a, table a:visited{
     color: black;
 }
 
-#mainTable {
-
-    /*overflow: auto;*/
+#schoolMainTable {
     padding: 20px;
     border-radius: 25px;
     background: #ffffff; /* Old browsers */
@@ -35,7 +33,20 @@ table a, table a:visited{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-#addButton {
+#subjectMainTable {
+    padding: 20px;
+    border-radius: 25px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 43%, #d3d3d3 100%, #d3d3d3 100%, #d3d3d3 101%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(43%,#ffffff), color-stop(100%,#d3d3d3), color-stop(100%,#d3d3d3), color-stop(101%,#d3d3d3)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#schoolAddButton {
     border: none;
     background: transparent url('/public/img/plussIkon.png');
     background-size: 100% 100%;
@@ -45,3 +56,33 @@ table a, table a:visited{
     -webkit-appearance: none;
     cursor: pointer;
 }
+
+#subjectAddButton {
+    border: none;
+    background: transparent url('/public/img/plussIkon.png');
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+    outline: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+/*
+label {
+    background-color: red;
+    right: 80%;
+}
+*/
+ul#adminMainMenu, ul.sideAdminSub {
+    list-style-type: none;
+}
+
+ul#adminMainMenu li{
+    outline: 1px solid red;
+    width: 175px;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+

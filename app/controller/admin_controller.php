@@ -81,9 +81,9 @@
             $this->view->showStrippedPage();
         }
 
-        private function addSubject(){
-            doAddSubject();
-            $this->index();
+        public function addSubject(){
+            $this->view->setViewPath('admin/CRUD/addSubjects.php');
+            $this->view->showStrippedPage();
         }
 
         private function showSubject($id){
