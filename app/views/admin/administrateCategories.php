@@ -15,6 +15,7 @@
                 <td>Kategori</td>
                 <td>Bilde</td>
                 <td>Tilhørende fag</td>
+                <td>Klassetrinn</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -24,6 +25,7 @@
                     <td><?php echo $category['category']?></td>
                     <td><img src="<?php echo $category['catimg']?>"></td>
                     <td><?php echo $category['subjectname']?></td>
+                    <td><?php echo $category['classlevel']?></td>
                     <td><img src="/public/img/redigerIkon.png" width="35"></td>
                     <td><img src="/public/img/slettIkon.png" width="35"></td>
                 </tr>

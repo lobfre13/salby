@@ -122,6 +122,7 @@ function getAllTheCategories()
             ));
         }
 
+        //Search-operations
         function searchSchools ($searchString) {
             global $database;
             $sql = $database->prepare("SELECT * FROM schools WHERE name LIKE :searchString");
@@ -144,7 +145,9 @@ function getAllTheCategories()
 
         function searchCategories ($searchString) {
             global $database;
-            $sql = $database->prepare("SELECT * FROM categories WHERE category LIKE :searchString");
+            $sql = $database->prepare("SELECT *, categories.imgurl as catimg FROM categories
+                                          JOIN subjectcategory on categories.id = categoryid
+                                          JOIN subjects on subjectid = subjects.id WHERE category LIKE :searchString");
 
             $sql->execute(array(
                 'searchString' => '%'.$searchString.'%'
@@ -161,3 +164,94 @@ function getAllTheCategories()
             ));
             return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        //Update-operations
+        function updateSchool ($name, $fylke, $kommune) {
+            global $database;
+            $sql = $database->prepare("UPDATE schools
+                                        SET name = :name, fylke = :fylke, kommune = :kommune
+                                        WHERE name = :name;");
+
+            $sql->execute(array(
+                'name' => $name,
+                'fylke' => $fylke,
+                'kommune' => $kommune
+            ));
+        }
+
+        function updateSubject ($subjectName, $classLevel, $imgUrl) {
+            global $database;
+            $sql = $database->prepare("UPDATE subjects
+                                        SET subjectname = :subjectName, classlevel = :classLevel, imgurl = :imgUrl
+                                        WHERE subjectname = :subjectName;");
+
+            $sql->execute(array(
+                'subjectName' => $subjectName,
+                'classLevel' => $classLevel,
+                'imgUrl' => $imgUrl
+            ));
+        }
+
+        function updateCategory ($category, $imgUrl) {
+            global $database;
+            $sql = $database->prepare("UPDATE categories
+                                        SET category = :category, imgurl = :imgUrl
+                                        WHERE category = :category;");
+
+            $sql->execute(array(
+                'category' => $category,
+                'imgUrl' => $imgUrl
+            ));
+        }
+
+        function updateLearningObject ($title, $link, $imgUrl) {
+            global $database;
+            $sql = $database->prepare("UPDATE learningobjects
+                                                SET title = :title, link = :link, imgurl = :imgUrl
+                                                WHERE title = :title;");
+
+            $sql->execute(array(
+                'title' => $title,
+                'link' => $link,
+                'imgUrl' => $imgUrl
+            ));
+        }
+
+        //Delete-operations
+        function deleteSchool ($schoolName) {
+            global $database;
+            $sql = $database->prepare("DELETE FROM schools WHERE name = :schoolName");
+
+            $sql->execute(array(
+                'schoolName' => $schoolName
+            ));
+        }
+
+        function deleteSubject ($subjectName) {
+            global $database;
+            $sql = $database->prepare("DELETE FROM subjects WHERE subjectname = :subjectName");
+
+            $sql->execute(array(
+                'subjectName' => $subjectName
+            ));
+        }
+
+        function deleteCategory ($categoryName) {
+            global $database;
+            $sql = $database->prepare("DELETE FROM categories WHERE category = :categoryName");
+
+            $sql->execute(array(
+                'categoryName' => $categoryName
+            ));
+        }
+
+        function deleteLearningObject ($learningObjectName) {
+            global $database;
+            $sql = $database->prepare("DELETE FROM learningobjects WHERE title = :learningObjectName");
+
+            $sql->execute(array(
+                'learningObjectName' => $learningObjectName
+            ));
+        }
+
+

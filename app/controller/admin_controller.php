@@ -29,7 +29,8 @@
 
         public function administrateCategories () {
             $this->view->setViewPath('admin/administrateCategories.php');
-            $this->view->categories = getAllCategories();
+            if (isset($_POST['searchBoxCategories'])) $this->view->categories = searchCategories($_POST['searchBoxCategories']);
+            else $this->view->categories = getAllCategories();
             $this->view->showPage();
         }
 
@@ -68,7 +69,7 @@
         {
             $this->view->setViewPath('admin/CRUD/addSchool.php');
             $this->view->schools = getSchools();
-            $this->view->showPage();
+            $this->view->showStrippedPage();
         }
 
         public function addCategories()
