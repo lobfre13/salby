@@ -22,7 +22,8 @@
 
         public function administrateSubjects () {
             $this->view->setViewPath('admin/administrateSubjects.php');
-            $this->view->subjects = getSubjects();
+            if (isset($_POST['searchBoxSubjects'])) $this->view->subjects = searchSubjects($_POST['searchBoxSubjects']);
+            else $this->view->subjects = getSubjects();
             $this->view->showPage();
         }
 
@@ -34,7 +35,8 @@
 
         public function administrateLearningobjects () {
             $this->view->setViewPath('admin/administrateLearningobjects.php');
-            $this->view->learningObjects = getAllLearningObjects();
+            if (isset($_POST['searchBoxLearningObjects'])) $this->view->learningObjects = searchLearningObjects($_POST['searchBoxLearningObjects']);
+            else $this->view->learningObjects = getAllLearningObjects();
             $this->view->showPage();
         }
 
@@ -83,6 +85,11 @@
 
         public function addSubject(){
             $this->view->setViewPath('admin/CRUD/addSubjects.php');
+            $this->view->showStrippedPage();
+        }
+
+        public function addLearningObject () {
+            $this->view->setViewPath('admin/CRUD/addLearningObjects.php');
             $this->view->showStrippedPage();
         }
 

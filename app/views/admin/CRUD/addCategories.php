@@ -1,25 +1,7 @@
-<div id="content" class="widthConstrained">
-    <form method="post" action="/admin/addCategories">
-        <input type="submit" value="Legg til kategori">
-    </form>
-    <form method="post" action="/admin/addCategories">
-        <input type="text" name="searchBoxCategories">
-        <input type="submit" value="Søk her...">
-    </form>
-    <table>
-        <tr>
-            <td>Kategori</td>
-            <td>Bilde-URL</td>
-            <td>Rediger</td>
-            <td>Slett</td>
-        </tr>
-        <?php foreach ($this->categories as $category) { ?>
-            <tr>
-                <td><?php echo $category['category'] ?></td>
-                <td><?php echo $category['imgrul'] ?></td>
-                <td>RedigerSymbol</td>
-                <td>SlettSymbol</td>
-            </tr>
-        <?php } ?>
-    </table>
-</div>
+<form>
+    <td><input type="text" name="kategori" placeholder="Kategori"></td>
+    <td><input type="file" name="bildeToUpload" id="bildeToUpload" value="Legg til kategoribilde"></td>
+    <td><input type="text" name="tilhørendeFag" placeholder="Tilhørende fag"></td>
+    <td><img src="/public/img/plussIkon.png" width="35"></td>
+    <td><img src="/public/img/slettIkon.png" width="35"></td>
+</form>

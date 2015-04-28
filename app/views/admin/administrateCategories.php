@@ -1,26 +1,33 @@
+<script>
+    function addCategories () {
+        ajaxCall("GET", "/admin/addCategories", true, "addCategories");
+    }
+</script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/addCategories">
-        <input type="submit" value="Legg til kategori">
-    </form>
     <form method="post" action="/admin/doGetCategoriesSearchResult">
         <input type="text" name="searchBoxCategories">
         <input type="submit" value="Søk her...">
     </form>
-    <table>
-        <tr>
-            <td>Kategori</td>
-            <td>Bilde-URL</td>
-            <td>Rediger</td>
-            <td>Slett</td>
-        </tr>
+    <div id="categoriesMainTable">
+        <label><input type="button" onclick="addCategories()" value="" id="categoryAddButton">Legg til kategori</label>
+        <table>
+            <tr>
+                <td>Kategori</td>
+                <td>Bilde</td>
+                <td>Tilhørende fag</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="addCategories"></tr>
             <?php foreach ($this->categories as $category) { ?>
-        <tr>
-                <td><?php echo $category['category']?></td>
-            <?php print_r($category) ?>
-            <td><img src="<?php echo $category['categories.imgrul'] ?>"></td>
-                <td>RedigerSymbol</td>
-                <td>SlettSymbol</td>
-        </tr>
+                <tr>
+                    <td><?php echo $category['category']?></td>
+                    <td><img src="<?php echo $category['catimg']?>"></td>
+                    <td><?php echo $category['subjectname']?></td>
+                    <td><img src="/public/img/redigerIkon.png" width="35"></td>
+                    <td><img src="/public/img/slettIkon.png" width="35"></td>
+                </tr>
             <?php } ?>
-    </table>
+        </table>
+    </div>
 </div>

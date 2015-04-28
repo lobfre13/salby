@@ -51,7 +51,9 @@
 
         function getAllCategories(){
             global $database;
-            $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid JOIN subjects on subjectid = subjects.id");
+            $sql = $database->prepare("SELECT *, categories.imgurl as catimg FROM categories
+JOIN subjectcategory on categories.id = categoryid
+JOIN subjects on subjectid = subjects.id");
 
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);
