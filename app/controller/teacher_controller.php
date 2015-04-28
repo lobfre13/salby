@@ -3,28 +3,28 @@
 
         public function __construct($register){
             parent::__construct($register);
-            include $this->getRegister()->getRoot().'/app/model/teacher.php';
-            include $this->getRegister()->getRoot().'/app/model/main.php';
-            include $this->getRegister()->getRoot().'/app/model/webutility.php';
+            include $this->root.'/app/model/teacher.php';
+            include $this->root.'/app/model/main.php';
+            include $this->root.'/app/model/webutility.php';
         }
 
         public function index(){
             $this->view->setViewPath('teacher/teacher.php');
-            $this->view->schoolClasses = getMyClasses($this->getRegister()->getUser()->getUsername());
+            $this->view->schoolClasses = getMyClasses($this->user->username);
             $this->view->showPage();
         }
 
         public function getClass(){
-            $classID = $this->getRegister()->getUrlElements()[2];
+            $classID = $this->urlElements[2];
             if(!is_numeric($classID)) return;
 
-            $this->view->setViewPath('teacher/teacherClass.php');
+            $this->view->setViewPath('teacher/homework/partialviews/teacherClass.php');
             $this->view->pupils = getClassPupils($classID);
             $this->view->showStrippedPage();
         }
 
         public function getClassTasks(){
-            $classID = $this->getRegister()->getUrlElements()[2];
+            $classID = $this->urlElements[2];
             if(!is_numeric($classID)) return;
 
             $this->view->setViewPath('teacher/homework/partialviews/classTasks.php');
@@ -33,7 +33,7 @@
         }
 
         public function editTask(){
-            $taskID = $this->getRegister()->getUrlElements()[2];
+            $taskID = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/editTask.php');
             $this->view->task = getClassTask($taskID);
             $this->view->showStrippedPage();
@@ -45,41 +45,41 @@
         }
 
         public function deleteTask(){
-            $taskID = $this->getRegister()->getUrlElements()[2];
+            $taskID = $this->urlElements[2];
             deleteClassTask($taskID);
         }
 
         public function addTask(){
             $this->view->setViewPath('teacher/homework/addTask.php');
             if(isset($_SESSION['chosenTasks'])) $this->view->chosenTasks = $_SESSION['chosenTasks'];
-            $this->view->schoolClasses = getMyClasses($this->getRegister()->getUser()->getUsername());
+            $this->view->schoolClasses = getMyClasses($this->user->username);
             $this->view->showPage();
         }
 
         public function getCategories(){
-            $subjectID = $this->getRegister()->getUrlElements()[2];
+            $subjectID = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/addTaskCategories.php');
             $this->view->categories = getSubjectCategories($subjectID);
             $this->view->showStrippedPage();
         }
 
         public function getCategoryContent(){
-            $categoryid = $this->getRegister()->getUrlElements()[2];
+            $categoryid = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/addTaskCategoryContent.php');
             $this->view->categoryContent = getCategoryContent($categoryid);
             $this->view->showStrippedPage();
         }
 
         public function addPendingTask(){
-            $taskID = $this->getRegister()->getUrlElements()[2];
-            $classSubjectID = $this->getRegister()->getUrlElements()[3];
-            $username = $this->getRegister()->getUser()->getUsername();
+            $taskID = $this->urlElements[2];
+            $classSubjectID = $this->urlElements[3];
+            $username = $this->user->username;
             addPendingTask($taskID, $username, $classSubjectID);
         }
 
         public function getPendingTasks(){
-            $subjectID = $this->getRegister()->getUrlElements()[2];
-            $username = $this->getRegister()->getUser()->getUsername();
+            $subjectID = $this->urlElements[2];
+            $username = $this->user->username;
             $this->view->setViewPath('teacher/homework/partialviews/pendingTasks.php');
             $this->view->pendingTasks = getPendingTasks($subjectID, $username);
             $this->view->showStrippedPage();
@@ -87,8 +87,8 @@
         }
 
         public function choosePupils(){
-            $classid = $this->getRegister()->getUrlElements()[2];
-            $username = $this->getRegister()->getUser()->getUsername();
+            $classid = $this->urlElements[2];
+            $username = $this->user->username;
             $this->view->setViewPath('/teacher/homework/choosePupils.php');
             $this->view->classid = $classid;
             $this->view->pupils = getPupils($classid);
@@ -103,7 +103,7 @@
             }
             $pupilUsernames = $_POST['pupils'];
             $classid = $_POST['classid'];
-            $username = $this->getRegister()->getUser()->getUsername();
+            $username = $this->user->username;
             $this->view->setViewPath('teacher/homework/acceptTasks.php');
             $this->view->pupils = getPupilsFromUsername($pupilUsernames);
             $this->view->classid = $classid;
@@ -114,7 +114,7 @@
         public function doAddTasks(){
             $pupilUsernames = $_POST['pupils'];
             $classid = $_POST['classid'];
-            $username = $this->getRegister()->getUser()->getUsername();
+            $username = $this->user->username;
             $pendingTasks = getPendingTasks($classid, $username);
             addHomework($pendingTasks, $pupilUsernames, $classid);
             removePendingTasks($pendingTasks[0]['pendinghomeworkclassid']);
@@ -153,7 +153,7 @@
 //        }
 //
         protected function checkUserAccess(){
-            $user = $this->getRegister()->getUser();
+            $user = $this->user;
             if(!isset($user) || !$user->isTeacher()){
                 header("Location: /login");
                 exit;

@@ -14,7 +14,7 @@
         }
 
         public function login(){
-            require $this->getRegister()->getRoot().'/app/model/login.php';
+            require $this->root.'/app/model/login.php';
             $loginSuccess = doLogin();
             if($loginSuccess)
                 header("Location: /");
@@ -23,7 +23,7 @@
         }
 
         protected function checkUserAccess(){
-            $user = $this->getRegister()->getUser();
+            $user = $this->user;
             if(isset($user)){
                 header("Location: /");
                 exit;

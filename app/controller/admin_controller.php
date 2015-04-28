@@ -3,7 +3,7 @@
 
         public function __construct($register){
             parent::__construct($register);
-            include $this->getRegister()->getRoot().'/app/model/admin.php';
+            include $this->root.'/app/model/admin.php';
         }
 
         public function index(){
@@ -77,7 +77,7 @@
             $categories = getCategories($subject['id']);
 
             $this->showFullHeader();
-            include $this->getRegister()->getRoot().'/app/views/admin/subject.php';
+            include $this->root.'/app/views/admin/subject.php';
             $this->showFooter();
 
         }
@@ -95,7 +95,7 @@
         }
 
         protected function checkUserAccess(){
-            $user = $this->getRegister()->getUser();
+            $user = $this->user;
             if(!isset($user) || !$user->isAdmin()){
                 header("Location: /login");
                 exit;

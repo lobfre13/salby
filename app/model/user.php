@@ -1,71 +1,37 @@
 <?php
     class User{
-        private $role;
-        private $username;
-        private $classID;
-        private $firstname;
-        private $lastname;
+        private $data;
 
         function __construct($username, $classID, $role, $firstname, $lastname){
-            $this->setUsername($username);
-            $this->setClassID($classID);
-            $this->setRole($role);
-            $this->setFirstname($firstname);
-            $this->setLastname($lastname);
-        }
-
-        public function getRole(){
-            return $this->role;
-        }
-
-        public function setRole($role){
-            $this->role = $role;
-        }
-
-        public function getUsername(){
-            return $this->username;
-        }
-
-        public function setUsername($username){
             $this->username = $username;
-        }
-
-        public function getClassID(){
-            return $this->classID;
-        }
-
-        public function setClassID($classID){
             $this->classID = $classID;
+            $this->role = $role;
+            $this->firstname = $firstname;
+            $this->lastname = $lastname;
+        }
+
+        public function __get($attribute){
+            if(isset($this->data[$attribute])) return $this->data[$attribute];
+            else return null;
+        }
+
+        public function __set($key, $val) {
+            $this->data[$key] = $val;
         }
 
         public function isAdmin(){
-            return $this->getRole() === 'admin';
+            return $this->role === 'admin';
         }
 
         public function isSchool(){
-            return $this->getRole() === 'school';
+            return $this->role === 'school';
         }
 
         public function isTeacher(){
-            return $this->getRole() === 'teacher';
+            return $this->role === 'teacher';
         }
 
-        public function getFirstname(){
-            return $this->firstname;
-        }
-
-        public function setFirstname($firstname){
-            $this->firstname = $firstname;
-        }
-
-        public function getLastname(){
-            return $this->lastname;
-        }
-
-        public function setLastname($lastname){
-            $this->lastname = $lastname;
-        }
         public function getFullName(){
-            return $this->getFirstname() . ' ' . $this->getLastname();
+            return $this->firstname . ' ' . $this->lastname;
         }
     }

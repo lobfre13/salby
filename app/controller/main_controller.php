@@ -3,13 +3,13 @@
 
         public function __construct($register){
             parent::__construct($register);
-            include $this->getRegister()->getRoot().'/app/model/main.php';
-            include $this->getRegister()->getRoot().'/app/model/webutility.php';
-            include $this->getRegister()->getRoot().'/app/model/favourites.php';
+            include $this->root.'/app/model/main.php';
+            include $this->root.'/app/model/webutility.php';
+            include $this->root.'/app/model/favourites.php';
         }
 
         protected function checkUserAccess(){
-            $user = $this->getRegister()->getUser();
+            $user = $this->user;
             if(!isset($user)){
                 header("Location: /login");
                 exit;
@@ -18,12 +18,12 @@
 
         public function index(){
             $this->loadDefaultView();
-            $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
+            $this->view->classLevel = getClassLevel($this->user->classID);
             $this->view->showPage();
         }
 
         public function subject(){
-            $url = array_filter($this->getRegister()->getUrlElements());
+            $url = array_filter($this->urlElements);
             if(count($url) < 3) return $this->index();
             $url = deSlugify($url);
 
@@ -44,7 +44,7 @@
         }
 
         public function updateFavourite() {
-            updateFavourite($this->getRegister()->getUser()->getUsername(), $_GET['id'], $_GET['url']);
+            updateFavourite($this->user->username, $_GET['id'], $_GET['url']);
         }
 
         //Flytte private metoder til modell somehow?
@@ -65,7 +65,7 @@
         private function loadDefaultView($classLevel = null){
             $this->view->setViewPath('main.php');
             if(isset($classLevel)) $this->view->subjects = getSubjects($classLevel);
-            else $this->view->subjects = getUserSubjects($this->getRegister()->getUser()->getClassID());
+            else $this->view->subjects = getUserSubjects($this->user->classID);
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->categoryContent = [];
             $this->view->filePathURLS = [['/main/', 'Forsiden']];
@@ -75,11 +75,11 @@
         private function loadGame($lobject){
             $lobject = getLObject($lobject);
             if(empty($lobject)) return null;
-            $username = $this->getRegister()->getUser()->getUsername();
+            $username = $this->user->username;
             $isFavourite = favouriteExists($username, $lobject['id']);
 
             ob_start();
-            include $this->getRegister()->getRoot()."/app/views/game_view.php";
+            include $this->root."/app/views/game_view.php";
             $gameHTML = ob_get_clean();
             return $gameHTML;
         }

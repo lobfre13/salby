@@ -10,13 +10,13 @@
 
         public function __construct($register) {
             parent::__construct($register);
-            include $this->getRegister()->getRoot().'/app/model/mypage.php';
-            include $this->getRegister()->getRoot().'/app/model/favourites.php';
-            include $this->getRegister()->getRoot().'/app/model/main.php';
+            include $this->root.'/app/model/mypage.php';
+            include $this->root.'/app/model/favourites.php';
+            include $this->root.'/app/model/main.php';
         }
 
         protected function checkUserAccess(){
-            $user = $this->getRegister()->getUser();
+            $user = $this->user;
             if(!isset($user)){
                 header("Location: /login");
                 exit;
@@ -24,21 +24,21 @@
         }
 
         public function removeFavourite(){
-            $username = $this->getRegister()->getUser()->getUsername();
+            $username = $this->user->username;
             $lObjectId = $_POST['lObjectId'];
             removeFavourite($username, $lObjectId);
             $this->index();
         }
 
         public function updateHomework(){
-            $username = $this->getRegister()->getUser()->getUsername();
-            $homeworkid = $this->getRegister()->getUrlElements()[2];
+            $username = $this->user->username;
+            $homeworkid = $this->urlElements[2];
             updateHomeworkStatus($username, $homeworkid);
         }
 
         public function index(){
-            $id = $this->getRegister()->getUser()->getClassID();
-            $username = $this->getRegister()->getUser()->getUsername();
+            $id = $this->user->classID;
+            $username = $this->user->username;
             if(!is_numeric($id)){
                 header("Location: /");
                 exit;
@@ -46,7 +46,7 @@
 
             $this->view->setViewPath('mypage_view.php');
 
-            $this->view->classLevel = getClassLevel($this->getRegister()->getUser()->getClassID());
+            $this->view->classLevel = getClassLevel($this->user->classID);
             $this->view->homeworkSubjects = getHomeworkSubjects($id);
             $this->view->weeknumber = getWeekNumber();
             $this->view->favouriteList = getUserFavourites($username);
