@@ -75,7 +75,7 @@
         {
             $this->view->setViewPath('admin/CRUD/addCategories.php');
             $this->view->categories = getAllCategories();
-            $this->view->showPage();
+            $this->view->showStrippedPage();
         }
 
         public function doAddSchool () {
