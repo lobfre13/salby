@@ -31,3 +31,14 @@ table a, table a:visited{
     background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+#addButton {
+    border-style: none;
+    outline: 0;
+    -webkit-appearance: none;
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    background: transparent url('/public/img/plussIkon.png');
+    cursor: pointer;
+}

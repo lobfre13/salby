@@ -76,6 +76,11 @@
             $this->view->showPage();
         }
 
+        public function doAddSchool () {
+            $this->view->setViewPath('admin/CRUD/addSchool.php');
+            $this->view->showStrippedPage();
+        }
+
         private function addSubject(){
             doAddSubject();
             $this->index();

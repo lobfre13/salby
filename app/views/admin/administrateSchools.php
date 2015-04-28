@@ -1,7 +1,11 @@
+<script>
+    function addSchool () {
+        ajaxCall("GET", "/admin/doAddSchool", true, "addSchool");
+    }
+</script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/addSchool">
-        <input type="submit" value="Legg til skole">
-    </form>
+    <label><input type="button" onclick="addSchool()" value="" id="addButton">Legg til skole</label>
+
     <form method="post" action="/admin/administrateSchools">
         <input type="text" name="searchBoxSchools">
         <input type="submit" value="Søk her...">
@@ -16,6 +20,7 @@
                 <th></th>
                 <th></th>
             </tr>
+            <tr id="addSchool"></tr>
             <?php foreach ($this->schools as $school) { ?>
                 <tr>
                     <td><?php echo $school['name'] ?></td>
