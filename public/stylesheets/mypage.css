@@ -36,6 +36,7 @@ html{
     width: 700px;
     padding: 20px;
     font-family: 'Chelsea Market', cursive;
+
 }
 
 #homeworkListHeader th{
@@ -54,6 +55,9 @@ html{
     width: 700px;
     padding: 20px;
     margin-bottom: 20px;
+    border: 15px solid transparent;
+    border-image: url("http://www.landandlight.co.uk/frame-images/frame_1.png") 30 round;
+
 
 
 

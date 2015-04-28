@@ -1,7 +1,7 @@
 /* ADMIN PAGE */
 
 body {
-    background: lightgrey none !important;
+    background: #e9eaed none !important;
 }
 
 table, tr, td {
@@ -13,6 +13,7 @@ table, tr, td {
 table{
     width: 100%;
     overflow: hidden;
+
 }
 
 table a, table a:visited{
@@ -20,6 +21,7 @@ table a, table a:visited{
 }
 
 #schoolMainTable {
+    box-shadow: 5px 5px 2px #959595;
     padding: 20px;
     border-radius: 25px;
     background: #ffffff; /* Old browsers */
@@ -33,6 +35,7 @@ table a, table a:visited{
 }
 
 #subjectMainTable {
+    box-shadow: 5px 5px 2px #959595;
     padding: 20px;
     border-radius: 25px;
     background: #ffffff; /* Old browsers */
