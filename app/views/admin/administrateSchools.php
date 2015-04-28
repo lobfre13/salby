@@ -4,13 +4,12 @@
     }
 </script>
 <div id="content" class="widthConstrained">
-    <label><input type="button" onclick="addSchool()" value="" id="addButton">Legg til skole</label>
-
     <form method="post" action="/admin/administrateSchools">
         <input type="text" name="searchBoxSchools">
         <input type="submit" value="Søk her...">
     </form>
     <div id="mainTable">
+        <label><input type="button" onclick="addSchool()" value="" id="addButton">Legg til skole</label>
         <table>
             <tr>
                 <th>Skolenavn</th>
