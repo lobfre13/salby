@@ -3,6 +3,11 @@
         ajaxCall("GET", "/admin/doAddSchool", true, "addSchool");
     }
 
+    function doAddSchool (object, skolenavn, fylke, kommune) {
+        ajaxCall("GET", "/admin/actuallyAddSchool", true, "actuallyAddSchool");
+        $(object).closest("tr").add();
+    }
+
     function deleteSchool (object, schoolId) {
         if (confirm('Er du sikker på at du vil fjerne denne skolen?')) {
             ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);

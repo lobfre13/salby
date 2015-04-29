@@ -90,6 +90,10 @@
             $this->view->showStrippedPage();
         }
 
+        public function actuallyAddSchool () {
+            addSchool($this->urlElements[2], $this->urlElements[3], $this->urlElements[4]);
+        }
+
         public function addSubject(){
             $this->view->setViewPath('admin/CRUD/addSubjects.php');
             $this->view->showStrippedPage();
