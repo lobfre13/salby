@@ -117,10 +117,8 @@
             $this->view->showPage();
         }
 
-        public function doDeleteLearningObject ($learningObjectName) {
-            $this->view->setViewPath('admin/administrateLearningobjects.php');
-            deleteLearningObject($learningObjectName);
-            $this->view->showPage();
+        public function doDeleteLearningObject ($learningObjectId) {
+            deleteLearningObject($this->urlElements[2]);
         }
 
         private function showSubject($id){
