@@ -43,7 +43,7 @@
                         <td><?php echo $subject['classlevel']?></td>
                         <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
                         <td><div class="editBtn"></td>
-                        <td><div onclick="deleteSubject(this, <?php echo $subject['subjectid'];?>)" class="deleteBtn"></td>
+                        <td><div onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></td>
                     </tr>
                 <?php } ?>
             </table>

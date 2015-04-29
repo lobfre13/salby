@@ -234,7 +234,7 @@
         }
 
         function deleteSubject ($subjectID) {
-            $sqlString = "DELETE FROM classsubjects WHERE subjectid = :subjectId;/* DELETE FROM subjectcategory WHERE subjectid = :subjectId; DELETE FROM subjects WHERE id = :subjectId;*/";
+            $sqlString = "DELETE FROM classsubjects WHERE subjectid = :subjectId; DELETE FROM subjectcategory WHERE subjectid = :subjectId; DELETE FROM subjects WHERE id = :subjectId;";
             $params = array(
                 'subjectId' => $subjectID
             );
