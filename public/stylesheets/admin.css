@@ -21,7 +21,7 @@ table, tr, td {
 table{
     width: 100%;
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: 10%;
 }
 
 table a, table a:visited{
@@ -86,15 +86,32 @@ table a, table a:visited{
 #schoolAddButtonDiv {
     width: 160px;
     min-width: 160px;
-    background-color: white;
-    border: 1px solid #d3d3d3;
     position: relative;
     cursor: pointer;
+    text-align: left;
+    float: left;
+    padding: 8px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dedede #bababa #aaa #bababa;
+    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+}
+#schoolAddButtonDiv:hover {
+    background-color: #e7e7e7;
 }
 
 #schoolAddButtonDiv label {
     position: absolute;
-    top: 1%;
+    top: 15%;
+    cursor: pointer;
+}
+
+#schoolSearch{
+    float: right;
 }
 
 #categoryAddButton {
@@ -105,7 +122,6 @@ table a, table a:visited{
     height: 30px;
     outline: 0;
     -webkit-appearance: none;
-    cursor: pointer;
 }
 
 #learningObjectAddButton {
@@ -123,7 +139,12 @@ table a, table a:visited{
     /*background-color: red;*/
 }
 
+#addSchoolTxt{
+    margin-top: 7px;
+    margin-left: 10px;
+}
 #schoolAddButton {
+    cursor: pointer;
     border: none;
     background: transparent url('/public/img/plussIkon.png');
     background-size: 100% 100%;
@@ -170,7 +191,6 @@ ul#adminMainMenu li{
 .form-wrapper {
     width: 450px;
     padding: 8px;
-    margin: 100px auto;
     overflow: hidden;
     border-width: 1px;
     border-style: solid;
@@ -179,15 +199,12 @@ ul#adminMainMenu li{
     border-radius: 10px;
     background-color: #f6f6f6;
     background-image: linear-gradient(top, #f6f6f6, #eae8e8);
-    position: absolute;
-    left: 52%;
-    bottom: 58%;
 }
 
 .form-wrapper #search {
     width: 330px;
     height: 20px;
-    padding: 10px 5px;
+    padding: 5px 5px;
     float: left;
     font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
     border: 1px solid #ccc;
@@ -219,14 +236,14 @@ ul#adminMainMenu li{
 .form-wrapper #submit {
     float: right;
     border: 1px solid #00748f;
-    height: 42px;
+    height: 32px;
     width: 100px;
     padding: 0;
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #fafafa;
     text-transform: uppercase;
-    background-color: #0483a0;
+    background-color: #00BE39;
     background-image: linear-gradient(top, #31b2c3, #0483a0);
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -237,7 +254,7 @@ ul#adminMainMenu li{
 
 .form-wrapper #submit:hover,
 .form-wrapper #submit:focus {
-    background-color: #31b2c3;
+    background-color: #00a934;
     background-image: linear-gradient(top, #0483a0, #31b2c3);
 }
 
@@ -250,4 +267,45 @@ ul#adminMainMenu li{
     border: 0;
 }
 
+#topMenu{
+    margin-bottom: 10%;
+}
 
+.deleteBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/slettIkon.png');
+}
+.deleteBtn:hover {
+    background: url("/public/img/slettIkonRoed.png");
+}
+
+.editBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 35px;
+    height: 36px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/redigerIkon.png');
+}
+
+.editBtn:hover {
+    background: url("/public/img/redigerIkonGroenn.png");
+}
+
+
+#addSchoolBtnComplete {
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100% !important;
+    background: transparent url('/public/img/plussIkon.png');
+}
+
+.addSchoolForm{
+    height: 20px;
+}

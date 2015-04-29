@@ -169,7 +169,9 @@ function getAllTheCategories()
         function updateSchool ($name, $fylke, $kommune) {
             global $database;
             $sql = $database->prepare("UPDATE schools
-                                        SET name = :name, fylke = :fylke, kommune = :kommune
+                                        SET name = :name,
+                                        fylke = :fylke,
+                                        kommune = :kommune
                                         WHERE name = :name;");
 
             $sql->execute(array(
@@ -182,7 +184,8 @@ function getAllTheCategories()
         function updateSubject ($subjectName, $classLevel, $imgUrl) {
             global $database;
             $sql = $database->prepare("UPDATE subjects
-                                        SET subjectname = :subjectName, classlevel = :classLevel, imgurl = :imgUrl
+                                        SET subjectname = :subjectName,
+                                         imgurl = :imgUrl
                                         WHERE subjectname = :subjectName;");
 
             $sql->execute(array(
@@ -243,18 +246,28 @@ function getAllTheCategories()
             ));
         }
 
-        function deleteSubject ($subjectName) {
+        function deleteSubject ($subjectID) {
             global $database;
-            $sql = $database->prepare("DELETE FROM subjects WHERE subjectname = :subjectName");
+            $sql = $database->prepare("DELETE FROM classsubjects
+                                        WHERE subjectid = :subjectId;" .
+                                        "DELETE FROM subjectcategory
+                                        WHERE subjectid = :subjectId;" .
+                                        "DELETE FROM subjects
+                                        WHERE id = :subjectId;");
 
             $sql->execute(array(
-                'subjectName' => $subjectName
+                'subjectId' => $subjectID
             ));
         }
 
         function deleteCategory ($categoryId) {
             global $database;
-            $sql = $database->prepare("");
+            $sql = $database->prepare("DELETE FROM learningobjectcategory
+                                        WHERE categoryid = :categoryId;" .
+                                        "DELETE FROM subjectcategory
+                                        WHERE categoryid = :categoryId; " .
+                                        "DELETE FROM categories
+                                        WHERE id = :categoryId;");
 
             $sql->execute(array(
                 'categoryId' => $categoryId
@@ -268,7 +281,7 @@ function getAllTheCategories()
                                         "DELETE FROM learningobjectcategory
                                         WHERE learningobjectid = :learningObjectId;" .
                                         "DELETE FROM learningobjects
-                                        WHERE title = :learningObjectId");
+                                        WHERE title = :learningObjectId;");
 
             $sql1->execute(array(
                 'learningObjectId' => $learningObjectId
