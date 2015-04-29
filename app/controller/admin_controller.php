@@ -5,6 +5,7 @@
         public function __construct($register){
             parent::__construct($register);
             include $this->root.'/app/model/admin.php';
+            include $this->root.'/app/model/webutility.php';
         }
 
         //Index-operation
@@ -100,10 +101,8 @@
         }
 
         //Delete-operations
-        public function doDeleteSchool ($schoolName) {
-            $this->view->setViewPath('admin/administrateSchools.php');
-            deleteSchool($schoolName);
-            $this->view->showPage();
+        public function doDeleteSchool () {
+            deleteSchool($this->urlElements[2]);
         }
 
         public function doDeleteSubject ($subjectName) {

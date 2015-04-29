@@ -218,12 +218,28 @@ function getAllTheCategories()
         }
 
         //Delete-operations
-        function deleteSchool ($schoolName) {
+        function deleteSchool ($schoolId) {
             global $database;
-            $sql = $database->prepare("DELETE FROM schools WHERE name = :schoolName");
+
+            //Pupilhomework
+
+            //Homework
+
+            //ClassSubjectTeachers
+
+            //Main teachers
+
+            //CLassSubject
+
+            //Classes
+
+            //users
+
+            //school
+            $sql = $database->prepare("DELETE FROM schools WHERE name = :schoolId");
 
             $sql->execute(array(
-                'schoolName' => $schoolName
+                'schoolId' => $schoolId
             ));
         }
 
