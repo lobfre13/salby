@@ -1,103 +1,113 @@
 <?php
+    include_once 'dbInterface.php';
 
     function getSchoolID($username){
-        global $database;
-        $sql = $database->prepare("SELECT * FROM users WHERE username=:username");
-
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM users WHERE username=:username";
+        $params = array(
             'username' => $username
-        ));
+        );
 
-        return $sql->fetch(PDO::FETCH_ASSOC)['schoolid'];
+        return query($sqlString, $params, DBI::FETCH_ONE)['schoolid'];
     }
 
     function getSchool($schoolID){
-        global $database;
-        $sql = $database->prepare("SELECT * FROM schools WHERE id=:id");
-
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM schools WHERE id=:id";
+        $params = array(
             'id' => $schoolID
-        ));
-        return $sql->fetch(PDO::FETCH_ASSOC);
+        );
+
+        return query($sqlString, $params, DBI::FETCH_ONE);
+
     }
 
     function getClassesInLevel($schoolID, $classLevel){
-        global $database;
-        $sql = $database->prepare("SELECT * FROM classes
-            LEFT JOIN mainteachers ON id = classid
-            WHERE schoolid=:schoolid AND classlevel = :classlevel");
-
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM classes
+                      LEFT JOIN mainteachers ON id = classid
+                      WHERE schoolid=:schoolid AND classlevel = :classlevel";
+        $params = array(
             'schoolid' => $schoolID,
             'classlevel' => $classLevel
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        );
+
+        return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
     function registerTeacher($firstname, $lastname, $email, $username, $passowrd, $schoolid){
-        global $database;
-        $sql = $database->prepare("INSERT INTO users VALUES(:username, :password, :firstname, :lastname, :email, 'teacher', null, :schoolid)");
-        $sql->execute(array(
-           'username' => $username,
+        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, :email, 'teacher', null, :schoolid)";
+        $params = array(
+            'username' => $username,
             'password' => $passowrd,
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
             'schoolid' => $schoolid
-        ));
+        );
+
+        query($sqlString, $params);
+
     }
 
     function addNewSchoolClass($schoolID, $className, $classLevel){
-        global $database;
-        $sql = $database->prepare("INSERT INTO classes VALUES(null, :schoolid, :classname, :classlevel)");
-        $sql->execute(array(
+        $sqlString = "INSERT INTO classes VALUES(null, :schoolid, :classname, :classlevel)";
+        $params = array(
             'schoolid' => $schoolID,
             'classname' => $className,
             'classlevel' => $classLevel
-        ));
+        );
+
+        query($sqlString, $params);
+
     }
 
     function getMainTeacher($classID){
-        global $database;
-        $sql = $database->prepare("SELECT * FROM mainteachers
-                                   JOIN users ON users.username = mainteachers.username
-                                   WHERE mainteachers.classid = :classid");
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM mainteachers
+                      JOIN users ON users.username = mainteachers.username
+                      WHERE mainteachers.classid = :classid";
+        $params = array(
             'classid' => $classID
-        ));
-        return $sql->fetch(PDO::FETCH_ASSOC);
+        );
+
+        return query($sqlString, $params, DBI::FETCH_ONE);
+
     }
 
     function addNewPupilToClass($schoolid, $classid, $firstname, $lastname){
         $username = substr($lastname, 0, 3).substr($firstname, 0,3);
-        global $database;
-        $sql = $database->prepare("INSERT INTO users VALUES(:username, :password, :firstname, :lastname, null, 'pupil', :classid, :schoolid)");
-        $sql->execute(array(
+        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, null, 'pupil', :classid, :schoolid)";
+        $params = array(
             'username' => $username,
             'password' => $username,
             'firstname' => $firstname,
             'lastname' => $lastname,
             'classid' => $classid,
             'schoolid' => $schoolid
-        ));
+        );
+
+        query($sqlString, $params);
+
+
     }
 
     function getSchoolTeachers($schoolID){
-        global $database;
-        $sql = $database->prepare("SELECT * FROM users WHERE schoolid=:schoolid AND role=:role");
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM users WHERE schoolid=:schoolid AND role=:role";
+        $params = array(
             'schoolid' => $schoolID,
             'role' => 'teacher'
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        );
+
+        return query($sqlString, $params, DBI::FETCH_ALL);
+
+
     }
 
     function updateMainTeacher($classid, $username){
-        global $database;
-        $sql = $database->prepare("DELETE FROM mainteachers WHERE classid = :classid");
-        $sql->execute(array('classid' => $classid));
-        $sql = $database->prepare("INSERT INTO mainteachers VALUES(:username, :classid)");
-        $sql->execute(array('username' => $username, 'classid' => $classid));
+        $sqlString = "DELETE FROM mainteachers WHERE classid = :classid";
+        $params = array('classid' => $classid);
+        query($sqlString, $params);
+        $sqlString = "INSERT INTO mainteachers VALUES(:username, :classid)";
+        $params = array('username' => $username, 'classid' => $classid);
+        query($sqlString, $params);
+
     }
 
 //    function getRegkey($schoolID){

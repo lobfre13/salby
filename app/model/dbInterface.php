@@ -2,12 +2,20 @@
 
     include_once 'db_con.php';
 
-function query($sqlString, $params, $fetchMode = 3)
-{
+    function query($sqlString, $params, $fetchMode = DBI::FETCH_NONE){
         global $database;
         $sql = $database->prepare($sqlString);
         $sql->execute($params);
-    if ($fetchMode == 1) return $sql->fetchAll(PDO::FETCH_ASSOC);
-    else if ($fetchMode == 2) return $sql->fetch(PDO::FETCH_ASSOC);
-    else if ($fetchMode == 4) return $database->lastInsertId();
+        if ($fetchMode == DBI::FETCH_ALL) return $sql->fetchAll(PDO::FETCH_ASSOC);
+        else if ($fetchMode == DBI::FETCH_ONE) return $sql->fetch(PDO::FETCH_ASSOC);
+        else if ($fetchMode == DBI::LAST_ID) return $database->lastInsertId();
+        else if ($fetchMode == DBI::ROW_COUNT) return $sql->rowCount();
+    }
+
+    class DBI{
+        const FETCH_ALL = 1;
+        const FETCH_ONE = 2;
+        const FETCH_NONE = 3;
+        const LAST_ID = 4;
+        const ROW_COUNT = 5;
     }

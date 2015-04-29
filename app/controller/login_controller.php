@@ -4,6 +4,8 @@
 
         public function __construct($register){
             parent::__construct($register);
+            include $this->root.'/app/model/webutility.php';
+
         }
 
         public function index($failedLogin = false){

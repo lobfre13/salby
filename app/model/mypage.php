@@ -21,21 +21,23 @@
         $params = array(
             'username' => $username
         );
-        return query($sqlString, $params, 2);
+        return query($sqlString, $params, DBI::FETCH_ONE);
     }
 
-    function getHomeworkSubjects($classId){
+    function getHomeworkSubjects($classId, $username){
         $sqlString = "SELECT lo.title, h.id, h.duedate, h.url, s.subjectname, ph.isdone
             FROM learningobjects as lo
-            JOIN homework as h ON h.learningobjectid = lo.id
+            RIGHT JOIN homework as h ON h.learningobjectid = lo.id
             JOIN classsubjects ON h.classsubjectid = classsubjects.id
             JOIN subjects as s ON subjectid = s.id
             JOIN pupilhomework as ph ON homeworkid = h.id
-            WHERE classid = :classId";
+            WHERE classid = :classId AND username = :username
+            ORDER BY h.duedate, lo.title";
         $params = array(
-            'classId' => $classId
+            'classId' => $classId,
+            'username' => $username
         );
-        return query($sqlString, $params, 1);
+        return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
     function updateHomeworkStatus($username, $homeworkid){
@@ -51,7 +53,7 @@
             'username' => $username,
             'homeworkid' => $homeworkid
         );
-        return query($sqlString, $params, 2)['isdone'] == 1;
+        return query($sqlString, $params, DBI::FETCH_ONE)['isdone'] == 1;
     }
 
     function undoHomework($username, $homeworkid){

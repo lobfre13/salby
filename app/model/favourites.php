@@ -1,5 +1,7 @@
 <?php
 
+    include_once 'dbInterface.php';
+
     function updateFavourite($username, $lObjectId, $url) {
         if (!favouriteExists($username, $lObjectId)) {
             addFavourite($username, $lObjectId, $url);
@@ -9,45 +11,43 @@
     }
 
     function addFavourite($username, $lObjectId, $url) {
-        global $database;
-        $sql = $database->prepare("INSERT INTO favourites VALUES (:username, :lObjectId, :url)");
-
-        $sql->execute(array(
+        $sqlString = "INSERT INTO favourites VALUES (:username, :lObjectId, :url)";
+        $params = array(
             'username' => $username,
             'lObjectId' => $lObjectId,
             'url' => $url
-        ));
+        );
+
+        query($sqlString, $params);
     }
 
     function removeFavourite($username, $lObjectId) {
-        global $database;
-        $sql = $database->prepare("DELETE FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
-
-        $sql->execute(array(
+        $sqlString = "DELETE FROM favourites WHERE username = :username AND learningobjectid = :lObjectId";
+        $params = array(
             'username' => $username,
             'lObjectId' => $lObjectId
-        ));
+        );
+
+        query($sqlString, $params);
     }
 
     function favouriteExists($username, $lObjectId) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM favourites WHERE username = :username AND learningobjectid = :lObjectId");
-
-        $sql->execute(array(
+        $sqlString = "SELECT * FROM favourites WHERE username = :username AND learningobjectid = :lObjectId";
+        $params = array(
             'username' => $username,
             'lObjectId' => $lObjectId
-        ));
-        return ($sql->rowCount() > 0);
+        );
+
+        return (query($sqlString, $params, DBI::ROW_COUNT) > 0);
     }
 
     function getUserFavourites($username) {
-        global $database;
-        $sql = $database->prepare("SELECT * FROM favourites
-                  JOIN learningobjects ON learningobjects.id = learningobjectid
-                  WHERE username = :username");
-        $sql->execute(array(
-            'username' => $username
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        $sqlString = "SELECT * FROM favourites
+                      JOIN learningobjects ON learningobjects.id = learningobjectid
+                      WHERE username = :username";
+        $params = array('username' => $username);
+
+        return query($sqlString, $params, DBI::FETCH_ALL);
+
     }
 

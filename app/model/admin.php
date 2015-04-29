@@ -1,291 +1,277 @@
 <?php
 
+    include_once 'dbInterface.php';
+
         function getSubjects(){
-            global $database;
-            $sql = $database->prepare("SELECT * FROM subjects");
-
-            $sql->execute();
-
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sqlString = "SELECT * FROM subjects";
+            $params = array();
+            return query($sqlString, $params, DBI::FETCH_ALL);
         }
 
        function doAddSubject(){
-           global $database;
-           $sql = $database->prepare("INSERT INTO subjects VALUES(null, :subjectname, :classlevel, :imgurl)");
-
-           $sql->execute(array(
+           $sqlString = "INSERT INTO subjects VALUES(null, :subjectname, :classlevel, :imgurl)";
+           $params = array(
                'subjectname' => $_POST['subjectname'],
                'classlevel' => $_POST['classlevel'],
                'imgurl' => $_POST['imgurl']
-           ));
+           );
+           query($sqlString, $params);
+
        }
 
        function getSubject($id){
-           global $database;
-           $sql = $database->prepare("SELECT * FROM subjects WHERE id=:id");
+           $sqlString = "SELECT * FROM subjects WHERE id=:id";
+           $params = array(
+               'id' => $id
+           );
+           return  query($sqlString, $params, DBI::FETCH_ONE);
 
-           $sql->execute(array(
-              'id' => $id
-           ));
-           return $sql->fetch(PDO::FETCH_ASSOC);
        }
 
         function getAllLearningObjects () {
-            global $database;
-            $sql = $database->prepare("SELECT * FROM learningobjects");
+            $sqlString = "SELECT * FROM learningobjects";
+            $params = array();
+            return query($sqlString, $params, DBI::FETCH_ALL);
 
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
 
         function getCategories($subjectID){
-            global $database;
-            $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid WHERE subjectid=:subjectid");
+            $sqlString = "SELECT * FROM categories JOIN subjectcategory on id = categoryid WHERE subjectid=:subjectid";
+            $params = array(
+                'subjectid' => $subjectID
+            );
+            return query($sqlString, $params, DBI::FETCH_ALL);
 
-            $sql->execute(array(
-               'subjectid' => $subjectID
-            ));
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
         function getAllCategories(){
-            global $database;
-            $sql = $database->prepare("SELECT *, categories.imgurl as catimg FROM categories
-JOIN subjectcategory on categories.id = categoryid
-JOIN subjects on subjectid = subjects.id");
-
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sqlString = "SELECT *, categories.imgurl as catimg FROM categories
+                          JOIN subjectcategory on categories.id = categoryid
+                          JOIN subjects on subjectid = subjects.id";
+            $params = array();
+            return query($sqlString, $params, DBI::FETCH_ALL);
         }
 
-function getAllTheCategories()
-{
-    global $database;
-    $sql = $database->prepare("SELECT * FROM categories JOIN subjectcategory on id = categoryid JOIN subjects on subjectid = subjects.id");
+        function getAllTheCategories(){
+            $sqlString = "SELECT * FROM categories JOIN subjectcategory on id = categoryid JOIN subjects on subjectid = subjects.id";
+            $params = array();
+            return query($sqlString, $params, DBI::FETCH_ALL);
 
-    $sql->execute();
-    return $sql->fetchAll(PDO::FETCH_ASSOC);
-}
+        }
 
         function doAddCategory($subjectID){
-            global $database;
-            $sql = $database->prepare("INSERT INTO categories VALUES(null, :categoryname, :imgurl)");
-
-            $sql->execute(array(
-               'categoryname' => $_POST['categoryname'],
+            $sqlString = "INSERT INTO categories VALUES(null, :categoryname, :imgurl)";
+            $params = array(
+                'categoryname' => $_POST['categoryname'],
                 'imgurl' => $_POST['imgurl']
-            ));
-            $catID = $database->lastInsertId();
-            $sql = $database->prepare("INSERT INTO subjectcategory VALUES(:subjectid, :categoryid)");
+            );
+            $catID = query($sqlString, $params, DBI::LAST_ID);
 
-            $sql->execute(array(
-               'subjectid' => $subjectID,
+            $sqlString = "INSERT INTO subjectcategory VALUES(:subjectid, :categoryid)";
+            $params = array(
+                'subjectid' => $subjectID,
                 'categoryid' => $catID
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function doAddLObject(){
-            global $database;
-            $sql = $database->prepare("INSERT INTO learningobjects VALUES(null, :title, :url, :imgurl)");
-
-            $sql->execute(array(
+            $sqlString = "INSERT INTO learningobjects VALUES(null, :title, :url, :imgurl)";
+            $params = array(
                 'title' => $_POST['lobjecttitle'],
                 'url' => $_POST['url'],
                 'imgurl' => $_POST['imgurl']
-            ));
-            $lobjID = $database->lastInsertId();
-            $sql = $database->prepare("INSERT INTO learningobjectcategory VALUES(:lobjectid, :categoryid)");
-
-            $sql->execute(array(
+            );
+            $lobjID = query($sqlString, $params, DBI::LAST_ID);
+            $sqlString = "INSERT INTO learningobjectcategory VALUES(:lobjectid, :categoryid)";
+            $params = array(
                 'lobjectid' => $lobjID,
                 'categoryid' => $_POST['categoryid']
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function getSchools () {
-            global $database;
-            $sql = $database->prepare("SELECT * FROM schools");
+            $sqlString = "SELECT * FROM schools";
+            $params = array();
+            return query($sqlString, $params, DBI::FETCH_ALL);
 
-            $sql->execute();
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
         function addSchool ($name, $fylke, $kommune) {
-            global $database;
-            $sql = $database->prepare("INSERT INTO schools (name, fylke, kommune) VALUES (:name, :fylke, :kommune)");
-
-            $sql->execute(array(
+            $sqlString = "INSERT INTO schools (name, fylke, kommune) VALUES (:name, :fylke, :kommune)";
+            $params = array(
                 'name' => $name,
                 'fylke' => $fylke,
                 'kommune' => $kommune
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         //Search-operations
         function searchSchools ($searchString) {
-            global $database;
-            $sql = $database->prepare("SELECT * FROM schools WHERE name LIKE :searchString");
-
-            $sql->execute(array(
+            $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";
+            $params = array(
                 'searchString' => '%'.$searchString.'%'
-            ));
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            );
+            return query($sqlString, $params, DBI::FETCH_ALL);
+
         }
 
         function searchLearningObjects ($searchString) {
-            global $database;
-            $sql = $database->prepare("SELECT * FROM learningobjects WHERE title LIKE :searchString");
-
-            $sql->execute(array(
+            $sqlString = "SELECT * FROM learningobjects WHERE title LIKE :searchString";
+            $params = array(
                 'searchString' => '%'.$searchString.'%'
-            ));
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            );
+            return query($sqlString, $params, DBI::FETCH_ALL);
+
         }
 
         function searchCategories ($searchString) {
-            global $database;
-            $sql = $database->prepare("SELECT *, categories.imgurl as catimg FROM categories
-                                          JOIN subjectcategory on categories.id = categoryid
-                                          JOIN subjects on subjectid = subjects.id WHERE category LIKE :searchString");
-
-            $sql->execute(array(
+            $sqlString = "SELECT *, categories.imgurl as catimg FROM categories
+                          JOIN subjectcategory on categories.id = categoryid
+                          JOIN subjects on subjectid = subjects.id WHERE category LIKE :searchString";
+            $params = array(
                 'searchString' => '%'.$searchString.'%'
-            ));
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            );
+            return query($sqlString, $params, DBI::FETCH_ALL);
+
         }
 
         function searchSubjects ($searchString) {
-            global $database;
-            $sql = $database->prepare("SELECT * FROM subjects WHERE subjectname LIKE :searchString");
-
-            $sql->execute(array(
+            $sqlString = "SELECT * FROM subjects WHERE subjectname LIKE :searchString";
+            $params = array(
                 'searchString' => '%'.$searchString.'%'
-            ));
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            );
+            return query($sqlString, $params, DBI::FETCH_ALL);
         }
 
         //Update-operations
         function updateSchool ($name, $fylke, $kommune) {
-            global $database;
-            $sql = $database->prepare("UPDATE schools
+            $sqlString = "UPDATE schools
                                         SET name = :name,
                                         fylke = :fylke,
                                         kommune = :kommune
-                                        WHERE name = :name;");
-
-            $sql->execute(array(
+                                        WHERE name = :name;";
+            $params = array(
                 'name' => $name,
                 'fylke' => $fylke,
                 'kommune' => $kommune
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function updateSubject ($subjectName, $classLevel, $imgUrl) {
-            global $database;
-            $sql = $database->prepare("UPDATE subjects
+            $sqlString = "UPDATE subjects
                                         SET subjectname = :subjectName,
                                          imgurl = :imgUrl
-                                        WHERE subjectname = :subjectName;");
-
-            $sql->execute(array(
+                                        WHERE subjectname = :subjectName;";
+            $params = array(
                 'subjectName' => $subjectName,
                 'classLevel' => $classLevel,
                 'imgUrl' => $imgUrl
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function updateCategory ($category, $imgUrl) {
-            global $database;
-            $sql = $database->prepare("UPDATE categories
+            $sqlString = "UPDATE categories
                                         SET category = :category, imgurl = :imgUrl
-                                        WHERE category = :category;");
-
-            $sql->execute(array(
+                                        WHERE category = :category;";
+            $params = array(
                 'category' => $category,
                 'imgUrl' => $imgUrl
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function updateLearningObject ($title, $link, $imgUrl) {
-            global $database;
-            $sql = $database->prepare("UPDATE learningobjects
+            $sqlString = "UPDATE learningobjects
                                                 SET title = :title, link = :link, imgurl = :imgUrl
-                                                WHERE title = :title;");
-
-            $sql->execute(array(
+                                                WHERE title = :title;";
+            $params = array(
                 'title' => $title,
                 'link' => $link,
                 'imgUrl' => $imgUrl
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         //Delete-operations
         function deleteSchool ($schoolId) {
-            global $database;
-
-            //Pupilhomework
-
-            //Homework
-
-            //ClassSubjectTeachers
-
-            //Main teachers
-
-            //CLassSubject
-
-            //Classes
-
-            //users
-
-            //school
-            $sql = $database->prepare("DELETE FROM schools WHERE name = :schoolId");
-
-            $sql->execute(array(
+            $sqlString = "DELETE FROM schools WHERE name = :schoolId";
+            $params = array(
                 'schoolId' => $schoolId
-            ));
+            );
+            query($sqlString, $params);
+
+//            global $database;
+//
+//            //Pupilhomework
+//
+//            //Homework
+//
+//            //ClassSubjectTeachers
+//
+//            //Main teachers
+//
+//            //CLassSubject
+//
+//            //Classes
+//
+//            //users
+//
+//            //school
+//
         }
 
         function deleteSubject ($subjectID) {
-            global $database;
-            $sql = $database->prepare("DELETE FROM classsubjects
+            $sqlString = "DELETE FROM classsubjects
                                         WHERE subjectid = :subjectId;" .
-                                        "DELETE FROM subjectcategory
+                "DELETE FROM subjectcategory
                                         WHERE subjectid = :subjectId;" .
-                                        "DELETE FROM subjects
-                                        WHERE id = :subjectId;");
-
-            $sql->execute(array(
+                "DELETE FROM subjects
+                                        WHERE id = :subjectId;";
+            $params = array(
                 'subjectId' => $subjectID
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function deleteCategory ($categoryId) {
-            global $database;
-            $sql = $database->prepare("DELETE FROM learningobjectcategory
+            $sqlString = "DELETE FROM learningobjectcategory
                                         WHERE categoryid = :categoryId;" .
-                                        "DELETE FROM subjectcategory
+                "DELETE FROM subjectcategory
                                         WHERE categoryid = :categoryId; " .
-                                        "DELETE FROM categories
-                                        WHERE id = :categoryId;");
-
-            $sql->execute(array(
+                "DELETE FROM categories
+                                        WHERE id = :categoryId;";
+            $params = array(
                 'categoryId' => $categoryId
-            ));
+            );
+            query($sqlString, $params);
+
         }
 
         function deleteLearningObject ($learningObjectId) {
-            global $database;
-            $sql1 = $database->prepare("DELETE FROM favourites
-                                          WHERE learningobjectid = :learningObjectId;" .
-                                        "DELETE FROM learningobjectcategory
+            $sqlString = "DELETE FROM favourites
+                WHERE learningobjectid = :learningObjectId;" .
+                            "DELETE FROM learningobjectcategory
                                         WHERE learningobjectid = :learningObjectId;" .
-                                        "DELETE FROM learningobjects
-                                        WHERE title = :learningObjectId;");
-
-            $sql1->execute(array(
+                "DELETE FROM learningobjects
+                                        WHERE title = :learningObjectId;";
+            $params = array(
                 'learningObjectId' => $learningObjectId
-            ));
+            );
+            query($sqlString, $params);
         }
 
 

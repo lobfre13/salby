@@ -47,7 +47,7 @@
             $this->view->setViewPath('mypage_view.php');
 
             $this->view->classLevel = getClassLevel($this->user->classID);
-            $this->view->homeworkSubjects = getHomeworkSubjects($id);
+            $this->view->homeworkSubjects = getHomeworkSubjects($id, $username);
             $this->view->weeknumber = getWeekNumber();
             $this->view->favouriteList = getUserFavourites($username);
             $this->view->showPage();

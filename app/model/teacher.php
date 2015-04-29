@@ -11,21 +11,8 @@ include_once 'dbInterface.php';
             'username' => $username
         );
 
-        return query($sqlString, $params, 1);
+        return query($sqlString, $params, DBI::FETCH_ALL);
 
-        /*global $database;
-        $sql = $database->prepare("SELECT c.classname, c.classlevel, s.subjectname, cs.id, cs.subjectid FROM classes as c
-                                  JOIN classsubjects as cs ON cs.classid = c.id
-                                  JOIN classsubjectteachers as cst ON cst.classsubjectid = cs.id
-                                  JOIN subjects as s ON s.id = cs.subjectid
-                                  WHERE cst.username = :username
-                                  ORDER BY c.classlevel, c.classname");
-
-        $sql->execute(array(
-            'username' => $username
-        ));
-
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
     }
 
     function getClassPupils($classID){
@@ -35,15 +22,8 @@ include_once 'dbInterface.php';
             'classid' => $classID
         );
 
-        return query($sqlString, $params, 1);
+        return query($sqlString, $params, DBI::FETCH_ALL);
 
-        /*global $database;
-        $sql = $database->prepare("SELECT * FROM users
-                                   WHERE classid = :classid");
-        $sql->execute(array(
-            'classid' => $classID
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
     }
 
     function getClassTasks($classID){
@@ -55,16 +35,8 @@ include_once 'dbInterface.php';
             'classid' => $classID
         );
 
-        return query($sqlString, $params, 1);
-        /*global $database;
-        $sql = $database->prepare("SELECT lo.title, h.duedate, h.url, h.id FROM learningobjects as lo
-                                   JOIN homework as h ON h.learningobjectid = lo.id
-                                   JOIN classsubjects as cs ON cs.id = h.classsubjectid
-                                   WHERE cs.classid = :classid");
-        $sql->execute(array(
-            'classid' => $classID
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
+        return query($sqlString, $params, DBI::FETCH_ALL);
+
     }
 
     function getClassTask($taskID){
@@ -75,15 +47,8 @@ include_once 'dbInterface.php';
             'taskid' => $taskID
         );
 
-        return query($sqlString, $params, 2);
-        /*global $database;
-        $sql = $database->prepare("SELECT duedate, title, homework.id FROM homework
-                                    JOIN learningobjects as lo ON lo.id = learningobjectid
-                                    WHERE homework.id = :taskid");
-        $sql->execute(array(
-            'taskid' => $taskID
-        ));
-        return $sql->fetch(PDO::FETCH_ASSOC);*/
+        return query($sqlString, $params, DBI::FETCH_ONE);
+
     }
 
     function updateClassTask($taskid, $date){
@@ -96,14 +61,7 @@ include_once 'dbInterface.php';
         );
 
         query($sqlString, $params);
-        /*global $database;
-        $sql = $database->prepare("UPDATE homework
-                                   SET duedate = :duedate
-                                   WHERE id = :id");
-        $sql->execute(array(
-            'duedate' => $date,
-            'id' => $taskid
-        ));*/
+
     }
 
     function deleteClassTask($taskID){
@@ -114,12 +72,6 @@ include_once 'dbInterface.php';
         $sqlString = "DELETE FROM homework WHERE id = :id";
         query($sqlString, $params);
 
-        /*global $database;
-        $sql = $database->prepare("DELETE FROM pupilhomework WHERE homeworkid = :id");
-        $sql->execute(array('id' => $taskID));
-
-        $sql = $database->prepare("DELETE FROM homework WHERE id = :id");
-        $sql->execute(array('id' => $taskID));*/
     }
 
     function addPendingTask($taskID, $username, $classSubjectID){
@@ -132,13 +84,6 @@ include_once 'dbInterface.php';
 
         query($sqlString, $params);
 
-        /*$pendingHomeworkClassID = getPendingHomeworkClassID($username, $classSubjectID);
-        global $database;
-        $sql = $database->prepare("INSERT INTO pendinghomeworklist VALUES(:taskid, :phcid)");
-        $sql->execute(array(
-            'taskid' => $taskID,
-            'phcid' => $pendingHomeworkClassID
-        ));*/
     }
 
     function getPendingHomeworkClassID($username, $classSubjectID){
@@ -147,18 +92,10 @@ include_once 'dbInterface.php';
             'csid' => $classSubjectID,
             'username' => $username
         );
-        $result = query($sqlString, $params, 2);
+        $result = query($sqlString, $params, DBI::FETCH_ONE);
         if (isset($result['id'])) return $result['id'];
         return getNewPendingHomeworkEntryID($username, $classSubjectID);
-        /*global $database;
-        $sql = $database->prepare("SELECT * FROM pendinghomeworkclass WHERE classsubjectid = :csid AND username = :username");
 
-        $sql->execute(array(
-            'csid' => $classSubjectID,
-            'username' => $username
-        ));
-        if($sql->rowCount() == 0) return getNewPendingHomeworkEntryID($username, $classSubjectID);
-        return $sql->fetch(PDO::FETCH_ASSOC)['id'];*/
     }
 
     function getNewPendingHomeworkEntryID($username, $classSubjectID){
@@ -167,13 +104,8 @@ include_once 'dbInterface.php';
             'csid' => $classSubjectID,
             'username' => $username
         );
-        return query($sqlString, $params, 4);
+        return query($sqlString, $params, DBI::LAST_ID);
 
-        /*$sql = $database->prepare("INSERT INTO pendinghomeworkclass VALUES(null, :csid, :username)");
-        $sql->execute(array(
-            'csid' => $classSubjectID,
-            'username' => $username
-        ));*/
 
     }
 
@@ -183,15 +115,8 @@ include_once 'dbInterface.php';
                                    JOIN pendinghomeworkclass as phc ON phc.id = pendinghomeworkclassid
                                    WHERE phc.username = :username AND phc.classsubjectid = :csid";
         $params = array('csid' => $subjectID, 'username' => $username);
-        return query($sqlString, $params, 1);
+        return query($sqlString, $params, DBI::FETCH_ALL);
 
-        /*global $database;
-        $sql = $database->prepare("SELECT * FROM pendinghomeworklist
-                                   JOIN learningobjects as lo ON lo.id = learningobjectid
-                                   JOIN pendinghomeworkclass as phc ON phc.id = pendinghomeworkclassid
-                                   WHERE phc.username = :username AND phc.classsubjectid = :csid");
-        $sql->execute(array('csid' => $subjectID, 'username' => $username));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
     }
 
     function getPupils($classSubjectID){
@@ -203,16 +128,8 @@ include_once 'dbInterface.php';
             'classsubjectid' => $classSubjectID
         );
 
-        return query($sqlString, $params, 1);
-        /*global $database;
-        $sql = $database->prepare("SELECT * FROM users
-                                   JOIN classes  as c ON c.id = users.classid
-                                   JOIN classsubjects as cs ON cs.classid = c.id
-                                   WHERE cs.id = :classsubjectid");
-        $sql->execute(array(
-           'classsubjectid' => $classSubjectID
-        ));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
+        return query($sqlString, $params, DBI::FETCH_ALL);
+
     }
 
     function getPupilsFromUsername($usernames){
@@ -221,10 +138,8 @@ include_once 'dbInterface.php';
         $qMarks = str_repeat('?,', count($usernames) - 1) . '?';
 
         $sqlString = "SELECT * FROM users WHERE username in(" . $qMarks . ")";
-        return query($sqlString, $usernames, 1);
-        /*$sql = $database->prepare("SELECT * FROM users WHERE username in(".$qMarks.")");
-        $sql->execute($usernames);
-        return $sql->fetchAll(PDO::FETCH_ASSOC);*/
+        return query($sqlString, $usernames, DBI::FETCH_ALL);
+
     }
 
     function addHomework($pendingTasks, $pupilUsernames, $classid){
@@ -234,13 +149,8 @@ include_once 'dbInterface.php';
                 'csid' => $classid,
                 'taskid' => $task['learningobjectid']
             );
-            $id = query($sqlString, $params, 4);
+            $id = query($sqlString, $params, DBI::LAST_ID);
 
-            /*$sql = $database->prepare("INSERT INTO homework VALUES(null, :csid, :taskid, null, '/forside/fag/1-klasse/norsk/mockURL/".$task['title']."')");
-            $sql->execute(array(
-                'csid' => $classid,
-               'taskid' => $task['learningobjectid']
-            ));*/
             addPupilToHomework($pupilUsernames, $id);
         }
     }
@@ -253,11 +163,7 @@ include_once 'dbInterface.php';
                 'id' => $id
             );
             query($sqlString, $params);
-            /*$sql = $database->prepare("INSERT INTO pupilhomework VALUES(:username, :id, 0)");
-            $sql->execute(array(
-                'username' => $username,
-                'id' => $id
-            ));*/
+
         }
     }
 
