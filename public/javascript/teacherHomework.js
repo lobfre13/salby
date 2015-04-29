@@ -11,6 +11,7 @@ function addTask(id){
     var classid = document.getElementById("selectedClass").value;
     ajaxCall("GET","/teacher/addPendingTask/"+id+"/"+classid, false);
     loadPending(classid);
+    $('next').style.display = 'initial';
 }
 
 function loadPending(id){

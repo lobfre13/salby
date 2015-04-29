@@ -19,7 +19,9 @@
 
     <div id="addTaskContent">
         <div id="chosen"> </div>
-        <div id="tasksContent">
-        </div>
+        <div id="tasksContent"></div>
+        <input id="next" type="button" onclick="nextStep()" value="GÅ VIDERE">
     </div>
+
+
 </div>

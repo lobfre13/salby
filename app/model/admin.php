@@ -46,7 +46,7 @@
         }
 
         function getAllCategories(){
-            $sqlString = "SELECT *, categories.imgurl as catimg FROM categories
+            $sqlString = "SELECT *, categories.imgurl as catimg, categories.id as catid FROM categories
                           JOIN subjectcategory on categories.id = categoryid
                           JOIN subjects on subjectid = subjects.id";
             $params = array();

@@ -45,7 +45,7 @@
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
                     <td><div class="editBtn"></td>
-                    <td><div onclick="deleteCategory(this, <?php echo $category['id'];?>)" class="deleteBtn"></td>
+                    <td><div onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>
         </table>
