@@ -3,6 +3,10 @@
         ajaxCall("GET", "/admin/addSubject", true, "addSubject");
     }
 
+    function doAddSubject () {
+        $('#addSubjectForm').submit();
+    }
+
     function deleteSubject (object, subjectId) {
         if (confirm('Er du sikker på at du vil fjerne dette faget?')) {
             ajaxCall("GET", "/admin/doDeleteSubject/" + subjectId, true);
@@ -30,6 +34,7 @@
         </section>
 
         <section id="maintable">
+        <form id="addSubjectForm" method="post" action="/admin/actuallyAddSubject">
         <table>
             <tr>
                 <td>Fag</td>
@@ -49,6 +54,7 @@
                     </tr>
                 <?php } ?>
             </table>
+            </form>
         </section>
     </div>
 </div>

@@ -111,6 +111,27 @@
 
         }
 
+        function addSubject ($fagnavn, $klasseTrinn, $fileToUpload) {
+            $sqlString = "INSERT INTO subjects (subjectname, classlevel, imgurl) VALUES (:fagnavn, :klasseTrinn, :fileToUpload)";
+            $params = array(
+                'fagnavn' => $fagnavn,
+                'klasseTrinn' => $klasseTrinn,
+                'fileToUpload' => $fileToUpload
+            );
+            query($sqlString, $params);
+        }
+
+        function addCategory ($kategori, $bildeToUpload, $tilhørendeFag, $klasseTrinn) {
+            $sqlString = "INSERT INTO categories (category, imgurl) VALUES (:kategori, :bildeToUpload)";
+            $params = array(
+                'kategori' => $kategori,
+                'bildeToUpload' => $bildeToUpload,
+                'tilhørendeFag' => $tilhørendeFag,
+                'klasseTrinn' => $klasseTrinn
+            );
+            query($sqlString, $params);
+        }
+
         //Search-operations
         function searchSchools ($searchString) {
             $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";

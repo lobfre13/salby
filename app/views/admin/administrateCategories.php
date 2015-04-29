@@ -3,6 +3,10 @@
         ajaxCall("GET", "/admin/addCategories", true, "addCategories");
     }
 
+    function doAddCategories () {
+        $('#addCategoriesForm').submit();
+    }
+
     function deleteCategory (object, categoryId) {
         if (confirm('Er du sikker på at du vil fjerne denne kategorien?')) {
             ajaxCall("GET", "/admin/doDeleteCategory/" + categoryId, true);
@@ -30,6 +34,7 @@
         </section>
 
     <section id="maintable">
+        <form id="addCategoriesForm" method="post" action="/admin/actuallyAddCategory">
         <table>
             <tr>
                 <td>Kategori</td>
@@ -51,6 +56,7 @@
                 </tr>
             <?php } ?>
         </table>
+            </form>
         </section>
     </div>
 </div>
