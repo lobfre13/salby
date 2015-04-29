@@ -35,7 +35,6 @@
 
         }
 
-
         function getCategories($subjectID){
             $sqlString = "SELECT * FROM categories JOIN subjectcategory on id = categoryid WHERE subjectid=:subjectid";
             $params = array(
@@ -261,7 +260,7 @@
         function deleteLearningObject ($learningObjectId) {
             $sqlString1 = "DELETE FROM favourites WHERE learningobjectid = :learningObjectId";
             $sqlString2 = "DELETE FROM learningobjectcategory WHERE learningobjectid = :learningObjectId";
-            $sqlString3 = "DELETE FROM learningobjects WHERE title = :learningObjectId";
+            $sqlString3 = "DELETE FROM learningobjects WHERE id = :learningObjectId";
             $params = array(
                 'learningObjectId' => $learningObjectId
             );

@@ -4,8 +4,10 @@
     }
 
     function deleteSchool (object, schoolId) {
-        ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);
-        $(object).closest("tr").remove();
+        if (confirm('Er du sikker på at du vil fjerne denne skolen?')) {
+            ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);
+            $(object).closest("tr").remove();
+        }
     }
 </script>
 <div id="content" class="widthConstrained">

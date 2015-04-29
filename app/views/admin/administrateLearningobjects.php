@@ -4,8 +4,10 @@
     }
 
     function deleteLearningObject (object, learningObjectId) {
-        ajaxCall("GET", "/admin/doDeleteLearningObject/" + learningObjectId, true);
-        $(object).closest("tr").remove();
+        if (confirm('Er du sikker på at du vil fjerne dette læringsobjektet?')) {
+            ajaxCall("GET", "/admin/doDeleteLearningObject/" + learningObjectId, true);
+            $(object).closest("tr").remove();
+        }
     }
 </script>
 <div id="content" class="widthConstrained">

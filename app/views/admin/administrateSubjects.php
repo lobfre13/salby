@@ -4,8 +4,10 @@
     }
 
     function deleteSubject (object, subjectId) {
-        ajaxCall("GET", "/admin/doDeleteSubject/" + subjectId, true);
-        $(object).closest("tr").remove();
+        if (confirm('Er du sikker på at du vil fjerne dette faget?')) {
+            ajaxCall("GET", "/admin/doDeleteSubject/" + subjectId, true);
+            $(object).closest("tr").remove();
+        }
     }
 </script>
 <div id="content" class="widthConstrained">
