@@ -4,12 +4,23 @@
     }
 </script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/administrateLearningObjects">
-        <input type="text" name="searchBoxLearningObjects">
-        <input type="submit" value="Søk her...">
-    </form>
-    <div id="learningObjectMainTable">
-        <label><input type="button" onclick="addLearningObject()" value="" id="learningObjectAddButton">Legg til læringsobjekt</label>
+    <div id="schoolMainTable">
+        <section id="topMenu">
+
+            <div id="schoolAddButtonDiv" onclick="addLearningObject()">
+                <button type="button" id="schoolAddButton"></button>
+                <label id="addSchoolTxt">Legg til læringsobjekt</label>
+            </div>
+
+            <div id="schoolSearch">
+                <form method="post" action="/admin/administrateLearningobjects" class="form-wrapper">
+                    <input type="text" id="search" name="searchBoxLearningObjects" placeholder="Søk etter læringsobjekt...">
+                    <input type="submit" value="søk" id="submit">
+                </form>
+            </div>
+        </section>
+
+        <section id="maintable">
         <table>
             <tr>
                 <td>Tittel</td>
@@ -29,5 +40,6 @@
                 </tr>
             <?php } ?>
         </table>
+            </section>
     </div>
 </div>

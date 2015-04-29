@@ -4,12 +4,24 @@
     }
 </script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/administrateSubjects">
-        <input type="text" name="searchBoxSubjects">
-        <input type="submit" value="Søk her...">
-    </form>
-    <div id="subjectMainTable">
-        <label><input type="button" onclick="addSubject()" value="" id="subjectAddButton">Legg til fag</label>
+    <div id="schoolMainTable">
+        <section id="topMenu">
+
+            <div id="schoolAddButtonDiv" onclick="addSchool()">
+                <button type="button" id="schoolAddButton"></button>
+                <label id="addSchoolTxt">Legg til skole</label>
+            </div>
+
+            <div id="schoolSearch">
+                <form method="post" action="/admin/administrateSchools" class="form-wrapper">
+                    <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
+                    <input type="submit" value="søk" id="submit">
+                </form>
+            </div>
+
+        </section>
+
+        <section id="maintable">
         <table>
             <tr>
                 <td>Fag</td>
@@ -19,15 +31,16 @@
                 <td></td>
             </tr>
             <tr id="addSubject"></tr>
-            <?php foreach ($this->subjects as $subject) { ?>
-                <tr>
-                    <td><?php echo $subject['subjectname']?></td>
-                    <td><?php echo $subject['classlevel']?></td>
-                    <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
-                    <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                    <td><img src="/public/img/slettIkon.png" width="35"></td>
-                </tr>
-            <?php } ?>
-        </table>
+                <?php foreach ($this->subjects as $subject) { ?>
+                    <tr>
+                        <td><?php echo $subject['subjectname']?></td>
+                        <td><?php echo $subject['classlevel']?></td>
+                        <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
+                        <td><img src="/public/img/redigerIkon.png" width="35"></td>
+                        <td><img src="/public/img/slettIkon.png" width="35"></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </section>
     </div>
 </div>

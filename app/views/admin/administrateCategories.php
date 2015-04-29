@@ -4,12 +4,24 @@
     }
 </script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/doGetCategoriesSearchResult">
-        <input type="text" name="searchBoxCategories">
-        <input type="submit" value="Søk her...">
-    </form>
-    <div id="categoriesMainTable">
-        <label><input type="button" onclick="addCategories()" value="" id="categoryAddButton">Legg til kategori</label>
+    <div id="schoolMainTable">
+        <section id="topMenu">
+
+            <div id="schoolAddButtonDiv" onclick="addSchool()">
+                <button type="button" id="schoolAddButton"></button>
+                <label id="addSchoolTxt">Legg til skole</label>
+            </div>
+
+            <div id="schoolSearch">
+                <form method="post" action="/admin/administrateSchools" class="form-wrapper">
+                    <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
+                    <input type="submit" value="søk" id="submit">
+                </form>
+            </div>
+
+        </section>
+
+    <section id="maintable">
         <table>
             <tr>
                 <td>Kategori</td>
@@ -31,5 +43,6 @@
                 </tr>
             <?php } ?>
         </table>
+        </section>
     </div>
 </div>
