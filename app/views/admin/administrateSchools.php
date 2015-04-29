@@ -31,7 +31,6 @@
                     <th>Skolenavn</th>
                     <th>Fylke</th>
                     <th>Kommune</th>
-                    <th>Registreringsnøkkel</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -41,9 +40,8 @@
                         <td><?php echo $school['name'] ?></td>
                         <td><?php echo $school['fylke'] ?></td>
                         <td><?php echo $school['kommune'] ?></td>
-                        <td><?php echo $school['regkey'] ?></td>
-                        <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                        <td onclick="deleteSchool(this, <?php echo $school['id'];?>)"><img src="/public/img/slettIkon.png" width="35" ></td>
+                        <td><div class="editBtn"></td>
+                        <td><div onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
                     </tr>
                 <?php }  ?>
             </table>

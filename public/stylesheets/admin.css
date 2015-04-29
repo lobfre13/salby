@@ -100,10 +100,14 @@ table a, table a:visited{
     background-color: #f6f6f6;
     background-image: linear-gradient(top, #f6f6f6, #eae8e8);
 }
+#schoolAddButtonDiv:hover {
+    background-color: #e7e7e7;
+}
 
 #schoolAddButtonDiv label {
     position: absolute;
     top: 15%;
+    cursor: pointer;
 }
 
 #schoolSearch{
@@ -118,7 +122,6 @@ table a, table a:visited{
     height: 30px;
     outline: 0;
     -webkit-appearance: none;
-    cursor: pointer;
 }
 
 #learningObjectAddButton {
@@ -137,10 +140,11 @@ table a, table a:visited{
 }
 
 #addSchoolTxt{
-    margin-top: 5px;
+    margin-top: 7px;
     margin-left: 10px;
 }
 #schoolAddButton {
+    cursor: pointer;
     border: none;
     background: transparent url('/public/img/plussIkon.png');
     background-size: 100% 100%;
@@ -239,7 +243,7 @@ ul#adminMainMenu li{
     font: bold 15px Arial, Helvetica;
     color: #fafafa;
     text-transform: uppercase;
-    background-color: #00ec48;
+    background-color: #00BE39;
     background-image: linear-gradient(top, #31b2c3, #0483a0);
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -265,4 +269,43 @@ ul#adminMainMenu li{
 
 #topMenu{
     margin-bottom: 10%;
+}
+
+.deleteBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/slettIkon.png');
+}
+.deleteBtn:hover {
+    background: url("/public/img/slettIkonRoed.png");
+}
+
+.editBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 35px;
+    height: 36px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/redigerIkon.png');
+}
+
+.editBtn:hover {
+    background: url("/public/img/redigerIkonGroenn.png");
+}
+
+
+#addSchoolBtnComplete {
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100% !important;
+    background: transparent url('/public/img/plussIkon.png');
+}
+
+.addSchoolForm{
+    height: 20px;
 }
