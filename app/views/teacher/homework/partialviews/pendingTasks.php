@@ -6,5 +6,10 @@
        <?php  }
         if(arrayEmpty($this->pendingTasks))
             echo 'Ingen valgte objekter..';
-        ?>
+            else{ ?>
+                <script type="text/javascript">
+                    showbtn();
+                </script>
+
+        <?php } ?>
 </ul>

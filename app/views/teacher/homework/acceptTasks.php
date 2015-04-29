@@ -1,3 +1,4 @@
+<script src="/public/javascript/teacherHomework.js"></script>
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator">Lekseliste</span>
     <span class="addTaskIndicator" >Velg elev</span>
@@ -9,15 +10,16 @@
 
     <div class="choosePupils">
         <h4>Valgte Elever</h4>
-        <form method="post" action="/teacher/doAddTasks">
+        <form id="accept" method="post" action="/teacher/doAddTasks">
             <input type="hidden" name="classid" value="<?php echo $this->classid; ?>">
             <?php foreach($this->pupils as $pupil) { ?>
                 <input type="hidden" name="pupils[]" value="<?php echo $pupil['username']; ?>">
                 <input disabled checked type="checkbox"> <?php echo $pupil['firstname'] . ' ' . $pupil['lastname']; ?><br>
             <?php }?>
-            <input type="submit" value="VIRKELIG AKSEPTER">
         </form>
 
     </div><br>
+    <a class="navBtns" href="/teacher/choosePupils/">Tilbake</a>
+    <span id="next" class="navBtns" onclick="submitForm('#accept')">Godkjenn</span>
 
 </div>

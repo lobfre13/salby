@@ -120,8 +120,10 @@ table a, table a:visited{
     background-color: white;
     box-shadow: 3px 3px 2px #959595;
     border-radius: 3px;
-    width: 45%;
+    width: 47%;
     display: inline-block;
+    padding: 10px;
+
 }
 #addTaskContent{
     position: relative;
@@ -141,7 +143,22 @@ table a, table a:visited{
 }
 
 #next{
-    position: absolute;
+    display: none;
     right:0;
+    cursor: pointer;
+}
+.navBtns{
+    padding: 10px;
+    background-color: white;
+    display: inline-block;;
+    position: absolute;
     bottom: -50px;
+    transition: background-color 0.3s;
+}
+.navBtns:hover{
+    background-color: grey;
+}
+a.navBtns{
+    left: 0;
+    color: #000000;
 }

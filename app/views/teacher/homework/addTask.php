@@ -1,4 +1,4 @@
-<script src="/public/javascript/teacherHomework.js"></script>
+<script src="/public/javascript/teacherHomework.js">showbtn();</script>
 
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator" style="background-color: #00BFD5">Lekseliste</span>
@@ -20,7 +20,8 @@
     <div id="addTaskContent">
         <div id="chosen"> </div>
         <div id="tasksContent"></div>
-        <input id="next" type="button" onclick="nextStep()" value="GÅ VIDERE">
+        <a class="navBtns" href="/">Tilbake</a>
+        <span id="next" class="navBtns" onclick="nextStep()">Gå videre</span>
     </div>
 
 

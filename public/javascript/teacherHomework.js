@@ -11,7 +11,6 @@ function addTask(id){
     var classid = document.getElementById("selectedClass").value;
     ajaxCall("GET","/teacher/addPendingTask/"+id+"/"+classid, false);
     loadPending(classid);
-    $('next').style.display = 'initial';
 }
 
 function loadPending(id){
@@ -44,4 +43,12 @@ function deleteTask(taskId, row){
 function markSelected(obj){
     $(obj).siblings().css("background-color", "white");
     $(obj).css("background-color", "#999999");
+}
+
+function submitForm(formId){
+    $(formId).submit();
+}
+
+function showbtn(){
+    $('#next').css('display', 'inline-block');
 }

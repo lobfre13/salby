@@ -91,7 +91,7 @@
         }
 
         public function actuallyAddSchool () {
-            addSchool($this->urlElements[2], $this->urlElements[3], $this->urlElements[4]);
+            addSchool($_POST['skolenavn'], $_POST['fylke'], $_POST['kommune']);
         }
 
         public function addSubject(){

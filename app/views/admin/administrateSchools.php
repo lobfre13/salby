@@ -3,9 +3,8 @@
         ajaxCall("GET", "/admin/doAddSchool", true, "addSchool");
     }
 
-    function doAddSchool (object, skolenavn, fylke, kommune) {
-        ajaxCall("GET", "/admin/actuallyAddSchool", true, "actuallyAddSchool");
-        $(object).closest("tr").add();
+    function doAddSchool () {
+        $('#addSchoolForm').submit();
     }
 
     function deleteSchool (object, schoolId) {
@@ -34,25 +33,27 @@
 
         </section>
         <section id="maintable">
-            <table>
-                <tr>
-                    <th>Skolenavn</th>
-                    <th>Fylke</th>
-                    <th>Kommune</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr id="addSchool"></tr>
-                <?php foreach ($this->schools as $school) { ?>
+            <form id="addSchoolForm" method="post" action="/admin/actuallyAddSchool">
+                <table>
                     <tr>
-                        <td><?php echo $school['name'] ?></td>
-                        <td><?php echo $school['fylke'] ?></td>
-                        <td><?php echo $school['kommune'] ?></td>
-                        <td><div class="editBtn"></td>
-                        <td><div onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
+                        <th>Skolenavn</th>
+                        <th>Fylke</th>
+                        <th>Kommune</th>
+                        <th></th>
+                        <th></th>
                     </tr>
-                <?php }  ?>
-            </table>
+                    <tr id="addSchool"></tr>
+                    <?php foreach ($this->schools as $school) { ?>
+                        <tr>
+                            <td><?php echo $school['name'] ?></td>
+                            <td><?php echo $school['fylke'] ?></td>
+                            <td><?php echo $school['kommune'] ?></td>
+                            <td><div class="editBtn"></td>
+                            <td><div onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
+                        </tr>
+                    <?php }  ?>
+                </table>
+            </form>
         </section>
     </div>
 </div>
