@@ -14,17 +14,14 @@
 }
 .jasmin{
     position: absolute;
-    height: 600px;
+    height: 500px;
     top: 200px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: 22%;
+    z-index: 99;
 }
 .snakkeboble{
-    left: 50%;
-    transform: translate(-50%, 0);
     position: absolute;
+    margin-left: 10%;
     top: 70px;
     width: 260px;
     background: white;
@@ -32,4 +29,9 @@
     border-radius: 25px;
     text-align: center;
     padding: 5px;
+    z-index: 98;
+}
+
+.swipeshow {
+    width: 320px!important;
 }
