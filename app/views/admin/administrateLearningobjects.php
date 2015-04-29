@@ -2,6 +2,11 @@
     function addLearningObject () {
         ajaxCall("GET", "/admin/addLearningObject", true, "addLearningObject");
     }
+
+    function deleteLearningObject (object, learningObjectId) {
+        ajaxCall("GET", "/admin/doDeleteLearningObject/" + learningObjectId, true);
+        $(object).closest("tr").remove();
+    }
 </script>
 <div id="content" class="widthConstrained">
     <?php include "PartialViews/adminMenu.php"?>
@@ -36,8 +41,8 @@
                     <td><?php echo $learningObject['title']?></td>
                     <td><img src="<?php echo $learningObject['imgurl']?>" width="35"></td>
                     <td><a href="<?php echo $learningObject['link']?>">Gå til læringsobjektet</a></td>
-                    <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                    <td><img src="/public/img/slettIkon.png" width="35"></td>
+                    <td><div class="editBtn"></td>
+                    <td><div onclick="deleteLearningObject(this, <?php echo $learningObject['id'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>
         </table>
