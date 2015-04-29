@@ -2,20 +2,25 @@
     function addCategories () {
         ajaxCall("GET", "/admin/addCategories", true, "addCategories");
     }
+
+    function deleteCategory (object, categoryId) {
+        ajaxCall("GET", "/admin/doDeleteCategory/" + categoryId, true);
+        $(object).closest("tr").remove();
+    }
 </script>
 <div id="content" class="widthConstrained">
     <?php include "PartialViews/adminMenu.php"?>
     <div id="schoolMainTable">
         <section id="topMenu">
 
-            <div id="schoolAddButtonDiv" onclick="addSchool()">
+            <div id="schoolAddButtonDiv" onclick="addCategories()">
                 <button type="button" id="schoolAddButton"></button>
-                <label id="addSchoolTxt">Legg til skole</label>
+                <label id="addSchoolTxt">Legg til kategori</label>
             </div>
 
             <div id="schoolSearch">
-                <form method="post" action="/admin/administrateSchools" class="form-wrapper">
-                    <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
+                <form method="post" action="/admin/administrateCategories" class="form-wrapper">
+                    <input type="text" id="search" name="searchBoxCategories" placeholder="Søk etter kategori...">
                     <input type="submit" value="søk" id="submit">
                 </form>
             </div>
@@ -39,8 +44,8 @@
                     <td><img src="<?php echo $category['catimg']?>"></td>
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
-                    <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                    <td><img src="/public/img/slettIkon.png" width="35"></td>
+                    <td><div class="editBtn"></td>
+                    <td><div onclick="deleteCategory(this, <?php echo $category['id'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>
         </table>

@@ -109,10 +109,8 @@
             deleteSubject($this->urlElements[2]);
         }
 
-        public function doDeleteCategory ($categoryName) {
-            $this->view->setViewPath('admin/administrateCategories.php');
-            deleteCategory($categoryName);
-            $this->view->showPage();
+        public function doDeleteCategory () {
+            deleteCategory($this->urlElements[2]);
         }
 
         public function doDeleteLearningObject () {

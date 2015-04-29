@@ -3,6 +3,6 @@
     <td><input type="file" name="bildeToUpload" id="bildeToUpload" value="Legg til kategoribilde"></td>
     <td><input type="text" name="tilhørendeFag" placeholder="Tilhørende fag"></td>
     <td><input type="text" name="klasseTrinn" placeholder="Klassetrinn"></td>
-    <td><img src="/public/img/plussIkon.png" width="35"></td>
-    <td><img src="/public/img/slettIkon.png" width="35"></td>
+    <td><div id="addSchoolBtnComplete"></td>
+    <td><div onclick="deleteCategory(this, <?php echo $category['id'];?>)" class="deleteBtn"></td>
 </form>

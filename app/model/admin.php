@@ -234,39 +234,40 @@
         }
 
         function deleteSubject ($subjectID) {
-            $sqlString = "DELETE FROM classsubjects WHERE subjectid = :subjectId; DELETE FROM subjectcategory WHERE subjectid = :subjectId; DELETE FROM subjects WHERE id = :subjectId;";
+            $sqlString1 = "DELETE FROM classsubjects WHERE subjectid = :subjectId";
+            $sqlString2 = "DELETE FROM subjectcategory WHERE subjectid = :subjectId";
+            $sqlString3 = "DELETE FROM subjects WHERE id = :subjectId";
             $params = array(
                 'subjectId' => $subjectID
             );
-            query($sqlString, $params);
-
+            query($sqlString1, $params);
+            query($sqlString2, $params);
+            query($sqlString3, $params);
         }
 
         function deleteCategory ($categoryId) {
-            $sqlString = "DELETE FROM learningobjectcategory
-                                        WHERE categoryid = :categoryId;" .
-                "DELETE FROM subjectcategory
-                                        WHERE categoryid = :categoryId; " .
-                "DELETE FROM categories
-                                        WHERE id = :categoryId;";
+            $sqlString1 = "DELETE FROM learningobjectcategory WHERE categoryid = :categoryId";
+            $sqlString2 = "DELETE FROM subjectcategory WHERE categoryid = :categoryId";
+            $sqlString3 = "DELETE FROM categories WHERE id = :categoryId";
             $params = array(
                 'categoryId' => $categoryId
             );
-            query($sqlString, $params);
+            query($sqlString1, $params);
+            query($sqlString2, $params);
+            query($sqlString3, $params);
 
         }
 
         function deleteLearningObject ($learningObjectId) {
-            $sqlString = "DELETE FROM favourites
-                WHERE learningobjectid = :learningObjectId;" .
-                            "DELETE FROM learningobjectcategory
-                                        WHERE learningobjectid = :learningObjectId;" .
-                "DELETE FROM learningobjects
-                                        WHERE title = :learningObjectId;";
+            $sqlString1 = "DELETE FROM favourites WHERE learningobjectid = :learningObjectId";
+            $sqlString2 = "DELETE FROM learningobjectcategory WHERE learningobjectid = :learningObjectId";
+            $sqlString3 = "DELETE FROM learningobjects WHERE title = :learningObjectId";
             $params = array(
                 'learningObjectId' => $learningObjectId
             );
-            query($sqlString, $params);
+            query($sqlString1, $params);
+            query($sqlString2, $params);
+            query($sqlString3, $params);
         }
 
 
