@@ -2,7 +2,7 @@
 {
     width: 100%;
     height: 100%;
-    max-width: 700px;
+    max-width: 900px;
     background: black;
 }
 .background{
@@ -16,22 +16,25 @@
     position: absolute;
     height: 500px;
     top: 200px;
-    margin-left: 22%;
-    z-index: 99;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    z-index: 11;
 }
 .snakkeboble{
     position: absolute;
-    margin-left: 10%;
-    top: 70px;
     width: 260px;
     background: white;
     border: 2px solid black;
     border-radius: 25px;
     text-align: center;
     padding: 5px;
-    z-index: 98;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
 }
 
 .swipeshow {
-    width: 320px!important;
+    width: 900px !important;
 }

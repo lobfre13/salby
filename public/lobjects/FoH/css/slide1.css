@@ -12,20 +12,23 @@
     position: absolute;
     height: 500px;
     top: 100px;
-    margin-left: 3%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+    -webkit-transform: translate(-50%, 0) rotate(0deg);
     z-index: 1;
 }
-/*
+
 .slide.active .slide1 .blomst{
     -webkit-animation-name:             rotate;
     -webkit-animation-duration:         40s;
     -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
 }
 
 @-webkit-keyframes rotate {
     to {
-        -webkit-transform: rotate(360deg);
+        transform: translate(-50%, 0) rotate(360deg);
+        -webkit-transform: translate(-50%, 0) rotate(360deg);
 
     }
 }
-*/

@@ -24,6 +24,7 @@
         <?php
         if(!arrayEmpty($this->categoryContent)){ ?>
             <ul class="breadcrumb">
+                <li><a><img src="/public/img/house.png" height="15"></a></li>
            <?php foreach ($this->filePathURLS as $url){ ?>
                 <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
         <?php }  ?>

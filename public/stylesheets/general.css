@@ -181,7 +181,7 @@ a:hover{
 #headerLogo{
 	width: 160px;
 	height: auto;
-    margin-top: 3px;
+    margin-top: -3px;
 }
 
 .topMenuUser{

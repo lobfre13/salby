@@ -8,29 +8,14 @@
             'subjectname' => $subjectName,
             'classlevel' => $classLevel
         );
-        return query($sqlString, $params, false);
-
-        /*global $database;
-        $sql = $database->prepare("SELECT * FROM subjects WHERE subjectname = :subjectname AND classlevel = :classlevel");
-
-        $sql->execute(array(
-            'subjectname' => $subjectName,
-            'classlevel' => $classLevel
-        ));
-        return $sql->fetch(PDO::FETCH_ASSOC);*/
+        return query($sqlString, $params, 2);
     }
 
     function getClassLevel($classID){
         $sqlString = "SELECT * FROM classes WHERE id = :classid";
         $params = array('classid' => $classID);
 
-        return query($sqlString, $params, false)['classlevel'];
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM classes WHERE id = :classid");
-//        $sql->execute(array(
-//            'classid' => $classID
-//        ));
-//        return $sql->fetch(PDO::FETCH_ASSOC)['classlevel'];
+        return query($sqlString, $params, 2)['classlevel'];
     }
 
     function getSubjectCategories($subjectID){
@@ -39,41 +24,21 @@
                       WHERE subjectid = :subjectid";
         $params = array('subjectid' => $subjectID);
 
-        return query($sqlString, $params, true);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM categories
-//                                   JOIN subjectcategory ON id = categoryid
-//                                   WHERE subjectid = :subjectid");
-//        $sql->execute(array(
-//            'subjectid' => $subjectID
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 1);
     }
 
     function getCategory($categoryName){
         $sqlString = "SELECT * FROM categories WHERE category = :category";
         $params = array('category' => $categoryName);
 
-        return query($sqlString, $params, false);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM categories WHERE category = :category");
-//        $sql->execute(array(
-//            'category' => $categoryName
-//        ));
-//        return $sql->fetch(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 2);
     }
 
     function getSubCategories($categoryID){
         $sqlString = "SELECT * FROM categories WHERE parentid = :parentid";
         $params = array('parentid' => $categoryID);
 
-        return query($sqlString, $params, true);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM categories WHERE parentid = :parentid");
-//        $sql->execute(array(
-//            'parentid' => $categoryID
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 1);
     }
 
     function getLObjects($categoryID){
@@ -82,29 +47,14 @@
                       WHERE categoryid = :categoryid";
         $params = array('categoryid' => $categoryID);
 
-        return query($sqlString, $params, true);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM learningobjects
-//                                   JOIN learningobjectcategory ON learningobjectid = learningobjects.id
-//                                   WHERE categoryid = :categoryid");
-//        $sql->execute(array(
-//            'categoryid' => $categoryID
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 1);
     }
 
     function getLObject($lObjectTitle){
         $sqlString = "SELECT * FROM learningobjects WHERE title = :title";
         $params = array('title' => $lObjectTitle);
 
-        return query($sqlString, $params, false);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM learningobjects
-//                                   WHERE title = :title");
-//        $sql->execute(array(
-//            'title' => $lObjectTitle
-//        ));
-//        return $sql->fetch(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 2);
     }
 
     function getUserSubjects($classID){
@@ -113,40 +63,21 @@
                       WHERE classid = :classid";
         $params = array('classid' => $classID);
 
-        return query($sqlString, $params, true);
-//        global $database;
-//        $sql = $database->prepare("SELECT * from classsubjects
-//                                   JOIN subjects ON subjectid = subjects.id
-//                                   WHERE classid = :classid");
-//        $sql->execute(array(
-//            'classid' => $classID
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 1);
     }
 
     function getLObjectFromID($LObjectID){
         $sqlString = "SELECT * FROM learningobjects WHERE id = :LObjectID";
         $params = array('LObjectID' => $LObjectID);
 
-        return query($sqlString, $params, false);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM learningobjects WHERE id = :LObjectID");
-//        $sql->execute(array('LObjectID' => $LObjectID));
-//        return $sql->fetch(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 2);
     }
 
     function getSubjects($classLevel){
         $sqlString = "SELECT * FROM subjects WHERE classlevel = :classLevel";
         $params = array('classLevel' => $classLevel);
 
-        return query($sqlString, $params, true);
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM subjects
-//                                   WHERE classlevel = :classLevel");
-//        $sql->execute(array(
-//            'classLevel' => $classLevel
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return query($sqlString, $params, 1);
     }
 
     function manageSubjectState($subjects, $selectedSubject, $frontPage){
