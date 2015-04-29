@@ -10,40 +10,43 @@
 </script>
 <div id="content" class="widthConstrained">
     <div id="schoolMainTable">
-        <div id="schoolAddButtonDiv" onclick="addSchool()">
-            <button type="button" id="schoolAddButton"></button>
-            <label>Legg til skole</label>
-        </div>
-        <!--
-        <form method="post" action="/admin/administrateSchools">
-            <input type="text" name="searchBoxSchools">
-            <input type="submit" value="Søk her...">
-        </form>
-        -->
-        <form method="post" action="/admin/administrateSchools" class="form-wrapper">
-            <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole ..." required>
-            <input type="submit" value="søk" id="submit">
-        </form>
-        <table>
-            <tr>
-                <th>Skolenavn</th>
-                <th>Fylke</th>
-                <th>Kommune</th>
-                <th>Registreringsnøkkel</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr id="addSchool"></tr>
-            <?php foreach ($this->schools as $school) { ?>
+        <section id="topMenu">
+
+            <div id="schoolAddButtonDiv" onclick="addSchool()">
+                <button type="button" id="schoolAddButton"></button>
+                <label id="addSchoolTxt">Legg til skole</label>
+            </div>
+
+            <div id="schoolSearch">
+                <form method="post" action="/admin/administrateSchools" class="form-wrapper">
+                    <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
+                    <input type="submit" value="søk" id="submit">
+                </form>
+            </div>
+
+        </section>
+        <section id="maintable">
+            <table>
                 <tr>
-                    <td><?php echo $school['name'] ?></td>
-                    <td><?php echo $school['fylke'] ?></td>
-                    <td><?php echo $school['kommune'] ?></td>
-                    <td><?php echo $school['regkey'] ?></td>
-                    <td><img src="/public/img/redigerIkon.png" width="35"></td>
-                    <td onclick="deleteSchool(this, <?php echo $school['id'];?>)"><img src="/public/img/slettIkon.png" width="35" ></td>
+                    <th>Skolenavn</th>
+                    <th>Fylke</th>
+                    <th>Kommune</th>
+                    <th>Registreringsnøkkel</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            <?php }  ?>
-        </table>
+                <tr id="addSchool"></tr>
+                <?php foreach ($this->schools as $school) { ?>
+                    <tr>
+                        <td><?php echo $school['name'] ?></td>
+                        <td><?php echo $school['fylke'] ?></td>
+                        <td><?php echo $school['kommune'] ?></td>
+                        <td><?php echo $school['regkey'] ?></td>
+                        <td><img src="/public/img/redigerIkon.png" width="35"></td>
+                        <td onclick="deleteSchool(this, <?php echo $school['id'];?>)"><img src="/public/img/slettIkon.png" width="35" ></td>
+                    </tr>
+                <?php }  ?>
+            </table>
+        </section>
     </div>
 </div>
