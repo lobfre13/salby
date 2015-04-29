@@ -252,21 +252,26 @@ function getAllTheCategories()
             ));
         }
 
-        function deleteCategory ($categoryName) {
+        function deleteCategory ($categoryId) {
             global $database;
-            $sql = $database->prepare("DELETE FROM categories WHERE category = :categoryName");
+            $sql = $database->prepare("");
 
             $sql->execute(array(
-                'categoryName' => $categoryName
+                'categoryId' => $categoryId
             ));
         }
 
-        function deleteLearningObject ($learningObjectName) {
+        function deleteLearningObject ($learningObjectId) {
             global $database;
-            $sql = $database->prepare("DELETE FROM learningobjects WHERE title = :learningObjectName");
+            $sql1 = $database->prepare("DELETE FROM favourites
+                                          WHERE learningobjectid = :learningObjectId;" .
+                                        "DELETE FROM learningobjectcategory
+                                        WHERE learningobjectid = :learningObjectId;" .
+                                        "DELETE FROM learningobjects
+                                        WHERE title = :learningObjectId");
 
-            $sql->execute(array(
-                'learningObjectName' => $learningObjectName
+            $sql1->execute(array(
+                'learningObjectId' => $learningObjectId
             ));
         }
 

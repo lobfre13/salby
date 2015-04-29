@@ -9,12 +9,21 @@
     }
 </script>
 <div id="content" class="widthConstrained">
-    <form method="post" action="/admin/administrateSchools">
-        <input type="text" name="searchBoxSchools">
-        <input type="submit" value="Søk her...">
-    </form>
     <div id="schoolMainTable">
-        <label><input type="button" onclick="addSchool()" value="" id="schoolAddButton">Legg til skole</label>
+        <div id="schoolAddButtonDiv" onclick="addSchool()">
+            <button type="button" id="schoolAddButton"></button>
+            <label>Legg til skole</label>
+        </div>
+        <!--
+        <form method="post" action="/admin/administrateSchools">
+            <input type="text" name="searchBoxSchools">
+            <input type="submit" value="Søk her...">
+        </form>
+        -->
+        <form method="post" action="/admin/administrateSchools" class="form-wrapper">
+            <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole ..." required>
+            <input type="submit" value="søk" id="submit">
+        </form>
         <table>
             <tr>
                 <th>Skolenavn</th>
