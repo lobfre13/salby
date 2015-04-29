@@ -70,8 +70,8 @@ a:hover{
 }
 
 #hamMenu{
-	padding: 10px 10px 6px;
-	position: absolute;
+    padding: 10px;
+    position: absolute;
 }
 
 #classRangeLabel{
@@ -97,6 +97,10 @@ a:hover{
 #hamMenuIconWrapper{
     display: inline-block;
     position: relative;
+    width: 27px;
+    height: 20px;
+    background-image: url("/public/img/HamburgerIcon.png");
+    background-size: 100% 100%;
 }
 
 #dropDownMainMenu{

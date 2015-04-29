@@ -140,7 +140,9 @@
 .breadcrumb li:first-child a {
     padding-left: 10px;
     background-color: #fff407;
+
 }
+
 .breadcrumb li:first-child a:after{
     border-left: 30px solid #fff407;
 }

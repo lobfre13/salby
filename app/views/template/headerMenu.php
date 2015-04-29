@@ -18,7 +18,7 @@
 		<div id="hamMenu">
             <a href="#" onclick="showMenu(this)">
                 <div id="hamMenuIconWrapper">
-                    <div></div><div></div>
+                    <!--<div></div><div></div>-->
                 </div>
                 <span id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</span>
             </a>

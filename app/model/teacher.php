@@ -130,7 +130,7 @@ include_once 'dbInterface.php';
             'phcid' => $pendingHomeworkClassID
         );
 
-        return query($sqlString, $params, 1);
+        query($sqlString, $params);
 
         /*$pendingHomeworkClassID = getPendingHomeworkClassID($username, $classSubjectID);
         global $database;
@@ -147,8 +147,9 @@ include_once 'dbInterface.php';
             'csid' => $classSubjectID,
             'username' => $username
         );
-
-        return query($sqlString, $params, 2)['id'];
+        $result = query($sqlString, $params, 2);
+        if (isset($result['id'])) return $result['id'];
+        return getNewPendingHomeworkEntryID($username, $classSubjectID);
         /*global $database;
         $sql = $database->prepare("SELECT * FROM pendinghomeworkclass WHERE classsubjectid = :csid AND username = :username");
 
@@ -166,9 +167,7 @@ include_once 'dbInterface.php';
             'csid' => $classSubjectID,
             'username' => $username
         );
-        query($sqlString, $params);
-        global $database;
-        return $database->lastInsertId();
+        return query($sqlString, $params, 4);
 
         /*$sql = $database->prepare("INSERT INTO pendinghomeworkclass VALUES(null, :csid, :username)");
         $sql->execute(array(
@@ -229,27 +228,24 @@ include_once 'dbInterface.php';
     }
 
     function addHomework($pendingTasks, $pupilUsernames, $classid){
-        global $database;
         foreach($pendingTasks as $task){
             $sqlString = "INSERT INTO homework VALUES(null, :csid, :taskid, null, '/forside/fag/1-klasse/norsk/mockURL/" . $task['title'] . "')";
             $params = array(
                 'csid' => $classid,
                 'taskid' => $task['learningobjectid']
             );
-            query($sqlString, $params);
+            $id = query($sqlString, $params, 4);
 
             /*$sql = $database->prepare("INSERT INTO homework VALUES(null, :csid, :taskid, null, '/forside/fag/1-klasse/norsk/mockURL/".$task['title']."')");
             $sql->execute(array(
                 'csid' => $classid,
                'taskid' => $task['learningobjectid']
             ));*/
-            $id = $database->lastInsertId();
             addPupilToHomework($pupilUsernames, $id);
         }
     }
 
     function addPupilToHomework($pupilUsernames, $id){
-        global $database;
         foreach($pupilUsernames as $username){
             $sqlString = "INSERT INTO pupilhomework VALUES(:username, :id, 0)";
             $params = array(
@@ -266,7 +262,7 @@ include_once 'dbInterface.php';
     }
 
     function removePendingTasks($pendingHomeworkClassID){
-        $sqlString = "DELETE FROM pendinghomeworklist WHERE pendinghomeworkclassid = :phcd)";
+        $sqlString = "DELETE FROM pendinghomeworklist WHERE pendinghomeworkclassid = :phcd";
         $params = array('phcd' => $pendingHomeworkClassID);
         query($sqlString, $params);
 

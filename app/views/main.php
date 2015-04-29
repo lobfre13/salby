@@ -24,7 +24,8 @@
         <?php
         if(!arrayEmpty($this->categoryContent)){ ?>
             <ul class="breadcrumb">
-                <li><a><img src="/public/img/house.png" height="15"></a></li>
+                <li style="padding 0;"><a href="/"><img style="outline: 0;" src="/public/img/house.png" height="20"></a>
+                </li>
            <?php foreach ($this->filePathURLS as $url){ ?>
                 <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
         <?php }  ?>
@@ -42,6 +43,7 @@
     <div id="game">
         <?php if(!($this->gameHTML == null)){ ?>
         <ul class="breadcrumb">
+            <li><a href="/"><img src="/public/img/house.png" height="15"></a></li>
            <?php foreach ($this->filePathURLS as $url){ ?>
             <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
         <?php }  ?>

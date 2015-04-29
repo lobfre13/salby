@@ -68,7 +68,7 @@
             else $this->view->subjects = getUserSubjects($this->user->classID);
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->categoryContent = [];
-            $this->view->filePathURLS = [['/main/', 'Forsiden']];
+            $this->view->filePathURLS = [];
         }
 
         //Flytt ut til modellen?
