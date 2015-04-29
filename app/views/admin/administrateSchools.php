@@ -3,8 +3,8 @@
         ajaxCall("GET", "/admin/doAddSchool", true, "addSchool");
     }
 
-    function deleteSchool (object, schoolName) {
-        ajaxCall("GET", "/admin/doDeleteSchool/" + schoolName, true);
+    function deleteSchool (object, schoolId) {
+        ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);
         $(object).closest("tr").remove();
     }
 </script>

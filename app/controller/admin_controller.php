@@ -105,10 +105,8 @@
             deleteSchool($this->urlElements[2]);
         }
 
-        public function doDeleteSubject ($subjectName) {
-            $this->view->setViewPath('admin/administrateSubjects.php');
-            deleteSubject($subjectName);
-            $this->view->showPage();
+        public function doDeleteSubject () {
+            deleteSubject($this->urlElements[2]);
         }
 
         public function doDeleteCategory ($categoryName) {
@@ -117,7 +115,7 @@
             $this->view->showPage();
         }
 
-        public function doDeleteLearningObject ($learningObjectId) {
+        public function doDeleteLearningObject () {
             deleteLearningObject($this->urlElements[2]);
         }
 
