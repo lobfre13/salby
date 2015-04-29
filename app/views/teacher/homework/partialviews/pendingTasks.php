@@ -5,11 +5,8 @@
             <li><?php echo $task['title']; ?></li>
        <?php  }
         if(arrayEmpty($this->pendingTasks))
-            echo 'Ingen valgte objekter..';
-            else{ ?>
-                <script type="text/javascript">
-                    showbtn();
-                </script>
+            echo 'Ingen valgte objekter..'; ?>
 
-        <?php } ?>
+
+
 </ul>

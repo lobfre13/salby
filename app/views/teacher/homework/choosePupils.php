@@ -1,7 +1,7 @@
 <script src="/public/javascript/teacherHomework.js"></script>
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator">Lekseliste</span>
-    <span class="addTaskIndicator" style="background-color: #00BFD5">Velg elev</span>
+    <span class="addTaskIndicator" style="background-color: #00BFD5">Velg elever</span>
     <span class="addTaskIndicator">Godkjenn</span>
 
     <div class="choosePupils">

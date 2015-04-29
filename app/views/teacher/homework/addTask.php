@@ -2,7 +2,7 @@
 
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator" style="background-color: #00BFD5">Lekseliste</span>
-    <span class="addTaskIndicator">Velg elev</span>
+    <span class="addTaskIndicator">Velg elever</span>
     <span class="addTaskIndicator">Godkjenn</span>
 
     <div id="sideBar">
