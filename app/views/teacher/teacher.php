@@ -2,7 +2,7 @@
     <div id="content" class="widthConstrained">
         <a class="mainTeacherNavLinks" href="/teacher/addtask/">Legg til Gjøremål</a>
         <a class="mainTeacherNavLinks" href="/teacher/pupilsettings/">Innstillinger for elever</a>
-        <a class="mainTeacherNavLinks" href="/teacher/teacherpages/">Lærerside</a>
+        <a class="mainTeacherNavLinks" href="http://larer.salaby.no/">Lærerside</a>
 
 
         <div>
