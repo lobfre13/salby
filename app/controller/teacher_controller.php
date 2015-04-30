@@ -124,6 +124,12 @@
             $this->index();
         }
 
+        public function pupilsettings () {
+            $this->view->setViewPath('teacher/pupilsettings.php');
+            $this->view->pupils = getMainTeacherSubjects("teacher");
+            $this->view->showPage();
+        }
+
 //        private function showClass($id){
 //            //if(!is_numeric($id)) return $this->index();
 //

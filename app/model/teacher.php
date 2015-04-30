@@ -190,7 +190,12 @@ include_once 'dbInterface.php';
     }
 
     function calculateHomeworkProgressForPupil ($username) {
-        return getNumberOfHomeworkItemsDone($username)['homeworkItemsDone'] / getNumberOfHomeworkItems($username)['homeworkItems'] * 100;
+        $homeworkItems = getNumberOfHomeworkItems($username)['homeworkItems'];
+        if ($homeworkItems > 0) {
+            return getNumberOfHomeworkItemsDone($username)['homeworkItemsDone'] / $homeworkItems * 100;
+        } else {
+            return 100;
+        }
     }
 
     function combinePupilNameAndProgress ($classId) {
@@ -200,6 +205,30 @@ include_once 'dbInterface.php';
         }
         return $pupils;
     }
+
+    function getMainTeacherPupils () {
+
+        $sqlString[] = array("etternavn" => "Fonnes", "fornavn" => "Simen");
+        return $sqlString;
+    }
+
+    function getMainTeacherSubjects ($teacherName) {
+        $sqlString = "SELECT * FROM classes
+                      JOIN mainteachers
+                      ON id = mainteachers.classid
+                      WHERE username = :teacherName";
+        $params = array('teacherName' => $teacherName);
+
+        $classId = query($sqlString, $params, DBI::FETCH_ONE);
+
+        $sqlString = "SELECT * FROM users
+                        WHERE classid = :classId";
+        $params = array('classId' => $classId['classid']);
+
+        return query($sqlString, $params, DBI::FETCH_ALL);
+    }
+
+
 
 
 //    function getClass($id){
