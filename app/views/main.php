@@ -11,6 +11,7 @@
         }
     }
 </script>
+
 <div id="content" class="widthConstrained">
     <div id="subjects" class="<?php echo $this->subjectsHTMLClass; ?>">
         <?php foreach($this->subjects as $subject) { ?>

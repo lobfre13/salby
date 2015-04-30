@@ -117,3 +117,9 @@
         if(empty($category)) return [];
         return getCategoryContent($category['id']);
     }
+
+    function getHomeworkCount ($username) {
+        $sqlString = "SELECT COUNT(isdone) AS homeworkCount FROM pupilhomework WHERE username = :username AND isdone = 0";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
