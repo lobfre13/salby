@@ -24,14 +24,16 @@
     <div class="subjectContent">
         <?php
         if(!arrayEmpty($this->categoryContent)){ ?>
-            <ul class="breadcrumb">
-                <li style="padding 0;"><a href="/"><img style="outline: 0;" src="/public/img/house.png" height="20"></a>
-                </li>
-           <?php foreach ($this->filePathURLS as $url){ ?>
-                <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
-        <?php }  ?>
-            </ul>
-                <?php echo '<br><br><br>';}?>
+            <div id="crumbs">
+                <ul class="breadcrumb">
+                    <li style="padding 0;"><a href="/"><img src="/public/img/house.png" height="20"></a>
+                    </li>
+               <?php foreach ($this->filePathURLS as $url){ ?>
+                    <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
+            <?php }  ?>
+                </ul>
+            </div>
+                <?php } ?>
         <?php foreach($this->categoryContent as $content) { ?>
             <a href="<?php echo $this->urlStr; if(isset($content['category'])) echo slugify($content['category']); else echo slugify($content['title']); ?>">
                 <div class="category" style="background-image: url(<?php echo $content['imgurl']; ?>)">
@@ -43,12 +45,14 @@
 
     <div id="game">
         <?php if(!($this->gameHTML == null)){ ?>
-        <ul class="breadcrumb">
-            <li><a href="/"><img src="/public/img/house.png" height="15"></a></li>
-           <?php foreach ($this->filePathURLS as $url){ ?>
-            <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
-        <?php }  ?>
-        </ul>
+        <div id="crumbs">
+            <ul class="breadcrumb">
+                <li><a href="/"><img src="/public/img/house.png" height="15"></a></li>
+               <?php foreach ($this->filePathURLS as $url){ ?>
+                <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
+            <?php }  ?>
+            </ul>
+        </div>
             <?php echo $this->gameHTML;
         }  ?>
     </div>

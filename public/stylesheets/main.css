@@ -84,6 +84,7 @@
     margin-top: 5px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    position: relative;
 }
 
 #favIcon{
@@ -91,7 +92,9 @@
 }
 #favIcon + label{
     background-image: url("/public/img/favorittericon1.png");
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
     height: 45px;
     width: 50px;
     background-size: 100%;
@@ -102,65 +105,74 @@
 }
 
 /*Breadcrumb source: https://css-tricks.com/triangle-breadcrumbs/*/
-.breadcrumb {
+#crumbs {
+    overflow: auto;
+}
+
+#crumbs ul {
     list-style: none;
-    overflow: hidden;
-}
-.breadcrumb li {
+    display: inline-table;
     float: left;
 }
-.breadcrumb li a {
-    color: #555555;
-    text-decoration: none;
-    padding: 10px 0 10px 65px;
-    background-color: #EEEEEE;
+
+#crumbs ul li {
+    display: inline;
+}
+
+#crumbs ul li a {
+    display: block;
+    float: left;
+    /*height: 10px;*/
+    background: #3498db;
+    text-align: center;
+    padding: 5px;
     position: relative;
-    display: block;
-    float: left;
+    margin: 0 3px 0 0;
+    padding-left: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
 }
-
-.breadcrumb li a:hover { background: #BBBBBB; }
-.breadcrumb li a:hover:after { border-left-color: #BBBBBB !important; }
-.breadcrumb li:first-child a:hover { background: #ffea5b; }
-.breadcrumb li:first-child a:hover:after { border-left-color: #ffea5b !important; }
-
-.breadcrumb li a:after {
-    content: " ";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
-    border-bottom: 50px solid transparent;
-    border-left: 30px solid #EEEEEE;
-    position: absolute;
-    top: 50%;
-    margin-top: -50px;
-    left: 100%;
-    z-index: 2;
-}
-.breadcrumb li a:before {
-    content: " ";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    border-left: 30px solid black;
-    position: absolute;
-    top: 50%;
-    margin-top: -50px;
-    margin-left: 1px;
-    left: 100%;
+#crumbs ul li a:after {
+    content: "";
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 18px solid #3498db;
+    position: absolute; right: -18px; top: 0;
     z-index: 1;
 }
-.breadcrumb li:first-child a {
-    padding-left: 10px;
-    background-color: #fff407;
 
+#crumbs ul li a:before {
+    content: "";
+    border-top: 16px solid transparent;
+    border-bottom: 19px solid transparent;
+    border-left: 18px solid #c0eaff;
+    position: absolute; left: 0; top: 0;
 }
 
-.breadcrumb li:first-child a:after{
-    border-left: 30px solid #fff407;
+#crumbs ul li:first-child a {
+    border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+    padding-left: 15px;
+}
+#crumbs ul li:first-child a:before {
+    display: none;
+}
+
+#crumbs ul li:last-child a {
+    padding-right: 20px;
+    border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+    pointer-events: none;
+    cursor: default;
+}
+#crumbs ul li:last-child a:after {
+    display: none;
+}
+
+#crumbs ul li a:hover {
+    background: #fa5ba5;
+}
+#crumbs ul li a:hover:after {
+    border-left-color: #fa5ba5;
 }
 
 #subjectDropDownBtn{

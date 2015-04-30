@@ -11,12 +11,11 @@
 
     function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-        obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+//        obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
     }
 </script>
 
 
     <input onchange="updateFavourite(<?php echo $lobject['id']; ?>)" <?php if($isFavourite) echo 'checked';?> id="favIcon" type="checkbox"><label for="favIcon"></label>
-    <br><br><br>
-    <iframe seamless src="<?php echo $lobject['link']; ?>" frameborder="none" scrolling="no" onload="resizeIframe(this)"></iframe>
+    <iframe seamless src="<?php echo $lobject['link']; ?>" frameborder="none" scrolling="no" onload="resizeIframe(this)" width="100%"></iframe>
 
