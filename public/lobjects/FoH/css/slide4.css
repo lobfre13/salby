@@ -1,5 +1,6 @@
 .slide4.background{
     background: linear-gradient(palegreen, white);
+    background: -webkit-linear-gradient(palegreen, white);
 }
 .slide4 .jasmin {
     left: 60%;

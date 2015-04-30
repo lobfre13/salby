@@ -1,12 +1,6 @@
 body {
-    background: #23bbea; /* Old browsers */
-    background: -moz-linear-gradient(top, #23bbea 0%, #ddf3f8 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #23bbea), color-stop(100%, #ddf3f8)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #23bbea 0%, #ddf3f8 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #23bbea 0%, #ddf3f8 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #23bbea 0%, #ddf3f8 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #23bbea 0%, #ddf3f8 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#23bbea', endColorstr='#ddf3f8', GradientType=0); /* IE6-9 */
+    background: linear-gradient(deepskyblue, white);
+    background: -webkit-linear-gradient(deepskyblue, white);
 }
 
 table, tr, td, th{

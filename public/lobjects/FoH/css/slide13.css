@@ -1,5 +1,6 @@
 .slide13.background{
     background: linear-gradient(lightgreen, green);
+    background: -webkit-linear-gradient(lightgreen, green);
 }
 .slide13 .jasmin{
     height: 250px;

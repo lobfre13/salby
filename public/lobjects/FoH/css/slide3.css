@@ -1,5 +1,6 @@
 .slide3.background{
     background: linear-gradient(sandybrown, white);
+    background: -webkit-linear-gradient(sandybrown, white);
 
 }
 .slide3 .gud1{

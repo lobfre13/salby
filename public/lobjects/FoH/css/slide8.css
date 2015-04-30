@@ -1,5 +1,6 @@
 .slide8.background{
     background: linear-gradient(lightskyblue, saddlebrown); /* Standard syntax */
+    background: -webkit-linear-gradient(lightskyblue, saddlebrown); /* Standard syntax */
 }
 .slide8 .tempel{
     position: absolute;

@@ -1,5 +1,6 @@
 .slide18.background{
     background: linear-gradient(palegreen, palegreen, #e2b512);
+    background: -webkit-linear-gradient(palegreen, palegreen, #e2b512);
 }
 .slide18 .jasmin{
     height: 600px;

@@ -1,5 +1,6 @@
 .slide2.background{
     background: linear-gradient(purple, white);
+    background: -webkit-linear-gradient(purple, white);
 }
 
 .slide2 .jasmin{

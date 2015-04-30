@@ -1,5 +1,6 @@
 .slide5.background{
     background: linear-gradient(sandybrown, white); /* Standard syntax */
+    background: -webkit-linear-gradient(sandybrown, white); /* Standard syntax */
 
 }
 .slide5 .bord{

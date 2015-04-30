@@ -1,5 +1,6 @@
 .slide12.background{
     background: linear-gradient(forestgreen, limegreen);
+    background: -webkit-linear-gradient(forestgreen, limegreen);
 }
 #bgita-bok{
     bottom: 20px;
