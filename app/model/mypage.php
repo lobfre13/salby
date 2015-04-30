@@ -27,7 +27,7 @@
     function getHomeworkSubjects($classId, $username){
         $sqlString = "SELECT lo.title, h.id, h.duedate, h.url, s.subjectname, ph.isdone
             FROM learningobjects as lo
-            RIGHT JOIN homework as h ON h.learningobjectid = lo.id
+            RIGHT JOIN homework as h ON h.learningobjectsid = lo.id
             JOIN classsubjects ON h.classsubjectid = classsubjects.id
             JOIN subjects as s ON subjectid = s.id
             JOIN pupilhomework as ph ON homeworkid = h.id
