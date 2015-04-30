@@ -1,9 +1,9 @@
 <table>
     <tr>
-        <th>Oppgave</th>
+        <th>Gjøremål</th>
         <th>Frist</th>
-        <th>Endre</th>
-        <th>Slett</th>
+        <th></th>
+        <th></th>
     </tr>
     <?php foreach($this->tasks as $task) { ?>
         <tr>

@@ -6,7 +6,7 @@
 
 
         <div>
-            <h3>Dine klasser</h3>
+<!--            <h3>Dine klasser</h3>-->
             <label>Velg klasse
                 <select id="selectedClass" onchange="loadClass(this); loadClassTasks(this)">
                     <?php foreach($this->schoolClasses as $class) { ?>

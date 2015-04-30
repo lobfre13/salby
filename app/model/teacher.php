@@ -177,6 +177,30 @@ include_once 'dbInterface.php';
         query($sqlString, $params);
     }
 
+    function getNumberOfHomeworkItemsDone ($username) {
+        $sqlString = "SELECT COUNT(*) AS homeworkItemsDone FROM pupilhomework WHERE username = :username AND isdone = 1";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function getNumberOfHomeworkItems ($username) {
+        $sqlString = "SELECT COUNT (*) AS homeworkItems FROM pupilhomework WHERE username = :username";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function calculateHomeworkProgressForPupil ($username) {
+        return getNumberOfHomeworkItemsDone($username)['homeworkItemsDone'] / getNumberOfHomeworkItems($username)['homeworkItems'] * 100;
+    }
+
+    function combinePupilNameAndProgress ($classId) {
+        $pupils = getPupils($classId);
+        foreach ($pupils as &$pupil){
+            $pupil['progress'] = calculateHomeworkProgressForPupil($pupil['username']);
+        }
+        return $pupils;
+    }
+
 
 //    function getClass($id){
 //        global $database;
