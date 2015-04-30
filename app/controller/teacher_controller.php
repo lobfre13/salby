@@ -19,7 +19,8 @@
             if(!is_numeric($classID)) return;
 
             $this->view->setViewPath('teacher/homework/partialviews/teacherClass.php');
-            $this->view->pupils = getClassPupils($classID);
+//            $this->view->pupils = getClassPupils($classID);
+            $this->view->pupils = combinePupilNameAndProgress($classID);
             $this->view->showStrippedPage();
         }
 
@@ -91,7 +92,8 @@
             $username = $this->user->username;
             $this->view->setViewPath('/teacher/homework/choosePupils.php');
             $this->view->classid = $classid;
-            $this->view->pupils = combinePupilNameAndProgress($classid);
+            $this->view->pupils = getPupils($classid);
+//            $this->view->pupils = combinePupilNameAndProgress($classid);
 //            $this->view->homeworkProgress = calculateHomeworkProgressForPupil($username);
             $this->view->pendingTasks = getPendingTasks($classid, $username);
             if(arrayEmpty($this->view->pendingTasks)) return $this->addTask();

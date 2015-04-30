@@ -184,7 +184,7 @@ include_once 'dbInterface.php';
     }
 
     function getNumberOfHomeworkItems ($username) {
-        $sqlString = "SELECT COUNT (*) AS homeworkItems FROM pupilhomework WHERE username = :username";
+        $sqlString = "SELECT COUNT(*) AS homeworkItems FROM pupilhomework WHERE username = :username";
         $params = array('username' => $username);
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
