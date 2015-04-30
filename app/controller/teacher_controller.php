@@ -126,7 +126,7 @@
 
         public function pupilsettings () {
             $this->view->setViewPath('teacher/pupilsettings.php');
-            $this->view->pupils = getMainTeacherSubjects("teacher");
+            $this->view->pupils = getMainTeacherSubjects($this->user->username);
             $this->view->showPage();
         }
 

@@ -212,22 +212,38 @@ include_once 'dbInterface.php';
         return $sqlString;
     }
 
+
+
+    //CRUP
+
+    //Create
+
+    //Read
     function getMainTeacherSubjects ($teacherName) {
         $sqlString = "SELECT * FROM classes
-                      JOIN mainteachers
-                      ON id = mainteachers.classid
-                      WHERE username = :teacherName";
+                          JOIN mainteachers
+                          ON id = mainteachers.classid
+                          WHERE username = :teacherName";
         $params = array('teacherName' => $teacherName);
 
         $classId = query($sqlString, $params, DBI::FETCH_ONE);
 
         $sqlString = "SELECT * FROM users
-                        WHERE classid = :classId";
+                            WHERE classid = :classId";
         $params = array('classId' => $classId['classid']);
 
         return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
+    //Update
+
+    //Delete
+    function deletePupil ($username) {
+        $sqlString = "DELETE FROM users
+                          WHERE username = :username";
+        $params = array('username' => $username);
+        query($sqlString, $params);
+    }
 
 
 

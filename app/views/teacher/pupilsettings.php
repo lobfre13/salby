@@ -15,10 +15,10 @@
         </tr>
         <?php foreach ($this->pupils as $pupil) { ?>
         <tr>
-            <td><?php echo $pupil['etternavn']; ?></td>
-            <td><?php echo $pupil['fornavn']; ?></td>
-            <td>edit</td>
-            <td>delete</td>
+            <td><?php echo $pupil['lastname']; ?></td>
+            <td><?php echo $pupil['firstname']; ?></td>
+            <td><div class="editButton"></td>
+            <td><div class="deleteButton"></td>
             <td><?php } ?></td>
         </tr>
     </table>
