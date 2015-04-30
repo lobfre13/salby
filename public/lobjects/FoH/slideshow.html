@@ -4,7 +4,7 @@
     <link href="css/slideshow/jquery.swipeshow.css" rel="stylesheet">
     <link href="css/slideshow/slideshow-theme.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"> </script>
-    <script src="https://dl.dropboxusercontent.com/u/50868481/jquery.swipeshow.js"></script>
+    <script src="jquery.swipeshow.js"></script>
     <meta charset="UTF-8">
     <link href="css/general.css" rel="stylesheet">
     <link href="css/slide1.css" rel="stylesheet">
@@ -151,10 +151,10 @@
             <div class="container">
                 <div class="slide14 background">
                     <div class="testdiv">
-                    <div class="snakkeboble"><h3>Hinduer spiser ikke kukjøtt. Mange hinduer spiser ikke kjøtt i det hele tatt fordi de mener det er galt å drepe dyr. Disse kalles vegetarianere.</h3></div>
-                    <img class="jasmin" src="bilder/Jasmin.png">
-                    <img id="groennsaker" src="bilder/groennsaker.png">
-                        </div>
+                        <div class="snakkeboble"><h3>Hinduer spiser ikke kukjøtt. Mange hinduer spiser ikke kjøtt i det hele tatt fordi de mener det er galt å drepe dyr. Disse kalles vegetarianere.</h3></div>
+                        <img class="jasmin" src="bilder/Jasmin.png">
+                        <img id="groennsaker" src="bilder/groennsaker.png">
+                    </div>
                 </div>
             </div>
         </li>
@@ -188,7 +188,12 @@
         <li class="slide">
             <div class="container">
                 <div class="slide18 background">
-                    <div class="snakkeboble"><h3>Jeg håper du har lært mye nyttig om Hinduismen! Er du klar for en liten quiz? Hvis ikke kan du starte på nytt.</h3></div>
+                    <div class="snakkeboble"><h3>Jeg håper du har lært mye nyttig om Hinduismen! Er du klar for en liten quiz? Hvis ikke kan du starte på nytt.</h3>
+                            <div id="replay"><img id="replay-icon" src="bilder/replay-icon.png"><br>Start på nytt?</div>
+                        <a href="quiz.html">
+                            <div id="play"><img id="play-icon" src="bilder/play-icon.png"><br>Kjør Quiz!</div>
+                        </a>
+                    </div>
                     <img class="jasmin" src="bilder/Jasmin3.png">
 
                 </div>
@@ -206,7 +211,7 @@
                 {
                     autostart: false, /* Set to `false` to keep it steady */
                     interval: 0, /* Time between switching slides (ms) */
-                    initial: 13, /* First slide's index */
+                    initial: 0, /* First slide's index */
                     speed: 200, /* Animation speed (ms) */
                     friction: 0.3, /* Bounce-back behavior; use `0` to disable */
                     mouse: true, /* enable mouse dragging controls */

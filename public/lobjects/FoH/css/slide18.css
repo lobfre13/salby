@@ -1,0 +1,39 @@
+.slide18.background{
+    background: linear-gradient(palegreen, palegreen, #e2b512);
+}
+.slide18 .jasmin{
+    height: 600px;
+    bottom: -370px;
+    left: 55%;
+}
+.slide18 .snakkeboble{
+    top: 30px;
+    width: 310px;
+}
+a{
+    text-decoration: none;
+}
+.slide18 #replay{
+    cursor: pointer;
+    padding-left: 20px;
+    height: auto;
+    width: auto;
+    display: inline-block;
+}
+
+.slide18 #play{
+    cursor: pointer;
+    height: auto;
+    width: auto;
+    display: inline-block;
+}
+
+.slide18 #play-icon{
+    cursor: pointer;
+    width: 50px;
+}
+
+.slide18 #replay-icon{
+    cursor: pointer;
+    width: 50px;
+}

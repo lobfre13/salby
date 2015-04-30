@@ -1,9 +1,9 @@
 .slide13.background{
-    background: linear-gradient(lightgreen, palegreen);
+    background: linear-gradient(lightgreen, green);
 }
 .slide13 .jasmin{
     height: 250px;
-    top: 230px;
+    top: 260px;
     left: 35%;
 }
 .slide13 .snakkeboble{
