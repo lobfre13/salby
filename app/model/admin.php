@@ -46,8 +46,8 @@
 
         function getAllCategories(){
             $sqlString = "SELECT *, categories.imgurl as catimg, categories.id as catid FROM categories
-                          JOIN subjectcategory on categories.id = categoryid
-                          JOIN subjects on subjectid = subjects.id";
+                          LEFT JOIN subjectcategory on categories.id = categoryid
+                          LEFT JOIN subjects on subjectid = subjects.id";
             $params = array();
             return query($sqlString, $params, DBI::FETCH_ALL);
         }
@@ -132,6 +132,16 @@
             query($sqlString, $params);
         }
 
+        function addLearningObject ($lOnavn, $lOIconToUpload, $lOToUpload) {
+            $sqlString = "INSERT INTO learningobjects (title, link, imgurl) VALUES (:lOnavn, :lOIconToUpload, :lOToUpload)";
+            $params = array(
+                'lOnavn' => $lOnavn,
+                'lOIconToUpload' => $lOIconToUpload,
+                'lOToUpload' => $lOToUpload
+            );
+            query($sqlString, $params);
+        }
+
         //Search-operations
         function searchSchools ($searchString) {
             $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";
@@ -201,6 +211,9 @@
         }
 
         function updateCategory ($category, $imgUrl) {
+            /*
+            $sqlString1 =
+
             $sqlString = "UPDATE categories
                                         SET category = :category, imgurl = :imgUrl
                                         WHERE category = :category;";
@@ -209,7 +222,7 @@
                 'imgUrl' => $imgUrl
             );
             query($sqlString, $params);
-
+            */
         }
 
         function updateLearningObject ($title, $link, $imgUrl) {
@@ -227,11 +240,30 @@
 
         //Delete-operations
         function deleteSchool ($schoolId) {
-            $sqlString = "DELETE FROM schools WHERE name = :schoolId";
+
+            //Hent users
+            $sqlString = "SELECT * FROM users WHERE schoolid = :schoolId";
+            $params = array(
+                'schoolId' => $schoolId
+            );
+            $users = query($sqlString, $params, DBI::FETCH_ALL);
+
+            //Slett favoritter
+            $sqlString = "DELETE FROM favourites WHERE username = " . $users['username'];
             $params = array(
                 'schoolId' => $schoolId
             );
             query($sqlString, $params);
+
+            //Hent pupilhomework
+            $sqlString = "SELECT * FROM pupilhomework WHERE username = " . $users['username'];
+            $params = array(
+                'schoolId' => $schoolId
+            );
+            $pupilHomework = query($sqlString, $params, DBI::FETCH_ALL);
+
+            $sqlString = "DELETE FROM schools WHERE name = :schoolId";
+
 
 //            global $database;
 //

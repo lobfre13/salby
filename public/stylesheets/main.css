@@ -1,3 +1,19 @@
+#homeworkCount {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 15px;
+    left: -15px;
+    font-size: 10pt;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 25%;
+    text-align: center;
+    text-shadow: -1px 1px 1px rgba(0, 0 ,0, 1);
+    border: 2px solid white;
+    box-shadow: -2px 2px 1px rgba(0, 0, 0, 1);
+}
+
 .subject{
 	display: inline-block;
     padding: 0;
@@ -15,7 +31,7 @@
     margin: 0;
     padding: 8px;
     display: inline-block;
-    background-color: #6AA440;
+    background-color: #FF8700;
     position: absolute;
     z-index: 5;
     left:-10px;
@@ -229,6 +245,10 @@
         margin-bottom: 6vw;
         height: 100%;
     }
+
+    #fly{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 998px){
@@ -245,8 +265,67 @@
     .subjectsToggle ~ #subjectDropDownBtn{
         display: inline-block;
     }
+
+    #fly{
+        display: none;
+    }
+
 }
 
 #favWrapper{
     overflow: auto;
+}
+
+/*
+@keyframes changewidth {
+
+
+    to {
+        width: 300px;
+    }
+}
+
+#fly {
+    animation-duration: 10s;
+    animation-name: changewidth;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}*/
+
+
+#fly{
+    position: absolute;
+    top: 15%;
+    right: -10%;
+    index: 0;
+
+    transition: opacity 2s linear;
+
+    -webkit-animation-name: fly;
+    -webkit-animation-duration: 15s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: 2s;
+}
+
+@-webkit-keyframes fly{
+    25%{
+        top: 50%;
+        right: 30%;
+    }
+
+    50%{
+        top: 30%;
+        right: 60%;
+    }
+
+    75%{
+        top: 50%;
+        right: 90%;
+    }
+
+    100%{
+        top: 30%;
+        right: 110%;
+    }
 }

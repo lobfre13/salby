@@ -1,26 +1,15 @@
 .slide9.background{
+    background: url("../bilder/lolletempel.png") no-repeat;
     background-size: 100% 100%;
-    background: url("bilder/lolletempel.png") no-repeat;
 }
-.slide9 .tempel{
-    position: absolute;
-    height: 200px;
-    top: 20px;
-    left: 20%;
-    transform: translate(-50%, 0);
-    margin-left:auto;
-    margin-right:auto;
-}
+
 .slide9 .jasmin{
     position: absolute;
-    height: 250px;
-    top: 10px;
-    left: 70%;
-    transform: translate(-50%, 0);
-    margin-left:auto;
-    margin-right:auto;
+    height: 170px;
+    top: 270px;
+    left: 45%
 }
 .slide9 .snakkeboble{
-    top: 280px;
-    width: 300px;
+    top: 60px;
+    width: 260px;
 }

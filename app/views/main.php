@@ -11,6 +11,7 @@
         }
     }
 </script>
+
 <div id="content" class="widthConstrained">
     <div id="subjects" class="<?php echo $this->subjectsHTMLClass; ?>">
         <?php foreach($this->subjects as $subject) { ?>
@@ -52,4 +53,8 @@
         }  ?>
     </div>
 
+
+
 </div>
+
+<img id="fly" src="/public/img/fly.png">

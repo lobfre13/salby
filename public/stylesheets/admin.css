@@ -337,7 +337,8 @@ ul#adminMainMenu li{
     float:left;
     margin:0;
     padding:0;
-    background:#fff;
+    background-color: orange;
+
 }
 
 #primary_nav_wrap ul a

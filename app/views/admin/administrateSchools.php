@@ -13,6 +13,10 @@
             $(object).closest("tr").remove();
         }
     }
+
+    function editSchool (object) {
+        $(object).closest("tr").remove();
+    }
 </script>
 <div id="content" class="widthConstrained">
     <?php include "PartialViews/adminMenu.php"?>

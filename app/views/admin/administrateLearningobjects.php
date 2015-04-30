@@ -1,6 +1,10 @@
-<script>
+<script xmlns="http://www.w3.org/1999/html">
     function addLearningObject () {
         ajaxCall("GET", "/admin/addLearningObject", true, "addLearningObject");
+    }
+
+    function doAddLearningObject () {
+        $('#addLearningObjectsForm').submit();
     }
 
     function deleteLearningObject (object, learningObjectId) {
@@ -29,6 +33,7 @@
         </section>
 
         <section id="maintable">
+            <form id="addLearningObjectsForm" method="post" action="/admin/actuallyAddLearningObject">
         <table>
             <tr>
                 <td>Tittel</td>
@@ -48,6 +53,7 @@
                 </tr>
             <?php } ?>
         </table>
+            </form>
             </section>
     </div>
 </div>

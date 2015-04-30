@@ -3,19 +3,25 @@
 }
 .slide8 .tempel{
     position: absolute;
-    height: 200px;
-    top: 20px;
-    left: 20%;
-    transform: translate(-50%, 0);
-    margin-left:auto;
-    margin-right:auto;
+    height: 40%;
+    top: 50px;
+    left: 10%;
 }
 .slide8 .jasmin{
     height: 250px;
-    top: 10px;
-    left: 70%;
+    top: 30px;
+    left: 65%;
 }
 .slide8 .snakkeboble{
-    top: 280px;
-    width: 300px;
+    top: 300px;
+    width: 260px;
+}
+
+.testdiv{
+    width: 360px;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    position: absolute;
 }

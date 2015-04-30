@@ -67,6 +67,7 @@
             if(isset($classLevel)) $this->view->subjects = getSubjects($classLevel);
             else $this->view->subjects = getUserSubjects($this->user->classID);
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
+            $this->view->homeworkCount = getHomeworkCount($this->user->username);
             $this->view->categoryContent = [];
             $this->view->filePathURLS = [];
         }
