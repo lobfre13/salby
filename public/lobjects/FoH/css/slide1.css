@@ -1,12 +1,14 @@
 .slide1.background{
     background: linear-gradient(deepskyblue, white);
-
 }
 .slide1 .jasmin{
-
+    height: 500px;
+    top: 200px;
+    left: 50%;
 }
 .slide1 .snakkeboble{
-
+    top: 50px;
+    width: 260px;
 }
 .slide1 .blomst{
     position: absolute;

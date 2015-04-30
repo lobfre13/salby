@@ -1,17 +1,13 @@
 .slide4.background{
     background: linear-gradient(palegreen, white);
 }
-.slide4 .jasmin{
-    position: absolute;
-    height: 600px;
-    top: 250px;
+.slide4 .jasmin {
     left: 60%;
-    transform: translate(-50%, 0);
-    margin-left:auto;
-    margin-right:auto;
+    height: 400px;
+    top: 240px;
 }
 .slide4 .snakkeboble{
-    left: 45%;
-    top: 50px;
-    width: 260px;
+    left: 50%;
+    top: 30px;
+    width: 280px;
 }

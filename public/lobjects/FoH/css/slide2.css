@@ -3,10 +3,14 @@
 }
 
 .slide2 .jasmin{
-    left: 10px;
+    height: 500px;
+    top: 200px;
+    left: 60%;
+
 }
 
 .slide2 .snakkeboble{
-    left: 20px;
     top: 50px;
+    left: 45%;
+    width: 260px;
 }

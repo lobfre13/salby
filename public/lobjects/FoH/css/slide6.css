@@ -6,11 +6,12 @@
     background: linear-gradient(dodgerblue, powderblue); /* Standard syntax */
 }
 .slide6 .jasmin{
-    height: 300px;
-    top: 250px;
-    left: 60%;
+    height: 48%;
+    bottom: 4%;
+    left: 50%;
 }
 .slide6 .snakkeboble{
-    left: 45%;
+    left: 50%;
     top: 20px;
+    width: 270px;
 }

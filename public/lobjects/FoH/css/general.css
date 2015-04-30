@@ -5,6 +5,7 @@ html, body {
 }
 .container
 {
+
     width: 100%;
     height: 100%;
     max-width: 900px;
@@ -19,16 +20,12 @@ html, body {
 }
 .jasmin{
     position: absolute;
-    height: 500px;
-    top: 200px;
-    left: 50%;
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     z-index: 11;
 }
 .snakkeboble{
     position: absolute;
-    width: 260px;
     background: white;
     border: 2px solid black;
     border-radius: 25px;
@@ -41,7 +38,8 @@ html, body {
 }
 
 .swipeshow {
-    width: 90% !important;
+    margin-top: 40px;
+    width: 100% !important;
     max-width: 700px;
     overflow: hidden;
 }

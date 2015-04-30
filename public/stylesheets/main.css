@@ -23,7 +23,7 @@
     margin: 0;
     padding: 8px;
     display: inline-block;
-    background-color: #6AA440;
+    background-color: #FF8700;
     position: absolute;
     z-index: 5;
     left:-10px;
@@ -237,6 +237,10 @@
         margin-bottom: 6vw;
         height: 100%;
     }
+
+    #fly{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 998px){
@@ -253,6 +257,11 @@
     .subjectsToggle ~ #subjectDropDownBtn{
         display: inline-block;
     }
+
+    #fly{
+        display: none;
+    }
+
 }
 
 #favWrapper{
@@ -275,26 +284,40 @@
     animation-direction: alternate;
 }*/
 
-#fly {
-    transform: translate(-50%, 0) rotate(0deg);
-    -webkit-transform: translate(-50%, 0) rotate(0deg);
-    z-index: 1;
-}
 
-#fly {
-    -webkit-animation-name:             rotate;
-    -webkit-animation-duration:         40s;
-    -webkit-animation-iteration-count:  infinite;
+#fly{
+    position: absolute;
+    top: 15%;
+    right: -10%;
+    index: 0;
+
+    transition: opacity 2s linear;
+
+    -webkit-animation-name: fly;
+    -webkit-animation-duration: 15s;
     -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: 2s;
 }
 
-@-webkit-keyframes rotate {
-    from {
-
+@-webkit-keyframes fly{
+    25%{
+        top: 50%;
+        right: 30%;
     }
-    to {
-        transform: translate(-50%, 0) rotate(360deg);
-        -webkit-transform: translate(-50%, 0) rotate(360deg);
 
+    50%{
+        top: 30%;
+        right: 60%;
+    }
+
+    75%{
+        top: 50%;
+        right: 90%;
+    }
+
+    100%{
+        top: 30%;
+        right: 110%;
     }
 }

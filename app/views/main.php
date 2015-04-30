@@ -53,6 +53,8 @@
         }  ?>
     </div>
 
-    <img id="fly" src="../../public/img/fly.png">
+
 
 </div>
+
+<img id="fly" src="/public/img/fly.png">
