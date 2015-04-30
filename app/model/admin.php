@@ -132,6 +132,16 @@
             query($sqlString, $params);
         }
 
+        function addLearningObject ($lOnavn, $lOIconToUpload, $lOToUpload) {
+            $sqlString = "INSERT INTO learningobjects (title, link, imgurl) VALUES (:lOnavn, :lOIconToUpload, :lOToUpload)";
+            $params = array(
+                'lOnavn' => $lOnavn,
+                'lOIconToUpload' => $lOIconToUpload,
+                'lOToUpload' => $lOToUpload
+            );
+            query($sqlString, $params);
+        }
+
         //Search-operations
         function searchSchools ($searchString) {
             $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";

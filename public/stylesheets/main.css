@@ -250,3 +250,43 @@
 #favWrapper{
     overflow: auto;
 }
+
+/*
+@keyframes changewidth {
+
+
+    to {
+        width: 300px;
+    }
+}
+
+#fly {
+    animation-duration: 10s;
+    animation-name: changewidth;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}*/
+
+#fly {
+    transform: translate(-50%, 0) rotate(0deg);
+    -webkit-transform: translate(-50%, 0) rotate(0deg);
+    z-index: 1;
+}
+
+#fly {
+    -webkit-animation-name:             rotate;
+    -webkit-animation-duration:         40s;
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {
+
+    }
+    to {
+        transform: translate(-50%, 0) rotate(360deg);
+        -webkit-transform: translate(-50%, 0) rotate(360deg);
+
+    }
+}

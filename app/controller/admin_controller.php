@@ -90,17 +90,24 @@
 
         public function actuallyAddSchool () {
             addSchool($_POST['skolenavn'], $_POST['fylke'], $_POST['kommune']);
-            $this->administrateSchools();
+            header("Location: /admin/administrateSchools");
+            exit;
         }
 
         public function actuallyAddSubject () {
             addSubject($_POST['fagnavn'], $_POST['klasseTrinn'], $_POST['fileToUpload']);
-            $this->administrateSubjects();
+
         }
 
         public function actuallyAddCategory () {
             addCategory($_POST['kategori'], $_POST['bildeToUpload'], $_POST['tilhørendeFag'], $_POST['klasseTrinn']);
             $this->administrateCategories();
+        }
+
+        public function actuallyAddLearningObject () {
+            addLearningObject($_POST['lOnavn'], $_POST['lOIconToUpload'], $_POST['lOToUpload']);
+            header("Location: /admin/administrateLearningobjects");
+            exit;
         }
 
         public function addSubject(){
