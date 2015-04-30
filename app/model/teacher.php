@@ -41,7 +41,7 @@ include_once 'dbInterface.php';
 
     function getClassTask($taskID){
         $sqlString = "SELECT duedate, title, homework.id FROM homework
-                                    JOIN learningobjects as lo ON lo.id = learningobjectid
+                                    JOIN learningobjects as lo ON lo.id = learningobjectsid
                                     WHERE homework.id = :taskid";
         $params = array(
             'taskid' => $taskID

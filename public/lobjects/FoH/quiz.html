@@ -2,42 +2,92 @@
 <html>
 <head>
     <link href="https://dl.dropboxusercontent.com/u/50868481/jquery.swipeshow.css" rel="stylesheet">
+    <link href="https://dl.dropboxusercontent.com/u/50868481/slideshow-theme.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"> </script>
     <script src="https://dl.dropboxusercontent.com/u/50868481/jquery.swipeshow.js"></script>
+    <meta charset="UTF-8">
+    <style>
+        .wrapper {
+            width: 100%;
+            max-width: 700px;
+            height: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .header {
+            width: 100%;
+            height: 15%;
+            background-color: black;
+        }
+
+        .wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        input {
+            width: 90%;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid black;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        input:hover {
+            background-color: gray;
+        }
+
+        .swipeshow {
+            width: 100%;
+            background: #ffffff none;
+            max-width: 700px;
+        }
+
+        .swipeshow .slides {
+            cursor: initial;
+        }
+
+    </style>
+
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
-<div>
+<div class="swipeshow slideshow">
+    <ul class="slides">
+        <li class="slide">
+            <div class="wrapper">
+                <div class="header"></div>
+                <p>
+                    Hinduismen er den største religionen i..
+                </p>
+                <ul>
+                    <li><input type="button" value="USA"></li>
+                    <li><input type="button" value="Russland"></li>
+                    <li><input type="button" value="INDIA"></li>
+                </ul>
+            </div>
+        </li>
+        <ul>
+</div>
 
-    <div class="swipeshow slideshoww">
-        <ul class="slides">
-            <li class="slide">
-                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
-            </li>
-            <li class="slide">
-                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
-            </li>
-            <li class="slide">
-                <img src="http://46.9.233.124/public/img/fagbilder/norsk.png" alt="">
-            </li>
-        </ul>
-    </div>
-
-    <script>
-        (function($) {
-            $(".slideshoww").swipeshow(
+<script>
+    (function ($) {
+        $(".slideshow").swipeshow(
                 {
                     autostart: false, /* Set to `false` to keep it steady */
                     interval: 0, /* Time between switching slides (ms) */
                     initial: 0, /* First slide's index */
-                    speed: 700, /* Animation speed (ms) */
-                    friction: 0.2, /* Bounce-back behavior; use `0` to disable */
+                    speed: 200, /* Animation speed (ms) */
+                    friction: 0.3, /* Bounce-back behavior; use `0` to disable */
                     mouse: true, /* enable mouse dragging controls */
                     keys: true         /* enable left/right keyboard keys */
                 }
-            );
-        })(jQuery);
-    </script>
-</div>
-
-
-</body></html>
+        );
+    })(jQuery);
+</script>
+</body>
+</html>
