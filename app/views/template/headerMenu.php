@@ -47,7 +47,9 @@
 
 		<div id="user">
 			<a href="/mypage"><img id="profilePic" src="/public/img/profile.png"/> <span class="topMenuUser"><?php echo $_SESSION['user']->getFullName();?></span></a>
-            <div id="homeworkCount"><?php if(isset($this->homeworkCount['homeworkCount'])) {echo $this->homeworkCount['homeworkCount'];}?></div>
+            <?php if(isset($this->homeworkCount['homeworkCount'])) {
+                echo '<div id="homeworkCount">' . $this->homeworkCount['homeworkCount'] . '</div>';
+            }?>
             <a href="/logout"><img src="/public/img/logout.png"> <span class="topMenuUser"> Logg ut</span></a>
         </div>
     </div>

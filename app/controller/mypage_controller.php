@@ -13,6 +13,7 @@
             include $this->root.'/app/model/mypage.php';
             include $this->root.'/app/model/favourites.php';
             include $this->root.'/app/model/main.php';
+            include $this->root.'/app/model/webutility.php';
         }
 
         protected function checkUserAccess(){
