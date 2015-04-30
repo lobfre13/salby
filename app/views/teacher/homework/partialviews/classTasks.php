@@ -9,8 +9,8 @@
         <tr>
             <td><a href="<?php echo $task['url']; ?>"><?php echo $task['title'] ?></a></td>
             <td><?php echo date('Y-m-d', strtotime($task['duedate'])); ?></td>
-            <td onclick="editTask(<?php echo $task['id'];?>)"> <div class="editButton">TANNHJUL</div></td>
-            <td onclick="deleteTask(<?php echo $task['id'];?>, this)"> <div class="deleteButton">XXX</div></td>
+            <td onclick="editTask(<?php echo $task['id'];?>)"> <div class="editButton"></div></td>
+            <td onclick="deleteTask(<?php echo $task['id'];?>, this)"> <div class="deleteButton"></div></td>
         </tr>
     <?php }?>
 </table>
