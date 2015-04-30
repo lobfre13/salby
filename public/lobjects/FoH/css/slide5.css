@@ -8,6 +8,7 @@
     top: 250px;
     left: 50%;
     transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
     margin-left:auto;
     margin-right:auto;
 }
