@@ -5,13 +5,14 @@
         public function __construct($register){
             parent::__construct($register);
             include $this->root.'/app/model/admin.php';
+            include_once $this->root.'/app/model/main.php';
             include $this->root.'/app/model/webutility.php';
         }
 
         //Index-operation
         public function index(){
             $this->view->setViewPath('admin/admin.php');
-            $this->view->subjects = getSubjects();
+            $this->view->subjects = getAllSubjects();
             $this->view->categories = getAllCategories();
             $this->view->showPage();
         }
@@ -27,7 +28,7 @@
         public function administrateSubjects () {
             $this->view->setViewPath('admin/administrateSubjects.php');
             if (isset($_POST['searchBoxSubjects'])) $this->view->subjects = searchSubjects($_POST['searchBoxSubjects']);
-            else $this->view->subjects = getSubjects();
+            else $this->view->subjects = getAllSubjects();
             $this->view->showPage();
         }
 
@@ -139,29 +140,66 @@
             deleteLearningObject($this->urlElements[2]);
         }
 
-        private function showSubject($id){
-            if(!is_numeric($id)) return $this->index();
-
-            $subject = getSubject($id);
-            $categories = getCategories($subject['id']);
-
-            $this->showFullHeader();
-            include $this->root.'/app/views/admin/subject.php';
-            $this->showFooter();
-
+        public function deleteRelation(){
+            deleteRelation($this->urlElements[2], $this->urlElements[3]);
         }
 
-        private function addCategory($id){
-            if(!is_numeric($id)) return $this->index();
 
-            doAddCategory($id);
-            $this->showSubject($id);
+        //Edit Operations
+        public function editLearningobjects(){
+            $this->view->setViewPath("admin/CRUD/editLearningobjects.php");
+            $this->view->lObject = getLObjectFromID($this->urlElements[2]);
+            $this->view->categoryRelations = getCategoryRelation($this->urlElements[2]);
+            $this->view->showPage();
         }
 
-        private function addLObject(){
-            doAddLObject();
-            $this->index();
+        public function loadSubjects(){
+            $this->view->setViewPath("admin/PartialViews/subjectOptions.php");
+            $this->view->subjects = getSubjects($this->urlElements[2]);
+            $this->view->showStrippedPage();
         }
+
+        public function loadCategories(){
+            $this->view->setViewPath("admin/PartialViews/categoryOptions.php");
+            $this->view->categories = getCategories($this->urlElements[2]);
+            $this->view->showStrippedPage();
+        }
+
+        public function addCategoryRelation(){
+            addCategoryRelation($this->urlElements[2], $_POST['category']);
+            header("Location: /admin/editLearningobjects/".$this->urlElements[2]);
+            exit;
+        }
+
+        public function updateLObject(){
+            updateLObject($_POST['id'], $_POST['title'], $_POST['icon'], $_POST['link']);
+            header("Location: /admin/editLearningobjects/".$_POST['id']);
+            exit;
+        }
+
+//        private function showSubject($id){
+//            if(!is_numeric($id)) return $this->index();
+//
+//            $subject = getSubject($id);
+//            $categories = getCategories($subject['id']);
+//
+//            $this->showFullHeader();
+//            include $this->root.'/app/views/admin/subject.php';
+//            $this->showFooter();
+//
+//        }
+
+//        private function addCategory($id){
+//            if(!is_numeric($id)) return $this->index();
+//
+//            doAddCategory($id);
+//            $this->showSubject($id);
+//        }
+//
+//        private function addLObject(){
+//            doAddLObject();
+//            $this->index();
+//        }
 
         protected function checkUserAccess(){
             $user = $this->user;

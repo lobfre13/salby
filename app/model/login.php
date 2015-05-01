@@ -13,7 +13,7 @@
 
             $result = query($sqlString, $params, DBI::FETCH_ONE);
 
-            if(!arrayEmpty($result)){
+            if(is_array($result) && !arrayEmpty($result)){
                 $_SESSION['user'] = new User($_POST['username'], $result['classid'], $result['role'], $result['firstname'], $result['lastname']);
                 return true;
             }

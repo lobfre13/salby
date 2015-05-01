@@ -14,7 +14,6 @@ table, tr, td {
 table{
     width: 100%;
     overflow: hidden;
-    margin-top: 10%;
 }
 
 table a, table a:visited{
@@ -251,7 +250,7 @@ label {
 }
 
 #topMenu{
-    margin-bottom: 10%;
+    margin-bottom: 20%;
 }
 
 .deleteBtn{
@@ -399,3 +398,14 @@ ul#adminMainMenu li{
 }
 
 /* NAV MENU END */
+
+
+.relationTable{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.relationTable select{
+    width: 50%;
+}

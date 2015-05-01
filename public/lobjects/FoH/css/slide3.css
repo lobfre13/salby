@@ -9,7 +9,7 @@
     -webkit-transform: translate(-50%, 0);
     position: absolute;
     width: 50px;
-    top: 10px;
+    top: 30px;
     text-align: center;
 }
 .slide3 .gud2{
@@ -17,7 +17,7 @@
     transform: translate(-50%, 0);
     position: absolute;
     width: 50px;
-    top: 10px;
+    top: 30px;
     text-align: center;
 }
 .slide3 .gud3{
@@ -25,11 +25,11 @@
     transform: translate(-50%, 0);
     position: absolute;
     width: 50px;
-    top: 120px;
+    top: 130px;
     text-align: center;
 }
 .slide3 .snakkeboble{
-    top: 250px;
+    top: 270px;
     width: 260px;
 }
 .slide3 .bildetekst{

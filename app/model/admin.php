@@ -2,7 +2,7 @@
 
     include_once 'dbInterface.php';
 
-        function getSubjects(){
+        function getAllSubjects(){
             $sqlString = "SELECT * FROM subjects";
             $params = array();
             return query($sqlString, $params, DBI::FETCH_ALL);
@@ -19,7 +19,7 @@
 
        }
 
-       function getSubject($id){
+       function getSubjectFromID($id){
            $sqlString = "SELECT * FROM subjects WHERE id=:id";
            $params = array(
                'id' => $id
@@ -266,6 +266,46 @@
             $sqlString = "DELETE FROM learningobjects WHERE id = :learningObjectId";
             $params = array(
                 'learningObjectId' => $learningObjectId
+            );
+            query($sqlString, $params);
+        }
+
+        function deleteRelation($catID, $lObjectID){
+            $sqlStrring = "DELETE FROM learningobjectcategory WHERE learningobjectid = :lobjectid AND categoryid = :catid";
+            $params = array(
+                'lobjectid' => $lObjectID,
+                'catid' => $catID
+            );
+            query($sqlStrring, $params);
+        }
+
+        //Edit-operation
+        function getCategoryRelation($lObjectID){
+            $sqlString = "SELECT *, categories.id as catid FROM learningobjectcategory
+                          JOIN categories ON categoryid = categories.id
+                          JOIN subjectcategory ON subjectcategory.categoryid = categories.id
+                          JOIN subjects ON subjects.id = subjectid
+                          WHERE learningobjectid = :lobjectid";
+            $params = array('lobjectid' => $lObjectID);
+            return query($sqlString, $params, DBI::FETCH_ALL);
+        }
+
+        function addCategoryRelation($lObjectID, $categoryID){
+            $sqlString = "INSERT INTO learningobjectcategory VALUES(:lobjectid, :categoryid)";
+            $params = array(
+              'lobjectid' => $lObjectID,
+                'categoryid' => $categoryID
+            );
+            query($sqlString, $params);
+        }
+
+        function updateLObject($lObjectID, $title, $icon, $link){
+            $sqlString = "UPDATE learningobjects SET title = :title, imgurl = :icon, link = :link WHERE id = :lobjectid";
+            $params = array(
+                'title' => $title,
+                'icon' => $icon,
+                'link' => $link,
+                'lobjectid' => $lObjectID
             );
             query($sqlString, $params);
         }
