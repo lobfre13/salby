@@ -9,8 +9,10 @@
 
     function deleteSchool (object, schoolId) {
         if (confirm('Er du sikker på at du vil fjerne denne skolen?')) {
-            ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);
-            $(object).closest("tr").remove();
+            if(confirm("Er du helt sikker? \n Alt tilhørende skolen vil bli slettet! inkludert brukere og klasser..")){
+                ajaxCall("GET", "/admin/doDeleteSchool/" + schoolId, true);
+                $(object).closest("tr").remove();
+            }
         }
     }
 

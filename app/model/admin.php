@@ -121,13 +121,11 @@
             query($sqlString, $params);
         }
 
-        function addCategory ($kategori, $bildeToUpload, $tilhørendeFag, $klasseTrinn) {
+        function addCategory ($kategori, $bildeToUpload) {
             $sqlString = "INSERT INTO categories (category, imgurl) VALUES (:kategori, :bildeToUpload)";
             $params = array(
                 'kategori' => $kategori,
                 'bildeToUpload' => $bildeToUpload,
-                'tilhørendeFag' => $tilhørendeFag,
-                'klasseTrinn' => $klasseTrinn
             );
             query($sqlString, $params);
         }
@@ -183,10 +181,10 @@
         //Update-operations
         function updateSchool ($name, $fylke, $kommune) {
             $sqlString = "UPDATE schools
-                                        SET name = :name,
-                                        fylke = :fylke,
-                                        kommune = :kommune
-                                        WHERE name = :name;";
+                          SET name = :name,
+                          fylke = :fylke,
+                          kommune = :kommune
+                          WHERE name = :name;";
             $params = array(
                 'name' => $name,
                 'fylke' => $fylke,
@@ -227,8 +225,8 @@
 
         function updateLearningObject ($title, $link, $imgUrl) {
             $sqlString = "UPDATE learningobjects
-                                                SET title = :title, link = :link, imgurl = :imgUrl
-                                                WHERE title = :title;";
+                          SET title = :title, link = :link, imgurl = :imgUrl
+                          WHERE title = :title;";
             $params = array(
                 'title' => $title,
                 'link' => $link,
@@ -240,86 +238,36 @@
 
         //Delete-operations
         function deleteSchool ($schoolId) {
-
-            //Hent users
-            $sqlString = "SELECT * FROM users WHERE schoolid = :schoolId";
-            $params = array(
-                'schoolId' => $schoolId
-            );
-            $users = query($sqlString, $params, DBI::FETCH_ALL);
-
-            //Slett favoritter
-            $sqlString = "DELETE FROM favourites WHERE username = " . $users['username'];
+            $sqlString = "DELETE FROM schools WHERE id = :schoolId";
             $params = array(
                 'schoolId' => $schoolId
             );
             query($sqlString, $params);
-
-            //Hent pupilhomework
-            $sqlString = "SELECT * FROM pupilhomework WHERE username = " . $users['username'];
-            $params = array(
-                'schoolId' => $schoolId
-            );
-            $pupilHomework = query($sqlString, $params, DBI::FETCH_ALL);
-
-            $sqlString = "DELETE FROM schools WHERE name = :schoolId";
-
-
-//            global $database;
-//
-//            //Pupilhomework
-//
-//            //Homework
-//
-//            //ClassSubjectTeachers
-//
-//            //Main teachers
-//
-//            //CLassSubject
-//
-//            //Classes
-//
-//            //users
-//
-//            //school
-//
         }
 
         function deleteSubject ($subjectID) {
-            $sqlString1 = "DELETE FROM classsubjects WHERE subjectid = :subjectId";
-            $sqlString2 = "DELETE FROM subjectcategory WHERE subjectid = :subjectId";
-            $sqlString3 = "DELETE FROM subjects WHERE id = :subjectId";
+            $sqlString = "DELETE FROM subjects WHERE id = :subjectId";
             $params = array(
                 'subjectId' => $subjectID
             );
-            query($sqlString1, $params);
-            query($sqlString2, $params);
-            query($sqlString3, $params);
+            query($sqlString, $params);
         }
 
         function deleteCategory ($categoryId) {
-            $sqlString1 = "DELETE FROM learningobjectcategory WHERE categoryid = :categoryId";
-            $sqlString2 = "DELETE FROM subjectcategory WHERE categoryid = :categoryId";
-            $sqlString3 = "DELETE FROM categories WHERE id = :categoryId";
+            $sqlString = "DELETE FROM categories WHERE id = :categoryId";
             $params = array(
                 'categoryId' => $categoryId
             );
-            query($sqlString1, $params);
-            query($sqlString2, $params);
-            query($sqlString3, $params);
+            query($sqlString, $params);
 
         }
 
         function deleteLearningObject ($learningObjectId) {
-            $sqlString1 = "DELETE FROM favourites WHERE learningobjectid = :learningObjectId";
-            $sqlString2 = "DELETE FROM learningobjectcategory WHERE learningobjectid = :learningObjectId";
-            $sqlString3 = "DELETE FROM learningobjects WHERE id = :learningObjectId";
+            $sqlString = "DELETE FROM learningobjects WHERE id = :learningObjectId";
             $params = array(
                 'learningObjectId' => $learningObjectId
             );
-            query($sqlString1, $params);
-            query($sqlString2, $params);
-            query($sqlString3, $params);
+            query($sqlString, $params);
         }
 
 

@@ -96,6 +96,8 @@
 
         public function actuallyAddSubject () {
             addSubject($_POST['fagnavn'], $_POST['klasseTrinn'], $_POST['fileToUpload']);
+            header("Location: /admin/administrateSubjects");
+            exit;
 
         }
 

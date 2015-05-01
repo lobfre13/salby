@@ -61,4 +61,7 @@
 
 </div>
 
-<img id="fly" src="/public/img/fly.png">
+<?php if(!($this->subjectsHTMLClass === 'subjectsToggle')){
+    echo '<img id="fly" src="/public/img/fly.png">';
+}
+

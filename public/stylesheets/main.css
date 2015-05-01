@@ -188,7 +188,7 @@
     background-color: #777777;
 }
 
-/* desktop */
+ /*desktop */
 @media screen and (min-width: 999px) {
     .subjectNormal{
         margin: 10px 3px 10px !important;
@@ -228,7 +228,7 @@
 
 
 
-@media screen and (min-width: 775px) {
+@media screen and (min-width: 1000px) {
 
     .subjectimg{
         position: absolute;
@@ -241,8 +241,10 @@
         height: 150px;
     }
 }
-/* mobile */
-@media screen and (max-width: 774px) {
+ /*mobile */
+@media screen and (max-width: 774px),
+screen and (min-device-width : 768px) and (max-device-width : 1024px),
+screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
     .subjectname{
         padding: 3px;
         left:-6px;
@@ -256,6 +258,20 @@
         margin-left: 5vw;
         margin-bottom: 6vw;
         height: 100%;
+    }
+
+    .subjects{
+        max-height: 999px !important;
+    }
+
+    .subjectsToggle{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    .subjectsToggle ~ #subjectDropDownBtn{
+        display: inline-block;
     }
 
     #fly{
