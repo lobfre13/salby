@@ -236,6 +236,12 @@ include_once 'dbInterface.php';
     }
 
     //Update
+/*
+    function updatePupil ($) {
+
+    }
+
+*/
 
     //Delete
     function deletePupil ($username) {
@@ -244,6 +250,7 @@ include_once 'dbInterface.php';
         $params = array('username' => $username);
         query($sqlString, $params);
     }
+
 
 
 

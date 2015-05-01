@@ -8,15 +8,10 @@
 
         <div>
 <!--            <h3>Dine klasser</h3>-->
-            <label><!--Velg klasse-->
-                <select id="selectedClass" onchange="loadClass(this);">
+            <label>
+                <select id="selectedClass" onchange="loadClass(this); loadClassTasks(this)" class="styled-select">
                     <?php foreach($this->schoolClasses as $class) { ?>
-                        <option value="<?php echo $class['id']; ?>"><?php echo 'Klasse - ' . $class['classlevel'].$class['classname'];?></option>
-                    <?php } ?>
-                </select>
-                <select id="selectedSubject" onchange="loadClassTasks(this);">
-                    <?php foreach($this->schoolClasses as $class) { ?>
-                        <option value="<?php echo $class['id']; ?>"><?php echo $class['subjectname'];?></option>
+                        <option value="<?php echo $class['id']; ?>"><?php echo $class['classlevel'].$class['classname'].' - '.$class['subjectname'];?></option>
                     <?php } ?>
                 </select>
             </label>

@@ -192,3 +192,55 @@ a.navBtns{
     background-size: 100% 100%!important;
     background: transparent url('/public/img/redigerIkon.png');
 }
+
+#propertiesButton {
+    cursor: pointer;
+    border: none;
+    background: transparent url('/public/img/plussIkon.png');
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+    outline: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    left: 1px;
+
+}
+
+#homeworkAddButton {
+    cursor: pointer;
+    border: none;
+    background: transparent url('/public/img/plussIkon.png');
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+    outline: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    left: 1px;
+}
+
+/*      http://bavotasan.com/2011/style-select-box-using-only-css/      */
+
+.styled-select select {
+    background: transparent;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+}
+
+.styled-select {
+    width: 240px;
+    height: 34px;
+    overflow: hidden;
+    background: url('/public/img/downArrow.jpg') no-repeat right #ddd;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+}
