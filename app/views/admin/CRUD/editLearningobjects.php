@@ -7,8 +7,8 @@
         ajaxCall("GET", "/admin/loadCategories/"+sel.value, true, "categories");
     }
 
-    function deleteRelation(obj, catID, lObjectID){
-        ajaxCall("GET", "/admin/deleteRelation/"+catID+"/"+lObjectID, true);
+    function deletelObjectRelation(obj, catID, lObjectID){
+        ajaxCall("GET", "/admin/deletelObjectRelation/"+catID+"/"+lObjectID, true);
         $(obj).closest("tr").remove();
     }
 </script>
@@ -34,12 +34,12 @@
                 <th>Trinn</th>
                 <th>Fjern</th>
             </thead>
-            <?php foreach($this->categoryRelations as $catRel){ ?>
+            <?php foreach($this->lObjectRelations as $lORel){ ?>
                 <tr>
-                    <td><?php echo $catRel['category']; ?></td>
-                    <td><?php echo $catRel['subjectname']; ?></td>
-                    <td><?php echo $catRel['classlevel'].' .klasse'; ?></td>
-                    <td onclick="deleteRelation(this, <?php echo $catRel['catid']; ?>, <?php echo $this->lObject['id']; ?>)">X</td>
+                    <td><?php echo $lORel['category']; ?></td>
+                    <td><?php echo $lORel['subjectname']; ?></td>
+                    <td><?php echo $lORel['classlevel'].'. klasse'; ?></td>
+                    <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)">X</td>
                 </tr>
             <?php } ?>
         </table>
@@ -59,7 +59,7 @@
                 <select name="subject" onchange="loadCategories(this)" id="subjects">
                     <option disabled selected>Velg fag..</option>
                 </select><br><br>
-            <form method="POST" action="/admin/addCategoryRelation/<?php echo $this->lObject['id']?>">
+            <form method="POST" action="/admin/addlObjectRelation/<?php echo $this->lObject['id']?>">
                 <select name="category" id="categories" required>
                     <option value="" selected disabled>Velg kategori..</option>
                 </select><br><br>

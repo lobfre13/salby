@@ -5,7 +5,8 @@
         public function __construct($register){
             parent::__construct($register);
             include $this->root.'/app/model/admin.php';
-            include_once $this->root.'/app/model/main.php';
+            include $this->root.'/app/model/main.php';
+            include $this->root.'/app/model/schooladmin.php';
             include $this->root.'/app/model/webutility.php';
         }
 
@@ -140,8 +141,12 @@
             deleteLearningObject($this->urlElements[2]);
         }
 
-        public function deleteRelation(){
-            deleteRelation($this->urlElements[2], $this->urlElements[3]);
+        public function deletelObjectRelation(){
+            deletelObjectRelation($this->urlElements[2], $this->urlElements[3]);
+        }
+
+        public function deleteCategoryRelation(){
+            deleteCategoryRelation($this->urlElements[2], $this->urlElements[3]);
         }
 
 
@@ -149,7 +154,7 @@
         public function editLearningobjects(){
             $this->view->setViewPath("admin/CRUD/editLearningobjects.php");
             $this->view->lObject = getLObjectFromID($this->urlElements[2]);
-            $this->view->categoryRelations = getCategoryRelation($this->urlElements[2]);
+            $this->view->lObjectRelations = getlObjectRelation($this->urlElements[2]);
             $this->view->showPage();
         }
 
@@ -165,8 +170,8 @@
             $this->view->showStrippedPage();
         }
 
-        public function addCategoryRelation(){
-            addCategoryRelation($this->urlElements[2], $_POST['category']);
+        public function addlObjectRelation(){
+            addlObjectRelation($this->urlElements[2], $_POST['category']);
             header("Location: /admin/editLearningobjects/".$this->urlElements[2]);
             exit;
         }
@@ -176,6 +181,61 @@
             header("Location: /admin/editLearningobjects/".$_POST['id']);
             exit;
         }
+
+        public function editCategories(){
+            $this->view->setViewPath("admin/CRUD/editCategories.php");
+            $this->view->category = getCategoryFromID($this->urlElements[2]);
+            $this->view->categoryRelations = getCategoryRelations($this->urlElements[2]);
+            $this->view->showPage();
+        }
+
+        public function updateCategory(){
+            updateCategory($_POST['id'], $_POST['title'], $_POST['icon']);
+            header("Location: /admin/editCategories/".$_POST['id']);
+            exit;
+        }
+
+        public function addCategoryRelation(){
+            addCategoryRelation($this->urlElements[2], $_POST['subject']);
+            header("Location: /admin/editCategories/".$this->urlElements[2]);
+            exit;
+        }
+
+        public function editSubjects(){
+            $this->view->setViewPath("admin/CRUD/editSubjects.php");
+            $this->view->subject = getSubjectFromID($this->urlElements[2]);
+            $this->view->showPage();
+        }
+
+        public function updateSubject(){
+            updateSubject($_POST['id'], $_POST['title'],$_POST['classlevel'], $_POST['icon']);
+            header("Location: /admin/editSubjects/".$_POST['id']);
+            exit;
+        }
+
+        public function editSchools(){
+            $this->view->setViewPath("admin/CRUD/editSchools.php");
+            $this->view->school = getSchool($this->urlElements[2]);
+            $this->view->schoolUsers = getSchoolUsers($this->urlElements[2]);
+            $this->view->showPage();
+        }
+
+        public function updateSchool(){
+            updateSchool($_POST['id'], $_POST['name'],$_POST['fylke'], $_POST['kommune']);
+            header("Location: /admin/editSchools/".$_POST['id']);
+            exit;
+        }
+
+        public function addSchoolUser(){
+            addSchoolUser($_POST['schoolid'], $_POST['username'],$_POST['password'], $_POST['email']);
+            header("Location: /admin/editSchools/".$_POST['schoolid']);
+            exit;
+        }
+
+        public function deleteSchoolUser(){
+            deleteUser($this->urlElements[2]);
+        }
+
 
 //        private function showSubject($id){
 //            if(!is_numeric($id)) return $this->index();

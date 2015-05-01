@@ -7,4 +7,4 @@
     <td><input type="text" name="tilhørendeFag" placeholder="Tilhørende fag"></td>
     <td><input type="text" name="klasseTrinn" placeholder="Klassetrinn"></td>
     <td><div id="addSchoolBtnComplete" onclick="doAddCategories()"></td>
-    <td><div onclick="deleteCategory(this, <?php echo $category['id'];?>)" class="deleteBtn"></td>
+    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></td>

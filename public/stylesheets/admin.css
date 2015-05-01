@@ -406,6 +406,6 @@ ul#adminMainMenu li{
     vertical-align: top;
 }
 
-.relationTable select{
+.relationTable select, .relationTable input{
     width: 50%;
 }

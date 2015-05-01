@@ -51,7 +51,7 @@
                     <td><img src="<?php echo $category['catimg']?>"></td>
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
-                    <td><div class="editBtn"></td>
+                    <td><a href="/admin/editCategories/<?php echo $category['id']; ?>"><div class="editBtn"></div></a></td>
                     <td><div onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>

@@ -54,7 +54,7 @@
                             <td><?php echo $school['name'] ?></td>
                             <td><?php echo $school['fylke'] ?></td>
                             <td><?php echo $school['kommune'] ?></td>
-                            <td><div class="editBtn"></td>
+                            <td><a href="/admin/editSchools/<?php echo $school['id']; ?>" <div class="editBtn"></div></td>
                             <td><div onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
                         </tr>
                     <?php }  ?>

@@ -49,8 +49,8 @@
                         <td><?php echo $subject['subjectname']?></td>
                         <td><?php echo $subject['classlevel']?></td>
                         <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
-                        <td><div class="editBtn"></td>
-                        <td><div onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></td>
+                        <td><a href="/admin/editSubjects/<?php echo $subject['id']; ?>"><div class="editBtn"></div></a></td>
+                        <td><div onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></div></td>
                     </tr>
                 <?php } ?>
             </table>

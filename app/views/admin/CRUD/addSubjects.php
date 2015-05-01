@@ -7,4 +7,4 @@
     <td><input type="file" name="fileToUpload" id="fileToUpload" value="Legg til ikon"></td>
     -->
     <td><div id="addSchoolBtnComplete" onclick="doAddSubject()"></td>
-    <td><div onclick="deleteSubject(this, <?php echo $subject['subjectid'];?>)" class="deleteBtn"></td>
+    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></td>

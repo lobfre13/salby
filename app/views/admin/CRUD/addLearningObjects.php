@@ -7,4 +7,4 @@
     <td><input type="file" name="lOToUpload" id="lOToUpload" value="Legg til læringsobjekt"></td>
     -->
     <td><div id="addSchoolBtnComplete" onclick="doAddLearningObject()"></td>
-    <td><div onclick="deleteLearningObject(this, <?php echo $learningObject['id'];?>)" class="deleteBtn"></td>
+    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></td>
