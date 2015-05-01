@@ -1,4 +1,8 @@
 <table>
+    <div id="teacherAddHomeworkDiv" onclick="addHomework()">
+        <button type="button" id="homeworkAddButton"></button>
+        <label id="addSchoolTxt">Legg til gjøremål</label>
+    </div>
     <tr>
         <th>Gjøremål</th>
         <th>Frist</th>

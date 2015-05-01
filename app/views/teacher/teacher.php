@@ -1,16 +1,22 @@
 <script src="/public/javascript/teacherHomework.js"></script>
     <div id="content" class="widthConstrained">
+        <!--
         <a class="mainTeacherNavLinks" href="/teacher/addtask/">Legg til Gjøremål</a>
         <a class="mainTeacherNavLinks" href="/teacher/pupilsettings/">Innstillinger for elever</a>
         <a class="mainTeacherNavLinks" href="http://larer.salaby.no/">Lærerside</a>
-
+        -->
 
         <div>
 <!--            <h3>Dine klasser</h3>-->
-            <label>Velg klasse
-                <select id="selectedClass" onchange="loadClass(this); loadClassTasks(this)">
+            <label><!--Velg klasse-->
+                <select id="selectedClass" onchange="loadClass(this);">
                     <?php foreach($this->schoolClasses as $class) { ?>
-                        <option value="<?php echo $class['id']; ?>"><?php echo $class['classlevel'].$class['classname'].' - '.$class['subjectname'];?></option>
+                        <option value="<?php echo $class['id']; ?>"><?php echo 'Klasse - ' . $class['classlevel'].$class['classname'];?></option>
+                    <?php } ?>
+                </select>
+                <select id="selectedSubject" onchange="loadClassTasks(this);">
+                    <?php foreach($this->schoolClasses as $class) { ?>
+                        <option value="<?php echo $class['id']; ?>"><?php echo $class['subjectname'];?></option>
                     <?php } ?>
                 </select>
             </label>

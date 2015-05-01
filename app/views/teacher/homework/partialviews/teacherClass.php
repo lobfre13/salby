@@ -1,5 +1,9 @@
 
     <table>
+        <div id="teacherPropertiesDiv" onclick="properties()">
+            <button type="button" id="propertiesButton"></button>
+            <label id="addSchoolTxt">Innstillinger</label>
+        </div>
         <tr>
             <th>Navn</th>
             <th>Fremgang</th>
