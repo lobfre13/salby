@@ -31,31 +31,66 @@ body {
     vertical-align: top;
     margin-right: 2%;
     margin-left: 2%;
-    background-color: white;
-    box-shadow: 3px 3px 2px #959595;
     border-radius: 3px;
-    transition: height 0.3s
+    transition: height 0.3s;
+    color: #666666;
 }
+
+progress {
+    background-color: grey;
+    color: orange;
+    border: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: grey;
+    border: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+}
+
+progress::-webkit-progress-value {
+    background-color: orange;
+}
+
+progress::-moz-progress-bar {
+    background-color: grey;
+    color: orange;
+    border: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+}
+
 .tableBG{
-    box-shadow: 5px 5px 2px #959595;
     padding: 20px;
-    border-radius: 15px;
-    background: #ffffff; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 43%, #d3d3d3 100%, #d3d3d3 100%, #d3d3d3 101%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(43%,#ffffff), color-stop(100%,#d3d3d3), color-stop(100%,#d3d3d3), color-stop(101%,#d3d3d3)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background-color: #ffffff;
+    border: 1px solid gray;
 }
 table, tr, td {
     border-collapse: collapse;
-    border-bottom: 2px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
 }
+
+td:last-child {
+    border-right: transparent !important;
+    width: 20%;
+}
+
+td {
+    border-right: 1px solid black;
+    width: 50%;
+
+    padding: 0 !important;
+}
+
 table{
     width: 100%;
     overflow: hidden;
