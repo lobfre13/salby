@@ -124,10 +124,16 @@
             $this->index();
         }
 
-        public function pupilsettings () {
+        public function pupilSettings () {
             $this->view->setViewPath('teacher/pupilsettings.php');
-            $this->view->pupils = getMainTeacherSubjects($this->user->username);
+            $this->view->classes = getMainTeacherClasses($this->user->username);
             $this->view->showPage();
+        }
+
+        public function pupilsFromClass () {
+            $this->view->setViewPath('teacher/pupilSettingsTable.php');
+            $this->view->pupils = getPupilsByClassId($this->urlElements[2]);
+            $this->view->showStrippedPage();
         }
 
 //        private function showClass($id){
