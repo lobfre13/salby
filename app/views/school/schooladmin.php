@@ -23,7 +23,7 @@
         <option disabled selected>Velg klasse..</option>
     </select>
 
-    <div id="classContent">
+    <div id="classContent" class="tableBG">
 
 
     </div>
