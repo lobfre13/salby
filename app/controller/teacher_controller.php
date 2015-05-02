@@ -136,6 +136,12 @@
             $this->view->showStrippedPage();
         }
 
+        public function teacherPersonalPage () {
+            $this->view->setViewPath('teacher/teacherPersonalPage.php');
+            $this->view->teacher = $this->user->username;
+            $this->view->showPage();
+        }
+
 //        private function showClass($id){
 //            //if(!is_numeric($id)) return $this->index();
 //
