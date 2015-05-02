@@ -1,25 +1,23 @@
+<script>
+    function pupilsFromClass (classId) {
+        ajaxCall("GET", "/teacher/pupilsFromClass/" + classId.value, true, "pupilSettingsDiv");
+    }
+</script>
+
 <div id="content" class="widthConstrained">
 
     <h3>Dine elever</h3>
     <h3>Velg klasse</h3>
-    <select>
-        <option></option>
+    <select id="selectSubjectDropDown" onchange="pupilsFromClass(this)">
+        <?php foreach($this->classes as $class) { ?>
+        <option value="<?php echo $class['id'];?>"><?php echo $class['classlevel'] . $class['classname']?></option>
+        <?php } ?>
     </select>
+    <table id = pupilSettingsDiv>
 
-    <table>
-        <tr>
-            <th>Etternavn</th>
-            <th>Fornavn</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <?php foreach ($this->pupils as $pupil) { ?>
-        <tr>
-            <td><?php echo $pupil['lastname']; ?></td>
-            <td><?php echo $pupil['firstname']; ?></td>
-            <td><div class="editButton"></td>
-            <td><div class="deleteButton"></td>
-            <td><?php } ?></td>
-        </tr>
     </table>
+
+    <script>$( document ).ready(function() {
+            $("#selectSubjectDropDown").trigger('onchange');
+        });</script>
 </div>

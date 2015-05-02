@@ -219,18 +219,20 @@ include_once 'dbInterface.php';
     //Create
 
     //Read
-    function getMainTeacherSubjects ($teacherName) {
+    function getMainTeacherClasses ($teacherName) {
         $sqlString = "SELECT * FROM classes
                           JOIN mainteachers
                           ON id = mainteachers.classid
                           WHERE username = :teacherName";
         $params = array('teacherName' => $teacherName);
 
-        $classId = query($sqlString, $params, DBI::FETCH_ONE);
+        return query($sqlString, $params, DBI::FETCH_ALL);
+    }
 
+    function getPupilsByClassId ($classId) {
         $sqlString = "SELECT * FROM users
-                            WHERE classid = :classId";
-        $params = array('classId' => $classId['classid']);
+                          WHERE classid = :classid";
+        $params = array('classid' => $classId);
 
         return query($sqlString, $params, DBI::FETCH_ALL);
     }
