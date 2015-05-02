@@ -101,9 +101,66 @@
         return $filePathURLS;
     }
 
-    function getLObjectPath($LObjectID){
-        $pathNames = [];
+    /**
+     * Checks if the url matches a valid path for the requested object
+     * @param $url Array containing the elements in the url
+     * @return bool Indicating the validity of the url
+     */
+    function validPath($url){
+        if(count($url) < 4) return true;
+        $result []= getSubject(substr($url[2], 0, 1), $url[3]);
+        for($i = 4; $i < count($url)-1; $i++){
+            $result []= getCategory($url[$i]);
+        }
+        if(in_array(null, $result)) return false;
+        else if(count($url) < 5) return true;
+        return !(getCategory(end($url)) == null && getLObject(end($url)) == null); //the last element is either a category or an object
+        }
 
+    function getLObjectPath($lObjectName){
+        $pathNames []= $lObjectName;
+        $lObject = getLObject($lObjectName);
+        $lObjectCategory = getLObjectCategory($lObject['id']);
+        return getPath($lObjectCategory, $pathNames);
+    }
+
+    function getCategoryPath($categoryName){
+        $category = getCategory($categoryName);
+        return getPath($category);
+    }
+
+    function getPath($category, $pathNames = []){
+        $pathNames []= $category['category'];
+        while($category['parentid'] != 0){
+            $category = getParentCategory($category['parentid']);
+            $pathNames [] = $category['category'];
+        }
+        $subject = getCategorySubject($category['id']);
+        $pathNames []= $subject['subjectname'];
+        $pathNames []= $subject['classlevel'];
+
+        return '/forside/fag/'.join('/', array_reverse($pathNames));
+    }
+    function getLObjectCategory($lObjectId){
+        $sqlString = "SELECT * FROM learningobjectcategory
+                      JOIN categories ON categories.id = categoryid
+                      WHERE learningobjectid = :lObjectId";
+        $params = array('lObjectId' => $lObjectId);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function getParentCategory($categoryId){
+        $sqlString = "SELECT * FROM categories WHERE id = :categoryId";
+        $params = array('categoryId' => $categoryId);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function getCategorySubject($categoryId){
+        $sqlString = "SELECT * FROM subjectcategory
+                      JOIN subjects ON subjects.id = subjectid
+                      WHERE categoryid = :categoryId";
+        $params = array('categoryId' => $categoryId);
+        return query($sqlString, $params, DBI::FETCH_ONE);
     }
 
     function getCategoryContent($categoryid){

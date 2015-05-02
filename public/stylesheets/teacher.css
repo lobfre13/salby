@@ -27,12 +27,13 @@ body {
 
 .classStats{
     display: inline-block;
-    width: 40%;
+    max-width: 410px;
+    min-width: 320px;
+    width: 75%;
     vertical-align: top;
     margin-right: 2%;
     margin-left: 2%;
     border-radius: 3px;
-    transition: height 0.3s;
     color: #666666;
 }
 
@@ -67,9 +68,21 @@ progress::-moz-progress-bar {
 }
 
 .tableBG{
-    padding: 20px;
+    padding: 40px 20px 20px;
     background-color: #ffffff;
     border: 1px solid gray;
+    font-size: 18px;
+    position: relative;
+}
+.tableBG a, .tableBG a:visited{
+    color: #666666;
+}
+
+.tableBG > a:first-child{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    vertical-align: top;
 }
 table, tr, td {
     border-collapse: collapse;
@@ -81,14 +94,12 @@ table, tr, td {
 
 td:last-child {
     border-right: transparent !important;
-    width: 20%;
 }
 
 td {
     border-right: 1px solid black;
     width: 50%;
-
-    padding: 0 !important;
+    padding: 10px !important;
 }
 
 table{
@@ -99,7 +110,12 @@ table{
 table a, table a:visited{
     color: black;
 }
-
+#classTasks td{
+    width: 37.5%;
+}
+#classTasks td:last-child{
+    width: 25%;
+}
 .addTaskIndicator{
     margin-top: 20px;
     margin-right: 0;
@@ -257,25 +273,18 @@ a.navBtns{
     left: 1px;
 }
 
-/*      http://bavotasan.com/2011/style-select-box-using-only-css/      */
-
-.styled-select select {
-    background: transparent;
-    width: 268px;
-    padding: 5px;
-    font-size: 16px;
-    line-height: 1;
-    border: 0;
-    border-radius: 0;
-    height: 34px;
-    -webkit-appearance: none;
-}
-
 .styled-select {
-    width: 240px;
-    height: 34px;
+    min-width: 150px;
+    width: auto;
+    height: 25px;
     overflow: hidden;
-    background: url('/public/img/downArrow.jpg') no-repeat right #ddd;
-    border: 1px solid #ccc;
+    background: url('/public/img/dropdownselect.png') no-repeat right #FFFFFF;
+    background-size: 25px 25px;
+    border: 2px solid #444444;
+    border-radius: 3px;
     -webkit-appearance: none;
+    margin: 20px;
+    display: block;
+    margin-left: 35px;
+    padding-right: 25px;
 }

@@ -24,8 +24,9 @@
 
         public function subject(){
             $url = array_filter($this->urlElements);
-            if(count($url) < 3) return $this->index();
             $url = deSlugify($url);
+            if(count($url) < 3 || !validPath($url)) return $this->index();
+
 
             $this->view->classLevel = substr($url[2], 0, 1);
             $this->loadDefaultView($this->view->classLevel);
@@ -47,7 +48,6 @@
             updateFavourite($this->user->username, $_GET['id'], $_GET['url']);
         }
 
-        //Flytte private metoder til modell somehow?
         private function loadCategoryOrGameContent($requestedObject){
             $this->view->categoryContent = getCategoryContentFromName($requestedObject);
             if(arrayEmpty($this->view->categoryContent)) $this->view->gameHTML = $this->loadGame($requestedObject);
@@ -72,7 +72,6 @@
             $this->view->filePathURLS = [];
         }
 
-        //Flytt ut til modellen?
         private function loadGame($lobject){
             $lobject = getLObject($lobject);
             if(empty($lobject)) return null;

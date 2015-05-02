@@ -11,7 +11,7 @@
 
 <div id="content" class="widthConstrained">
     <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
-    <div id="schoolMainTable">
+    <div class="tableBG">
         <h2><?php echo $this->category['category']; ?></h2>
 
         <form method="post" action="/admin/updateCategory">
@@ -39,7 +39,7 @@
         </div>
         <div class="relationTable">
             <h4>Legg til relasjon</h4><br>
-            <select name="classlevel" onchange="loadSubjects(this)">
+            <select name="classlevel" onchange="loadSubjects(this)" class="styled-select">
                 <option disabled selected>Velg trinn..</option>
                 <option value="1">1. klasse</option>
                 <option value="2">2. klasse</option>
@@ -50,7 +50,7 @@
                 <option value="7">8. klasse</option>
             </select><br><br>
             <form method="POST" action="/admin/addCategoryRelation/<?php echo $this->category['id']?>">
-            <select name="subject" id="subjects" required>
+            <select name="subject" id="subjects" required class="styled-select">
                 <option value="" disabled selected>Velg fag..</option>
             </select><br><br>
                 <input type="submit" value="Legg knytt til kategori">

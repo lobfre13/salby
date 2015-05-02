@@ -16,7 +16,7 @@
 </script>
 <div id="content" class="widthConstrained">
     <?php include "PartialViews/adminMenu.php"?>
-    <div id="schoolMainTable">
+    <div class="tableBG">
         <section id="topMenu">
 
             <div id="schoolAddButtonDiv" onclick="addSubject()">

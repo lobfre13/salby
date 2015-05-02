@@ -52,11 +52,6 @@
             $this->view->weeknumber = getWeekNumber();
             $this->view->favouriteList = getUserFavourites($username);
             $this->view->showPage();
-
-
-//          $this->view->studentFullName = getStudentFullName($username);
-//          $this->view->imgUrls = getLObjectUrl($id);
-//          $this->view->homeworkList = getHomework($id);
         }
 
 }

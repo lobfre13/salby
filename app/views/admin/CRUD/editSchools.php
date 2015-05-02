@@ -8,7 +8,7 @@
 </script>
 <div id="content" class="widthConstrained">
     <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
-    <div id="schoolMainTable">
+    <div class="tableBG">
         <h2><?php echo $this->school['name']; ?></h2>
 
         <form method="post" action="/admin/updateSchool">

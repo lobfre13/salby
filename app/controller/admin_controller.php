@@ -233,31 +233,6 @@
             deleteUser($this->urlElements[2]);
         }
 
-
-//        private function showSubject($id){
-//            if(!is_numeric($id)) return $this->index();
-//
-//            $subject = getSubject($id);
-//            $categories = getCategories($subject['id']);
-//
-//            $this->showFullHeader();
-//            include $this->root.'/app/views/admin/subject.php';
-//            $this->showFooter();
-//
-//        }
-
-//        private function addCategory($id){
-//            if(!is_numeric($id)) return $this->index();
-//
-//            doAddCategory($id);
-//            $this->showSubject($id);
-//        }
-//
-//        private function addLObject(){
-//            doAddLObject();
-//            $this->index();
-//        }
-
         protected function checkUserAccess(){
             $user = $this->user;
             if(!isset($user) || !$user->isAdmin()){

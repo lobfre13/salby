@@ -1,8 +1,8 @@
 <table>
-    <a href="/teacher/addtask/"> <div id="teacherAddHomeworkDiv">
-        <button type="button" id="homeworkAddButton"></button>
-        <label id="addSchoolTxt">Legg til gjøremål</label>
-    </div></a>
+    <a href="/teacher/addtask/">
+        <img src="/public/img/plussIkon.png" width="25">
+        Legg til gjøremål
+    </a>
     <tr>
         <th>Gjøremål</th>
         <th>Frist</th>
