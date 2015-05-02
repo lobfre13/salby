@@ -12,10 +12,7 @@
 
         //Index-operation
         public function index(){
-            $this->view->setViewPath('admin/admin.php');
-            $this->view->subjects = getAllSubjects();
-            $this->view->categories = getAllCategories();
-            $this->view->showPage();
+            $this->administrateSchools ();
         }
 
         //Sub-page-operations
