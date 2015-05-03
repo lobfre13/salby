@@ -7,7 +7,8 @@ function loadCategoryContent(id){
     ajaxCall("GET","/teacher/getCategoryContent/"+id, true, "tasksContent");
 }
 
-function addTask(id){
+function addTask(obj, id){
+    obj.style.opacity = "0.3";
     var classid = document.getElementById("selectedClass").value;
     ajaxCall("GET","/teacher/addPendingTask/"+id+"/"+classid, false);
     loadPending(classid);
@@ -51,4 +52,9 @@ function submitForm(formId){
 
 function showbtn(){
     $('#next').css('display', 'inline-block');
+}
+
+function deletePendingTask(obj, lObjectId, homewordId){
+    ajaxCall("GET", "/teacher/deletePendingTask/"+lObjectId + "/" + homewordId, true);
+    $(obj).closest("tr").remove();
 }

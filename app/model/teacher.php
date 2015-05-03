@@ -111,12 +111,18 @@ include_once 'dbInterface.php';
 
     function getPendingTasks($subjectID, $username){
         $sqlString = "SELECT * FROM pendinghomeworklist
-                                   JOIN learningobjects as lo ON lo.id = learningobjectid
-                                   JOIN pendinghomeworkclass as phc ON phc.id = pendinghomeworkclassid
-                                   WHERE phc.username = :username AND phc.classsubjectid = :csid";
+                      JOIN learningobjects as lo ON lo.id = learningobjectid
+                      JOIN pendinghomeworkclass as phc ON phc.id = pendinghomeworkclassid
+                      WHERE phc.username = :username AND phc.classsubjectid = :csid";
         $params = array('csid' => $subjectID, 'username' => $username);
         return query($sqlString, $params, DBI::FETCH_ALL);
 
+    }
+
+    function deletePendingTask($lObjectId, $homeworkId){
+        $sqlString = "DELETE FROM pendinghomeworklist WHERE learningobjectid = :lObjectId AND pendinghomeworkclassid = :homeworkId";
+        $params = array('lObjectId' => $lObjectId, 'homeworkId' => $homeworkId);
+        query($sqlString, $params);
     }
 
     function getPupils($classSubjectID){

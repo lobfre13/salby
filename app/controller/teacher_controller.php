@@ -86,6 +86,9 @@
             $this->view->showStrippedPage();
 
         }
+        public function deletePendingTask(){
+            deletePendingTask($this->urlElements[2], $this->urlElements[3]);
+        }
 
         public function choosePupils(){
             $classid = $this->urlElements[2];
