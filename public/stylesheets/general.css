@@ -8,16 +8,8 @@ html, body {
     font-size: 16px;
 }
 body {
-    background: #e0f4f9; /* Old browsers */
-    background: -moz-linear-gradient(top, #e0f4f9 0%, #7fcfe8 50%, #17b9ea 100%, #06a9db 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0f4f9), color-stop(50%,#7fcfe8), color-stop(100%,#17b9ea), color-stop(100%,#06a9db)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #e0f4f9 0%,#7fcfe8 50%,#17b9ea 100%,#06a9db 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f4f9', endColorstr='#06a9db',GradientType=0 ); /* IE6-9 */
-    background-repeat: no-repeat;
-    position: static;
+    background: linear-gradient(deepskyblue, lightblue);
+    background: -webkit-linear-gradient(deepskyblue, lightblue);
 }
 ul{
     list-style-type: none;

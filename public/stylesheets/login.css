@@ -3,6 +3,13 @@ html{
     text-shadow: 1px 1px 3px #000000;
     text-align: center;
 }
+
+/*
+body {
+    background: linear-gradient(deepskyblue, lightblue);
+    background: -webkit-linear-gradient(deepskyblue, lightblue);
+}
+*/
 #loginBox{
 	text-align: center;
 	color: white;
