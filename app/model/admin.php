@@ -353,3 +353,48 @@
         $params = array('username' => $username);
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
+
+    function picUpload(){
+        if(!empty($_FILES["pic"]["name"])){
+            echo 'Filen er ikke tom';
+            $allowedExts = array("gif", "jpeg", "jpg", "png");
+            $temp = explode(".", $_FILES["pic"]["name"]);
+            $extension = end($temp);
+            if (true/*(($_FILES["pic"]["type"] == "image/gif")
+                    || ($_FILES["pic"]["type"] == "image/jpeg")
+                    || ($_FILES["pic"]["type"] == "image/jpg")
+                    || ($_FILES["pic"]["type"] == "image/png"))
+                && ($_FILES["pic"]["size"] < 20000000)
+                && in_array($extension, $allowedExts)*/)
+            {
+                if ($_FILES["pic"]["error"] > 0)
+                {
+                    echo 'Det er en error!';
+                }
+                else
+                {
+
+                    if (file_exists($this->root . "/public/img/" . $_FILES["pic"]["name"]))
+                    {
+                        echo 'Filen eksisterer!';
+                    }
+                    else
+                    {
+                        echo 'Filen eksisterer ikke';
+                        move_uploaded_file($_FILES["pic"]["tmp_name"],
+                            $this->root . "/public/img/" . $_FILES["pic"]["name"]);
+                        return $_FILES["pic"]["name"];
+
+                    }
+                }
+            }
+            else
+            {
+                echo 'Dette med filtype osv slår ut.';
+            }
+        }
+        else{
+            echo 'tom fil';
+            return false;
+        }
+    }

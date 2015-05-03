@@ -20,6 +20,16 @@
 
     }
 
+        function getSchoolUser($username){
+            $sqlString = "SELECT * FROM users WHERE username = :username";
+            $params = array(
+                'username' => $username
+            );
+
+            return query($sqlString, $params, DBI::FETCH_ONE);
+
+    }
+
     function getClassesInLevel($schoolID, $classLevel){
         $sqlString = "SELECT * FROM classes
                       LEFT JOIN mainteachers ON id = classid

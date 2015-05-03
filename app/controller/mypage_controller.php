@@ -28,7 +28,7 @@
                 header("Location: /admin/adminPersonalPage");
                 exit;
             } else if ($user->isSchool()) {
-                header("Location: /school/schoolPersonalPage");
+                header("Location: /schooladmin/schoolPersonalPage");
                 exit;
             }
         }
