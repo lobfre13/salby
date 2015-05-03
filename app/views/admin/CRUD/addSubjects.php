@@ -6,5 +6,5 @@
     <!--
     <td><input type="file" name="fileToUpload" id="fileToUpload" value="Legg til ikon"></td>
     -->
-    <td><div id="addSchoolBtnComplete" onclick="doAddSubject()"></td>
-    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></td>
+    <td><div id="addSchoolBtnComplete" onclick="doAddSubject()"></div></td>
+    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></div></td>

@@ -226,3 +226,45 @@ input:focus {
     display: inline-block;
     margin-top: 20px;
 }
+
+.deleteBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/slettIkon.png');
+}
+.deleteBtn:hover {
+    background: url("/public/img/slettIkonRoed.png");
+}
+#addClassBtnComplete {
+    display: inline-block;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    background-size: 100% 100% !important;
+    background: transparent url('/public/img/plussIkon.png');
+}
+.editBtn{
+    display: inline-block;
+    cursor: pointer;
+    width: 35px;
+    height: 36px;
+    background-size: 100% 100%!important;
+    background: transparent url('/public/img/redigerIkon.png');
+}
+
+.editBtn:hover {
+    background: url("/public/img/redigerIkonGroenn.png");
+}
+
+.relationTable{
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.relationTable select, .relationTable input{
+    width: 50%;
+}

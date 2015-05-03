@@ -55,8 +55,24 @@
             'classlevel' => $classLevel
         );
 
-        query($sqlString, $params);
+        $classId = query($sqlString, $params, DBI::LAST_ID);
+        addSubjectsToClass($classId, $classLevel);
+    }
 
+    function addSubjectsToClass($classId, $classLevel){
+        $subjects = getAllTheSubjects($classLevel);
+        $sqlString = "INSERT INTO classsubjects VALUES(null, :classId, :subjectId)";
+
+        foreach ($subjects as $subject){
+            $params = array('classId' => $classId, 'subjectId' => $subject['id']);
+            query($sqlString, $params);
+        }
+    }
+    function getAllTheSubjects($classLevel){
+        $sqlString = "SELECT * FROM subjects WHERE classlevel = :classLevel";
+        $params = array('classLevel' => $classLevel);
+
+        return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
     function getMainTeacher($classID){
@@ -68,7 +84,6 @@
         );
 
         return query($sqlString, $params, DBI::FETCH_ONE);
-
     }
 
     function addNewPupilToClass($schoolid, $classid, $firstname, $lastname){
@@ -84,8 +99,6 @@
         );
 
         query($sqlString, $params);
-
-
     }
 
     function getSchoolTeachers($schoolID){
@@ -96,8 +109,6 @@
         );
 
         return query($sqlString, $params, DBI::FETCH_ALL);
-
-
     }
 
     function updateMainTeacher($classid, $username){
@@ -107,7 +118,24 @@
         $sqlString = "INSERT INTO mainteachers VALUES(:username, :classid)";
         $params = array('username' => $username, 'classid' => $classid);
         query($sqlString, $params);
+    }
 
+    function deleteSchoolClass($classId){
+        $sqlString = "DELETE FROM classes WHERE id = :classId";
+        $params = array('classId' => $classId);
+        query($sqlString, $params);
+    }
+
+    function getSchoolClass($classId){
+        $sqlString = "SELECT * FROM classes WHERE id = :classId";
+        $params = array('classId' => $classId);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function deleteUser($username, $schoolId){
+        $sqlString = "DELETE FROM users WHERE username = :username AND schoolid = :schoolId";
+        $params = array('username' => $username, 'schoolId' => $schoolId);
+        query($sqlString, $params);
     }
 
 //    function getRegkey($schoolID){
@@ -120,29 +148,27 @@
 //        return $sql->fetch(PDO::FETCH_ASSOC)['regkey'];
 //    }
 //
-function getSchoolClasses($schoolID)
-{
-    global $database;
-    $sql = $database->prepare("SELECT * FROM classes " .
-        "LEFT JOIN mainteachers ON id = classid " .
-        "WHERE schoolid=:schoolid");
+    function getSchoolClasses($schoolID){
+        global $database;
+        $sql = $database->prepare("SELECT * FROM classes " .
+            "LEFT JOIN mainteachers ON id = classid " .
+            "WHERE schoolid=:schoolid");
 
-    $sql->execute(array(
-        'schoolid' => $schoolID
-    ));
-    return $sql->fetchAll(PDO::FETCH_ASSOC);
-}
+        $sql->execute(array(
+            'schoolid' => $schoolID
+        ));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-function searchClasses($schoolId, $searchString)
-{
-    $sqlString = "SELECT * FROM classes WHERE classname LIKE :searchString AND schoolid = :schoolId";
-    $params = array(
-        'searchString' => '%' . $searchString . '%',
-        'schoolId' => $schoolId
-    );
-    return query($sqlString, $params, DBI::FETCH_ALL);
+    function searchClasses($schoolId, $searchString){
+        $sqlString = "SELECT * FROM classes WHERE classname LIKE :searchString AND schoolid = :schoolId";
+        $params = array(
+            'searchString' => '%' . $searchString . '%',
+            'schoolId' => $schoolId
+        );
+        return query($sqlString, $params, DBI::FETCH_ALL);
 
-}
+    }
 //
 //
 //

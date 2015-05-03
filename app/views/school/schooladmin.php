@@ -10,6 +10,14 @@
         ajaxCall("GET", "/schooladmin/showAddClass", true, "addClass")
     }
 
+    function doAddSchoolClass(){
+        $('#addSchoolClassForm').submit();
+    }
+    function deleteSchoolClass(obj, classId){
+        ajaxCall("GET", "/schooladmin/deleteSchoolClass/" + classId, true);
+        $(obj).closest('tr').remove();
+    }
+
 </script>
 <div id="content" class="widthConstrained">
     <?php include 'partialviews/topLinks.php'; ?>
@@ -19,7 +27,7 @@
     <div id="classContent" class="tableBG">
         <section id="topMenu">
            <span onclick="showAddClass()">
-                Legg til skole <img src="/public/img/plussIkon.png" width="20">
+                Legg til klasse <img src="/public/img/plussIkon.png" width="20">
             </span>
 
             <form method="post" action="/schooladmin" class="form-wrapper">
@@ -28,23 +36,27 @@
             </form>
 
         </section>
-        <table>
-            <tr>
-                <th>Klassetrinn</th>
-                <th>Klasse</th>
-                <th>Endre</th>
-            </tr>
-            <tr id="addClass"></tr>
-            <?php foreach ($this->classes as $class) { ?>
+        <form method="post" action="/schooladmin/addNewSchoolClass" id="addSchoolClassForm">
+            <table>
                 <tr>
-                    <td><?php echo $class['classlevel'] ?></td>
-                    <td><?php echo $class['classname'] ?></td>
-                    <td>TANNWHEEL? OX</td>
+                    <th>Klassetrinn</th>
+                    <th>Klasse</th>
+                    <th>Endre</th>
                 </tr>
-            <?php } ?>
+                <tr id="addClass"></tr>
+                <?php foreach ($this->classes as $class) { ?>
+                    <tr>
+                        <td><?php echo $class['classlevel'] ?></td>
+                        <td><?php echo $class['classname'] ?></td>
+                        <td><a href="/schooladmin/editSchoolClass/<?php echo $class['id']; ?>">
+                                <div class="editBtn"></div>
+                            </a>
+                        <div onclick="deleteSchoolClass(this, <?php echo $class['id'];?>)" class="deleteBtn"></td>
+                    </tr>
+                <?php } ?>
 
-        </table>
-
+            </table>
+        </form>
 
     </div>
 

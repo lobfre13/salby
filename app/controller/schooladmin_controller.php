@@ -60,26 +60,50 @@
         }
 
         public function registerNewTeacher(){
-            $schoolID = getSchoolID($this->user->username);
+            $schoolId = getSchoolID($this->user->username);
             registerTeacher($_POST['firstname'],$_POST['lastname'], $_POST['email'], $_POST['username'], $_POST['password'], $schoolID);
             $this->index();
         }
 
         public function addNewSchoolClass(){
+            $schoolId = getSchoolID($this->user->username);
+            addNewSchoolClass($schoolId, $_POST['className'], $_POST['classLevel']);
+            header("Location: /schooladmin");
+            exit;
+        }
+
+        public function deleteSchoolClass(){
+            deleteSchoolClass($this->urlElements[2]);
+        }
+
+        public function editSchoolClass(){
             $schoolID = getSchoolID($this->user->username);
-            addNewSchoolClass($schoolID, $_POST['className'], $_POST['classLevel']);
-            $this->index();
+            $school = getSchool($schoolID);
+            $this->view->setViewPath("school/editClass.php");
+            $this->view->mainTeacher = getMainTeacher($this->urlElements[2]);
+            $this->view->class = getSchoolClass($this->urlElements[2]);
+            $this->view->pupils = getClassPupils($this->urlElements[2]);
+            $this->view->schoolTeachers = getSchoolTeachers($schoolID);
+            $this->view->schoolName = $school['name'];
+            $this->view->showPage();
         }
 
         public function addNewPupilToClass(){
-            $schoolID = getSchoolID($this->user->username);
-            addNewPupilToClass($schoolID, $_POST['classid'], $_POST['firstname'], $_POST['lastname']);
-            $this->index();
+            $schoolId = getSchoolID($this->user->username);
+            addNewPupilToClass($schoolId, $_POST['classId'], $_POST['firstName'], $_POST['lastName']);
+            header("Location: /schooladmin/editSchoolClass/".$_POST['classId']);
+            exit;
         }
 
         public function updateMainTeacher(){
-            updateMainTeacher($_POST['classid'], $_POST['mainTeacher']);
-            $this->index();
+            updateMainTeacher($_POST['classId'], $_POST['mainTeacher']);
+            header("Location: /schooladmin/editSchoolClass/".$_POST['classId']);
+            exit;
+        }
+
+        public function deleteUser(){
+            $schoolId = getSchoolID($this->user->username);
+            deleteUser($this->urlElements[2], $schoolId);
         }
 
         protected function checkUserAccess(){

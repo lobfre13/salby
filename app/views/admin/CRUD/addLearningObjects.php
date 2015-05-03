@@ -6,5 +6,5 @@
     <td><input type="file" name="lOIconToUpload" id="lOIconToUpload" value="Legg til ikon"></td>
     <td><input type="file" name="lOToUpload" id="lOToUpload" value="Legg til læringsobjekt"></td>
     -->
-    <td><div id="addSchoolBtnComplete" onclick="doAddLearningObject()"></td>
-    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></td>
+    <td><div id="addSchoolBtnComplete" onclick="doAddLearningObject()"></div></td>
+    <td><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></div></td>
