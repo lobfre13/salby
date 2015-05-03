@@ -12,8 +12,16 @@
             $school = getSchool($schoolID);
             $this->view->setViewPath('school/schooladmin.php');
             $this->view->schoolName = $school['name'];
-            $this->view->classes = getSchoolClasses($schoolID);
+            if (isset($_POST['searchBoxSchoolsClasses'])) $this->view->classes = searchClasses($schoolID, $_POST['searchBoxSchoolsClasses']);
+            else $this->view->classes = getSchoolClasses($schoolID);
+
             $this->view->showPage();
+        }
+
+        public function showAddClass()
+        {
+            $this->view->setViewPath("/school/partialviews/addClass.php");
+            $this->view->showStrippedPage();
         }
 
         public function getClasses(){

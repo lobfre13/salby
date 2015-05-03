@@ -6,6 +6,10 @@
         ajaxCall("GET", "/schooladmin/getClassPupils/"+classid.value, true, "classContent")
     }
 
+    function showAddClass() {
+        ajaxCall("GET", "/schooladmin/showAddClass", true, "addClass")
+    }
+
 </script>
 <div id="content" class="widthConstrained">
     <?php include 'partialviews/topLinks.php'; ?>
@@ -14,12 +18,12 @@
 
     <div id="classContent" class="tableBG">
         <section id="topMenu">
-           <span>
+           <span onclick="showAddClass()">
                 Legg til skole <img src="/public/img/plussIkon.png" width="20">
             </span>
 
             <form method="post" action="/schooladmin" class="form-wrapper">
-                <input type="text" id="search" name="searchBoxCategories" placeholder="Søk etter kategori...">
+                <input type="text" id="search" name="searchBoxSchoolsClasses" placeholder="Søk etter klasse...">
                 <input type="submit" value="søk" id="submit">
             </form>
 
@@ -29,15 +33,13 @@
                 <th>Klassetrinn</th>
                 <th>Klasse</th>
                 <th>Endre</th>
-                <th>Slett</th>
             </tr>
             <tr id="addClass"></tr>
             <?php foreach ($this->classes as $class) { ?>
                 <tr>
                     <td><?php echo $class['classlevel'] ?></td>
                     <td><?php echo $class['classname'] ?></td>
-                    <td>TANNWHEEL?</td>
-                    <td>OX</td>
+                    <td>TANNWHEEL? OX</td>
                 </tr>
             <?php } ?>
 

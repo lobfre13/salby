@@ -133,11 +133,12 @@ function getSchoolClasses($schoolID)
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function searchClasses($searchString)
+function searchClasses($schoolId, $searchString)
 {
-    $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";
+    $sqlString = "SELECT * FROM classes WHERE classname LIKE :searchString AND schoolid = :schoolId";
     $params = array(
-        'searchString' => '%' . $searchString . '%'
+        'searchString' => '%' . $searchString . '%',
+        'schoolId' => $schoolId
     );
     return query($sqlString, $params, DBI::FETCH_ALL);
 
