@@ -1,36 +1,34 @@
 <div class="widthConstrained" >
 
-    <div align="center">
-        <h3><?php echo $this->teacher['firstname'] . ' ' . $this->teacher['lastname'] . ' (' . $this->teacher['username'] . ')';?></h3>
+    <h1 id="adminPersonalPageHeadline"><?php echo $this->teacher['firstname'] . ' ' . $this->teacher['lastname'] . ' (' . $this->teacher['username'] . ')';?></h1>
 
-        <h3>Endre e-postadresse</h3>
-        <form method="post" action="/teacher/doChangeEmail">
-            <p>Nåværende e-post:</p>
-            <p><?php if (empty($this->teacher['email'])) { echo 'Ingen e-postadresse satt enda.'; } else {echo $this->teacher['email'];} ?></p>
-            <input name="email" type="email" placeholder="Ny epost her">
-            <br>
-           <input type="submit" value="Endre e-postadresse">
-        </form>
+    <div id="centerMyContent">
+
+        <div id="emailDiv" class="adminPersonalBox">
+            <h3>E-post</h3>
+            <form method="post" action="/admin/doChangeEmail">
+                <p id="currentEmail"><?php if (empty($this->teacher['email'])) { echo 'Ingen e-postadresse satt enda.'; } else {echo $this->teacher['email'];} ?></p>
+                <h3>Endre e-postadresse</h3>
+                <input name="email" type="email" placeholder="Skriv inn ny e-post..." class="smoothInputField" required>
+                <br>
+                <input type="submit" value="Endre" class="endreButton">
+            </form>
+        </div>
 
 
-        <h3>Endre passord</h3>
-        <form method="post" action="/teacher/doChangePassword">
-            <input name="currentPassword" type="password" placeholder="Nåværende passord">
-            <br>
-            <input name="newPassword1" type="password" placeholder="Nytt passord">
-            <br>
-            <input name="newPassword2" type="password" placeholder="Nytt passord igjen">
-            <br>
-            <input type="submit" value="Endre passord">
-        </form>
-
-        <br>
-        <br>
-        <a href="http://larer.salaby.no/">Gå til lærersiden</a>
-        <br>
-        <br>
-        <a href="/teacher">Gå tilbake til dashbord</a>
+        <div id="passwordDiv" class="adminPersonalBox">
+            <h3>Endre passord</h3>
+            <form method="post" action="/admin/doChangePassword">
+                <input name="currentPassword" type="password" placeholder="Nåværende passord..." class="smoothInputField" required>
+                <br>
+                <input name="newPassword1" type="password" placeholder="Nytt passord..." class="smoothInputField" required>
+                <br>
+                <input name="newPassword2" type="password" placeholder="Gjenta passord..." class="smoothInputField" required>
+                <br>
+                <input type="submit" value="Endre" class="endreButton">
+            </form>
+        </div>
     </div>
-
-
+    <a id="returnToMainPage" href="/admin"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
+    <a id ="learningPages" href="http://larer.salaby.no/" >Gå til Salaby's lærersider<img src="/public/img/pil.png" width="15px"></a>
 </div>
