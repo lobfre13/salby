@@ -347,3 +347,9 @@
         $params = array('classes' => $pupil['classid']);
         query($sqlString, $params);
     }
+
+    function getAdmin ($username) {
+        $sqlString = "SELECT * FROM users WHERE username = :username";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
