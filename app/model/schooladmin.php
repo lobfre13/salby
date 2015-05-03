@@ -132,7 +132,7 @@
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
 
-    function deleteUser($username, $schoolId){
+    function deletePupilUser($username, $schoolId){
         $sqlString = "DELETE FROM users WHERE username = :username AND schoolid = :schoolId";
         $params = array('username' => $username, 'schoolId' => $schoolId);
         query($sqlString, $params);

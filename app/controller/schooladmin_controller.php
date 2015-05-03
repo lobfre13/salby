@@ -103,7 +103,7 @@
 
         public function deleteUser(){
             $schoolId = getSchoolID($this->user->username);
-            deleteUser($this->urlElements[2], $schoolId);
+            deletePupilUser($this->urlElements[2], $schoolId);
         }
 
         protected function checkUserAccess(){
@@ -116,7 +116,7 @@
 
         public function schoolPersonalPage () {
             $this->view->setViewPath('schooladmin/schoolPersonalPage.php');
-            $this->view->school = getAdmin($this->user->username);
+//            $this->view->school = getAdmin($this->user->username);
             $this->view->showPage();
         }
 
