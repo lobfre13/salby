@@ -74,14 +74,18 @@
             $this->index();
         }
 
-
-
         protected function checkUserAccess(){
             $user = $this->user;
             if(!isset($user) || !$user->isSchool()){
                 header("Location: /login");
                 exit;
             }
+        }
+
+        public function schoolPersonalPage () {
+            $this->view->setViewPath('schooladmin/schoolPersonalPage.php');
+            $this->view->school = getAdmin($this->user->username);
+            $this->view->showPage();
         }
 
     }

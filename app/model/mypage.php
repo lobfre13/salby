@@ -8,14 +8,6 @@
 
     include_once 'dbInterface.php';
 
-    function getWeekNumber () {
-        date_default_timezone_set(date_default_timezone_get());
-        $date = date('m/d/Y h:i:s a', time());
-        $dateTime = new DateTime($date);
-        $week = $dateTime->format("W");
-        return $week;
-    }
-
     function getStudentFullName ($username) {
         $sqlString = "SELECT * FROM users WHERE username = :username";
         $params = array(

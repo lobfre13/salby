@@ -22,7 +22,7 @@
 <!--    <br>-->
     <h2>
         <?php
-        echo 'Lekser uke ' . $this->weeknumber;
+        echo 'Lekser';
         ?>
     </h2>
     <div class="mypage" id="homeworkList">

@@ -58,7 +58,6 @@
 
             $this->view->classLevel = getClassLevel($this->user->classID);
             $this->view->homeworkSubjects = getHomeworkSubjects($id, $username);
-            $this->view->weeknumber = getWeekNumber();
             $this->view->favouriteList = getUserFavourites($username);
             $this->view->showPage();
         }
