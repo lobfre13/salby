@@ -34,7 +34,7 @@
         </section>
 
         <section id="maintable">
-        <form id="addSubjectForm" method="post" action="/admin/actuallyAddSubject">
+        <form id="addSubjectForm" method="post" action="/admin/actuallyAddSubject" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Fag</td>

@@ -61,7 +61,7 @@
 
         public function registerNewTeacher(){
             $schoolId = getSchoolID($this->user->username);
-            registerTeacher($_POST['firstname'],$_POST['lastname'], $_POST['email'], $_POST['username'], $_POST['password'], $schoolID);
+            registerTeacher($_POST['firstname'],$_POST['lastname'], $_POST['email'], $_POST['username'], $_POST['password'], $schoolId);
             $this->index();
         }
 
