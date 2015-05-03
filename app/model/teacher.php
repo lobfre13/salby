@@ -246,7 +246,7 @@ include_once 'dbInterface.php';
 */
 
     //Delete
-    function deletePupil ($username) {
+    function deletePupilTeacher ($username) {
         $sqlString = "DELETE FROM users
                           WHERE username = :username";
         $params = array('username' => $username);

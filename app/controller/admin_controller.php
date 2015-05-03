@@ -8,6 +8,7 @@
             include $this->root.'/app/model/main.php';
             include $this->root.'/app/model/schooladmin.php';
             include $this->root.'/app/model/webutility.php';
+            include $this->root.'/app/model/teacher.php';
         }
 
         //Index-operation
@@ -239,5 +240,23 @@
                 header("Location: /login");
                 exit;
             }
+        }
+
+        public function adminPersonalPage () {
+            $this->view->setViewPath('admin/adminPersonalPage.php');
+            $this->view->admin = getAdmin($this->user->username);
+            $this->view->showPage();
+        }
+
+        public function doChangeEmail () {
+            changeEmail($this->user->username, $_POST['email']);
+            header("Location: /admin/adminPersonalPage");
+            exit;
+        }
+
+        public function doChangePassword () {
+            changePassword($this->user->username, $_POST['currentPassword'], $_POST['newPassword1'], $_POST['newPassword2']);
+            header("Location: /admin/adminPersonalPage");
+            exit;
         }
     }

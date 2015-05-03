@@ -6,7 +6,7 @@
         <h3>Endre e-postadresse</h3>
         <form method="post" action="/teacher/doChangeEmail">
             <p>Nåværende e-post:</p>
-            <p><?php echo $this->teacher['email']?></p>
+            <p><?php if (empty($this->teacher['email'])) { echo 'Ingen e-postadresse satt enda.'; } else {echo $this->teacher['email'];} ?></p>
             <input name="email" type="email" placeholder="Ny epost her">
             <br>
            <input type="submit" value="Endre e-postadresse">
@@ -21,7 +21,7 @@
             <br>
             <input name="newPassword2" type="password" placeholder="Nytt passord igjen">
             <br>
-            <input type="submit" value="Endre password">
+            <input type="submit" value="Endre passord">
         </form>
 
         <br>

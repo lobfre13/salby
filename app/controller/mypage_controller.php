@@ -24,6 +24,12 @@
             } else if ($user->isTeacher()) {
                 header("Location: /teacher/teacherPersonalPage");
                 exit;
+            } else if ($user->isAdmin()) {
+                header("Location: /admin/adminPersonalPage");
+                exit;
+            } else if ($user->isSchool()) {
+                header("Location: /school/schoolPersonalPage");
+                exit;
             }
         }
 

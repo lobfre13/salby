@@ -338,4 +338,10 @@
             query($sqlString, $params);
         }
 
+        Function getAdmin ($username) {
+            $sqlString = "SELECT * FROM users WHERE username = :username";
+            $params = array('username' => $username);
+            return query($sqlString, $params, DBI::FETCH_ONE);
+        }
+
 
