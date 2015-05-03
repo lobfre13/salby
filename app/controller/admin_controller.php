@@ -96,7 +96,7 @@
 
         public function actuallyAddSubject () {
             echo $_FILES["pic"]["name"];
-            if (picUpload()) {
+            if (picUpload($this->root)) {
                 echo 'Filen ble lastet opp!';
             } else {
                 echo 'Filen ble IKKE lastet opp.';
