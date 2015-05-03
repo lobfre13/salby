@@ -30,12 +30,10 @@
                 <label id="addSchoolTxt">Legg til skole</label>
             </div>
 
-            <div id="schoolSearch">
                 <form method="post" action="/admin/administrateSchools" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
                     <input type="submit" value="søk" id="submit">
                 </form>
-            </div>
 
         </section>
         <section id="maintable">

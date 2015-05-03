@@ -46,7 +46,7 @@
         }
 
         //Search-operations
-        public function doGetSchoolSearchResults () {
+        /*public function doGetSchoolSearchResults () {
             $this->view->schools = searchSchools($_POST['searchBoxSchools']);
         }
 
@@ -66,7 +66,7 @@
             $this->view->setViewPath('admin/administrateLearningobjects.php');
             $this->view->leaningObjects = searchLearningObjects($_POST['searchBoxLearningObjects']);
             $this->view->showPage();
-        }
+        }*/
 
         //Add-operations
         public function addSchool()

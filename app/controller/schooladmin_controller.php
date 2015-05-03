@@ -12,6 +12,7 @@
             $school = getSchool($schoolID);
             $this->view->setViewPath('school/schooladmin.php');
             $this->view->schoolName = $school['name'];
+            $this->view->classes = getSchoolClasses($schoolID);
             $this->view->showPage();
         }
 

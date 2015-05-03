@@ -120,17 +120,28 @@
 //        return $sql->fetch(PDO::FETCH_ASSOC)['regkey'];
 //    }
 //
-//    function getSchoolClasses($schoolID){
-//        global $database;
-//        $sql = $database->prepare("SELECT * FROM classes " .
-//            "LEFT JOIN mainteachers ON id = classid " .
-//            "WHERE schoolid=:schoolid");
-//
-//        $sql->execute(array(
-//            'schoolid' => $schoolID
-//        ));
-//        return $sql->fetchAll(PDO::FETCH_ASSOC);
-//    }
+function getSchoolClasses($schoolID)
+{
+    global $database;
+    $sql = $database->prepare("SELECT * FROM classes " .
+        "LEFT JOIN mainteachers ON id = classid " .
+        "WHERE schoolid=:schoolid");
+
+    $sql->execute(array(
+        'schoolid' => $schoolID
+    ));
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function searchClasses($searchString)
+{
+    $sqlString = "SELECT * FROM schools WHERE name LIKE :searchString";
+    $params = array(
+        'searchString' => '%' . $searchString . '%'
+    );
+    return query($sqlString, $params, DBI::FETCH_ALL);
+
+}
 //
 //
 //

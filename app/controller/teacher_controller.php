@@ -15,28 +15,29 @@
         }
 
         public function getClass(){
-            $classID = $this->urlElements[2];
-            if(!is_numeric($classID)) return;
+            $classId = $this->urlElements[2];
+            if (!is_numeric($classId)) return;
 
             $this->view->setViewPath('teacher/homework/partialviews/teacherClass.php');
 //            $this->view->pupils = getClassPupils($classID);
-            $this->view->pupils = combinePupilNameAndProgress($classID);
+            $this->view->pupils = combinePupilNameAndProgress($classId);
             $this->view->showStrippedPage();
         }
 
         public function getClassTasks(){
-            $classID = $this->urlElements[2];
-            if(!is_numeric($classID)) return;
+            $classId = $this->urlElements[2];
+            if (!is_numeric($classId)) return;
 
             $this->view->setViewPath('teacher/homework/partialviews/classTasks.php');
-            $this->view->tasks = getClassTasks($classID);
+            $this->view->tasks = getClassTasks($classId);
+            $this->view->classId = $classId;
             $this->view->showStrippedPage();
         }
 
         public function editTask(){
-            $taskID = $this->urlElements[2];
+            $taskId = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/editTask.php');
-            $this->view->task = getClassTask($taskID);
+            $this->view->task = getClassTask($taskId);
             $this->view->showStrippedPage();
         }
 
@@ -52,7 +53,6 @@
 
         public function addTask(){
             $this->view->setViewPath('teacher/homework/addTask.php');
-            if(isset($_SESSION['chosenTasks'])) $this->view->chosenTasks = $_SESSION['chosenTasks'];
             $this->view->schoolClasses = getMyClasses($this->user->username);
             $this->view->showPage();
         }

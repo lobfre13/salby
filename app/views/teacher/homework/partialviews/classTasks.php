@@ -1,5 +1,5 @@
 <table>
-    <a href="/teacher/addtask/">
+    <a href="/teacher/addtask/<?php echo $this->classId; ?>">
         <img src="/public/img/plussIkon.png" width="25">
         Legg til gjøremål
     </a>
