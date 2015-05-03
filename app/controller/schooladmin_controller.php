@@ -115,9 +115,21 @@
         }
 
         public function schoolPersonalPage () {
-            $this->view->setViewPath('schooladmin/schoolPersonalPage.php');
-//            $this->view->school = getAdmin($this->user->username);
+            $this->view->setViewPath('school/schoolPersonalPage.php');
+            $this->view->school = getSchoolUser($this->user->username);
             $this->view->showPage();
+        }
+
+        public function doChangeEmail () {
+            changeEmail($this->user->username, $_POST['email']);
+            header("Location: /schooladmin/schoolPersonalPage");
+            exit;
+        }
+
+        public function doChangePassword () {
+            changePassword($this->user->username, $_POST['currentPassword'], $_POST['newPassword1'], $_POST['newPassword2']);
+            header("Location: /schooladmin/schoolPersonalPage");
+            exit;
         }
 
     }
