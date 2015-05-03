@@ -21,7 +21,7 @@ table a, table a:visited{
 }
 
 .tableBG{
-    padding: 40px 20px 20px;
+    padding: 50px 20px 20px;
     background: #ffffff; /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 43%, #d3d3d3 100%, #d3d3d3 100%, #d3d3d3 101%); /* FF3.6+ */
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(43%,#ffffff), color-stop(100%,#d3d3d3), color-stop(100%,#d3d3d3), color-stop(101%,#d3d3d3)); /* Chrome,Safari4+ */
@@ -34,6 +34,7 @@ table a, table a:visited{
     font-size: 18px;
     border-radius: 3px;
     color: #444444;
+    position: relative;
 }
 
 
@@ -122,7 +123,12 @@ label {
 }
 */
 
-
+#topMenu span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
 
 /*Searchbox*/
 /*Source: http://red-team-design.com/design-a-beautiful-css3-search-form/ */
@@ -141,6 +147,10 @@ label {
 
 .form-wrapper {
     width: 40%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
 }
 
 .form-wrapper #submit {
@@ -159,10 +169,6 @@ label {
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
     margin-left: 10px;
-}
-
-#topMenu{
-    margin-bottom: 10%;
 }
 
 .deleteBtn{
@@ -227,6 +233,8 @@ ul#adminMainMenu li{
     margin: auto;
     width: 300px;
     height: 50px;
+    position: relative;
+    z-index: 99;
 }
 
 

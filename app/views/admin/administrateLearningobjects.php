@@ -19,17 +19,14 @@
     <div class="tableBG">
         <section id="topMenu">
 
-            <div id="schoolAddButtonDiv" onclick="addLearningObject()">
-                <button type="button" id="schoolAddButton"></button>
-                <label id="addSchoolTxt">Legg til læringsobjekt</label>
-            </div>
+            <span onclick="addLearningObject()">
+                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+            </span>
 
-            <div id="schoolSearch">
                 <form method="post" action="/admin/administrateLearningobjects" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxLearningObjects" placeholder="Søk etter læringsobjekt...">
                     <input type="submit" value="søk" id="submit">
                 </form>
-            </div>
         </section>
 
         <section id="maintable">

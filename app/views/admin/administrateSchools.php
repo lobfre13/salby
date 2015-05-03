@@ -25,10 +25,9 @@
     <div class="tableBG">
         <section id="topMenu">
 
-            <div id="schoolAddButtonDiv" onclick="addSchool()">
-                <button type="button" id="schoolAddButton"></button>
-                <label id="addSchoolTxt">Legg til skole</label>
-            </div>
+            <span onclick="addSchool()">
+                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+            </span>
 
                 <form method="post" action="/admin/administrateSchools" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">

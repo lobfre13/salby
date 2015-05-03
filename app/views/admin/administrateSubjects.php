@@ -19,17 +19,15 @@
     <div class="tableBG">
         <section id="topMenu">
 
-            <div id="schoolAddButtonDiv" onclick="addSubject()">
-                <button type="button" id="schoolAddButton"></button>
-                <label id="addSchoolTxt">Legg til fag</label>
-            </div>
+           <span onclick="addSubject()">
+                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+            </span>
 
-            <div id="schoolSearch">
                 <form method="post" action="/admin/administrateSubjects" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxSubjects" placeholder="Søk etter fag...">
                     <input type="submit" value="søk" id="submit">
                 </form>
-            </div>
+
 
         </section>
 
