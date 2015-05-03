@@ -1,32 +1,35 @@
 <div class="widthConstrained" >
 
     <div align="center">
-        <h3>Trond Giske (gistro)</h3>
-        <img src="/public/img/lObjectsImg/teskjekjerringa.png">
-        <h3>Om meg:</h3>
-        <p>Trond Giske (født 7. november 1966 i Trondheim) er en norsk politiker (Ap).
-            Giske var Norges næringsminister fra 20. oktober 2009 til regjeringsskiftet etter stortingsvalget 2013.
-            Han var statsråd i Kultur- og kirkedepartementet 2005–2009.</p>
+        <h3><?php echo $this->teacher['firstname'] . ' ' . $this->teacher['lastname'] . ' (' . $this->teacher['username'] . ')';?></h3>
 
         <h3>Endre e-postadresse</h3>
-        <input type="email" placeholder="Ny epost her">
-        <br>
-        <button>Endre e-postadresse</button>
+        <form method="post" action="/teacher/doChangeEmail">
+            <p>Nåværende e-post:</p>
+            <p><?php echo $this->teacher['email']?></p>
+            <input name="email" type="email" placeholder="Ny epost her">
+            <br>
+           <input type="submit" value="Endre e-postadresse">
+        </form>
+
 
         <h3>Endre passord</h3>
-        <input type="password" placeholder="Nåværende passord">
+        <form method="post" action="/teacher/doChangePassword">
+            <input name="currentPassword" type="password" placeholder="Nåværende passord">
+            <br>
+            <input name="newPassword1" type="password" placeholder="Nytt passord">
+            <br>
+            <input name="newPassword2" type="password" placeholder="Nytt passord igjen">
+            <br>
+            <input type="submit" value="Endre password">
+        </form>
+
         <br>
-        <input type="password" placeholder="Nytt passord">
         <br>
-        <input type="password" placeholder="Nytt passord igjen">
-        <br>
-        <button>Endre passord</button>
+        <a href="http://larer.salaby.no/">Gå til lærersiden</a>
         <br>
         <br>
-        <a href="http://larer.salaby.no/"><button>Gå til lærersiden</button></a>
-        <br>
-        <br>
-        <button>Tilbake til dashbord</button>
+        <a href="/teacher">Gå tilbake til dashbord</a>
     </div>
 
 

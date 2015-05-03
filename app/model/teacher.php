@@ -253,6 +253,51 @@ include_once 'dbInterface.php';
         query($sqlString, $params);
     }
 
+    function getTeacher ($username) {
+        $sqlString = "SELECT * FROM users
+                          WHERE username = :username";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::FETCH_ONE);
+    }
+
+    function changePassword ($username, $currentPassword, $newPassword1, $newPassword2) {
+        if (checkCurrentPassword($username, $currentPassword) && comparePasswords($newPassword1, $newPassword2)) {
+            $sqlString = "UPDATE users
+                          SET password = :newPassword1
+                          WHERE username = :username AND password = :currentPassword";
+            $params = array(
+                'newPassword1' => $newPassword1,
+                'username' => $username,
+                'currentPassword' => $currentPassword
+            );
+            query($sqlString, $params);
+        }
+    }
+
+    function checkCurrentPassword($username, $currentPassword) {
+        $sqlString = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $params = array(
+            'username' => $username,
+            'password' => $currentPassword
+        );
+        return (query($sqlString, $params, DBI::FETCH_ONE) != null);
+    }
+
+    function comparePasswords ($newPassword1, $newPassword2) {
+        return $newPassword1 === $newPassword2;
+    }
+
+    function changeEmail ($username, $email) {
+        $sqlString = "UPDATE users
+                          SET email = :email
+                          WHERE username = :username";
+        $params = array(
+            'email' => $email,
+            'username' => $username
+        );
+        query($sqlString, $params);
+    }
+
 
 
 

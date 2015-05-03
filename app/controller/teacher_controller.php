@@ -138,8 +138,20 @@
 
         public function teacherPersonalPage () {
             $this->view->setViewPath('teacher/teacherPersonalPage.php');
-            $this->view->teacher = $this->user->username;
+            $this->view->teacher = getTeacher($this->user->username);
             $this->view->showPage();
+        }
+
+        public function doChangePassword () {
+            changePassword($this->user->username, $_POST['currentPassword'], $_POST['newPassword1'], $_POST['newPassword2']);
+            header("Location: /teacher/teacherPersonalPage");
+            exit;
+        }
+
+        public function doChangeEmail () {
+            changeEmail($this->user->username, $_POST['email']);
+            header("Location: /teacher/teacherPersonalPage");
+            exit;
         }
 
 //        private function showClass($id){

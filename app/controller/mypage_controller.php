@@ -21,6 +21,9 @@
             if(!isset($user)){
                 header("Location: /login");
                 exit;
+            } else if ($user->isTeacher()) {
+                header("Location: /teacher/teacherPersonalPage");
+                exit;
             }
         }
 
