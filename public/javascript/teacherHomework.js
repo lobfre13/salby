@@ -1,5 +1,5 @@
-function loadSubjectCategories(id){
-    document.getElementById("selectedClass").value = id; //remember selected class
+function loadSubjectCategories(id, csid){
+    document.getElementById("selectedClass").value = csid; //remember selected class
     ajaxCall("GET","/teacher/getCategories/"+id, true, "tasksContent");
 }
 

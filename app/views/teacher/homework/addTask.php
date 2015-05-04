@@ -11,7 +11,7 @@
             <h4>Dine Klasser</h4>
             <ul>
                 <?php foreach($this->schoolClasses as $class) { ?>
-                    <li onclick="loadSubjectCategories(<?php echo $class['subjectid']; ?>); loadPending(<?php echo $class['subjectid']; ?>); markSelected(this)"><?php echo $class['classlevel'].$class['classname'].' - '.$class['subjectname'];?></li>
+                    <li onclick="loadSubjectCategories(<?php echo $class['subjectid'].','.$class['id']; ?>); loadPending(<?php echo $class['subjectid']; ?>); markSelected(this)"><?php echo $class['classlevel'].$class['classname'].' - '.$class['subjectname'];?></li>
                 <?php } ?>
             </ul>
         </div>
