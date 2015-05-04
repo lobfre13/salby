@@ -28,7 +28,7 @@
                     <tr>
                         <td><?php echo $catRel['subjectname']; ?></td>
                         <td><?php echo $catRel['classlevel'].'. klasse'; ?></td>
-                        <td onclick="deleteRelation(this, <?php echo $catRel['subjectid']; ?>, <?php echo $this->category['id']; ?>)">X</td>
+                        <td onclick="deleteRelation(this, <?php echo $catRel['subjectid']; ?>, <?php echo $this->category['id']; ?>)"><div class="deleteBtn"></div></td>
                     </tr>
                 <?php } ?>
             </table>
@@ -63,6 +63,5 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>

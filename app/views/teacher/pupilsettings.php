@@ -17,7 +17,7 @@
 
     </table>
     </div>
-
+    <a id="returnToMainPage3" href="/teacher"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
 
     <script>$( document ).ready(function() {
             $("#selectSubjectDropDown").trigger('onchange');
