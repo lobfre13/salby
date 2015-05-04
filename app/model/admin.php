@@ -413,7 +413,18 @@
         query($sqlString, $params);
     }
 
+    function addNewCategory ($categoryName, $fileName) {
+        $imgUrl = generateImgUrl($fileName);
+
+        $sqlString = "INSERT INTO categories (category, imgurl)
+                      VALUES (:categoryName, :imgUrl)";
+        $params = array(
+            'categoryName' => $categoryName,
+            'imgUrl' => $imgUrl
+        );
+        query($sqlString, $params);
+    }
+
     function generateImgUrl ($fileName) {
-        echo '/public/img/' . $fileName;
         return '/public/img/' . $fileName;
     }

@@ -32,7 +32,7 @@
         </section>
 
     <section id="maintable">
-        <form id="addCategoriesForm" method="post" action="/admin/actuallyAddCategory">
+        <form id="addCategoriesForm" method="post" action="/admin/actuallyAddCategory" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Kategori</td>

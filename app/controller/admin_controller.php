@@ -98,19 +98,18 @@
             $fileName = picUpload($this->root);
             if ($fileName) {
                 addNewSubject($_POST['fagnavn'], $_POST['klasseTrinn'], $fileName);
-                echo 'Filen ble lastet opp!';
-            } else {
-                echo 'Filen ble IKKE lastet opp.';
             }
-            /*
             header("Location: /admin/administrateSubjects");
             exit;
-            */
         }
 
         public function actuallyAddCategory () {
-            addCategory($_POST['kategori'], $_POST['bildeToUpload'], $_POST['tilhørendeFag'], $_POST['klasseTrinn']);
-            $this->administrateCategories();
+            $fileName = picUpload($this->root);
+            if ($fileName) {
+                addNewCategory($_POST['kategori'], $fileName);
+            }
+            header("Location: /admin/administrateCategories");
+            exit;
         }
 
         public function actuallyAddLearningObject () {
