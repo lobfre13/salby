@@ -36,7 +36,8 @@
                 <?php } ?>
         <?php foreach($this->categoryContent as $content) { ?>
             <a href="<?php echo $this->urlStr; if(isset($content['category'])) echo slugify($content['category']); else echo slugify($content['title']); ?>">
-                <div class="category" style="background-image: url(<?php echo $content['imgurl']; ?>)">
+                <div class="<?php if (isset($content['category'])) echo 'category'; else echo 'lObject' ?>"
+                     style="background-image: url(<?php echo $content['imgurl']; ?>)">
                     <h4 class="categoryname"><?php if(isset($content['category'])) echo $content['category']; else echo $content['title'];?></h4>
                 </div>
             </a>

@@ -39,6 +39,7 @@
     top: 80%;
     border-radius: 5px;
     border: 3px solid white;
+    transition: background-color 0.3s;
 }
 .subjectimg{
     width: 100%;
@@ -65,6 +66,17 @@
     overflow: hidden;
 }
 
+.lObject {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    margin: 20px 10px;
+    cursor: pointer;
+    padding-top: 0;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
 .categoryname{
     color: white;
     margin-top: 120px;
@@ -73,7 +85,7 @@
 
 }
 
-.category:hover .categoryname{
+.category:hover .categoryname, .lObject:hover .categoryname {
     background-color: #00BFD5;
 }
 
@@ -209,12 +221,21 @@
         opacity: 1 !important;
     }
 
-    .selectedSubject img{
+    .subject:hover .subjectname {
+        background-color: orangered;
+    }
+
+    .selectedSubject {
         opacity: 1 !important;
     }
 
-    .subjectNormal img{
-        opacity: 0.3;
+    .subjectNormal {
+        transition: opacity 0.3s;
+        opacity: 0.4;
+    }
+
+    .subjectNormal:hover {
+        opacity: 1 !important;
     }
 
     .subjectNormal h4{
