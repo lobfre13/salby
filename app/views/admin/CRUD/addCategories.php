@@ -3,4 +3,5 @@
     <td><input type="file" name="pic" id="pic"></td>
     <td></td>
     <td></td>
-    <td><div id="addSchoolBtnComplete" onclick="doAddCategories()"></div><div onclick="$(this).closest('tr').html('')" class="deleteBtn"></div></td>
+    <td></td>
+    <td><div title="Legg til kategori" id="addSchoolBtnComplete" onclick="doAddCategories()"></div><div title="Slett kategori" onclick="$(this).closest('tr').html('')" class="deleteBtn"></div></td>

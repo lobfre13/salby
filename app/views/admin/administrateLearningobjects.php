@@ -33,11 +33,10 @@
             <form id="addLearningObjectsForm" method="post" action="/admin/actuallyAddLearningObject">
         <table>
             <tr>
-                <td>Tittel</td>
-                <td>Ikon</td>
-                <td>Læringsobjekt</td>
-                <td></td>
-                <td></td>
+                <th>Tittel</th>
+                <th>Ikon</th>
+                <th>Læringsobjekt</th>
+                <th></th>
             </tr>
             <tr id="addLearningObject"></tr>
             <?php foreach ($this->learningObjects as $learningObject) { ?>
@@ -45,8 +44,8 @@
                     <td><?php echo $learningObject['title']?></td>
                     <td><img src="<?php echo $learningObject['imgurl']?>" width="35"></td>
                     <td><a href="<?php echo $learningObject['link']?>">Gå til læringsobjektet</a></td>
-                    <td><a  title="Rediger" href="/admin/editLearningobjects/<?php echo $learningObject['id']; ?>"><div class="editBtn"></div></a></td>
-                    <td><div title="Slett"  onclick="deleteLearningObject(this, <?php echo $learningObject['id'];?>)" class="deleteBtn"></td>
+                    <td><a href="/admin/editLearningobjects/<?php echo $learningObject['id']; ?>"><div title="Rediger læringsobjekt" class="editBtn"></div></a>
+                        <div title="Slett læringsobjekt" onclick="deleteLearningObject(this, <?php echo $learningObject['id'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>
         </table>

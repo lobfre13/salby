@@ -43,7 +43,6 @@
                         <th>Fylke</th>
                         <th>Kommune</th>
                         <th></th>
-                        <th></th>
                     </tr>
                     <tr id="addSchool"></tr>
                     <?php foreach ($this->schools as $school) { ?>
@@ -51,8 +50,10 @@
                             <td><?php echo $school['name'] ?></td>
                             <td><?php echo $school['fylke'] ?></td>
                             <td><?php echo $school['kommune'] ?></td>
-                            <td><a title="Rediger" href="/admin/editSchools/<?php echo $school['id']; ?>" <div class="editBtn"></div></td>
-                            <td><div title="Slett" onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
+                            <td>
+                                <a href="/admin/editSchools/<?php echo $school['id']; ?>" <div title="Rediger skole" class="editBtn"></div></a>
+                                <div title="Slett skole" onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn">
+                            </td>
                         </tr>
                     <?php }  ?>
                 </table>
