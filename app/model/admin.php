@@ -395,7 +395,25 @@
             }
         }
         else{
-            echo 'tom fil';
+//            echo 'tom fil';
             return false;
         }
+    }
+
+    function addNewSubject ($subjectName, $classLevel, $fileName) {
+        $imgUrl = generateImgUrl($fileName);
+
+        $sqlString = "INSERT INTO subjects (subjectname, classlevel, imgurl)
+                      VALUES (:subjectName, :classLevel, :imgUrl)";
+        $params = array(
+            'subjectName' => $subjectName,
+            'classLevel' => $classLevel,
+            'imgUrl' => $imgUrl
+        );
+        query($sqlString, $params);
+    }
+
+    function generateImgUrl ($fileName) {
+        echo '/public/img/' . $fileName;
+        return '/public/img/' . $fileName;
     }
