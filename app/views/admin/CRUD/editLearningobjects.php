@@ -44,11 +44,10 @@
         <div class="relationTable">
             <div>
 
-                <form method="post" action="/admin/updateLObject">
+                <form method="post" action="/admin/updateLObject" enctype="multipart/form-data">
                     <input name="id" type="hidden" value="<?php echo $this->lObject['id']; ?>" required>
                     <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->lObject['title']; ?>" required>
-                    <input name="icon" type="text" placeholder="Icon" value="<?php echo $this->lObject['imgurl']; ?>" required>
-                    <input name="link" type="text" placeholder="Læringsobject" value="<?php echo $this->lObject['link']; ?>" required><br>
+                    <input type="file" name="zip_file" required><br>
                     <input class="submit" type="submit" value="Oppdater">
                 </form>
             </div>

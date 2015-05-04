@@ -275,12 +275,14 @@
         );
         query($sqlString, $params);
     }
-    function updateLObject($lObjectID, $title, $icon, $link){
+    function updateLObject($lObjectID, $title){
+        $lObjectUrl = explode(".", uploadAndExtractZIP())[0];
+
         $sqlString = "UPDATE learningobjects SET title = :title, imgurl = :icon, link = :link WHERE id = :lobjectid";
         $params = array(
             'title' => $title,
-            'icon' => $icon,
-            'link' => $link,
+            'icon' => '/public/lobjects/'.$lObjectUrl.'/icon.png',
+            'link' => '/public/lobjects/'.$lObjectUrl.'/index.html',
             'lobjectid' => $lObjectID
         );
         query($sqlString, $params);

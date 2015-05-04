@@ -181,7 +181,7 @@
         }
 
         public function updateLObject(){
-            updateLObject($_POST['id'], $_POST['title'], $_POST['icon'], $_POST['link']);
+            updateLObject($_POST['id'], $_POST['title']);
             header("Location: /admin/editLearningobjects/".$_POST['id']);
             exit;
         }
