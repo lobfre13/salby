@@ -27,8 +27,11 @@
     <div id="classContent" class="tableBG">
         <section id="topMenu">
            <span onclick="showAddClass()">
-                Legg til klasse <img src="/public/img/plussIkon.png" width="20">
+                Legg til klasse
             </span>
+
+            <span id="addTeacher" onclick="window.location.href='/schooladmin/newTeacher/'">Opprett ny lærer</span>
+
 
             <form method="post" action="/schooladmin" class="form-wrapper">
                 <input type="text" id="search" name="searchBoxSchoolsClasses" placeholder="Søk etter klasse...">

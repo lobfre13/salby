@@ -178,7 +178,6 @@ label {
     background-color: #00BE39;
     border-radius: 3px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
     margin-left: 10px;
 }
 
@@ -501,3 +500,19 @@ input:focus {
 input:-moz-placeholder { opacity: 0.5; }
 
 /* END */
+
+.submit{
+    margin-top: 12px;
+    margin-left: 0px;
+    border: 1px solid #00748f;
+    height: 33px;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fafafa;
+    text-transform: uppercase;
+    background-color: #00BE39;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+}
