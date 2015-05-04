@@ -34,7 +34,7 @@
                         <td><?php echo $lORel['category']; ?></td>
                         <td><?php echo $lORel['subjectname']; ?></td>
                         <td><?php echo $lORel['classlevel'].'. klasse'; ?></td>
-                        <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)">X</td>
+                        <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)"><div class="deleteBtn"></td>
                     </tr>
                 <?php } ?>
             </table>
