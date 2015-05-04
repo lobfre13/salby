@@ -46,7 +46,7 @@
             <?php foreach ($this->categories as $category) { ?>
                 <tr>
                     <td><?php echo $category['category']?></td>
-                    <td><img src="<?php echo $category['catimg']?>"></td>
+                    <td><img width="100" src="<?php echo $category['catimg']?>"></td>
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
                     <td><a href="/admin/editCategories/<?php echo $category['catid']; ?>">
