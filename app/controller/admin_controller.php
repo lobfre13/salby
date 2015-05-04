@@ -95,14 +95,14 @@
         }
 
         public function actuallyAddSubject () {
-            echo $_FILES["pic"]["name"];
-            if (picUpload($this->root)) {
+            $fileName = picUpload($this->root);
+            if ($fileName) {
+                addNewSubject($_POST['fagnavn'], $_POST['klasseTrinn'], $fileName);
                 echo 'Filen ble lastet opp!';
             } else {
                 echo 'Filen ble IKKE lastet opp.';
             }
             /*
-            addSubject($_POST['fagnavn'], $_POST['klasseTrinn'], $_POST['fileToUpload']);
             header("Location: /admin/administrateSubjects");
             exit;
             */
