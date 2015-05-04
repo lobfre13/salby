@@ -35,11 +35,10 @@
         <form id="addSubjectForm" method="post" action="/admin/actuallyAddSubject" enctype="multipart/form-data">
         <table>
             <tr>
-                <td>Fag</td>
-                <td>Klassetrinn</td>
-                <td>Fag-ikon</td>
-                <td></td>
-                <td></td>
+                <th>Fag</th>
+                <th>Klassetrinn</th>
+                <th>Ikon</th>
+                <th></th>
             </tr>
             <tr id="addSubject"></tr>
                 <?php foreach ($this->subjects as $subject) { ?>
@@ -47,8 +46,10 @@
                         <td><?php echo $subject['subjectname']?></td>
                         <td><?php echo $subject['classlevel']?></td>
                         <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
-                        <td><a  title="Rediger" href="/admin/editSubjects/<?php echo $subject['id']; ?>"><div class="editBtn"></div></a></td>
-                        <td><div title="Slett" onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></div></td>
+                        <td>
+                            <a href="/admin/editSubjects/<?php echo $subject['id']; ?>"><div title="Rediger fag" class="editBtn"></div></a>
+                            <div title="Slett fag" onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></div>
+                        </td>
                     </tr>
                 <?php } ?>
             </table>

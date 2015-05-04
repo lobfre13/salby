@@ -35,12 +35,11 @@
         <form id="addCategoriesForm" method="post" action="/admin/actuallyAddCategory" enctype="multipart/form-data">
         <table>
             <tr>
-                <td>Kategori</td>
-                <td>Bilde</td>
-                <td>Tilhørende fag</td>
-                <td>Klassetrinn</td>
-                <td></td>
-                <td></td>
+                <th>Kategori</th>
+                <th>Bilde</th>
+                <th>Tilhørende fag</th>
+                <th>Klassetrinn</th>
+                <th></th>
             </tr>
             <tr id="addCategories"></tr>
             <?php foreach ($this->categories as $category) { ?>
@@ -50,9 +49,11 @@
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
                     <td><a href="/admin/editCategories/<?php echo $category['catid']; ?>">
-                            <div class="editBtn"></div>
-                        </a></td>
-                    <td><div onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn"></td>
+                            <div title="Rediger kategori" class="editBtn"></div>
+                        </a><div title="Slett kategori" onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn">
+
+                    </td>
+                    <td></td>
                 </tr>
             <?php } ?>
         </table>
