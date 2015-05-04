@@ -211,17 +211,22 @@
             $this->view->showPage();
         }
 
+        //OPPDATERING MED OPPLASTNING AV BILDER!!!!
         public function updateSubject(){
             $fileName = picUpload($this->root);
-            if (isset($fileName)) {
-                if ($fileName) {
-                    editSubject($_POST['id'], $_POST['title'], $_POST['classlevel'], $fileName);
-                }
-            } else {
-                editSubjectWithoutFile($_POST['id'], $_POST['title'], $_POST['classlevel']);
+            if ($fileName) {
+                editSubject($_POST['id'], $_POST['title'], $_POST['classlevel'], $fileName);
             }
-
             header("Location: /admin/editSubjects/".$_POST['id']);
+            exit;
+        }
+
+        public function updateCategories () {
+            $fileName = picUpload($this->root);
+            if ($fileName) {
+                editCategory($_POST['id'], $_POST['title'], $fileName);
+            }
+            header("Location: /admin/editCategories/".$_POST['id']);
             exit;
         }
 

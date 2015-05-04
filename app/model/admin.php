@@ -426,32 +426,56 @@
     }
 
     function editSubject ($subjectId, $subjectName, $classLevel, $fileName) {
-        $imgUrl = generateImgUrl($fileName);
+        if (isset($fileName)) {
+            $imgUrl = generateImgUrl($fileName);
 
-        $sqlString = "UPDATE subjects
+            $sqlString = "UPDATE subjects
                       SET subjectname = :subjectName,
                       classlevel = :classLevel,
                       imgurl = :imgUrl
                       WHERE id = :subjectId";
-        $params = array(
-            'subjectName' => $subjectName,
-            'classLevel' => $classLevel,
-            'imgUrl' => $imgUrl,
-            'subjectId' => $subjectId
-        );
-        query($sqlString, $params);
-    }
-
-    function editSubjectWithoutFile ($subjectId, $subjectName, $classLevel) {
-        $sqlString = "UPDATE subjects
+            $params = array(
+                'subjectName' => $subjectName,
+                'classLevel' => $classLevel,
+                'imgUrl' => $imgUrl,
+                'subjectId' => $subjectId
+            );
+        } else {
+            $sqlString = "UPDATE subjects
                       SET subjectname = :subjectName,
                       classlevel = :classLevel
                       WHERE id = :subjectId";
-        $params = array(
-            'subjectName' => $subjectName,
-            'classLevel' => $classLevel,
-            'subjectId' => $subjectId
-        );
+            $params = array(
+                'subjectName' => $subjectName,
+                'classLevel' => $classLevel,
+                'subjectId' => $subjectId
+            );
+        }
+        query($sqlString, $params);
+    }
+
+    function editCategory ($categoryId, $categoryName, $fileName) {
+        if (isset($fileName)) {
+            $imgUrl = generateImgUrl($fileName);
+
+            $sqlString = "UPDATE categories
+                      SET category = :categoryName,
+                      imgurl = :imgUrl
+                      WHERE id = :categoryId";
+            $params = array(
+                'categoryName' => $categoryName,
+                'imgUrl' => $imgUrl,
+                'categoryId' => $categoryId
+            );
+        } else {
+            $sqlString = "UPDATE categories
+                      SET category = :categoryName,
+                      WHERE id = :categoryId";
+            $params = array(
+                'categoryName' => $categoryName,
+                'categoryId' => $categoryId
+            );
+        }
         query($sqlString, $params);
     }
 
