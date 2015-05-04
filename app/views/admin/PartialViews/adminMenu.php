@@ -1,9 +1,4 @@
     <section id="navMenuAdmin">
-<!--        <select name="forma" onchange="location = this.options[this.selectedIndex].value;">-->
-<!--            <option value="/admin/administrateSubjects">Fag</option>-->
-<!--            <option value="/admin/administrateCategories">Kategorier</option>-->
-<!--            <option value="/admin/administrateLearningobjects">Læringsobjekter</option>-->
-<!--        </select>-->
         <nav id="primary_nav_wrap">
             <ul>
                 <li><a href="/admin/administrateSchools">Brukeradministrasjon</a>
