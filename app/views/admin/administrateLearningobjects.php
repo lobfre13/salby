@@ -20,7 +20,7 @@
         <section id="topMenu">
 
             <span onclick="addLearningObject()">
-                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+                Legg til læringsobjekt
             </span>
 
                 <form method="post" action="/admin/administrateLearningobjects" class="form-wrapper">

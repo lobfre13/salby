@@ -20,7 +20,7 @@
         <section id="topMenu">
 
            <span onclick="addSubject()">
-                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+                Legg til fag
             </span>
 
                 <form method="post" action="/admin/administrateSubjects" class="form-wrapper">

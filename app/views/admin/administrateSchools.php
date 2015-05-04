@@ -26,13 +26,13 @@
         <section id="topMenu">
 
             <span onclick="addSchool()">
-                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+                Legg til skole
             </span>
 
-                <form method="post" action="/admin/administrateSchools" class="form-wrapper">
-                    <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
-                    <input type="submit" value="søk" id="submit">
-                </form>
+            <form method="post" action="/admin/administrateSchools" class="form-wrapper">
+                <input type="text" id="search" name="searchBoxSchools" placeholder="Søk etter skole...">
+                <input type="submit" value="søk" id="submit">
+            </form>
 
         </section>
         <section id="maintable">
@@ -51,8 +51,8 @@
                             <td><?php echo $school['name'] ?></td>
                             <td><?php echo $school['fylke'] ?></td>
                             <td><?php echo $school['kommune'] ?></td>
-                            <td><a href="/admin/editSchools/<?php echo $school['id']; ?>" <div class="editBtn"></div></td>
-                            <td><div onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
+                            <td><a title="Rediger" href="/admin/editSchools/<?php echo $school['id']; ?>" <div class="editBtn"></div></td>
+                            <td><div title="Slett" onclick="deleteSchool(this, <?php echo $school['id'];?>)" class="deleteBtn"></td>
                         </tr>
                     <?php }  ?>
                 </table>

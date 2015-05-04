@@ -20,7 +20,7 @@
         <section id="topMenu">
 
              <span onclick="addCategories()">
-                Legg til kategori <img src="/public/img/plussIkon.png" width="20">
+                Legg til kategori
             </span>
 
                 <form method="post" action="/admin/administrateCategories" class="form-wrapper">

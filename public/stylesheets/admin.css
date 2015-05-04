@@ -7,9 +7,9 @@ body {
 
 table, tr, td {
     border-collapse: collapse;
-    border-bottom: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.28);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 table{
     width: 100%;
@@ -21,15 +21,8 @@ table a, table a:visited{
 }
 
 .tableBG{
-    padding: 50px 20px 20px;
-    background: #ffffff; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 43%, #d3d3d3 100%, #d3d3d3 100%, #d3d3d3 101%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(43%,#ffffff), color-stop(100%,#d3d3d3), color-stop(100%,#d3d3d3), color-stop(101%,#d3d3d3)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 43%,#d3d3d3 100%,#d3d3d3 100%,#d3d3d3 101%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    padding: 70px 20px 20px;
+    background: white;
     border: 1px solid gray;
     font-size: 18px;
     border-radius: 3px;
@@ -123,12 +116,30 @@ label {
 }
 */
 
+#primary_nav_wrap a:hover{
+    color: white!important;
+}
+
 #topMenu span {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 25px;
+    left: 15px;
     cursor: pointer;
+    border: 1px solid #00748f;
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fafafa;
+    text-transform: uppercase;
+    background-color: #00BE39;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+    margin-left: 10px;
 }
+
 
 /*Searchbox*/
 /*Source: http://red-team-design.com/design-a-beautiful-css3-search-form/ */
@@ -148,15 +159,15 @@ label {
 .form-wrapper {
     width: 40%;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 25px;
+    right: 25px;
 
 }
 
 .form-wrapper #submit {
     float: right;
     border: 1px solid #00748f;
-    height: 32px;
+    height: 33px;
     width: 20%;
     padding: 0;
     cursor: pointer;
@@ -261,7 +272,6 @@ ul#adminMainMenu li{
     font-size:16px;
     line-height:32px;
     padding:0 15px;
-    font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 #primary_nav_wrap ul li
