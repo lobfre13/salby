@@ -516,3 +516,28 @@ input:-moz-placeholder { opacity: 0.5; }
     border-radius: 3px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 }
+
+#updateSchoolDiv {
+    background-color: #00BE39;
+    width: 200px;
+    margin-left: 750px;
+    margin-top: -50px;
+}
+
+#newUserDiv {
+    background-color: #00BE39;
+    width: 200px;
+    margin-left: 750px;
+    margin-top: 40px;
+}
+
+#mainHeadline {
+    margin-left: -750px;
+    margin-top: -50px;
+}
+
+#listOfSchoolUsersDiv {
+    margin-top: -400px;
+    margin-left: -400px;
+}
+
