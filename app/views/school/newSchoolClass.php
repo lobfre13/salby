@@ -7,7 +7,7 @@
         <form method="post" action="/schooladmin/addNewSchoolClass">
             <label for="chooseClassLevel">Velg trinn</label>
             <select id="chooseClassLevel" required name="classLevel">
-                <option disabled selected>Velg trinn..</option>
+                <option value="" disabled selected>Velg trinn..</option>
                 <?php for($i = 1; $i < 8; $i++) {?>
                     <option value="<?php echo $i; ?>"><?php echo $i; ?>. klasse</option>
                 <?php }?>

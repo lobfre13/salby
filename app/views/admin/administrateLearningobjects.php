@@ -4,7 +4,8 @@
     }
 
     function doAddLearningObject () {
-        $('#addLearningObjectsForm').submit();
+        var submit = document.getElementById("submitBtn");
+        submit.click();
     }
 
     function deleteLearningObject (object, learningObjectId) {
@@ -18,7 +19,6 @@
     <?php include "PartialViews/adminMenu.php"?>
     <div class="tableBG">
         <section id="topMenu">
-
             <span onclick="addLearningObject()">
                 Legg til læringsobjekt
             </span>

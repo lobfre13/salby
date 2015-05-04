@@ -4,7 +4,8 @@
     }
 
     function doAddSubject () {
-        $('#addSubjectForm').submit();
+        var submit = document.getElementById("submitBtn");
+        submit.click();
     }
 
     function deleteSubject (object, subjectId) {

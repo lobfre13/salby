@@ -11,36 +11,12 @@
     <div class="tableBG">
         <h2 id="mainHeadline"><?php echo $this->school['name']; ?></h2>
 
-        <div id="updateSchoolDiv">
-            <h4>Legg til ny bruker</h4>
-            <form method="post" action="/admin/updateSchool">
-                <input name="id" type="hidden" value="<?php echo $this->school['id']; ?>">
-                <input required class="smoothInputField" name="name" type="text" placeholder="Skolenavn" value="<?php echo $this->school['name']; ?>">
-                <input required class="smoothInputField" name="fylke" type="text" placeholder="Fylke" value="<?php echo $this->school['fylke']; ?>">
-                <input required class="smoothInputField" name="kommune" type="text" placeholder="Kommune" value="<?php echo $this->school['kommune']; ?>">
-                <br>
-                <input type="submit" value="Endre">
-            </form>
-        </div>
-
-
-        <div class="relationTable" id="newUserDiv">
-            <h4>Legg til ny bruker</h4>
-            <form method="post" action="/admin/addSchoolUser">
-                <input type="hidden" name="schoolid" value="<?php echo $this->school['id'];?>">
-                <input class="smoothInputField" type="text" name="username" placeholder="Brukernavn" required><br>
-                <input class="smoothInputField" type="password" name="password" placeholder="Passord" required><br>
-                <input class="smoothInputField" type="email" name="email" placeholder="E-post" required><br>
-                <input type="submit" value="Legg til">
-            </form>
-        </div>
-
-        <div class="relationTable" id="listOfSchoolUsersDiv">
+        <div class="relationTable table">
             <h4>Skolebrukere</h4>
             <table>
                 <thead>
-                    <th>Brukernavn</th>
-                    <th></th>
+                <th>Brukernavn</th>
+                <th></th>
                 </thead>
                 <?php foreach($this->schoolUsers as $user) { ?>
                     <tr>
@@ -50,6 +26,32 @@
                 <?php } ?>
 
             </table>
+        </div>
+
+
+        <div class="relationTable">
+            <div>
+                <h4>Legg til ny bruker</h4>
+                <form method="post" action="/admin/updateSchool">
+                    <input name="id" type="hidden" value="<?php echo $this->school['id']; ?>" required>
+                    <input required class="smoothInputField" name="name" type="text" placeholder="Skolenavn" value="<?php echo $this->school['name']; ?>">
+                    <input required class="smoothInputField" name="fylke" type="text" placeholder="Fylke" value="<?php echo $this->school['fylke']; ?>">
+                    <input required class="smoothInputField" name="kommune" type="text" placeholder="Kommune" value="<?php echo $this->school['kommune']; ?>">
+                    <input class="submit" type="submit" value="Endre">
+                </form>
+            </div>
+
+
+            <div >
+                <h4>Legg til ny bruker</h4>
+                <form method="post" action="/admin/addSchoolUser">
+                    <input type="hidden" name="schoolid" value="<?php echo $this->school['id'];?>">
+                    <input class="smoothInputField" type="text" name="username" placeholder="Brukernavn" required><br>
+                    <input class="smoothInputField" type="password" name="password" placeholder="Passord" required><br>
+                    <input class="smoothInputField" type="email" name="email" placeholder="E-post" required>
+                    <input class="submit" type="submit" value="Legg til">
+                </form>
+            </div>
         </div>
     </div>
 </div>

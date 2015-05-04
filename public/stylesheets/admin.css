@@ -14,6 +14,7 @@ table, tr, td {
 table{
     width: 100%;
     overflow: hidden;
+    text-align: center;
 }
 
 table a, table a:visited{
@@ -21,14 +22,16 @@ table a, table a:visited{
 }
 
 .tableBG{
-    padding: 70px 20px 20px;
+    padding: 20px 20px 20px;
     background: white;
     border: 1px solid gray;
     font-size: 18px;
     border-radius: 3px;
     color: #444444;
     position: relative;
+    text-align: left;
 }
+
 
 
 #schoolAddButtonDiv {
@@ -120,6 +123,10 @@ label {
     color: white!important;
 }
 
+#topMenu{
+    margin-bottom: 60px;
+}
+
 #topMenu span {
     position: absolute;
     top: 25px;
@@ -164,7 +171,7 @@ label {
 
 }
 
-.form-wrapper #submit {
+.form-wrapper #submit{
     float: right;
     border: 1px solid #00748f;
     height: 33px;
@@ -181,10 +188,11 @@ label {
     margin-left: 10px;
 }
 
+
 .deleteBtn{
     display: inline-block;
     cursor: pointer;
-    width: 38px;
+    width: 40px;
     height: 35px;
     background-size: 100% 100%!important;
     background: transparent url('/public/img/slettIkon.png');
@@ -329,13 +337,17 @@ ul#adminMainMenu li{
 
 
 .relationTable{
-    width: 45%;
+    width: 30%;
     display: inline-block;
     vertical-align: top;
 }
+.relationTable.table{
+    width: 60%;
+    padding-right: 60px;
+}
 
-.relationTable select, .relationTable input{
-    width: 50%;
+.relationTable h4{
+    margin-bottom: 0;
 }
 
 .styled-select {
@@ -502,8 +514,8 @@ input:-moz-placeholder { opacity: 0.5; }
 /* END */
 
 .submit{
-    margin-top: 12px;
-    margin-left: 0px;
+    margin-top: 10px;
+    margin-left: 0;
     border: 1px solid #00748f;
     height: 33px;
     padding: 7px;
@@ -517,27 +529,6 @@ input:-moz-placeholder { opacity: 0.5; }
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 }
 
-#updateSchoolDiv {
-    background-color: #00BE39;
-    width: 200px;
-    margin-left: 750px;
-    margin-top: -50px;
+.tableBG > h2{
+    margin: 0;
 }
-
-#newUserDiv {
-    background-color: #00BE39;
-    width: 200px;
-    margin-left: 750px;
-    margin-top: 40px;
-}
-
-#mainHeadline {
-    margin-left: -750px;
-    margin-top: -50px;
-}
-
-#listOfSchoolUsersDiv {
-    margin-top: -400px;
-    margin-left: -400px;
-}
-

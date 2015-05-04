@@ -121,13 +121,31 @@
         return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
-    function updateMainTeacher($classid, $username){
+    function updateMainTeacher($classId, $username){
+        $classes = getClassSubjects($classId);
+
         $sqlString = "DELETE FROM mainteachers WHERE classid = :classid";
-        $params = array('classid' => $classid);
+        $params = array('classid' => $classId);
         query($sqlString, $params);
-        $sqlString = "INSERT INTO mainteachers VALUES(:username, :classid)";
-        $params = array('username' => $username, 'classid' => $classid);
+
+        $sqlString = "INSERT INTO mainteachers VALUES(:username, :classId)";
+        $params = array('username' => $username, 'classId' => $classId);
         query($sqlString, $params);
+
+        $sqlString2 = "DELETE FROM classsubjectteachers WHERE classsubjectid = :classsubjectId";
+        $sqlString = "INSERT INTO classsubjectteachers VALUES(:username, :classsubjectId)";
+        foreach($classes as $class){
+            $params2 = array('classsubjectId' => $class['id']);
+            $params = array('username' => $username, 'classsubjectId' => $class['id']);
+            query($sqlString2, $params2);
+            query($sqlString, $params);
+        }
+    }
+
+    function getClassSubjects($classId){
+        $sqlString = "SELECT * FROM classsubjects where classid = :classId";
+        $params = array('classId' => $classId);
+        return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
     function deleteSchoolClass($classId){

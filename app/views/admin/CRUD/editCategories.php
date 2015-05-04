@@ -14,13 +14,7 @@
     <div class="tableBG">
         <h2><?php echo $this->category['category']; ?></h2>
 
-        <form method="post" action="/admin/updateCategories" enctype="multipart/form-data">
-            <input name="id" type="hidden" value="<?php echo $this->category['id']; ?>">
-            <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->category['category']; ?>">
-            <input type="file" name="pic" id="pic">
-            <input type="submit" value="Oppdater">
-        </form>
-        <div class="relationTable">
+        <div class="relationTable table">
             <h4>Tilhørende kategorier</h4>
             <table >
                 <thead>
@@ -38,23 +32,34 @@
             </table>
         </div>
         <div class="relationTable">
-            <h4>Legg til relasjon</h4><br>
-            <select name="classlevel" onchange="loadSubjects(this)" class="styled-select">
-                <option disabled selected>Velg trinn..</option>
-                <option value="1">1. klasse</option>
-                <option value="2">2. klasse</option>
-                <option value="3">3. klasse</option>
-                <option value="4">4. klasse</option>
-                <option value="5">5. klasse</option>
-                <option value="6">6. klasse</option>
-                <option value="7">7. klasse</option>
-            </select><br><br>
-            <form method="POST" action="/admin/addCategoryRelation/<?php echo $this->category['id']?>">
-            <select name="subject" id="subjects" required class="styled-select">
-                <option value="" disabled selected>Velg fag..</option>
-            </select><br><br>
-                <input type="submit" value="Legg knytt til kategori">
-            </form>
+            <div>
+                <form method="post" action="/admin/updateCategories" enctype="multipart/form-data">
+                    <input name="id" type="hidden" value="<?php echo $this->category['id']; ?>" required>
+                    <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->category['category']; ?>" required>
+                    <input type="file" name="pic" id="pic">
+                    <input type="submit" class="submit" value="Oppdater">
+                </form>
+            </div>
+
+            <div>
+                <h4>Legg til relasjon</h4><br>
+                <select name="classlevel" onchange="loadSubjects(this)" class="styled-select">
+                    <option disabled selected>Velg trinn..</option>
+                    <option value="1">1. klasse</option>
+                    <option value="2">2. klasse</option>
+                    <option value="3">3. klasse</option>
+                    <option value="4">4. klasse</option>
+                    <option value="5">5. klasse</option>
+                    <option value="6">6. klasse</option>
+                    <option value="7">7. klasse</option>
+                </select><br><br>
+                <form method="POST" action="/admin/addCategoryRelation/<?php echo $this->category['id']?>">
+                    <select name="subject" id="subjects" required class="styled-select">
+                        <option value="" disabled selected>Velg fag..</option>
+                    </select>
+                    <input class="submit" type="submit" value="Legg knytt til kategori">
+                </form>
+            </div>
         </div>
 
     </div>

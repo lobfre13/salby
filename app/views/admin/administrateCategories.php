@@ -4,7 +4,8 @@
     }
 
     function doAddCategories () {
-        $('#addCategoriesForm').submit();
+        var submit = document.getElementById("submitBtn");
+        submit.click();
     }
 
     function deleteCategory (object, categoryId) {
@@ -53,7 +54,6 @@
                         </a><div title="Slett kategori" onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn">
 
                     </td>
-                    <td></td>
                 </tr>
             <?php } ?>
         </table>

@@ -4,7 +4,8 @@
     }
 
     function doAddSchool () {
-        $('#addSchoolForm').submit();
+        var submit = document.getElementById("submitBtn");
+        submit.click();
     }
 
     function deleteSchool (object, schoolId) {

@@ -17,35 +17,42 @@
     <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
     <div class="tableBG">
         <h2><?php echo $this->lObject['title']; ?></h2>
-
-    <form method="post" action="/admin/updateLObject">
-        <input name="id" type="hidden" value="<?php echo $this->lObject['id']; ?>">
-        <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->lObject['title']; ?>">
-        <input name="icon" type="text" placeholder="Icon" value="<?php echo $this->lObject['imgurl']; ?>">
-        <input name="link" type="text" placeholder="Læringsobject" value="<?php echo $this->lObject['link']; ?>">
-        <input type="submit" value="Oppdater">
-    </form>
-    <div class="relationTable">
-        <h4>Tilhørende kategorier</h4>
-        <table >
-            <thead>
-                <th>Kategori</th>
-                <th>Fag</th>
-                <th>Trinn</th>
-                <th>Fjern</th>
-            </thead>
-            <?php foreach($this->lObjectRelations as $lORel){ ?>
+        <div class="relationTable table">
+            <h4>Tilhørende kategorier</h4>
+            <table >
                 <tr>
-                    <td><?php echo $lORel['category']; ?></td>
-                    <td><?php echo $lORel['subjectname']; ?></td>
-                    <td><?php echo $lORel['classlevel'].'. klasse'; ?></td>
-                    <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)">X</td>
+                    <th>Kategori</th>
+                    <th>Fag</th>
+                    <th>Trinn</th>
+                    <th>Fjern</th>
                 </tr>
-            <?php } ?>
-        </table>
-    </div>
+                <?php foreach($this->lObjectRelations as $lORel){ ?>
+                    <tr>
+                        <td><?php echo $lORel['category']; ?></td>
+                        <td><?php echo $lORel['subjectname']; ?></td>
+                        <td><?php echo $lORel['classlevel'].'. klasse'; ?></td>
+                        <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)">X</td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
+
+
         <div class="relationTable">
-            <h4>Legg til relasjon</h4><br>
+            <div>
+
+                <form method="post" action="/admin/updateLObject">
+                    <input name="id" type="hidden" value="<?php echo $this->lObject['id']; ?>" required>
+                    <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->lObject['title']; ?>" required>
+                    <input name="icon" type="text" placeholder="Icon" value="<?php echo $this->lObject['imgurl']; ?>" required>
+                    <input name="link" type="text" placeholder="Læringsobject" value="<?php echo $this->lObject['link']; ?>" required><br>
+                    <input class="submit" type="submit" value="Oppdater">
+                </form>
+            </div>
+
+
+            <div>
+                <h4>Legg til relasjon</h4><br>
                 <select name="classlevel" onchange="loadSubjects(this)" class="styled-select">
                     <option disabled selected>Velg trinn..</option>
                     <option value="1">1. klasse</option>
@@ -59,16 +66,16 @@
                 <select name="subject" onchange="loadCategories(this)" id="subjects" class="styled-select">
                     <option disabled selected>Velg fag..</option>
                 </select><br><br>
-            <form method="POST" action="/admin/addlObjectRelation/<?php echo $this->lObject['id']?>">
-                <select name="category" id="categories" required class="styled-select">
-                    <option value="" selected disabled>Velg kategori..</option>
-                </select><br><br>
-                <input type="submit" value="Legg knytt til kategori">
+                <form method="POST" action="/admin/addlObjectRelation/<?php echo $this->lObject['id']?>">
+                    <select name="category" id="categories" required class="styled-select">
+                        <option value="" selected disabled>Velg kategori..</option>
+                    </select><br>
+                    <input class="submit" type="submit" value="Legg til relasjon">
 
-            </form>
+                </form>
 
 
+            </div>
         </div>
-
     </div>
 </div>

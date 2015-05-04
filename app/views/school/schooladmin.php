@@ -11,7 +11,8 @@
     }
 
     function doAddSchoolClass(){
-        $('#addSchoolClassForm').submit();
+        var submit = document.getElementById("submitBtn");
+        submit.click();
     }
     function deleteSchoolClass(obj, classId){
         ajaxCall("GET", "/schooladmin/deleteSchoolClass/" + classId, true);
