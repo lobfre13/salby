@@ -33,7 +33,7 @@
             <?php }  ?>
                 </ul>
                 <a class="mobileBackBtn" href="<?php $url = $this->filePathURLS;
-                echo $url[count($url) - 2][0]; ?>"><-<?php echo $url[count($url) - 2][1]; ?></a>
+                if(count($url) > 1) { echo $url[count($url) - 2][0] ."\"><-". $url[count($url) - 2][1];} else echo '/"><img src="/public/img/house.png" height="20">' ?></a>
             </div>
                 <?php } ?>
         <?php foreach($this->categoryContent as $content) { ?>
