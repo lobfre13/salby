@@ -19,7 +19,7 @@
         <?php } ?>
 
     </div>
-    <h4 id="subjectDropDownBtn" class="" onclick="showSubjects(this)">Vis Fag >></h4>
+    <!--<h4 id="subjectDropDownBtn" class="" onclick="showSubjects(this)">Vis Fag >></h4>-->
 
     <div class="subjectContent">
         <?php
@@ -32,6 +32,8 @@
                     <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
             <?php }  ?>
                 </ul>
+                <a class="mobileBackBtn" href="<?php $url = $this->filePathURLS;
+                echo $url[count($url) - 2][0]; ?>"><-<?php echo $url[count($url) - 2][1]; ?></a>
             </div>
                 <?php } ?>
         <?php foreach($this->categoryContent as $content) { ?>
@@ -53,6 +55,8 @@
                 <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
             <?php }  ?>
             </ul>
+            <a class="mobileBackBtn" href="<?php $url = $this->filePathURLS;
+            echo $url[count($url) - 2][0]; ?>"><-<?php echo $url[count($url) - 2][1]; ?></a>
         </div>
             <?php echo $this->gameHTML;
         }  ?>
