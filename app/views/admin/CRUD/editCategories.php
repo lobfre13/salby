@@ -14,10 +14,10 @@
     <div class="tableBG">
         <h2><?php echo $this->category['category']; ?></h2>
 
-        <form method="post" action="/admin/updateCategory">
+        <form method="post" action="/admin/updateCategories" enctype="multipart/form-data">
             <input name="id" type="hidden" value="<?php echo $this->category['id']; ?>">
             <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->category['category']; ?>">
-            <input name="icon" type="text" placeholder="Icon" value="<?php echo $this->category['imgurl']; ?>">
+            <input type="file" name="pic" id="pic">
             <input type="submit" value="Oppdater">
         </form>
         <div class="relationTable">
@@ -47,7 +47,7 @@
                 <option value="4">4. klasse</option>
                 <option value="5">5. klasse</option>
                 <option value="6">6. klasse</option>
-                <option value="7">8. klasse</option>
+                <option value="7">7. klasse</option>
             </select><br><br>
             <form method="POST" action="/admin/addCategoryRelation/<?php echo $this->category['id']?>">
             <select name="subject" id="subjects" required class="styled-select">
