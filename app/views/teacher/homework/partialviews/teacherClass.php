@@ -1,7 +1,7 @@
 
     <table>
         <a href="/teacher/pupilSettings">
-            Innstillinger <img src="/public/img/rediger.png" width="20">
+            Elev-opplysninger <img src="/public/img/rediger.png" width="20">
         </a>
         <tr>
             <th>Navn</th>
