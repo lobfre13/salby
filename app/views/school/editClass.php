@@ -1,7 +1,9 @@
 <script>
     function deleteUser(obj, username){
-        ajaxCall("GET", "/schooladmin/deleteUser/"+username, true);
-        $(obj).closest('tr').remove();
+        if(confirm("Er du sikker på at du vil slette denne brukeren?")){
+            ajaxCall("GET", "/schooladmin/deleteUser/"+username, true);
+            $(obj).closest('tr').remove();
+        }
     }
 
 </script>
