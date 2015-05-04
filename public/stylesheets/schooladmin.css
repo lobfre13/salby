@@ -566,3 +566,24 @@ h4{
 .tableBG .centerDiv{
     width: 250px;
 }
+
+#returnToMainPage3 {
+    float: left;
+    margin-left: 130px;
+}
+
+#returnToMainPage3 img {
+    vertical-align: bottom;
+    position: absolute;
+    top: -1px;
+    left: -18px;
+}
+
+#returnToMainPage3 {
+    vertical-align: top;
+    text-decoration: underline;
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 444px;
+}

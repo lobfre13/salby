@@ -8,5 +8,7 @@
                 <input required type="password" name="password" placeholder="Passord"><br>
                 <input class="submit" type="submit" value="Legg til lærer">
             </form>
+    <br>
+    <a id="returnToMainPage3" href="/schooladmin"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
 
 </div>
