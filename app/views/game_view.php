@@ -15,6 +15,6 @@
 </script>
 
 
-    <input onchange="updateFavourite(<?php echo $lobject['id']; ?>)" <?php if($isFavourite) echo 'checked';?> id="favIcon" type="checkbox"><label for="favIcon"></label>
+    <input onchange="updateFavourite(<?php echo $lobject['id']; ?>)" <?php if($isFavourite) echo 'checked';?> id="favIcon" type="checkbox"><label for="favIcon"><span id="favoritTekst">Favoritt</span></label>
     <iframe seamless src="<?php echo $lobject['link']; ?>" frameborder="none" scrolling="no" onload="resizeIframe(this)" width="100%"></iframe>
 

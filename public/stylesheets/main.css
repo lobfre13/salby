@@ -115,15 +115,23 @@
 #favIcon + label{
     background-image: url("/public/img/favorittericon1.png");
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
     height: 45px;
-    width: 50px;
-    background-size: 100%;
+    width: 45px;
+    background-size: 100% 100%;
+
     cursor: pointer;
+    background-repeat: no-repeat;
 }
 #favIcon:checked + label{
     background-image: url("/public/img/favorittericon2.png");
+}
+
+#favoritTekst {
+    position: absolute;
+    margin-top: 44px;
+    margin-left: -30px;
 }
 
 /*Breadcrumb source: https://css-tricks.com/triangle-breadcrumbs/*/

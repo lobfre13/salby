@@ -30,6 +30,7 @@
                     <th>Etternavn</th>
                     <th>Brukernavn</th>
                     <th>Passord</th>
+                    <th>Rediger</th>
                     <th>Slett</th>
                 </tr>
                 <?php foreach($this->pupils as $pupil){ ?>
@@ -38,6 +39,7 @@
                         <td><?php echo $pupil['lastname']; ?></td>
                         <td><?php echo $pupil['username']; ?></td>
                         <td><?php echo $pupil['password']; ?></td>
+                        <td>Tannhjul</td>
                         <td onclick="deleteUser(this, '<?php echo $pupil['username']; ?>')">X</td>
                     </tr>
                 <?php } ?>
