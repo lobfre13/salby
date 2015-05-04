@@ -263,6 +263,9 @@ a:hover{
     #dropDownMainMenu{
         width: 100vw;
     }
+    #user{
+        min-width: 0;
+    }
 
 }
 @media screen and (max-width: 710px) {
