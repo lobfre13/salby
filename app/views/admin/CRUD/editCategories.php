@@ -4,8 +4,10 @@
     }
 
     function deleteRelation(obj, subID, catID){
-        ajaxCall("GET", "/admin/deleteCategoryRelation/"+subID+"/"+catID, true);
-        $(obj).closest("tr").remove();
+        if(confirm("Er du sikker på at du vil fjerne denne relasjonen?")) {
+            ajaxCall("GET", "/admin/deleteCategoryRelation/" + subID + "/" + catID, true);
+            $(obj).closest("tr").remove();
+        }
     }
 </script>
 

@@ -8,8 +8,11 @@
     }
 
     function deletelObjectRelation(obj, catID, lObjectID){
-        ajaxCall("GET", "/admin/deletelObjectRelation/"+catID+"/"+lObjectID, true);
-        $(obj).closest("tr").remove();
+        if(confirm("Er du sikker på at du vil fjerne denne relasjonen?")){
+            ajaxCall("GET", "/admin/deletelObjectRelation/"+catID+"/"+lObjectID, true);
+            $(obj).closest("tr").remove();
+        }
+
     }
 </script>
 
