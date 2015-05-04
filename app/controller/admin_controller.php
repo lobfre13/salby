@@ -113,7 +113,7 @@
         }
 
         public function actuallyAddLearningObject () {
-            addLearningObject($_POST['lOnavn'], $_POST['lOIconToUpload'], $_POST['lOToUpload']);
+            addLearningObject($_POST['lOnavn']);
             header("Location: /admin/administrateLearningobjects");
             exit;
         }

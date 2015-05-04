@@ -1,7 +1,7 @@
 
     <td><input type="text" name="lOnavn" placeholder="Tittel" required></td>
-    <td><input type="text" name="lOIconToUpload" placeholder="Legg til ikon" required></td>
-    <td><input type="text" name="lOToUpload" placeholder="Legg til læringsobjekt" required></td>
+    <td></td>
+    <td><input type="file" name="zip_file" placeholder="Legg til læringsobjekt" required></td>
     <!--
     <td><input type="file" name="lOIconToUpload" id="lOIconToUpload" value="Legg til ikon"></td>
     <td><input type="file" name="lOToUpload" id="lOToUpload" value="Legg til læringsobjekt"></td>

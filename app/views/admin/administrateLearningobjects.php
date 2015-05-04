@@ -30,7 +30,7 @@
         </section>
 
         <section id="maintable">
-            <form id="addLearningObjectsForm" method="post" action="/admin/actuallyAddLearningObject">
+            <form id="addLearningObjectsForm" method="post" action="/admin/actuallyAddLearningObject" enctype="multipart/form-data">
         <table>
             <tr>
                 <th>Tittel</th>
