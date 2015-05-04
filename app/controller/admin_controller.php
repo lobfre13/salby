@@ -212,7 +212,15 @@
         }
 
         public function updateSubject(){
-            updateSubject($_POST['id'], $_POST['title'],$_POST['classlevel'], $_POST['icon']);
+            $fileName = picUpload($this->root);
+            if (isset($fileName)) {
+                if ($fileName) {
+                    editSubject($_POST['id'], $_POST['title'], $_POST['classlevel'], $fileName);
+                }
+            } else {
+                editSubjectWithoutFile($_POST['id'], $_POST['title'], $_POST['classlevel']);
+            }
+
             header("Location: /admin/editSubjects/".$_POST['id']);
             exit;
         }

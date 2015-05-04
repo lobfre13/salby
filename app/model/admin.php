@@ -425,6 +425,36 @@
         query($sqlString, $params);
     }
 
+    function editSubject ($subjectId, $subjectName, $classLevel, $fileName) {
+        $imgUrl = generateImgUrl($fileName);
+
+        $sqlString = "UPDATE subjects
+                      SET subjectname = :subjectName,
+                      classlevel = :classLevel,
+                      imgurl = :imgUrl
+                      WHERE id = :subjectId";
+        $params = array(
+            'subjectName' => $subjectName,
+            'classLevel' => $classLevel,
+            'imgUrl' => $imgUrl,
+            'subjectId' => $subjectId
+        );
+        query($sqlString, $params);
+    }
+
+    function editSubjectWithoutFile ($subjectId, $subjectName, $classLevel) {
+        $sqlString = "UPDATE subjects
+                      SET subjectname = :subjectName,
+                      classlevel = :classLevel
+                      WHERE id = :subjectId";
+        $params = array(
+            'subjectName' => $subjectName,
+            'classLevel' => $classLevel,
+            'subjectId' => $subjectId
+        );
+        query($sqlString, $params);
+    }
+
     function generateImgUrl ($fileName) {
         return '/public/img/' . $fileName;
     }
