@@ -152,6 +152,9 @@
         public function deleteCategoryRelation(){
             deleteCategoryRelation($this->urlElements[2], $this->urlElements[3]);
         }
+        public function deleteParentCategoryRelation(){
+            deleteParentCategoryRelation($this->urlElements[2]);
+        }
 
 
         //Edit Operations
@@ -171,6 +174,7 @@
         public function loadCategories(){
             $this->view->setViewPath("admin/PartialViews/categoryOptions.php");
             $this->view->categories = getCategories($this->urlElements[2]);
+            if(isset($this->urlElements[3])) $this->view->optionalCategory = "HELLO";
             $this->view->showStrippedPage();
         }
 
@@ -188,8 +192,10 @@
 
         public function editCategories(){
             $this->view->setViewPath("admin/CRUD/editCategories.php");
-            $this->view->category = getCategoryFromID($this->urlElements[2]);
+            $category = getCategoryFromID($this->urlElements[2]);
+            $this->view->category = $category;
             $this->view->categoryRelations = getCategoryRelations($this->urlElements[2]);
+            $this->view->parentCategories = getParentCategories($category['parentid']);
             $this->view->showPage();
         }
 
@@ -200,7 +206,7 @@
         }
 
         public function addCategoryRelation(){
-            addCategoryRelation($this->urlElements[2], $_POST['subject']);
+            addCategoryRelation($this->urlElements[2], $_POST['subject'] , $_POST['category']);
             header("Location: /admin/editCategories/".$this->urlElements[2]);
             exit;
         }
@@ -214,18 +220,14 @@
         //OPPDATERING MED OPPLASTNING AV BILDER!!!!
         public function updateSubject(){
             $fileName = picUpload($this->root);
-            if ($fileName) {
-                editSubject($_POST['id'], $_POST['title'], $_POST['classlevel'], $fileName);
-            }
+            editSubject($_POST['id'], $_POST['title'], $_POST['classlevel'], $fileName);
             header("Location: /admin/editSubjects/".$_POST['id']);
             exit;
         }
 
         public function updateCategories () {
             $fileName = picUpload($this->root);
-            if ($fileName) {
-                editCategory($_POST['id'], $_POST['title'], $fileName);
-            }
+            editCategory($_POST['id'], $_POST['title'], $fileName);
             header("Location: /admin/editCategories/".$_POST['id']);
             exit;
         }

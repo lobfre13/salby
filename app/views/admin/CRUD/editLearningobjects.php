@@ -21,7 +21,7 @@
     <div class="tableBG">
         <h2><?php echo $this->lObject['title']; ?></h2>
         <div class="relationTable table">
-            <h4>Tilhørende kategorier</h4>
+            <h4>Relasjoner</h4>
             <table >
                 <tr>
                     <th>Kategori</th>
@@ -33,7 +33,7 @@
                     <tr>
                         <td><?php echo $lORel['category']; ?></td>
                         <td><?php echo $lORel['subjectname']; ?></td>
-                        <td><?php echo $lORel['classlevel'].'. klasse'; ?></td>
+                        <td><?php if(isset($lORel['classlevel'])) echo $lORel['classlevel'].'. klasse'; ?></td>
                         <td onclick="deletelObjectRelation(this, <?php echo $lORel['catid']; ?>, <?php echo $this->lObject['id']; ?>)"><div class="deleteBtn"></td>
                     </tr>
                 <?php } ?>
@@ -46,7 +46,7 @@
                 <form method="post" action="/admin/updateLObject" enctype="multipart/form-data">
                     <input name="id" type="hidden" value="<?php echo $this->lObject['id']; ?>" required>
                     <input name="title" type="text" placeholder="Tittel" value="<?php echo $this->lObject['title']; ?>" required>
-                    <input type="file" name="zip_file" required><br>
+                    <input type="file" name="zip_file"><br>
                     <input class="submit" type="submit" value="Oppdater">
                 </form>
             </div>

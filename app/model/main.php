@@ -132,7 +132,7 @@
     function getPath($category, $pathNames = []){
         $pathNames []= $category['category'];
         while($category['parentid'] != 0){
-            $category = getParentCategory($category['parentid']);
+            $category = getParentCategories($category['parentid'])[0];
             $pathNames [] = $category['category'];
         }
         $subject = getCategorySubject($category['id']);
@@ -149,10 +149,10 @@
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
 
-    function getParentCategory($categoryId){
+    function getParentCategories($categoryId){
         $sqlString = "SELECT * FROM categories WHERE id = :categoryId";
         $params = array('categoryId' => $categoryId);
-        return query($sqlString, $params, DBI::FETCH_ONE);
+        return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
     function getCategorySubject($categoryId){

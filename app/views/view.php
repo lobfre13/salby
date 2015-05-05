@@ -19,6 +19,10 @@
             $this->data[$key] = $val;
         }
 
+        public function __isset($attribute){
+            return isset($this->data[$attribute]);
+        }
+
         public function setViewPath($viewPath)
         {
             $this->viewPath = $viewPath;
