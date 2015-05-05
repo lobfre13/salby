@@ -9,8 +9,10 @@
 </script>
 
 <div id="content" class="widthConstrained">
+    <?php $this->showNotice();?>
     <?php include 'partialviews/topLinks.php'; ?>
     <div class="tableBG">
+
         <section id="klasse">
             <h2>Klasse <?php echo $this->class['classlevel'].$this->class['classname']; ?></h2>
 

@@ -92,7 +92,10 @@
             'fylke' => $fylke,
             'kommune' => $kommune
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Skolen ble lagt til!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
     function addSubject ($fagnavn, $klasseTrinn, $fileToUpload) {
         $sqlString = "INSERT INTO subjects (subjectname, classlevel, imgurl) VALUES (:fagnavn, :klasseTrinn, :fileToUpload)";
@@ -119,7 +122,10 @@
             'icon' => '/public/lobjects/'.$lObjectUrl.'/icon.png',
             'lObject' => '/public/lobjects/'.$lObjectUrl.'/index.html'
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT) && $lObjectUrl)
+            $_SESSION['notice'] = "Læringsobjektet ble lagt til!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
     //Search-operations
     function searchSchools ($searchString) {
@@ -165,7 +171,10 @@
             'kommune' => $kommune,
             'schoolid' => $schoolid
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Skole oppdatert!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
     function updateSubject ($subjectid, $subjectName, $classLevel, $imgUrl) {
         $sqlString = "UPDATE subjects
@@ -273,7 +282,10 @@
             'lobjectid' => $lObjectID,
             'categoryid' => $categoryID
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Læringsobjektrelasjonen ble lagt til!";
+        else
+            $_SESSION['error'] = "Relasjonen finnes allerede";
     }
     function updateLObject($lObjectID, $title){
         $lObjectUrl = explode(".", uploadAndExtractZIP())[0];
@@ -285,7 +297,10 @@
             'link' => '/public/lobjects/'.$lObjectUrl.'/index.html',
             'lobjectid' => $lObjectID
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Læringsobjektet ble oppdatert!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
     function getCategoryRelations($categoryID){
         $sqlString = "SELECT * FROM subjectcategory
@@ -309,7 +324,10 @@
             'categoryid' => $categoryID,
             'subjectid' => $subjectID
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Kategorirelasjon ble lagt til!";
+        else
+            $_SESSION['error'] = "Relasjonen finnes fra før";
     }
     function getSchoolUsers($schoolID){
         $sqlString = "SELECT * FROM users WHERE role = 'school' AND schoolid = :schoolid";
@@ -317,14 +335,18 @@
         return query($sqlString, $params, DBI::FETCH_ALL);
     }
     function addSchoolUser($schoolid, $username,$password, $email){
-        $sqlString = "INSERT INTO users VALUES (:username, :password, null, null, :email, 'school', null, :schoolid)";
+        $sqlString = "INSERT INTO users VALUES (:username, :password, null, null, :email, 'school', null, :schoolid)
+                      ON DUPLICATE KEY UPDATE username = username";
         $params = array(
             'username' => $username,
             'password' => $password,
             'email' => $email,
             'schoolid' => $schoolid
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Skolebruker opprettet!";
+        else
+            $_SESSION['error'] = "Brukernavnet er opptatt";
     }
     function newYear () {
         $sqlString = "SELECT * FROM :classes";
@@ -413,7 +435,10 @@
             'classLevel' => $classLevel,
             'imgUrl' => $imgUrl
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Faget ble lagt til!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function addNewCategory ($categoryName, $fileName) {
@@ -425,7 +450,10 @@
             'categoryName' => $categoryName,
             'imgUrl' => $imgUrl
         );
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Kategorien ble lagt til!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function editSubject ($subjectId, $subjectName, $classLevel, $fileName) {
@@ -454,7 +482,10 @@
                 'subjectId' => $subjectId
             );
         }
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Fag oppdatert!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function editCategory ($categoryId, $categoryName, $fileName) {
@@ -479,7 +510,10 @@
                 'categoryId' => $categoryId
             );
         }
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Kategorien ble oppdatert";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function generateImgUrl ($fileName) {
@@ -505,23 +539,23 @@
 
             $continue = strtolower($name[1]) == 'zip' ? true : false;
             if(!$continue) {
-                $message = "The file you are trying to upload is not a .zip file. Please try again.";
+                return false;
             }
 
-            $target_path = "/var/www/public/lobjects/".$filename;  // change this to the correct site path
+            $target_path = "/var/www/public/lobjects/".$filename;
             if(move_uploaded_file($source, $target_path)) {
                 $zip = new ZipArchive();
                 $x = $zip->open($target_path);
                 if ($x === true) {
-                    $zip->extractTo("/var/www/public/lobjects/"); // change this to the correct site path
+                    $zip->extractTo("/var/www/public/lobjects/");
                     $zip->close();
 
                     unlink($target_path);
                 }
-                $message = "Your .zip file was uploaded and unpacked.";
             } else {
-                $message = "There was a problem with the upload. Please try again.";
+                return false;
             }
             return $_FILES["zip_file"]["name"];
         }
+        else return false;
     }

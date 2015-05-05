@@ -279,3 +279,18 @@ a:hover{
         display: none;
     }
 }
+.error, .notice{
+    display: inline-block;
+    height: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px #000000;
+    border-radius: 5px;
+    min-width: 300px;
+    margin: auto;
+}
+.error{
+    background: linear-gradient(indianred, orangered);
+}
+.notice{
+    background: linear-gradient(#00d000, green);
+}

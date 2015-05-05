@@ -1,8 +1,7 @@
-<div class="widthConstrained" >
+<div id="content" class="widthConstrained" >
+    <?php $this->showNotice();?>
 
     <h1 id="adminPersonalPageHeadline"><?php echo $this->admin['firstname'] . ' ' . $this->admin['lastname'] . ' (' . $this->admin['username'] . ')';?></h1>
-
-    <div id="centerMyContent">
 
         <div id="emailDiv" class="adminPersonalBox">
             <h3>E-post</h3>
@@ -28,7 +27,6 @@
                 <input class="submit" type="submit" value="Endre" class="endreButton">
             </form>
         </div>
-    </div>
     <a id="returnToMainPage" href="/admin"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
     <a id ="learningPages" href="http://larer.salaby.no/" >Gå til Salaby's lærersider<img src="/public/img/pil.png" width="15px"></a>
 </div>

@@ -354,15 +354,6 @@ a.navBtns{
 .adminPersonalBox h3:nth-child(2) {
     margin-bottom: 10px;
 }
-/*
-.adminPersonalBox h3:first-child {
-    margin-bottom: 20px;
-}
-*/
-#centerMyContent {
-    text-align: center;
-
-}
 
 #adminPersonalPageHeadline {
     text-align: center;

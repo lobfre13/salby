@@ -96,16 +96,19 @@
             $this->view->setViewPath('/teacher/homework/choosePupils.php');
             $this->view->classid = $classid;
             $this->view->pupils = getPupils($classid);
-//            $this->view->pupils = combinePupilNameAndProgress($classid);
-//            $this->view->homeworkProgress = calculateHomeworkProgressForPupil($username);
             $this->view->pendingTasks = getPendingTasks($classid, $username);
-            if(arrayEmpty($this->view->pendingTasks)) return $this->addTask();
+            if(arrayEmpty($this->view->pendingTasks)){
+                $_SESSION['error'] = "Du har valgt noen gjøremål";
+                return $this->addTask();
+            }
             $this->view->showPage();
         }
 
         public function acceptTasks(){
             if(!isset($_POST['pupils'])){
-                return $this->addTask();
+                $_SESSION['error'] = "Du har valgt noen elever";
+                header("Location: /teacher/choosePupils/".$_POST['classid']);
+                exit;
             }
             $pupilUsernames = $_POST['pupils'];
             $classid = $_POST['classid'];

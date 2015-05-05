@@ -38,4 +38,16 @@
         public function showStrippedPage(){
             include $this->root.'/app/views/'.$this->viewPath;
         }
+
+        public function showNotice(){
+            if(isset($_SESSION['error'])){
+                echo '<div><span class="error">'.$_SESSION['error'].'</span></div>';
+
+            }
+            else if(isset($_SESSION['notice'])){
+                echo '<div><span class="notice">'.$_SESSION['notice'].'</span></div>';
+            }
+            unset($_SESSION['error']);
+            unset($_SESSION['notice']);
+        }
     }

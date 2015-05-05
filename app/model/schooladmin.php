@@ -43,7 +43,8 @@
     }
 
     function registerTeacher($firstname, $lastname, $email, $username, $passowrd, $schoolid){
-        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, :email, 'teacher', null, :schoolid)";
+        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, :email, 'teacher', null, :schoolid)
+                      ON DUPLICATE KEY UPDATE username = username";
         $params = array(
             'username' => $username,
             'password' => $passowrd,
@@ -53,8 +54,10 @@
             'schoolid' => $schoolid
         );
 
-        query($sqlString, $params);
-
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+           $_SESSION['notice'] = "Lærerbrukeren ble opprettet!";
+        else
+            $_SESSION['error'] = "Brukernavnet du valgte er opptatt";
     }
 
     function addNewSchoolClass($schoolID, $className, $classLevel){
@@ -67,6 +70,10 @@
 
         $classId = query($sqlString, $params, DBI::LAST_ID);
         addSubjectsToClass($classId, $classLevel);
+        if($classId)
+            $_SESSION['notice'] = "Klassen ble opprettet!";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function addSubjectsToClass($classId, $classLevel){
@@ -96,9 +103,21 @@
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
 
+    function usernameTaken($username){
+        $sqlString = "SELECT * FROM users WHERE username = :username";
+        $params = array('username' => $username);
+        return query($sqlString, $params, DBI::ROW_COUNT) > 0;
+    }
+
     function addNewPupilToClass($schoolid, $classid, $firstname, $lastname){
-        $username = substr($lastname, 0, 3).substr($firstname, 0,3);
-        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, null, 'pupil', :classid, :schoolid)";
+        $OrigUsername = substr($lastname, 0, 3).substr($firstname, 0,3);
+        $username = $OrigUsername;
+        $i = 1;
+        while(usernameTaken($username)){
+            $username = $OrigUsername.$i++;
+        }
+        $sqlString = "INSERT INTO users VALUES(:username, :password, :firstname, :lastname, null, 'pupil', :classid, :schoolid)
+                      ON DUPLICATE KEY UPDATE username = username";
         $params = array(
             'username' => $username,
             'password' => $username,
@@ -108,7 +127,10 @@
             'schoolid' => $schoolid
         );
 
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Eleven ble opprettet";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
     }
 
     function getSchoolTeachers($schoolID){
@@ -130,7 +152,10 @@
 
         $sqlString = "INSERT INTO mainteachers VALUES(:username, :classId)";
         $params = array('username' => $username, 'classId' => $classId);
-        query($sqlString, $params);
+        if(query($sqlString, $params, DBI::ROW_COUNT))
+            $_SESSION['notice'] = "Kontaktlærer oppdatert";
+        else
+            $_SESSION['error'] = "En feil har oppstått";
 
         $sqlString2 = "DELETE FROM classsubjectteachers WHERE classsubjectid = :classsubjectId";
         $sqlString = "INSERT INTO classsubjectteachers VALUES(:username, :classsubjectId)";

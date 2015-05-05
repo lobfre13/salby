@@ -15,17 +15,21 @@
         submit.click();
     }
     function deleteSchoolClass(obj, classId){
-        ajaxCall("GET", "/schooladmin/deleteSchoolClass/" + classId, true);
-        $(obj).closest('tr').remove();
+        if(confirm("Er du sikker på at du vil slette denne klassen?\nAlle elever som tilhører denne klassen vil også bli slettet!"){
+            ajaxCall("GET", "/schooladmin/deleteSchoolClass/" + classId, true);
+            $(obj).closest('tr').remove();
+        }
     }
 
 </script>
 <div id="content" class="widthConstrained">
+    <?php $this->showNotice();?>
     <?php include 'partialviews/topLinks.php'; ?>
 
     <h2>Skolens klasser</h2>
 
     <div id="classContent" class="tableBG">
+
         <section id="topMenu">
            <span onclick="showAddClass()">
                 Legg til klasse

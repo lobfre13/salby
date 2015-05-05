@@ -12,6 +12,7 @@
 </script>
 
 <div id="content" class="widthConstrained">
+    <?php $this->showNotice();?>
     <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
     <div class="tableBG">
         <h2><?php echo $this->category['category']; ?></h2>

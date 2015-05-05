@@ -16,6 +16,7 @@
     }
 </script>
 <div id="content" class="widthConstrained">
+    <?php $this->showNotice();?>
     <?php include "PartialViews/adminMenu.php"?>
     <div class="tableBG">
         <section id="topMenu">

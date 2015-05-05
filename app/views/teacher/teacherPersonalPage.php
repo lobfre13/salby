@@ -1,8 +1,7 @@
-<div class="widthConstrained" >
+<div id="content" class="widthConstrained" >
+    <?php $this->showNotice();?>
 
     <h1 id="adminPersonalPageHeadline"><?php echo $this->teacher['firstname'] . ' ' . $this->teacher['lastname'] . ' (' . $this->teacher['username'] . ')';?></h1>
-
-    <div id="centerMyContent">
 
         <div id="emailDiv" class="adminPersonalBox">
             <h3>E-post</h3>
@@ -18,7 +17,7 @@
 
         <div id="passwordDiv" class="adminPersonalBox">
             <h3>Endre passord</h3>
-            <form method="post" action="/admin/doChangePassword">
+            <form method="post" action="/teacher/doChangePassword">
                 <input name="currentPassword" type="password" placeholder="Nåværende passord..." class="smoothInputField" required>
                 <br>
                 <input name="newPassword1" type="password" placeholder="Nytt passord..." class="smoothInputField" required>
@@ -28,7 +27,6 @@
                 <input class="submit" type="submit" value="Endre">
             </form>
         </div>
-    </div>
     <a id="returnToMainPage" href="/admin"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
     <a id ="learningPages" href="http://larer.salaby.no/" >Gå til Salaby's lærersider<img src="/public/img/pil.png" width="15px"></a>
 </div>
