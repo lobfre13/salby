@@ -6,8 +6,8 @@
         <option value="4">4. klasse</option>
         <option value="5">5. klasse</option>
         <option value="6">6. klasse</option>
-        <option value="7">8. klasse</option>
+        <option value="7">7. klasse</option>
     </select></td>
 <td><input type="text" name="className" placeholder="Klassebokstav" maxlength="1" required></td>
-<td><div id="addClassBtnComplete" onclick="doAddSchoolClass()"><input id="submitBtn" type="submit" class="hide"></div>
+<td class="editDeleteColumn"><label class="leggTil" for="submitBtn">Legg til</label> <div id="addClassBtnComplete" onclick="doAddSchoolClass()"><input id="submitBtn" type="submit" class="hide"></div>
 <div onclick="$(this).closest('tr').html('')" class="deleteBtn"></div></td>

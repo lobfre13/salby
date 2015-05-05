@@ -1,0 +1,14 @@
+.slide4.background{
+    background: linear-gradient(palegreen, white);
+    background: -webkit-linear-gradient(palegreen, white);
+}
+.slide4 .jasmin {
+    left: 60%;
+    height: 300px;
+    top: 240px;
+}
+.slide4 .snakkeboble{
+    left: 50%;
+    top: 30px;
+    width: 280px;
+}

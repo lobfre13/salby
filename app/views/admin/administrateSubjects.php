@@ -47,7 +47,7 @@
                         <td><?php echo $subject['subjectname']?></td>
                         <td><?php echo $subject['classlevel']?></td>
                         <td><img src="<?php echo$subject['imgurl']?>" width="35"></td>
-                        <td>
+                        <td class="editDeleteColumn">
                             <a href="/admin/editSubjects/<?php echo $subject['id']; ?>"><div title="Rediger fag" class="editBtn"></div></a>
                             <div title="Slett fag" onclick="deleteSubject(this, <?php echo $subject['id'];?>)" class="deleteBtn"></div>
                         </td>

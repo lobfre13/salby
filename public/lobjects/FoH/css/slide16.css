@@ -1,0 +1,13 @@
+.slide16.background{
+    background: linear-gradient(palegreen, palegreen, #e2b512);
+    background: -webkit-linear-gradient(palegreen, palegreen, #e2b512);
+}
+.slide16 .jasmin{
+    height: 300px;
+    bottom: -30px;
+    left: 45%;
+}
+.slide16 .snakkeboble{
+    top: 30px;
+    width: 310px;
+}

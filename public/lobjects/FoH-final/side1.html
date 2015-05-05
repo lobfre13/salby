@@ -1,0 +1,77 @@
+
+<!-- saved from url=(0050)http://46.9.233.124/public/lobjects/test/side1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body{
+            margin: 0px;
+        }
+        .container
+        {
+            width: 100%;
+            height: 100%;
+            max-width: 700px;
+            background: black;
+        }
+        #background{
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(deepskyblue, white); /* Standard syntax */
+
+        }
+        #jasmin{
+            position: absolute;
+            height: 600px;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-left:auto;
+            margin-right:auto;
+        }
+        #snakkeboble{
+            left: 50%;
+            transform: translate(-50%, 0);
+            position: absolute;
+            top: 70px;
+            width: 260px;
+            background: white;
+            border: 2px solid black;
+            border-radius: 25px;
+            text-align: center;
+            padding: 5px;
+        }
+        #blomst{
+            position: absolute;
+            height: 500px;
+            top: 120px;
+            left: 50%;
+            transform: translate(-50%, 0) rotate(0deg);
+            margin-left:auto;
+            margin-right:auto;
+            -webkit-animation-name:             rotate;
+            -webkit-animation-duration:         40s;
+            -webkit-animation-iteration-count:  infinite;
+        }
+        @-webkit-keyframes rotate {
+            to {
+                -webkit-transform: translate(-50%, 0) rotate(360deg);
+            }
+        }
+    </style>
+<style type="text/css"></style></head>
+
+<body><div class="container">
+<div class="slide1" id="background">
+    <audio controls="" autoplay="">
+        <source src="https://dl.dropboxusercontent.com/u/77536881/side1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <img id="blomst" src="./side1_files/flower8.png">
+    <div id="snakkeboble"><h3>Hei! Mitt navn er Jasmin og jeg skal fortelle deg om min religion, Hinduismen!</h3></div>
+    <img id="jasmin" src="./side1_files/Jasmin.png">
+</div>
+
+</div></body></html>

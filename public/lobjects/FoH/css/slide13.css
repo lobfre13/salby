@@ -1,0 +1,31 @@
+.slide13.background{
+    background: linear-gradient(lightgreen, green);
+    background: -webkit-linear-gradient(lightgreen, green);
+}
+.slide13 .jasmin{
+    height: 250px;
+    top: 260px;
+    left: 35%;
+}
+.slide13 .snakkeboble{
+    top: 30px;
+    width: 310px;
+}
+.slide13 #ku{
+    position: absolute;
+    height: 180px;
+    top: 300px;
+    left: 65%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    z-index: 13;
+}
+
+.testdiv{
+    width: 360px;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    position: absolute;
+}

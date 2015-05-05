@@ -12,7 +12,6 @@
             ajaxCall("GET", "/admin/deletelObjectRelation/"+catID+"/"+lObjectID, true);
             $(obj).closest("tr").remove();
         }
-
     }
 </script>
 
@@ -40,7 +39,6 @@
             </table>
         </div>
 
-
         <div class="relationTable">
             <div>
 
@@ -51,7 +49,6 @@
                     <input class="submit" type="submit" value="Oppdater">
                 </form>
             </div>
-
 
             <div>
                 <h4>Legg til relasjon</h4><br>
@@ -73,10 +70,7 @@
                         <option value="" selected disabled>Velg kategori..</option>
                     </select><br>
                     <input class="submit" type="submit" value="Legg til relasjon">
-
                 </form>
-
-
             </div>
         </div>
     </div>

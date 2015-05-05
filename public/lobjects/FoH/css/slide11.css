@@ -1,0 +1,14 @@
+.slide11.background{
+    background: linear-gradient(deeppink, white);
+    background: -webkit-linear-gradient(deeppink, white);
+}
+.slide11 .jasmin {
+    height: 250px;
+    top: 230px;
+    left: 60%;
+}
+.slide11 .snakkeboble{
+    left: 45%;
+    top: 50px;
+    width: 260px;
+}

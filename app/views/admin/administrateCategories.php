@@ -49,7 +49,7 @@
                     <td><img width="100" src="<?php echo $category['catimg']?>"></td>
                     <td><?php echo $category['subjectname']?></td>
                     <td><?php echo $category['classlevel']?></td>
-                    <td><a href="/admin/editCategories/<?php echo $category['catid']; ?>">
+                    <td class="editDeleteColumn"><a href="/admin/editCategories/<?php echo $category['catid']; ?>">
                             <div title="Rediger kategori" class="editBtn"></div>
                         </a><div title="Slett kategori" onclick="deleteCategory(this, <?php echo $category['catid'];?>)" class="deleteBtn">
 

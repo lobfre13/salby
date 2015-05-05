@@ -45,14 +45,14 @@
                 <tr>
                     <th>Klassetrinn</th>
                     <th>Klasse</th>
-                    <th>Endre</th>
+                    <th></th>
                 </tr>
                 <tr id="addClass"></tr>
                 <?php foreach ($this->classes as $class) { ?>
                     <tr>
                         <td><?php echo $class['classlevel'] ?></td>
                         <td><?php echo $class['classname'] ?></td>
-                        <td><a href="/schooladmin/editSchoolClass/<?php echo $class['id']; ?>">
+                        <td class="editDeleteColumn"><a href="/schooladmin/editSchoolClass/<?php echo $class['id']; ?>">
                                 <div class="editBtn"></div>
                             </a>
                         <div onclick="deleteSchoolClass(this, <?php echo $class['id'];?>)" class="deleteBtn"></td>

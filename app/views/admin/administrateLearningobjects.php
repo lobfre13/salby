@@ -44,7 +44,7 @@
                     <td><?php echo $learningObject['title']?></td>
                     <td><img src="<?php echo $learningObject['imgurl']?>" width="35"></td>
                     <td><a href="<?php echo $learningObject['link']?>">Gå til læringsobjektet</a></td>
-                    <td><a href="/admin/editLearningobjects/<?php echo $learningObject['id']; ?>"><div title="Rediger læringsobjekt" class="editBtn"></div></a>
+                    <td class="editDeleteColumn"><a href="/admin/editLearningobjects/<?php echo $learningObject['id']; ?>"><div title="Rediger læringsobjekt" class="editBtn"></div></a>
                         <div title="Slett læringsobjekt" onclick="deleteLearningObject(this, <?php echo $learningObject['id'];?>)" class="deleteBtn"></td>
                 </tr>
             <?php } ?>
