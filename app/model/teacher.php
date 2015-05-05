@@ -30,7 +30,7 @@ include_once 'dbInterface.php';
         $sqlString = "SELECT lo.title, h.duedate, h.url, h.id FROM learningobjects as lo
                                    JOIN homework as h ON h.learningobjectsid = lo.id
                                    JOIN classsubjects as cs ON cs.id = h.classsubjectid
-                                   WHERE cs.classid = :classid";
+                                   WHERE cs.id = :classid";
         $params = array(
             'classid' => $classID
         );

@@ -34,7 +34,7 @@
 
         <div class="relationTable">
             <div>
-                <h4>Legg til ny bruker</h4>
+                <h4>Endre skole</h4>
                 <form method="post" action="/admin/updateSchool">
                     <input name="id" type="hidden" value="<?php echo $this->school['id']; ?>" required>
                     <input required class="smoothInputField" name="name" type="text" placeholder="Skolenavn" value="<?php echo $this->school['name']; ?>">
