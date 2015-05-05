@@ -61,7 +61,8 @@
         <?php
             foreach ($this->favouriteList as $favouriteItem) { ?>
                 <div class="favouriteGames">
-                    <a href="<?php echo $favouriteItem['url']; ?>"> <img id="favouritePicture" src="<?php echo $favouriteItem['imgurl']; ?>"></a>
+                    <a title="<?php echo $favouriteItem['title']; ?>" href="<?php echo $favouriteItem['url']; ?>"> <img
+                            id="favouritePicture" src="<?php echo $favouriteItem['imgurl']; ?>"></a>
                     <form action="/mypage/removeFavourite" onsubmit="return confirm('Er du sikker på at du vil fjerne denne favoritten?')" id="removeFavouriteButton" method="post">
                         <input type="Submit" value=""><input type = "hidden" value="<?php echo $favouriteItem['id']; ?>" name="lObjectId">
                     </form>
