@@ -607,3 +607,14 @@ h4{
 .tableBG > h2{
     margin: 0;
 }
+.leggTil{
+    cursor: pointer;
+    vertical-align: 50%;
+}
+.leggTil:hover{
+    color: #00BE39;
+}
+
+.editDeleteColumn{
+    text-align: right;
+}

@@ -1,0 +1,20 @@
+.slide5.background{
+    background: linear-gradient(sandybrown, white); /* Standard syntax */
+    background: -webkit-linear-gradient(sandybrown, white); /* Standard syntax */
+
+}
+.slide5 .bord{
+    position: absolute;
+    height: 250px;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    margin-left:auto;
+    margin-right:auto;
+}
+.slide5 .snakkeboble{
+    left: 50%;
+    top: 20px;
+    width: 260px;
+}

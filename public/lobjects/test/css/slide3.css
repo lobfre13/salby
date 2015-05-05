@@ -1,0 +1,40 @@
+.slide3.background{
+    background: linear-gradient(sandybrown, white);
+    background: -webkit-linear-gradient(sandybrown, white);
+
+}
+.slide3 .gud1{
+    left: 25%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    position: absolute;
+    width: 50px;
+    top: 30px;
+    text-align: center;
+}
+.slide3 .gud2{
+    left: 65%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    width: 50px;
+    top: 30px;
+    text-align: center;
+}
+.slide3 .gud3{
+    left: 45%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    width: 50px;
+    top: 130px;
+    text-align: center;
+}
+.slide3 .snakkeboble{
+    top: 270px;
+    width: 260px;
+}
+.slide3 .bildetekst{
+    text-align: center;
+}
+.slide3 h3{
+    margin: 5px;
+}
