@@ -11,7 +11,7 @@
                 <h3>Endre e-postadresse</h3>
                 <input name="email" type="email" placeholder="Skriv inn ny e-post..." class="smoothInputField" required>
                 <br>
-                <input type="submit" value="Endre" class="endreButton">
+                <input class="submit" type="submit" value="Endre" class="endreButton">
             </form>
         </div>
 
@@ -25,7 +25,7 @@
                 <br>
                 <input name="newPassword2" type="password" placeholder="Gjenta passord..." class="smoothInputField" required>
                 <br>
-                <input type="submit" value="Endre" class="endreButton">
+                <input class="submit"  type="submit" value="Endre" class="endreButton">
             </form>
         </div>
     </div>

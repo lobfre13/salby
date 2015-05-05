@@ -9,7 +9,7 @@ class FoHController extends superController{
     public function index($failedLogin = false){
 
         echo "Here are our files<br><br>";
-        $path = "./public/lobjects/FoH";
+        $path = "./public/lobjects/test";
         $dh = opendir($path);
         $i=1;
         while (($file = readdir($dh)) !== false) {

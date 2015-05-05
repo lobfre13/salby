@@ -11,8 +11,4 @@
                 <input type="password" name="password" placeholder="Passord" tabindex="2"/></label><br>
                 <input id="loginSubmit" type="submit" value="Logg inn" tabindex="3"/>
             </form>
-            <br>
-            <a href="#" tabindex="-1">Glemt passord?</a>   <a href="/register" tabindex="-1">Opprett ny bruker</a>
-            <br><br>
-            <a id="nonLogin" href="#" tabindex="-1">Fortsett uten innlogging</a>
         </div>
