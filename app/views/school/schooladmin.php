@@ -31,15 +31,13 @@
                 Legg til klasse
             </span>
 
-            <span id="addTeacher" onclick="window.location.href='/schooladmin/newTeacher/'">Opprett ny lærer</span>
-
-
             <form method="post" action="/schooladmin" class="form-wrapper">
                 <input type="text" id="search" name="searchBoxSchoolsClasses" placeholder="Søk etter klasse...">
                 <input type="submit" value="søk" id="submit">
             </form>
 
         </section>
+        <div class="relationTable">
         <form method="post" action="/schooladmin/addNewSchoolClass" id="addSchoolClassForm">
             <table>
                 <tr>
@@ -61,7 +59,21 @@
 
             </table>
         </form>
+        </div>
+        <div class="relationTable" id="newTeacher">
+            <h2>Opprett ny lærer</h2>
+            <form method="post" action="/schooladmin/registerNewTeacher">
+                <input required type="text" name="firstname" placeholder="Fornavn"><br>
+                <input required type="text" name="lastname" placeholder="Etternavn"><br>
+                <input required type="email" name="email" placeholder="Epost"><br>
+                <input required type="text" name="username" placeholder="Brukernavn"><br>
+                <input required type="password" name="password" placeholder="Passord"><br>
+                <input class="submit" type="submit" value="Legg til lærer">
+            </form>
+            <br>
 
+        </div>
     </div>
+
 
 </div>

@@ -21,7 +21,7 @@ table, tr, td {
     padding-bottom: 5px;
 }
 table{
-    width: 50%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -340,7 +340,8 @@ ul#adminMainMenu li{
 
 
 .relationTable{
-    width: 45%;
+    margin-top: 50px;
+    width: 55%;
     display: inline-block;
     vertical-align: top;
 }
@@ -617,4 +618,10 @@ h4{
 
 .editDeleteColumn{
     text-align: right;
+}
+
+#newTeacher{
+    position: absolute;
+    width: 300px;
+    right: 0px;
 }
