@@ -2,7 +2,7 @@
 
 <div id="content" class="widthConstrained">
     <?php $this->showNotice();?>
-    <span class="addTaskIndicator" style="background-color: #00BFD5">Lekseliste</span>
+    <span class="addTaskIndicator" style="background-color: #959595">Lekseliste</span>
     <span class="addTaskIndicator">Velg elever</span>
     <span class="addTaskIndicator">Godkjenn</span>
 
