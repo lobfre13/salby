@@ -281,14 +281,14 @@
 @media screen and (min-width: 1000px) {
 
     .subjectimg{
-        position: absolute;
+        /*position: absolute;*/
         left: -1px;
         top: 0;
         transition: opacity 0.3s, width 0.3s, left 0.3s, top 0.3s !important;
         z-index: 3;
     }
     .subject{
-        height: 150px;
+        /*height: 150px;*/
     }
 }
  /*mobile */
@@ -299,21 +299,23 @@
         padding: 6px;
     }
 }
-@media screen and (max-width: 774px),
-screen and (min-device-width : 768px) and (max-device-width : 1024px),
-screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-    .subjectname{
+@media only screen and (max-width: 774px),
+only screen and (min-device-width : 768px) and (max-device-width : 1024px),
+only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .subjectname {
         padding: 3px;
-        left:-6px;
+        padding-right: 10px;
+        padding-left: 10px;
+        left:-10px;
         font-size: 3vw;
     }
 
     .subject{
         max-width: none;
         width: 22%;
-        margin-right: 5vw;
-        margin-left: 5vw;
-        margin-bottom: 6vw;
+        margin-right: 5% !important;
+        margin-left: 5% !important;
+        margin-bottom: 6% !important;
         height: 100%;
     }
 
@@ -400,7 +402,7 @@ screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webk
     position: absolute;
     top: 15%;
     right: -10%;
-    index: 0;
+    z-index: 0;
 
     transition: opacity 2s linear;
 
