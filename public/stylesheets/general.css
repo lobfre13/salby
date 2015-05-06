@@ -1,11 +1,11 @@
 /* GENERAL + HEADER AND FOOTER */
+
 html, body {
     font-family: 'Ubuntu', sans-serif;
-    height: 100%;
-    width: 100%;
     margin: 0;
-    overflow: auto;
     font-size: 16px;
+    height: 100%;
+    overflow: auto;
 }
 body {
     background: linear-gradient(deepskyblue, lightblue);
@@ -248,6 +248,10 @@ a:hover{
 @media only screen and (max-width: 774px),
 only screen and (min-device-width : 768px) and (max-device-width : 1024px),
 only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2)  {
+    body{
+        background: linear-gradient(deepskyblue, lightblue);
+        background: -webkit-linear-gradient(deepskyblue, lightblue)
+    }
     .showMenuOnClick #dropDownMainMenu{
         visibility: visible !important;
         max-height: 900px !important;
@@ -263,11 +267,13 @@ only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (
     #user{
         min-width: 0;
     }
+
     #hamMenu:hover{
         background-color: transparent;
     }
 
 }
+
 @media screen and (max-width: 710px) {
     .topMenuUser{
         display: none;

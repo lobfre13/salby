@@ -40,7 +40,7 @@ h2{
 }
 
 #homeworkListHeader th{
-    font: italic 20px Ubuntu;
+    font: italic 20px 'Chelsea Market';
 }
 #homeworkList td{
 
@@ -95,7 +95,7 @@ h2{
 
 
 /* mobile */
-@media screen and (max-width: 659px) {
+@media screen and (max-width: 775px) {
     .subjectColumn {
         display: none;
     }
@@ -140,8 +140,7 @@ h2{
 
     [type="checkbox"]:not(:checked) + label,
     [type="checkbox"]:checked + label {
-        position: relative;
-        padding-left: 25px;
+        position: absolute;
         cursor: pointer;
     }
 
@@ -149,10 +148,10 @@ h2{
     [type="checkbox"]:not(:checked) + label:before,
     [type="checkbox"]:checked + label:before {
         content: '';
-        margin: 10px;
+        margin: 0;
         position: absolute;
         left: 0;
-        top: 2px;
+        top: -10px;
         width: 20px;
         height: 20px;
         border: 1px solid #aaa;
@@ -166,8 +165,8 @@ h2{
     [type="checkbox"]:checked + label:after {
         content: '✔';
         position: absolute;
-        top: -20px;
-        left: 4px;
+        top: -42px;
+        left: 0;
         font-size: 50px;
         color: #09ad7e;
         transition: all .2s;
@@ -177,11 +176,13 @@ h2{
     [type="checkbox"]:not(:checked) + label:after {
         opacity: 0;
         transform: scale(0);
+        -webkit-transform: scale(0);
     }
 
     [type="checkbox"]:checked + label:after {
         opacity: 1;
         transform: scale(1);
+        -webkit-transform: scale(1);
     }
 
     /* disabled checkbox */
@@ -209,4 +210,9 @@ h2{
     /* hover style just for information */
     label:hover:before {
         border: 1px solid #4778d9 !important;
+    }
+
+    .checkedColumn{
+        position: relative;
+        padding: 20px;
     }

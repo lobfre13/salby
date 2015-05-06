@@ -10,16 +10,7 @@
 
 
 <div id="content" class="widthConstrained">
-<!--    // printer brukernavn og passord, tatt bort 5/3-15-->
-<!--    <div class="mypage"  id="usernameAndClass">-->
-<!--        <ul>-->
-<!--            --><?php
-//    echo '<li>' . $this->studentFullName['firstname'] . ' ' . $this->studentFullName['lastname'] . '</li>';
-//    echo '<li> Klasse ' . $this->schoolClass['classlevel'] . $this->schoolClass['classname'] . '</li>';
-//    ?>
-<!--        </ul>-->
-<!--    </div>-->
-<!--    <br>-->
+
     <h2>
         <?php
         echo 'Lekser';
@@ -44,12 +35,8 @@
                         </td>
                         <td class ="dateColumn"><?php echo date('Y-m-d', strtotime($homeworkSubject['duedate'])); ?></td>
                         <td class ="checkedColumn">
-                            <form>
-                                <p>
-                                    <input <?php if($homeworkSubject['isdone'] == 1) echo 'checked';?> onchange="updateHomeworkStatus(<?php echo $homeworkSubject['id']; ?>)" type="checkbox" id="test<?php echo $i; ?>" />
-                                    <label for="test<?php echo $i; ?>"></label>
-                                </p>
-                            </form>
+                            <input <?php if($homeworkSubject['isdone'] == 1) echo 'checked';?> onchange="updateHomeworkStatus(<?php echo $homeworkSubject['id']; ?>)" type="checkbox" id="test<?php echo $i; ?>" />
+                            <label for="test<?php echo $i; ?>"></label>
                         </td>
                     </tr>
             <?php } ?>

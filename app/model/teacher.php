@@ -136,9 +136,10 @@
 
     function addHomework($pendingTasks, $pupilUsernames, $classid){
         foreach($pendingTasks as $task){
-            $sqlString = "INSERT INTO homework VALUES(null, :csid, :taskid, null, '/forside/fag/1-klasse/norsk/mockURL/" . $task['title'] . "')";
+            $sqlString = "INSERT INTO homework VALUES(null, :csid, :taskid, null, :lObjectUrl)";
             $params = array(
                 'csid' => $classid,
+                'lObjectUrl' => slugify(getLObjectPath($task['title'])),
                 'taskid' => $task['learningobjectid']
             );
             $id = query($sqlString, $params, DBI::LAST_ID);
