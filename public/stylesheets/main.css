@@ -80,24 +80,29 @@
     width: 150px;
     height: 150px;
     display: inline-block;
-    margin: 20px 10px;
+    margin: 40px 10px;
     cursor: pointer;
     padding-top: 0;
     background-size: 100% 100%;
-    overflow: hidden;
 }
 
-.categoryname{
+.categoryname {
     color: white;
-    margin-top: 105px;
-    background-color: rgba(0,0,0, 0.7);
-    font-size: 18px;
-    border-radius: 5px;
+    margin-top: 120px;
+    background-color: #FF8700;
+    font-size: 20px;
+    border-top: 2px solid white;
+    padding: 3px;
+}
 
+.lObject .categoryname {
+    border: 3px solid white;
+    border-radius: 10px;
+    margin-top: 115px;
 }
 
 .category:hover .categoryname, .lObject:hover .categoryname {
-    background-color: #00BFD5;
+    background-color: #3498db;
 }
 
 

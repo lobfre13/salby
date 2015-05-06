@@ -150,6 +150,11 @@ table a, table a:visited{
     border-radius: 3px;
     vertical-align: top;
 }
+.categoryname {
+    background-color: green;
+    margin-top: 82px;
+    color: white;
+}
 .lobject{
     vertical-align: top;
     display: inline-block;
