@@ -2,10 +2,7 @@
     function updateFavourite(id){
         if (id == "") return;
         else {
-            xmlhttp = new XMLHttpRequest();
-
-            xmlhttp.open("GET","/main/updateFavourite/?id="+id+"&url="+document.URL, true);
-            xmlhttp.send();
+            ajaxCall("GET", "/main/updateFavourite/?id="+id+"&url="+document.URL, true);
         }
     }
 

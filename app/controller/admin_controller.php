@@ -50,19 +50,19 @@
         {
             $this->view->setViewPath('admin/CRUD/addSchool.php');
             $this->view->schools = getSchools();
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function addCategories()
         {
             $this->view->setViewPath('admin/CRUD/addCategories.php');
             $this->view->categories = getAllCategories();
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function doAddSchool () {
             $this->view->setViewPath('admin/CRUD/addSchool.php');
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function actuallyAddSchool () {
@@ -97,12 +97,12 @@
 
         public function addSubject(){
             $this->view->setViewPath('admin/CRUD/addSubjects.php');
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function addLearningObject () {
             $this->view->setViewPath('admin/CRUD/addLearningObjects.php');
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         //Delete-operations
@@ -145,14 +145,14 @@
         public function loadSubjects(){
             $this->view->setViewPath("admin/PartialViews/subjectOptions.php");
             $this->view->subjects = getSubjects($this->urlElements[2]);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function loadCategories(){
             $this->view->setViewPath("admin/PartialViews/categoryOptions.php");
             $this->view->categories = getCategories($this->urlElements[2]);
             if(isset($this->urlElements[3])) $this->view->optionalCategory = "HELLO";
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function addlObjectRelation(){
@@ -176,11 +176,6 @@
             $this->view->showPage();
         }
 
-//        public function updateCategory(){
-//            updateCategory($_POST['id'], $_POST['title'], $_POST['icon']);
-//            header("Location: /admin/editCategories/".$_POST['id']);
-//            exit;
-//        }
 
         public function addCategoryRelation(){
             addCategoryRelation($this->urlElements[2], $_POST['subject'] , $_POST['category']);

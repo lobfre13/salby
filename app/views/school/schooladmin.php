@@ -24,7 +24,6 @@
 </script>
 <div id="content" class="widthConstrained">
     <?php $this->showNotice();?>
-    <?php include 'partialviews/topLinks.php'; ?>
 
     <h2>Skolens klasser</h2>
 

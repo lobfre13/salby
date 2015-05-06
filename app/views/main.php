@@ -1,17 +1,3 @@
-<script>
-    function showSubjects(btn){
-        var obj = document.getElementById("subjects");
-        if(obj.className === 'subjectsToggle subjects'){
-            btn.innerText = "Vis Fag >>";
-            obj.className = 'subjectsToggle';
-        }
-        else{
-            btn.innerText = "Skjul fag <<";
-            obj.className = 'subjectsToggle subjects';
-        }
-    }
-</script>
-
 <div id="content" class="widthConstrained">
     <div id="subjects" class="<?php echo $this->subjectsHTMLClass; ?>">
         <?php foreach($this->subjects as $subject) { ?>
@@ -19,7 +5,6 @@
         <?php } ?>
 
     </div>
-    <!--<h4 id="subjectDropDownBtn" class="" onclick="showSubjects(this)">Vis Fag >></h4>-->
 
     <div class="subjectContent">
         <?php

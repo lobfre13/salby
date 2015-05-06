@@ -20,7 +20,7 @@
 
             $this->view->setViewPath('teacher/homework/partialviews/teacherClass.php');
             $this->view->pupils = combinePupilNameAndProgress($classId);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function getClassTasks(){
@@ -30,14 +30,14 @@
             $this->view->setViewPath('teacher/homework/partialviews/classTasks.php');
             $this->view->tasks = getClassTasks($classId);
             $this->view->classId = $classId;
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function editTask(){
             $taskId = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/editTask.php');
             $this->view->task = getClassTask($taskId);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function updateTask(){
@@ -60,14 +60,14 @@
             $subjectID = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/addTaskCategories.php');
             $this->view->categories = getSubjectCategories($subjectID);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function getCategoryContent(){
             $categoryid = $this->urlElements[2];
             $this->view->setViewPath('teacher/homework/partialviews/addTaskCategoryContent.php');
             $this->view->categoryContent = getCategoryContent($categoryid);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function addPendingTask(){
@@ -82,7 +82,7 @@
             $username = $this->user->username;
             $this->view->setViewPath('teacher/homework/partialviews/pendingTasks.php');
             $this->view->pendingTasks = getPendingTasks($subjectID, $username);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
 
         }
         public function deletePendingTask(){
@@ -138,7 +138,7 @@
         public function pupilsFromClass () {
             $this->view->setViewPath('teacher/pupilSettingsTable.php');
             $this->view->pupils = getPupilsByClassId($this->urlElements[2]);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function teacherPersonalPage () {

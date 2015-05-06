@@ -1,11 +1,7 @@
 <script>
     function updateHomeworkStatus(homeworkid){
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","/mypage/updateHomework/" + homeworkid, true);
-        xmlhttp.send();
+        ajaxCall("GET", "/mypage/updateHomework/" + homeworkid, true);
     }
-
-
 </script>
 
 

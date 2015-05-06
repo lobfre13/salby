@@ -21,7 +21,7 @@
         public function showAddClass()
         {
             $this->view->setViewPath("/school/partialviews/addClass.php");
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function getClasses(){
@@ -29,7 +29,7 @@
             $classLevel = $this->urlElements[2];
             $this->view->setViewPath("school/partialviews/schoolClassesInLevel.php");
             $this->view->schoolClasses = getClassesInLevel($schoolID, $classLevel);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
         public function getClassPupils(){
@@ -40,24 +40,9 @@
             $this->view->classPupils = getClassPupils($classid);
             $this->view->classID = $classid;
             $this->view->schoolTeachers = getSchoolTeachers($schoolID);
-            $this->view->showStrippedPage();
+            $this->view->showPartialView();
         }
 
-        public function newSchoolClass(){
-            $schoolID = getSchoolID($this->user->username);
-            $school = getSchool($schoolID);
-            $this->view->setViewPath("school/newSchoolClass.php");
-            $this->view->schoolName = $school['name'];
-            $this->view->showPage();
-        }
-
-        public function newTeacher(){
-            $schoolID = getSchoolID($this->user->username);
-            $school = getSchool($schoolID);
-            $this->view->setViewPath("school/newTeacher.php");
-            $this->view->schoolName = $school['name'];
-            $this->view->showPage();
-        }
 
         public function registerNewTeacher(){
             $schoolId = getSchoolID($this->user->username);

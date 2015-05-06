@@ -39,7 +39,7 @@
             include $this->root.'/app/views/template/footer.php';
         }
 
-        public function showStrippedPage(){
+        public function showPartialView(){
             include $this->root.'/app/views/'.$this->viewPath;
         }
 
