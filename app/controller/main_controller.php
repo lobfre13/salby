@@ -62,8 +62,7 @@
             return (count($url) == 4);
         }
 
-        private function loadDefaultView($classLevel)
-        {
+        private function loadDefaultView($classLevel){
             $this->view->setViewPath('main.php');
             $this->view->subjects = getSubjects($classLevel);
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);

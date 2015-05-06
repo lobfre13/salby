@@ -41,7 +41,7 @@
         return query($sqlString, $params, DBI::FETCH_ALL);
     }
 
-    function getLObjects($categoryID){
+    function getLObjectsInCategory($categoryID){
         $sqlString = "SELECT * FROM learningobjects
                       JOIN learningobjectcategory ON learningobjectid = learningobjects.id
                       WHERE categoryid = :categoryid";
@@ -56,16 +56,16 @@
 
         return query($sqlString, $params, DBI::FETCH_ONE);
     }
-
-    function getUserSubjects($classID){
-        $sqlString = "SELECT * from classsubjects
-                      JOIN subjects ON subjectid = subjects.id
-                      WHERE classid = :classid";
-        $params = array('classid' => $classID);
-
-        return query($sqlString, $params, DBI::FETCH_ALL);
-    }
-
+//
+//    function getUserSubjects($classID){
+//        $sqlString = "SELECT * from classsubjects
+//                      JOIN subjects ON subjectid = subjects.id
+//                      WHERE classid = :classid";
+//        $params = array('classid' => $classID);
+//
+//        return query($sqlString, $params, DBI::FETCH_ALL);
+//    }
+//
     function getLObjectFromID($LObjectID){
         $sqlString = "SELECT * FROM learningobjects WHERE id = :LObjectID";
         $params = array('LObjectID' => $LObjectID);
@@ -115,7 +115,7 @@
         if(in_array(null, $result)) return false;
         else if(count($url) < 5) return true;
         return !(getCategory(end($url)) == null && getLObject(end($url)) == null); //the last element is either a category or an object
-        }
+    }
 
     function getLObjectPath($lObjectName){
         $pathNames []= $lObjectName;
@@ -141,6 +141,7 @@
 
         return '/forside/fag/'.join('/', array_reverse($pathNames));
     }
+
     function getLObjectCategory($lObjectId){
         $sqlString = "SELECT * FROM learningobjectcategory
                       JOIN categories ON categories.id = categoryid
@@ -164,7 +165,7 @@
     }
 
     function getCategoryContent($categoryid){
-        $content = getLObjects($categoryid);
+        $content = getLObjectsInCategory($categoryid);
         $content = array_merge($content, getSubCategories($categoryid));
         return $content;
     }

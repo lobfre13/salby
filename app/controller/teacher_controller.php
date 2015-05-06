@@ -19,7 +19,6 @@
             if (!is_numeric($classId)) return;
 
             $this->view->setViewPath('teacher/homework/partialviews/teacherClass.php');
-//            $this->view->pupils = getClassPupils($classID);
             $this->view->pupils = combinePupilNameAndProgress($classId);
             $this->view->showStrippedPage();
         }
@@ -98,7 +97,7 @@
             $this->view->pupils = getPupils($classid);
             $this->view->pendingTasks = getPendingTasks($classid, $username);
             if(arrayEmpty($this->view->pendingTasks)){
-                $_SESSION['error'] = "Du har valgt noen gjøremål";
+                $_SESSION['error'] = "Du har ikke valgt noen gjøremål";
                 return $this->addTask();
             }
             $this->view->showPage();
@@ -106,7 +105,7 @@
 
         public function acceptTasks(){
             if(!isset($_POST['pupils'])){
-                $_SESSION['error'] = "Du har valgt noen elever";
+                $_SESSION['error'] = "Du har ikke valgt noen elever";
                 header("Location: /teacher/choosePupils/".$_POST['classid']);
                 exit;
             }
@@ -160,37 +159,6 @@
             exit;
         }
 
-//        private function showClass($id){
-//            //if(!is_numeric($id)) return $this->index();
-//
-//            if($id === 'NaN'){ return $this->index();}
-//
-//            $schoolClasses = getMyClasses($this->getRegister()->getUser());
-//            $selectedSchoolClass = getClass($id);
-//            $pupils = getPupils($id);
-//            $subjects = getClassSubjects($id);
-//            $allSubjects = getAllSubjects();
-//            include $this->getRegister()->getRoot().'/app/views/teacher/add_homework_view_1.php';
-//
-//            $this->showFullHeader();
-//            include $this->getRegister()->getRoot().'/app/views/teacher/teacher.php';
-//            $this->showFooter();
-//        }
-//
-//        private function createUsers($id){
-//            if(!is_numeric($id)) return $this->index();
-//
-//            createUsers($id);
-//            $this->showClass($id);
-//        }
-//
-//        private function addSubject($id){
-//            if(!is_numeric($id)) return $this->index();
-//
-//            doAddSubject($id);
-//            $this->showClass($id);
-//        }
-//
         protected function checkUserAccess(){
             $user = $this->user;
             if(!isset($user) || !$user->isTeacher()){
@@ -198,9 +166,5 @@
                 exit;
             }
         }
-//
-//        private function getClasses () {
-//            return doGetClasses();
-//        }
 
     }

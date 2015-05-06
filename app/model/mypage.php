@@ -8,14 +8,6 @@
 
     include_once 'dbInterface.php';
 
-    function getStudentFullName ($username) {
-        $sqlString = "SELECT * FROM users WHERE username = :username";
-        $params = array(
-            'username' => $username
-        );
-        return query($sqlString, $params, DBI::FETCH_ONE);
-    }
-
     function getHomeworkSubjects($classId, $username){
         $sqlString = "SELECT lo.title, h.id, h.duedate, h.url, s.subjectname, ph.isdone
             FROM learningobjects as lo

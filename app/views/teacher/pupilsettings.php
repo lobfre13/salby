@@ -13,11 +13,11 @@
         <?php } ?>
     </select>
     <div class="tableBG">
-    <table id = pupilSettingsDiv>
+        <table id="pupilSettingsDiv">
 
-    </table>
+        </table>
     </div>
-    <a id="returnToMainPage3" href="/teacher"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
+    <a id="returnToMainPage" href="/teacher"><img src="/public/img/pil.png" width="15px">Tilbake til forside</a>
 
     <script>$( document ).ready(function() {
             $("#selectSubjectDropDown").trigger('onchange');

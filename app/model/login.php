@@ -5,7 +5,7 @@
 
         if(isset($_POST['username']) && isset($_POST['password'])){
 
-            $sqlString = "SELECT * FROM users WHERE username=:username AND password=:password";
+            $sqlString = "SELECT * FROM users WHERE username=:username AND password LIKE BINARY :password";
             $params = array(
                 'username' => $_POST['username'],
                 'password' => $_POST['password']
