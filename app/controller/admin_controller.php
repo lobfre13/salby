@@ -45,29 +45,6 @@
             $this->view->showPage();
         }
 
-        //Search-operations
-        /*public function doGetSchoolSearchResults () {
-            $this->view->schools = searchSchools($_POST['searchBoxSchools']);
-        }
-
-        public function doGetSubjectsSearchResult () {
-            $this->view->setViewPath('admin/administrateSubjects.php');
-            $this->view->subjects = searchSubjects($_POST['searchBoxSubjects']);
-            $this->view->showPage();
-        }
-
-        public function doGetCategoriesSearchResult () {
-            $this->view->setViewPath('admin/administrateCategories.php');
-            $this->view->categories = searchCategories($_POST['searchBoxCategories']);
-            $this->view->showPage();
-        }
-
-        public function doGetLearningobjectsSearchResult () {
-            $this->view->setViewPath('admin/administrateLearningobjects.php');
-            $this->view->leaningObjects = searchLearningObjects($_POST['searchBoxLearningObjects']);
-            $this->view->showPage();
-        }*/
-
         //Add-operations
         public function addSchool()
         {
@@ -199,11 +176,11 @@
             $this->view->showPage();
         }
 
-        public function updateCategory(){
-            updateCategory($_POST['id'], $_POST['title'], $_POST['icon']);
-            header("Location: /admin/editCategories/".$_POST['id']);
-            exit;
-        }
+//        public function updateCategory(){
+//            updateCategory($_POST['id'], $_POST['title'], $_POST['icon']);
+//            header("Location: /admin/editCategories/".$_POST['id']);
+//            exit;
+//        }
 
         public function addCategoryRelation(){
             addCategoryRelation($this->urlElements[2], $_POST['subject'] , $_POST['category']);

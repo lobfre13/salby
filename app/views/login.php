@@ -6,7 +6,7 @@
             <form method="post" id="login" action="/login/login">
                 <p style="color:red;"> <?php if($this->failedLogin)echo "Feil Brukernavn eller passord!"; ?></p>
                 <label>Brukernavn:<br>
-                <input type="text" name="username" placeholder="Brukernavn/Epost" tabindex="1"/></label><br>
+                    <input type="text" name="username" placeholder="Brukernavn" tabindex="1"/></label><br>
                 <label>Passord:<br>
                 <input type="password" name="password" placeholder="Passord" tabindex="2"/></label><br>
                 <input id="loginSubmit" type="submit" value="Logg inn" tabindex="3"/>

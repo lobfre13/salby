@@ -48,8 +48,9 @@ function getCategories($subjectID)
 function getAllCategories()
 {
     $sqlString = "SELECT *, categories.imgurl as catimg, categories.id as catid FROM categories
-                              JOIN subjectcategory on categories.id = categoryid
-                              JOIN subjects on subjectid = subjects.id";
+                              LEFT JOIN subjectcategory on categories.id = categoryid
+                              LEFT JOIN subjects on subjectid = subjects.id
+                              GROUP BY catid";
     $params = array();
     return query($sqlString, $params, DBI::FETCH_ALL);
 }
@@ -292,7 +293,7 @@ function updateCategory($categoryID, $title, $icon)
 
 function addCategoryRelation($categoryID, $subjectID, $parentCategoryID)
 {
-    if (isset($parentCategoryID)) {
+    if (isset($parentCategoryID) && !empty($parentCategoryID)) {
         $sqlString = "UPDATE categories SET parentid = :parentid WHERE id = :categoryid";
         $params = array('parentid' => $parentCategoryID, 'categoryid' => $categoryID);
     } else {
@@ -384,8 +385,8 @@ function addNewCategory($categoryName, $fileName)
 {
     $imgUrl = generateImgUrl($fileName);
 
-    $sqlString = "INSERT INTO categories (category, imgurl)
-                      VALUES (:categoryName, :imgUrl)";
+    $sqlString = "INSERT INTO categories (category, imgurl, parentid)
+                      VALUES (:categoryName, :imgUrl, null)";
     $params = array(
         'categoryName' => $categoryName,
         'imgUrl' => $imgUrl
@@ -398,7 +399,7 @@ function addNewCategory($categoryName, $fileName)
 
 function editSubject($subjectId, $subjectName, $classLevel, $fileName)
 {
-    if (isset($fileName)) {
+    if (isset($fileName) && !empty($fileName)) {
         $imgUrl = generateImgUrl($fileName);
 
         $sqlString = "UPDATE subjects
@@ -431,7 +432,7 @@ function editSubject($subjectId, $subjectName, $classLevel, $fileName)
 
 function editCategory($categoryId, $categoryName, $fileName)
 {
-    if (isset($fileName)) {
+    if (isset($fileName) && !empty($fileName)) {
         $imgUrl = generateImgUrl($fileName);
 
         $sqlString = "UPDATE categories
@@ -445,7 +446,7 @@ function editCategory($categoryId, $categoryName, $fileName)
         );
     } else {
         $sqlString = "UPDATE categories
-                      SET category = :categoryName,
+                      SET category = :categoryName
                       WHERE id = :categoryId";
         $params = array(
             'categoryName' => $categoryName,
