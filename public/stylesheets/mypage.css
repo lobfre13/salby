@@ -39,14 +39,6 @@ h2{
 
 }
 
-#homeworkListHeader th{
-    font: italic 20px 'Chelsea Market';
-}
-#homeworkList td{
-
-}
-
-
 #favouriteList {
     display: inline-block;
     background-color: rgb(252, 221, 173);
