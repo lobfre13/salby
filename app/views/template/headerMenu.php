@@ -18,9 +18,8 @@
 		<div id="hamMenu">
             <a href="#" onclick="showMenu(this)">
                 <div id="hamMenuIconWrapper">
-                    <!--<div></div><div></div>-->
                 </div>
-                <span id="classRangeLabel"><?php echo $this->classLevel;?>. Klasse</span>
+                <?php if (isset($this->classLevel)) echo '<span id="classRangeLabel">' . $this->classLevel . '. Klasse</span>'; ?>
             </a>
 			<div id="dropDownMainMenu">
 				<ul>
