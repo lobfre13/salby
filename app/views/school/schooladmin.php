@@ -3,11 +3,11 @@
         ajaxCall("GET", "/schooladmin/getClasses/"+classlevel.value, true, "chooseClassName");
     }
     function getClassPupils(classid){
-        ajaxCall("GET", "/schooladmin/getClassPupils/"+classid.value, true, "classContent")
+        ajaxCall("GET", "/schooladmin/getClassPupils/" + classid.value, true, "classContent");
     }
 
     function showAddClass() {
-        ajaxCall("GET", "/schooladmin/showAddClass", true, "addClass")
+        ajaxCall("GET", "/schooladmin/showAddClass", true, "addClass");
     }
 
     function doAddSchoolClass(){
@@ -15,7 +15,7 @@
         submit.click();
     }
     function deleteSchoolClass(obj, classId){
-        if(confirm("Er du sikker på at du vil slette denne klassen?\nAlle elever som tilhører denne klassen vil også bli slettet!"){
+        if (confirm("Er du sikker på at du vil slette denne klassen?\nAlle elever som tilhører denne klassen vil også bli slettet!")) {
             ajaxCall("GET", "/schooladmin/deleteSchoolClass/" + classId, true);
             $(obj).closest('tr').remove();
         }

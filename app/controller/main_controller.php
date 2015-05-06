@@ -17,8 +17,8 @@
         }
 
         public function index(){
-            $this->loadDefaultView();
             $this->view->classLevel = getClassLevel($this->user->classID);
+            $this->loadDefaultView($this->view->classLevel);
             $this->view->showPage();
         }
 
@@ -62,10 +62,10 @@
             return (count($url) == 4);
         }
 
-        private function loadDefaultView($classLevel = null){
+        private function loadDefaultView($classLevel)
+        {
             $this->view->setViewPath('main.php');
-            if(isset($classLevel)) $this->view->subjects = getSubjects($classLevel);
-            else $this->view->subjects = getUserSubjects($this->user->classID);
+            $this->view->subjects = getSubjects($classLevel);
             $this->view->subjects = manageSubjectState($this->view->subjects, null, true);
             $this->view->homeworkCount = getHomeworkCount($this->user->username);
             $this->view->categoryContent = [];
