@@ -4,6 +4,7 @@
 	require 'router.php';
 	require 'routes.php';
     require $rootPath.'/app/controller/supercontroller.php';
+    require $rootPath.'/app/model/db_con.php';
     require $rootPath.'/app/model/user.php';
     require $rootPath.'/app/views/view.php';
     session_start();
