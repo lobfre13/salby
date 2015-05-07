@@ -122,7 +122,9 @@ h2{
 
     }
 }
-
+/* STYLA CSS CHECKBOKSER :D
+http://stackoverflow.com/questions/28980839/cannot-style-checkbox-with-css
+*/
     /* Base for label styling */
     [type="checkbox"]:not(:checked),
     [type="checkbox"]:checked {

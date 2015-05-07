@@ -40,7 +40,7 @@
                 <li><a class="filePathLinks" href="<?php echo $url[0]; ?>"><?php echo $url[1]; ?></a></li>
             <?php }  ?>
             </ul>
-            <a class="mobileBackBtn" href="<?php $url = $this->filePathURLS;
+            <a class="mobileBackBtn" href=" <?php $url = $this->filePathURLS;
             echo $url[count($url) - 2][0]; ?>"><-<?php echo $url[count($url) - 2][1]; ?></a>
         </div>
             <?php echo $this->gameHTML;
