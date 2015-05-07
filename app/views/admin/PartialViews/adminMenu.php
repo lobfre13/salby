@@ -1,15 +1,6 @@
-    <section id="navMenuAdmin">
-        <nav id="primary_nav_wrap">
-            <ul>
-                <li><a href="/admin/administrateSchools">Brukeradministrasjon</a>
-
-                <li><a href="#">Sideadministrasjon</a>
-                    <ul class="sideAdminSub">
-                        <li><a href="/admin/administrateSubjects">Fag</a></li>
-                        <li><a href="/admin/administrateCategories">Kategorier</a></li>
-                        <li><a href="/admin/administrateLearningobjects">Læringsobjekter</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <section class="topMenu">
+                        <a style="background-color: #00BE39;" href="/admin/administrateSchools">Brukeradministrasjon</a>
+                        <a href="/admin/administrateSubjects">Fag</a>
+                        <a href="/admin/administrateCategories">Kategorier</a>
+                        <a href="/admin/administrateLearningobjects">Læringsobjekter</a>
     </section>

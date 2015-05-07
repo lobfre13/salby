@@ -86,9 +86,9 @@ progress::-moz-progress-bar {
 }
 table, tr, td {
     border-collapse: collapse;
-    border-bottom: 1px solid black;
-    padding-left: 10px;
-    padding-right: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.28);
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-align: center;
 }
 
@@ -97,8 +97,7 @@ td:last-child {
 }
 
 td {
-    border-right: 1px solid black;
-    width: 50%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.28);
     padding: 10px !important;
 }
 
@@ -271,7 +270,6 @@ a.navBtns{
     height: 30px;
     outline: 0;
     -webkit-appearance: none;
-    cursor: pointer;
     position: relative;
     left: 1px;
 
@@ -286,7 +284,6 @@ a.navBtns{
     height: 30px;
     outline: 0;
     -webkit-appearance: none;
-    cursor: pointer;
     position: relative;
     left: 1px;
 }

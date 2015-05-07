@@ -24,8 +24,6 @@
 			<div id="dropDownMainMenu">
 				<ul>
 					<li><a href="/">Forsiden</a></li>
-                    <li><a href="/forside/fag/2-klasse/">Barnehage</a></li>
-                    <li><a href="/forside/fag/0-klasse/">Skolestart</a></li>
                     <li onclick="expandMenu(this)">
                         <a href="#">Klassetrinn</a>
                         <ul>
