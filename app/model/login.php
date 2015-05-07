@@ -4,6 +4,7 @@
     function doLogin(){
 
         if(isset($_POST['username']) && isset($_POST['password'])){
+            $lol = sha1('LOL');
 
             $sqlString = "SELECT * FROM users WHERE username=:username AND password LIKE BINARY :password";
             $params = array(

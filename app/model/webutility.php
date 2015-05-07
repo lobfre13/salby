@@ -1,6 +1,7 @@
 <?php
 
     function slugify($text){
+        $text = strtolower($text);
         $text = str_replace('-', '_', $text);
         $text = str_replace(' ', '-', $text);
         $text = str_replace('æ', 'ae', $text);
