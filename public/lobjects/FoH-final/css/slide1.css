@@ -16,8 +16,8 @@
     height: 500px;
     top: 100px;
     left: 50%;
-    transform: translate(-50%, 0) rotate(0deg);
-    -webkit-transform: translate(-50%, 0) rotate(0deg) !important;
+    transform: translate3d(-50%, 0,0) rotate(0deg) !important;
+    -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg) !important;
     z-index: 1;
 }
 
@@ -26,11 +26,21 @@
     -webkit-animation-duration:         40s;
     -webkit-animation-iteration-count:  infinite;
     -webkit-animation-timing-function: linear;
+    animation-name:             rotate;
+    animation-duration:         40s;
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear;
 }
 
 @-webkit-keyframes rotate {
     to {
-        transform: translate(-50%, 0) rotate(360deg);
-        -webkit-transform: translate(-50%, 0) rotate(360deg);
+        transform: translate3d(-50%, 0, 0) rotate(360deg)!important;
+        -webkit-transform: translate3d(-50%, 0, 0) rotate(360deg)!important;
+    }
+}
+@keyframes rotate {
+    to {
+        transform: translate3d(-50%, 0, 0) rotate(360deg)!important;
+        -webkit-transform: translate3d(-50%, 0, 0) rotate(360deg)!important;
     }
 }

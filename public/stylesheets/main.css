@@ -291,7 +291,8 @@
 @media screen and (max-width: 600px) {
     .subjectname{
         font-size: 4vw!important;
-        padding: 6px;
+        padding: 6px !important;
+        left:-8px !important;
     }
     .subjectimg{
         width: 100% !important;
@@ -307,7 +308,7 @@ only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (
 
     .subjectname {
         padding: 3px 8px;
-        left:-12px;
+        left:-10px;
         font-size: 3vw;
     }
 
@@ -382,22 +383,6 @@ only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (
     overflow: auto;
 }
 
-/*
-@keyframes changewidth {
-
-
-    to {
-        width: 300px;
-    }
-}
-
-#fly {
-    animation-duration: 10s;
-    animation-name: changewidth;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}*/
-
 
 #fly{
     position: absolute;
@@ -412,9 +397,35 @@ only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-delay: 2s;
+    animation-name: fly;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
 }
 
 @-webkit-keyframes fly{
+    25%{
+        top: 50%;
+        right: 30%;
+    }
+
+    50%{
+        top: 30%;
+        right: 60%;
+    }
+
+    75%{
+        top: 50%;
+        right: 90%;
+    }
+
+    100%{
+        top: 30%;
+        right: 110%;
+    }
+}
+@keyframes fly{
     25%{
         top: 50%;
         right: 30%;

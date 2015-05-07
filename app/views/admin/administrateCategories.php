@@ -26,13 +26,13 @@
     <div class="tableBG">
         <section id="topMenu">
 
-             <span onclick="addCategories()">
+             <span class="submit" onclick="addCategories()">
                 Legg til kategori
             </span>
 
                 <form method="post" action="/admin/administrateCategories" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxCategories" placeholder="Søk etter kategori...">
-                    <input type="submit" value="søk" id="submit">
+                    <input type="submit" value="søk" class="submit">
                 </form>
 
 

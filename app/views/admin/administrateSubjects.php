@@ -26,13 +26,13 @@
     <div class="tableBG">
         <section id="topMenu">
 
-           <span onclick="addSubject()">
+           <span class="submit" onclick="addSubject()">
                 Legg til fag
             </span>
 
                 <form method="post" action="/admin/administrateSubjects" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxSubjects" placeholder="Søk etter fag...">
-                    <input type="submit" value="søk" id="submit">
+                    <input type="submit" value="søk" class="submit">
                 </form>
 
 

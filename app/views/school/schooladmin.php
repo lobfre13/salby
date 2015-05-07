@@ -30,13 +30,13 @@
     <div id="classContent" class="tableBG">
 
         <section id="topMenu">
-           <span onclick="showAddClass()">
+           <span class="submit" onclick="showAddClass()">
                 Legg til klasse
             </span>
 
             <form method="post" action="/schooladmin" class="form-wrapper">
                 <input type="text" id="search" name="searchBoxSchoolsClasses" placeholder="Søk etter klasse...">
-                <input type="submit" value="søk" id="submit">
+                <input type="submit" value="søk" class="submit">
             </form>
 
         </section>

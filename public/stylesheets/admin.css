@@ -21,19 +21,6 @@ table a, table a:visited{
     color: black;
 }
 
-.tableBG{
-    padding: 20px 20px 20px;
-    background: white;
-    border: 1px solid gray;
-    font-size: 18px;
-    border-radius: 3px;
-    color: #444444;
-    position: relative;
-    text-align: left;
-}
-
-
-
 #schoolAddButtonDiv {
     width: 200px;
     min-width: 160px;
@@ -81,10 +68,6 @@ table a, table a:visited{
     cursor: pointer;
 }
 
-#learningObjectAddButton:hover {
-    /*background-color: red;*/
-}
-
 #addSchoolTxt{
     margin-top: 7px;
     margin-left: 10px;
@@ -112,81 +95,10 @@ table a, table a:visited{
     -webkit-appearance: none;
     cursor: pointer;
 }
-/*
-label {
-    background-color: red;
-    right: 80%;
-}
-*/
-
-#primary_nav_wrap a:hover{
-    color: white!important;
-}
 
 #topMenu{
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
-
-#topMenu span {
-    position: absolute;
-    top: 25px;
-    left: 15px;
-    cursor: pointer;
-    border: 1px solid #00748f;
-    padding: 7px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-weight: bold;
-    font-size: 15px;
-    text-transform: uppercase;
-    background-color: #7fd540;
-    color: white;
-    border-radius: 20px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-    margin-left: 10px;
-}
-
-
-/*Searchbox*/
-/*Source: http://red-team-design.com/design-a-beautiful-css3-search-form/ */
-
-.form-wrapper #search {
-    width: 300px;
-    height: 20px;
-    padding: 5px 5px;
-    float: left;
-    font-weight: bold;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-    border-radius: 3px;
-    margin-right: 10px;
-}
-
-.form-wrapper {
-    position: absolute;
-    top: 25px;
-    right: 10px;
-
-}
-
-.form-wrapper #submit{
-    border: 1px solid #00748f;
-    height: 33px;
-    width: 80px;
-    padding: 0;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #7fd540;
-    border-radius: 20px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    margin-right: 10px;
-}
-
 
 .deleteBtn{
     display: inline-block;
@@ -227,143 +139,8 @@ label {
     height: 20px;
 }
 
-/* ADMIN.PHP */
-
-ul#adminMainMenu, ul.sideAdminSub {
-    list-style-type: none;
-}
-
-ul#adminMainMenu li{
-    display: inline;
-    margin: 10px;
-    background-color: lightgrey;
-    width: 175px;
-    text-align: center;
-}
-
-
-/* NAV MENU, kilde: http://codepen.io/philhoyt/pen/ujHzd
-
- */
-
-#navMenuAdmin{
-    margin: auto;
-    width: 500px;
-    height: 50px;
-    position: relative;
-    z-index: 99;
-}
-
-
-#primary_nav_wrap
-{
-    color: white;
-    margin-top:15px;
-}
-
-#primary_nav_wrap ul
-{
-    list-style:none;
-    position:relative;
-    margin:0;
-    padding:0;
-
-}
-
-#primary_nav_wrap ul a
-{
-    display:block;
-    text-decoration:none;
-    font-weight:700;
-    font-size:16px;
-    line-height:32px;
-    padding:0 15px;
-}
-
-#primary_nav_wrap ul li
-{
-    display: inline-block;
-    position: relative;
-    background-color: #5c5c5c;
-    margin-right: 20px;
-    /* margin: -2px; */
-    /* margin-top: 2px; */
-}
-
-.current-menu-item
-{
-    background:#ddd
-}
-
-#primary_nav_wrap ul li:hover
-{
-    background: #00BE39;
-}
-
-#primary_nav_wrap ul ul
-{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    padding:0
-}
-
-#primary_nav_wrap ul ul li
-{
-    float:none;
-    width:100%;
-}
-
-#primary_nav_wrap ul ul a
-{
-    line-height:120%;
-    padding:10px 15px
-}
-
-#primary_nav_wrap ul ul ul
-{
-    top:0;
-    left:100%
-}
-
-#primary_nav_wrap ul li:hover > ul
-{
-    display:block
-}
-
-/* NAV MENU END */
-
-
-.relationTable{
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
-}
-.relationTable.table{
-    width: 60%;
-    padding-right: 60px;
-}
-
-.relationTable h4{
-    margin-bottom: 0;
-}
-
-.styled-select {
-    min-width: 150px;
-    width: auto;
-    height: 25px;
-    overflow: hidden;
-    background: url('/public/img/dropdownselect.png') no-repeat right #FFFFFF;
-    background-size: 25px 25px;
-    border: 2px solid #444444;
-    border-radius: 3px;
-    -webkit-appearance: none;
-    padding-right: 25px;
-}
-
 .endreButton {
-    background-color: lawngreen;
+    background-color: #7fd540;
     border : none;
     -webkit-appearance: none;
     border-radius: 20px;
@@ -504,22 +281,6 @@ input:-moz-placeholder { opacity: 0.5; }
 
 /* END */
 
-.submit{
-    margin-top: 10px;
-    margin-left: 0;
-    border: 1px solid #00748f;
-    height: 33px;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #08E500;
-    border-radius: 20px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-}
-
 .tableBG > h2{
     margin: 0;
 }
@@ -557,4 +318,5 @@ input:-moz-placeholder { opacity: 0.5; }
     width: 170px;
     display: inline-block;
     border: 1px solid white;
+    transition: background-color 0.3s;
 }

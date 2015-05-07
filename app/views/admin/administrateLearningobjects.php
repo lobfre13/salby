@@ -25,13 +25,13 @@
     </section>
     <div class="tableBG">
         <section id="topMenu">
-            <span onclick="addLearningObject()">
+            <span class="submit" onclick="addLearningObject()">
                 Legg til læringsobjekt
             </span>
 
                 <form method="post" action="/admin/administrateLearningobjects" class="form-wrapper">
                     <input type="text" id="search" name="searchBoxLearningObjects" placeholder="Søk etter læringsobjekt...">
-                    <input type="submit" value="søk" id="submit">
+                    <input type="submit" value="søk" class="submit">
                 </form>
         </section>
 

@@ -51,7 +51,7 @@
 
                 <form method="POST" action="/schooladmin/updateMainTeacher/">
                     <input type="hidden" name="classId" value="<?php echo $this->class['id']; ?>">
-                    <select name="mainTeacher" required>
+                    <select class="styled-select" name="mainTeacher" required>
                         <option value="" disabled selected>Velg ny kontaktlærer..</option>
                         <?php foreach($this->schoolTeachers as $teacher) { ?>
                             <option value="<?php echo $teacher['username']; ?>"><?php echo $teacher['firstname'].' '.$teacher['lastname']; ?></option>

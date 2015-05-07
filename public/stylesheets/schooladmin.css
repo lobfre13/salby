@@ -28,168 +28,24 @@ table a, table a:visited{
     color: black;
 }
 
-.tableBG{
-    text-align: left;
-    min-height: 300px;
-    padding: 70px 20px 20px;
-    background: white;
-    border: 1px solid gray;
-    font-size: 18px;
-    border-radius: 3px;
-    color: #444444;
-    position: relative;
-}
+/*.tableBG{*/
+    /*text-align: left;*/
+    /*min-height: 300px;*/
+    /*padding: 70px 20px 20px;*/
+    /*background: white;*/
+    /*border: 1px solid gray;*/
+    /*font-size: 18px;*/
+    /*border-radius: 3px;*/
+    /*color: #444444;*/
+    /*position: relative;*/
+/*}*/
 
 
-#schoolAddButtonDiv {
-    width: 200px;
-    min-width: 160px;
-    position: relative;
-    cursor: pointer;
-    text-align: left;
-    float: left;
-    padding: 8px;
-    overflow: hidden;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dedede #bababa #aaa #bababa;
-    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-    border-radius: 10px;
-    background: #f6f6f6 linear-gradient(top, #f6f6f6, #eae8e8);
-}
-#schoolAddButtonDiv:hover {
-    background-color: #e7e7e7;
-}
-
-#schoolAddButtonDiv label {
-    position: absolute;
-    top: 15%;
-    cursor: pointer;
-}
-
-#categoryAddButton {
-    border: none;
-    background: transparent url('/public/img/plussIkon.png');
-    background-size: 100% 100%;
-    width: 30px;
-    height: 30px;
-    outline: 0;
-    -webkit-appearance: none;
-}
-
-#learningObjectAddButton {
-    border: none;
-    background: transparent url('/public/img/plussIkon.png');
-    background-size: 100% 100%;
-    width: 30px;
-    height: 30px;
-    outline: 0;
-    -webkit-appearance: none;
-    cursor: pointer;
-}
-
-#learningObjectAddButton:hover {
-    /*background-color: red;*/
-}
-
-#addSchoolTxt{
-    margin-top: 7px;
-    margin-left: 10px;
-}
-#schoolAddButton {
-    cursor: pointer;
-    border: none;
-    background: transparent url('/public/img/plussIkon.png');
-    background-size: 100% 100%;
-    width: 30px;
-    height: 30px;
-    outline: 0;
-    -webkit-appearance: none;
-    position: relative;
-    left: 1px;
-}
-
-#subjectAddButton {
-    border: none;
-    background: transparent url('/public/img/plussIkon.png');
-    background-size: 100% 100%;
-    width: 30px;
-    height: 30px;
-    outline: 0;
-    -webkit-appearance: none;
-    cursor: pointer;
-}
-/*
-label {
-    background-color: red;
-    right: 80%;
-}
-*/
-
-#primary_nav_wrap a:hover{
-    color: white!important;
-}
-
-#topMenu span {
-    position: absolute;
-    top: 25px;
-    cursor: pointer;
-    border: 1px solid #00748f;
-    padding: 7px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #00BE39;
-    border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-    margin-left: 10px;
-}
 
 
 /*Searchbox*/
 /*Source: http://red-team-design.com/design-a-beautiful-css3-search-form/ */
 
-.form-wrapper #search {
-    width: 74%;
-    height: 20px;
-    padding: 5px 5px;
-    float: left;
-    font-weight: bold;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-    border-radius: 3px;
-}
-
-.form-wrapper {
-    width: 40%;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-
-}
-
-.form-wrapper #submit{
-    float: right;
-    border: 1px solid #00748f;
-    height: 33px;
-    width: 20%;
-    padding: 0;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #00BE39;
-    border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-    margin-left: 10px;
-}
 
 .deleteBtn{
     display: inline-block;
@@ -216,150 +72,11 @@ label {
     background: url("/public/img/redigerIkonGroenn.png");
 }
 
-
-#addSchoolBtnComplete {
-    display: inline-block;
-    cursor: pointer;
-    width: 38px;
-    height: 35px;
-    background-size: 100% 100% !important;
-    background: transparent url('/public/img/plussIkon.png');
-}
-
-.addSchoolForm{
-    height: 20px;
-}
-
-/* ADMIN.PHP */
-
-ul#adminMainMenu, ul.sideAdminSub {
-    list-style-type: none;
-}
-
-ul#adminMainMenu li{
-    display: inline;
-    margin: 10px;
-    background-color: lightgrey;
-    width: 175px;
-    text-align: center;
-}
-
-
-/* NAV MENU, kilde: http://codepen.io/philhoyt/pen/ujHzd
-
- */
-
-#navMenuAdmin{
-    margin: auto;
-    width: 500px;
-    height: 50px;
-    position: relative;
-    z-index: 99;
-}
-
-
-#primary_nav_wrap
-{
-    color: white;
-    margin-top:15px;
-}
-
-#primary_nav_wrap ul
-{
-    list-style:none;
-    position:relative;
-    margin:0;
-    padding:0;
-
-}
-
-#primary_nav_wrap ul a
-{
-    display:block;
-    text-decoration:none;
-    font-weight:700;
-    font-size:16px;
-    line-height:32px;
-    padding:0 15px;
-}
-
-#primary_nav_wrap ul li
-{
-    display: inline-block;
-    position: relative;
-    background-color: #5c5c5c;
-    margin-right: 20px;
-    /* margin: -2px; */
-    /* margin-top: 2px; */
-}
-
-.current-menu-item
-{
-    background:#ddd
-}
-
-#primary_nav_wrap ul li:hover
-{
-    background: #00BE39;
-}
-
-#primary_nav_wrap ul ul
-{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    padding:0
-}
-
-#primary_nav_wrap ul ul li
-{
-    float:none;
-    width:100%;
-}
-
-#primary_nav_wrap ul ul a
-{
-    line-height:120%;
-    padding:10px 15px
-}
-
-#primary_nav_wrap ul ul ul
-{
-    top:0;
-    left:100%
-}
-
-#primary_nav_wrap ul li:hover > ul
-{
-    display:block
-}
-
-/* NAV MENU END */
-
-
 .relationTable{
     margin-top: 50px;
     width: 55%;
     display: inline-block;
     vertical-align: top;
-}
-
-.relationTable select, .relationTable input{
-    width: 50%;
-}
-
-.styled-select {
-    min-width: 150px;
-    width: auto;
-    height: 25px;
-    overflow: hidden;
-    background: url('/public/img/dropdownselect.png') no-repeat right #FFFFFF;
-    background-size: 25px 25px;
-    border: 2px solid #444444;
-    border-radius: 3px;
-    -webkit-appearance: none;
-    padding-right: 25px;
 }
 
 .endreButton {
@@ -532,24 +249,6 @@ h4{
     margin-bottom: 5px;
 }
 
-
-
-.submit{
-    margin-top: 12px;
-    margin-left: 0px;
-    border: 1px solid #00748f;
-    height: 33px;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #00BE39;
-    border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-}
-
 #addTeacher{
     position: absolute;
     left: 200px;
@@ -578,22 +277,6 @@ h4{
     display: inline-block;
     margin-top: 20px;
     margin-left: 444px;
-}
-
-.submit{
-    margin-top: 10px;
-    margin-left: 0;
-    border: 1px solid #00748f;
-    height: 33px;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fafafa;
-    text-transform: uppercase;
-    background-color: #00BE39;
-    border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 }
 
 .tableBG > h2{

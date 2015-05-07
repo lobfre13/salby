@@ -265,7 +265,7 @@ function updateLObject($lObjectID, $title)
         $params = array('title' => $title, 'lobjectid' => $lObjectID);
     }
 
-    if (query($sqlString, $params, DBI::ROW_COUNT))
+    if (query($sqlString, $params, DBI::ROW_COUNT) || $lObjectUrl)
         $_SESSION['notice'] = "Læringsobjektet ble oppdatert!";
     else
         $_SESSION['error'] = "En feil har oppstått";
@@ -424,7 +424,7 @@ function editSubject($subjectId, $subjectName, $classLevel, $fileName)
             'subjectId' => $subjectId
         );
         }
-    if (query($sqlString, $params, DBI::ROW_COUNT))
+    if (query($sqlString, $params, DBI::ROW_COUNT) || $fileName)
         $_SESSION['notice'] = "Fag oppdatert!";
     else
         $_SESSION['error'] = "En feil har oppstått";
@@ -453,7 +453,7 @@ function editCategory($categoryId, $categoryName, $fileName)
             'categoryId' => $categoryId
         );
     }
-    if (query($sqlString, $params, DBI::ROW_COUNT))
+    if (query($sqlString, $params, DBI::ROW_COUNT) || $fileName)
         $_SESSION['notice'] = "Kategorien ble oppdatert";
     else
         $_SESSION['error'] = "En feil har oppstått";
