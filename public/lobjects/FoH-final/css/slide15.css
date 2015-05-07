@@ -1,6 +1,6 @@
 .slide15.background{
-    background: linear-gradient(mediumpurple, mediumpurple, #e2b512);
-    background: -webkit-linear-gradient(mediumpurple, mediumpurple, #e2b512);
+    background: linear-gradient(#cd99e2, #e3d4b1);
+    background: -webkit-linear-gradient(#cd99e2, #e3d4b1);
 }
 .slide15 .jasmin{
     height: 300px;

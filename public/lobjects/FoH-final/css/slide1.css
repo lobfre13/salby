@@ -1,6 +1,6 @@
 .slide1.background{
-    background: linear-gradient(deepskyblue, white);
-    background: -webkit-linear-gradient(deepskyblue, white);
+    background: linear-gradient(#aaeaf0, #ffffff);
+    background: -webkit-linear-gradient(#aaeaf0, #ffffff);
 }
 .slide1 .jasmin{
     height: 500px;

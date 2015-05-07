@@ -1,6 +1,6 @@
 .slide14.background{
-    background: linear-gradient(lightgreen, darkseagreen);
-    background: -webkit-linear-gradient(lightgreen, darkseagreen);
+    background: linear-gradient(#addec9, #efd7ae);
+    background: -webkit-linear-gradient(#addec9, #efd7ae);
 }
 .slide14 .jasmin{
     height: 400px;
