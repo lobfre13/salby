@@ -1,6 +1,6 @@
 <?php
 
-    abstract class superController{
+    abstract class SuperController{
         private $data;
         protected $view;
 
@@ -22,7 +22,7 @@
         }
 
         private function initView(){
-            $this->view = new view('404.php');
+            $this->view = new View('404.php');
             $this->view->root = $this->root;
             $this->view->cssPath = $this->getCssPath();
         }

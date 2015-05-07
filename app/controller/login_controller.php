@@ -1,10 +1,11 @@
 <?php
 
-    class loginController extends superController{
+    class LoginController extends SuperController{
 
         public function __construct($register){
             parent::__construct($register);
             include $this->root.'/app/model/webutility.php';
+            include $this->root.'/app/model/login.php';
 
         }
 
@@ -16,7 +17,6 @@
         }
 
         public function login(){
-            require $this->root.'/app/model/login.php';
             $loginSuccess = doLogin();
             if($loginSuccess)
                 header("Location: /");

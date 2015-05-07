@@ -1,5 +1,5 @@
 <?php
-    class mainController extends superController{
+    class MainController extends SuperController{
 
         public function __construct($register){
             parent::__construct($register);

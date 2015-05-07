@@ -1,5 +1,5 @@
 <?php
-    class view{
+    class View{
         private $data;
         private $viewPath;
         private $headerMenuHidden;

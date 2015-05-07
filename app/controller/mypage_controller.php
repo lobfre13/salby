@@ -6,7 +6,7 @@
  * Time: 15:06
  */
 
-    class mypageController extends superController{
+    class MypageController extends SuperController{
 
         public function __construct($register) {
             parent::__construct($register);

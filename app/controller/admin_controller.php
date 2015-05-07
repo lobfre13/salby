@@ -1,5 +1,5 @@
 <?php
-    class adminController extends superController{
+    class AdminController extends SuperController{
 
         //Constructor
         public function __construct($register){

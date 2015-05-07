@@ -488,7 +488,7 @@ function uploadAndExtractZIP()
         }
 
         $target_path = "/var/www/public/lobjects/" . $filename;
-        delete(substr($target_path, 0, -4));
+        deletePath(substr($target_path, 0, -4));
         if (move_uploaded_file($source, $target_path)) {
             $zip = new ZipArchive();
             $x = $zip->open($target_path);
@@ -506,11 +506,11 @@ function uploadAndExtractZIP()
     }
 
 //http://stackoverflow.com/questions/1334398/how-to-delete-a-folder-with-contents-using-php
-    function delete($path){
+    function deletePath($path){
         if (is_dir($path) === true) {
             $files = array_diff(scandir($path), array('.', '..'));
             foreach ($files as $file) {
-                delete(realpath($path) . '/' . $file);
+                deletePath(realpath($path) . '/' . $file);
             }
             return rmdir($path);
         }
