@@ -139,7 +139,7 @@ label {
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
-    background-color: #08E500;
+    background-color: #7fd540;
     color: white;
     border-radius: 20px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
@@ -181,7 +181,7 @@ label {
     font-size: 15px;
     color: #fafafa;
     text-transform: uppercase;
-    background-color: #08E500;
+    background-color: #7fd540;
     border-radius: 20px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
     margin-right: 10px;
@@ -553,7 +553,8 @@ input:-moz-placeholder { opacity: 0.5; }
     margin-right: 20px;
     margin-bottom: 5px;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 170px;
     display: inline-block;
+    border: 1px solid white;
 }

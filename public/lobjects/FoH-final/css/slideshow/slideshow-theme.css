@@ -33,7 +33,7 @@
     cursor: pointer;
 
     position: absolute;
-    width: 20px;
+    width: 40px;
     height: 100%;
     text-align: center;
 
@@ -42,7 +42,7 @@
     color: white;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 
-    font-size: 14pt;
+    font-size: 70pt;
     opacity: 0;
 
     -webkit-transition: opacity 300ms linear;
@@ -109,7 +109,7 @@
     list-style: none;
     display: inline-block;
 
-    width: 17px;
+    width: 15px;
     height: 20px;
     line-height: 20px;
     text-align: center;
