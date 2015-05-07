@@ -2,7 +2,7 @@
 <div id="content" class="widthConstrained">
     <span class="addTaskIndicator">Lekseliste</span>
     <span class="addTaskIndicator" >Velg elever</span>
-    <span class="addTaskIndicator" style="background-color: #00BFD5">Godkjenn</span>
+    <span class="addTaskIndicator" style="background-color: #959595">Godkjenn</span>
 
     <div class="choosePupils">
         <?php include 'partialviews/pendingTasks.php'; ?>

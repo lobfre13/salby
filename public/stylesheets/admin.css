@@ -536,3 +536,24 @@ input:-moz-placeholder { opacity: 0.5; }
 .editDeleteColumn{
     text-align: right;
 }
+
+.adminMenu {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.adminMenu a:hover{
+    background-color: #FF8700;
+}
+
+.adminMenu a{
+    color: white;
+    background-color: #5c5c5c;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 3px;
+    width: 170px;
+    display: inline-block;
+}

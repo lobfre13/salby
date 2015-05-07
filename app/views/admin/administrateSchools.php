@@ -23,7 +23,12 @@
 </script>
 <div id="content" class="widthConstrained">
     <?php $this->showNotice();?>
-    <?php include "PartialViews/adminMenu.php"?>
+    <section class="adminMenu">
+        <a style="background-color: #FF8700;" href="/admin/administrateSchools">Brukeradministrasjon</a>
+        <a href="/admin/administrateSubjects">Fag</a>
+        <a href="/admin/administrateCategories">Kategorier</a>
+        <a href="/admin/administrateLearningobjects">Læringsobjekter</a>
+    </section>
     <div class="tableBG">
         <section id="topMenu">
 
