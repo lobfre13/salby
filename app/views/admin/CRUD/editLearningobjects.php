@@ -17,7 +17,12 @@
 
 <div id="content" class="widthConstrained">
     <?php $this->showNotice();?>
-    <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
+    <section class="adminMenu">
+        <a href="/admin/administrateSchools">Brukeradministrasjon</a>
+        <a href="/admin/administrateSubjects">Fag</a>
+        <a href="/admin/administrateCategories">Kategorier</a>
+        <a style="background-color: #FF8700;" href="/admin/administrateLearningobjects">Læringsobjekter</a>
+    </section>
     <div class="tableBG">
         <h2><?php echo $this->lObject['title']; ?></h2>
         <div class="relationTable table">

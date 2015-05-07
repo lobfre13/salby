@@ -11,7 +11,12 @@
 </script>
 <div id="content" class="widthConstrained">
     <?php $this->showNotice();?>
-    <?php include $this->root."/app/views/admin/PartialViews/adminMenu.php"?>
+    <section class="adminMenu">
+        <a style="background-color: #FF8700;" href="/admin/administrateSchools">Brukeradministrasjon</a>
+        <a href="/admin/administrateSubjects">Fag</a>
+        <a href="/admin/administrateCategories">Kategorier</a>
+        <a href="/admin/administrateLearningobjects">Læringsobjekter</a>
+    </section>
     <div class="tableBG">
         <h2 id="mainHeadline"><?php echo $this->school['name']; ?></h2>
 
