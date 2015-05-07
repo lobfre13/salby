@@ -1,6 +1,6 @@
 .slide3.background{
-    background: linear-gradient(sandybrown, white);
-    background: -webkit-linear-gradient(sandybrown, white);
+    background: linear-gradient(#f0c6aa, #fef1de);
+    background: -webkit-linear-gradient(#f0c6aa, #fef1de);
 
 }
 .slide3 .gud1{

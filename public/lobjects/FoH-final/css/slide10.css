@@ -3,8 +3,8 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-    background: linear-gradient(sandybrown, rosybrown); /* Standard syntax */
-    background: -webkit-linear-gradient(sandybrown, rosybrown); /* Standard syntax */
+    background: linear-gradient(#e0b277, #ffffff); /* Standard syntax */
+    background: -webkit-linear-gradient(#e0b277, #ffffff); /* Standard syntax */
 }
 .slide10 .jasmin {
     height: 100px;

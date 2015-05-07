@@ -1,6 +1,6 @@
 .slide12.background{
-    background: linear-gradient(rgb(34, 87, 139), rgb(142, 50, 205));
-    background: -webkit-linear-gradient(rgb(34, 87, 139), rgb(142, 50, 205));
+    background: linear-gradient(#b8cf9b, #d5ecbc);
+    background: -webkit-linear-gradient(#b8cf9b, #d5ecbc);
 }
 #bgita-bok{
     bottom: 20px;

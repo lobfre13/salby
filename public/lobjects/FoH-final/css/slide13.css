@@ -1,6 +1,6 @@
 .slide13.background{
-    background: linear-gradient(rgb(238, 144, 180), rgb(0, 118, 128));
-    background: -webkit-linear-gradient(rgb(238, 144, 180), rgb(0, 118, 128));
+    background: linear-gradient(#d9bcb6, #d38db5);
+    background: -webkit-linear-gradient(#d9bcb6, #d38db5);
 }
 .slide13 .jasmin{
     height: 250px;

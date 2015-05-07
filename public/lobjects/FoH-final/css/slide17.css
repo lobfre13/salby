@@ -1,6 +1,6 @@
 .slide17.background{
-    background: linear-gradient(palegreen, palegreen, lightblue);
-    background: -webkit-linear-gradient(palegreen, palegreen, lightblue);
+    background: linear-gradient(#ada9e4, #e4d6af);
+    background: -webkit-linear-gradient(#ada9e4, #e4d6af);
 }
 .slide17 .jasmin{
     height: 350px;
